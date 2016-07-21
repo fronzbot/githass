@@ -1,0 +1,61 @@
+# Group Information
+weather:
+  name: Weather
+  entities:
+    - sensor.openweathermap
+    
+all_lights:
+  name: All Lights
+  icon: mdi:lightbulb
+  entities:
+    - group.interior
+    - group.basement
+    - group.exterior
+  
+interior:
+  name: First Floor
+  icon: mdi:home
+  entities:
+    - group.living_room
+    - group.den
+      
+exterior:
+  name: Outside
+  icon: mdi:weather-sunny
+  entities:
+    - light.Driveway1
+    - light.Driveway2
+    - light.Porch  
+    
+living_room:
+  name: Living Room
+  icon: mdi:theater
+  entities:
+    - light.Corner
+    - group.couch
+den:
+  name: Den
+  icon: mdi:laptop-windows
+  entities:
+    - light.Computer
+    - light.Back_Den 
+      
+couch:
+  name: Couch
+  icon: mdi:seat-recline-normal
+  entities:
+    - light.Couch_Left
+    - light.Couch_Right
+      
+basement:
+  name: Basement
+  icon: mdi:google-controller
+  entities:
+    - light.Basement1
+    - light.Basement2
+  
+people:
+  name: People
+  entities:
+    - device_tracker.kevin
+    - device_tracker.allegra

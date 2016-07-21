@@ -1,0 +1,133 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !env_var LATITUDE
+  longitude: !env_var LONGITUDE
+  # Impacts weather/sunrise data
+  elevation: 167
+  # C for Celsius, F for Fahrenheit
+  temperature_unit: F
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+  
+#  customize:
+#    group.couch:
+#      hidden: true
+#    group.interior:
+#      hidden: true
+ 
+   
+# API Password
+http:
+  api_password: !env_var API_PASS
+
+# View all events in a logbook
+logbook:
+
+# Enables support for tracking state changes over time.
+history:
+
+# Allows you to issue voice commands from the frontend
+conversation:
+
+# Weather Prediction
+sensor:
+  platform: openweathermap
+  api_key: !env_var WEATHER_API
+  monitored_conditions:
+    - temperature
+    - humidity
+    - pressure
+    - wind_speed
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Checks for available updates
+updater:
+
+# Enables the frontend
+frontend:
+
+# Track the sun
+sun:
+
+# Discover some devices automatically
+discovery:
+
+media_player:
+  platform: cast
+
+##########################
+# Device Tracking
+##########################
+device_tracker:
+  platform: nmap_tracker
+  hosts: 192.168.86.1/24
+  home_interval: 15
+  track_new_devices: no
+ 
+
+##########################
+# Groups
+########################## 
+group: !include groups.yaml      
+
+ 
+##########################
+# Automation
+########################## 
+#automation:
+#  trigger:
+#    platform: state
+#    entity_id: device_tracker.allegra, device_tracker.kevin
+#    from: 'home'
+#    to: 'not_home'
+#    for:
+#      minutes: 30
+        
+#  condition:
+#    condition: time
+#      before: '16:59:00'
+#      after: '3:00:00'
+  
+#  action:
+#    service: homeassistant.turn_off
+#    entity_id: group.all_lights
+
+#automation 2:
+#  trigger:
+#    platform: time
+#    after: '17:00:00'
+    
+#  condition:
+#    condition: or
+#      conditions:
+#      - condition: state
+#        entity_id: device_tracker.kevin
+#        state: 'home'
+#      - condition: state
+#        entity_id: device_tracker.allegra
+#        state: 'home'
+#  action:
+#    service: homeassistant.turn_on
+#    entity_id: group.living_room
+      
+    
+
+
+##########################
+# Sensors
+##########################
+wink:
+  access_token: !env_var WINK_API
+  refresh_token: !env_var WINK_REFRESH
+
+sensor 2:
+  platform: speedtest
+  name: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload

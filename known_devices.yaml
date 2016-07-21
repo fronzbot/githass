@@ -1,0 +1,76 @@
+kevin:
+  name: Lannister
+  mac: AC:CF:85:01:73:8A
+  picture: /local/kevin.jpg
+  track: yes
+  hide_if_away: no
+  
+allegra:
+  name: Targaryen
+  mac: 64:BC:0C:66:F9:51
+  picture: /local/allegra.jpg
+  track: yes
+  hide_if_away: no
+
+wnce2001lan:
+  name: wnce2001.lan
+  mac: 04:A1:51:6F:B5:43
+  picture: 
+  track: no
+  hide_if_away: no
+
+onhubhere:
+  name: onhub.here
+  mac: F4:F2:6D:E4:3F:88
+  picture: 
+  track: no
+  hide_if_away: no
+
+19216886108:
+  name: 192.168.86.108
+  mac: B4:79:A7:1A:7C:4A
+  picture: 
+  track: no
+  hide_if_away: no
+
+kindle28a5d664elan:
+  name: kindle-28a5d664e.lan
+  mac: 00:BB:3A:49:F1:63
+  picture: 
+  track: no
+  hide_if_away: no
+
+kindle57c71c008lan:
+  name: kindle-57c71c008.lan
+  mac: 10:AE:60:04:A5:98
+  picture: 
+  track: no
+  hide_if_away: no
+
+localhostlan:
+  name: localhost.lan
+  mac: FC:8F:90:A8:F9:59
+  picture: 
+  track: no
+  hide_if_away: no
+
+19216886101:
+  name: 192.168.86.101
+  mac: 00:03:7F:17:E7:7D
+  picture: 
+  track: no
+  hide_if_away: no
+
+19216886133:
+  name: 192.168.86.133
+  mac: 00:0E:8E:65:45:B6
+  picture: 
+  track: no
+  hide_if_away: no
+
+android10e82a790c3cb8b3lan:
+  name: android-10e82a790c3cb8b3.lan
+  mac: 00:04:4B:49:35:FA
+  picture: 
+  track: no
+  hide_if_away: no
