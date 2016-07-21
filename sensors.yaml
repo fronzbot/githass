@@ -1,0 +1,32 @@
+# Sensors
+- platform: openweathermap
+  api_key: !env_var WEATHER_API
+  monitored_conditions:
+    - temperature
+    - humidity
+    - pressure
+    - wind_speed
+    
+- platform: time_date
+  display_options:
+    - "date_time"
+    
+#- platform: speedtest
+#  name: speedtest
+#  monitored_conditions:
+#    - ping
+#    - download
+#    - upload
+    
+- platform: template
+  sensors:
+    st_download:
+      value_template: '{{ states.sensor.speedtest.download }}'
+      friendly_name: Download
+    st_upload:
+      value_template: '{{ states.sensor.speedtest.upload }}'
+      friendly_name: Upload
+    st_ping:
+      value_template: '{{ states.sensor.speedtest.ping }}' 
+      friendly_name: Ping
+  

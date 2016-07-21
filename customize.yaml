@@ -1,0 +1,86 @@
+# Customization
+
+##################
+# Lights
+##################
+light.Couch_Left:
+  friendly_name: Couch Left
+  icon: mdi:theater
+
+light.Couch_Right:
+  friendly_name: Couch Right
+  icon: mdi:theater
+  
+light.Corner:
+  friendly_name: Corner
+
+light.Computer:
+  friendly_name: Comupter
+  icon: mdi:laptop-chromebook
+  
+light.Back_Den:
+  friendly_name: Back Den
+  
+light.Porch:
+  friendly_name: Porch
+  icon: mdi:gate
+  
+light.Driveway1:
+  friendly_name: Driveway 1
+  icon: mdi:car
+
+light.Driveway2:
+  friendly_name: Driveway 2
+  icon: mdi:car
+  
+light.Basement1:
+  friendly_name: Basement 1
+  icon: mdi:stairs
+  
+light.Basement2:
+  friendly_name: Basement 2
+  icon: mdi_stairs
+  
+##################
+# Groups
+################## 
+group.couch:
+  friendly_name: Couch
+  icon: mdi:theater
+
+group.interior:
+  friendly_name: Inside
+  icon: mdi:home
+  
+group.exterior:
+  friendly_name: Outside
+  icon: mdi:white-balance-sunny
+  
+group.driveway:
+  friendly_name: Driveway
+  icon: mdi:car
+  
+group.basement:
+  friendly_name: Basement
+  icon: mdi:stairs
+
+group.family:
+  friendly_name: Family
+  icon: mdi:account-plus
+  
+group.kevin:
+  friendly_name: Kevin
+  entity_picture: /local/kevin.jpg
+  
+group.allegra:
+  friendly_name: Allegra
+  entity_picture: /local/allegra.jpg
+  
+group.speedtest:
+  friendly_name: Internet
+  icon: mdi:speedometer
+  
+group.weather:
+  friendly_name: Weather
+  icon: mdi:weather-partlycloudy
+

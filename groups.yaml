@@ -1,61 +1,82 @@
 # Group Information
-weather:
-  name: Weather
-  entities:
-    - sensor.openweathermap
-    
-all_lights:
-  name: All Lights
-  icon: mdi:lightbulb
+
+##################
+# Tabs
+##################
+default_view:
+  view: yes
   entities:
     - group.interior
-    - group.basement
     - group.exterior
-  
-interior:
-  name: First Floor
-  icon: mdi:home
-  entities:
-    - group.living_room
-    - group.den
-      
-exterior:
-  name: Outside
-  icon: mdi:weather-sunny
-  entities:
-    - light.Driveway1
-    - light.Driveway2
-    - light.Porch  
+    - group.family
     
 living_room:
   name: Living Room
-  icon: mdi:theater
+  view: yes
   entities:
     - light.Corner
     - group.couch
+    - media_player.mantarys
+    
 den:
   name: Den
-  icon: mdi:laptop-windows
+  view: yes
   entities:
     - light.Computer
     - light.Back_Den 
-      
+
+##################
+# Lights
+##################
 couch:
-  name: Couch
-  icon: mdi:seat-recline-normal
-  entities:
-    - light.Couch_Left
-    - light.Couch_Right
+  - light.Couch_Left
+  - light.Couch_Right
       
 basement:
-  name: Basement
-  icon: mdi:google-controller
-  entities:
-    - light.Basement1
-    - light.Basement2
+  - light.Basement1
+  - light.Basement2
+
+driveway:
+  - light.Driveway1
+  - light.Driveway2
+
+interior:
+  - light.Couch_Left
+  - light.Couch_Right
+  - light.Corner
+  - light.Computer
+  - light.Back_Den
+  - light.Basement1
+  - light.Basement2
+      
+exterior:
+  - group.Driveway
+  - light.Porch  
+    
   
-people:
-  name: People
-  entities:
-    - device_tracker.kevin
-    - device_tracker.allegra
+##################
+# Family
+##################    
+family:
+  - group.kevin
+  - group.allegra
+    
+kevin:
+  - device_tracker.kevin
+    
+allegra:
+  - device_tracker.allegra
+    
+##################
+# Sensors
+##################    
+speedtest:
+  - sensor.speedtest_ping
+  - sensor.speedtest_download
+  - sensor.speedtest_upload
+  
+weather:
+  - sensor.openweathermap_temperature
+  - sensor.openweathermap_humidity
+  - sensor.openweathermap_pressure
+  - sensor.openweathermap_wind_speed
