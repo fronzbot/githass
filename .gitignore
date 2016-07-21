@@ -1,0 +1,6 @@
+/hass.env
+/*.log
+/plex.conf
+/*.db
+/deps/
+/www/

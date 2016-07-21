@@ -11,22 +11,10 @@
   display_options:
     - "date_time"
     
-#- platform: speedtest
-#  name: speedtest
-#  monitored_conditions:
-#    - ping
-#    - download
-#    - upload
+- platform: speedtest
+  name: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload
     
-- platform: template
-  sensors:
-    st_download:
-      value_template: '{{ states.sensor.speedtest.download }}'
-      friendly_name: Download
-    st_upload:
-      value_template: '{{ states.sensor.speedtest.upload }}'
-      friendly_name: Upload
-    st_ping:
-      value_template: '{{ states.sensor.speedtest.ping }}' 
-      friendly_name: Ping
-  

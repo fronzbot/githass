@@ -49,16 +49,24 @@ group.couch:
   icon: mdi:theater
 
 group.interior:
-  friendly_name: Inside
+  friendly_name: Indoor Lights
   icon: mdi:home
   
 group.exterior:
-  friendly_name: Outside
+  friendly_name: Outdoor Lights
   icon: mdi:white-balance-sunny
   
 group.driveway:
   friendly_name: Driveway
   icon: mdi:car
+  
+group.lights_living_room:
+  friendly_name: Living Room Lights
+  icon: mdi:projector-screen
+  
+group.lights_den:
+  friendly_name: Den Lights
+  icon: mdi:laptop-chromebook  
   
 group.basement:
   friendly_name: Basement
@@ -66,7 +74,6 @@ group.basement:
 
 group.family:
   friendly_name: Family
-  icon: mdi:account-plus
   
 group.kevin:
   friendly_name: Kevin
@@ -84,3 +91,33 @@ group.weather:
   friendly_name: Weather
   icon: mdi:weather-partlycloudy
 
+##################
+# Sensors
+################## 
+sensor.speedtest_download:
+  friendly_name: Download
+  icon: mdi:speedometer
+
+sensor.speedtest_upload:
+  friendly_name: Upload
+  icon: mdi:upload
+  
+sensor.speedtest_ping:
+  friendly_name: Ping
+  icon: mdi:message-alert
+
+sensor.openweathermap_temperature:
+  friendly_name: Temperature
+  icon: mdi:thermometer
+  
+sensor.openweathermap_humidity:
+  friendly_name: Humidity
+  icon: mdi:water-percent
+  
+sensor.openweathermap_pressure:
+  friendly_name: Pressure
+  icon: mdi:chart-bar
+  
+sensor.openweathermap_wind_speed:
+  friendly_name: Wind Speed
+  icon: mdi:weather-windy

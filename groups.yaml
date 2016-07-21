@@ -6,9 +6,10 @@
 default_view:
   view: yes
   entities:
+  #  - group.weather
     - group.interior
     - group.exterior
-    - group.family
+    - group.speedtest
     
 living_room:
   name: Living Room
@@ -24,6 +25,13 @@ den:
   entities:
     - light.Computer
     - light.Back_Den 
+    
+family:
+  name: Family
+  view: yes
+  entities:
+    - group.kevin
+    - group.allegra
 
 ##################
 # Lights
@@ -40,14 +48,18 @@ driveway:
   - light.Driveway1
   - light.Driveway2
 
-interior:
-  - light.Couch_Left
-  - light.Couch_Right
+lights_living_room:
+  - group.couch
   - light.Corner
+  
+lights_den:
   - light.Computer
   - light.Back_Den
-  - light.Basement1
-  - light.Basement2
+  
+interior:
+  - group.lights_living_room
+  - group.lights_den
+  - group.basement
       
 exterior:
   - group.Driveway
@@ -57,10 +69,6 @@ exterior:
 ##################
 # Family
 ##################    
-family:
-  - group.kevin
-  - group.allegra
-    
 kevin:
   - device_tracker.kevin
     
@@ -75,8 +83,8 @@ speedtest:
   - sensor.speedtest_download
   - sensor.speedtest_upload
   
-weather:
-  - sensor.openweathermap_temperature
-  - sensor.openweathermap_humidity
-  - sensor.openweathermap_pressure
-  - sensor.openweathermap_wind_speed
+#weather:
+#  - sensor.openweathermap_temperature
+#  - sensor.openweathermap_humidity
+#  - sensor.openweathermap_pressure
+#  - sensor.openweathermap_wind_speed
