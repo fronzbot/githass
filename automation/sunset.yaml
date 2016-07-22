@@ -1,0 +1,10 @@
+# Turn on outside lights 15 minutes after sunset
+
+alias: Outdoor Lights at Sunset
+trigger:
+  - platform: sun
+    event: sunset
+    offset: '00:15:00'
+action:
+  service: light.turn_on
+  entity_id: group.exterior

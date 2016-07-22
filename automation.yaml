@@ -1,1 +1,8 @@
-# Automation
+# Time/Sun Based (Timers)
+- !include automation/sunset.yaml
+- !include automation/outside_off.yaml
+- !include automation/inside_off.yaml
+
+# Presence Based
+- !include automation/away.yaml
+- !include automation/home.yaml
