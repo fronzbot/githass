@@ -6,7 +6,7 @@
 default_view:
   view: yes
   entities:
-    - group.weather
+    - group.weather_gist
     - group.interior
     - group.exterior
     - group.speedtest
@@ -30,6 +30,12 @@ family:
   entities:
     - group.kevin
     - group.allegra
+    
+weather:
+  name: Weather
+  view: yes
+  entities:
+    - group.weather_all
 
 ##################
 # Lights
@@ -86,9 +92,36 @@ speedtest:
   - sensor.speedtest_upload
   - updater.updater
   
-weather:
+weather_gist:
   - sun.sun
+  - sensor.weather_summary
   - sensor.weather_temperature
-  - sensor.weather_humidity
+  - sensor.weather_dew_point
+  - sensor.weather_precip_type
+  - sensor.weather_cloud_cover
   - sensor.weather_pressure
   - sensor.weather_wind_speed
+
+weather_all:
+  - sun.sun
+ # - sensor.weather_icon
+  - sensor.weather_summary
+  - sensor.weather_minutely_summary
+  - sensor.weather_hourly_summary
+  - sensor.weather_daily_summary
+  - sensor.weather_temperature
+  - sensor.weather_apparent_temperature
+  - sensor.weather_dew_point
+  - sensor.weather_precip_type
+  - sensor.weather_precip_intensity
+  - sensor.weather_precip_probability
+  - sensor.weather_nearest_storm_distance
+  - sensor.weather_nearest_storm_bearing
+  - sensor.weather_wind_speed
+  - sensor.weather_wind_bearing
+  - sensor.weather_cloud_cover
+  - sensor.weather_humidity
+  - sensor.weather_pressure
+  - sensor.weather_visibility
+  - sensor.weather_ozone  
+  - camera.home_radar

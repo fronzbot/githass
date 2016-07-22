@@ -1,0 +1,21 @@
+# Turn on couch lights if it's raining, someone
+# is home, and it's after 11am.
+alias: Lights on When Raining
+trigger:
+  - platform: state
+    entity_id: sensor.weather_precip
+    state: 'rain'
+    
+  - platform: state
+    entity_id: group.all_devices
+    state: 'home'
+    
+  - platform: time
+    after: '11:00:00'
+    before: '18:00:00'
+
+condition: use_trigger_values
+  
+action:
+  service: light.turn_on
+  entity_id: group.couch

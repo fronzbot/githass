@@ -1,0 +1,20 @@
+# Turn lights on in the morning as long as the sun
+# is not up (so this really should only activate 
+# in the winter time).
+alias: Wakeup
+trigger:
+  - platform: time
+    after: '6:30:00'
+    before: '8:00:00'
+  
+  - platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 4
+
+condition: use_trigger_values
+    
+action:
+  service: light.turn_on
+  entity_id: group.couch
+    

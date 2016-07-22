@@ -1,6 +1,10 @@
 # Trackers
+
+# Scan devices every two minutes (might be too quick)
+# Consider a device 'home' for 10 minutes before
+# allowing a state change
 - platform: nmap_tracker
   hosts: 192.168.86.1/24
-  home_interval: 1
+  home_interval: 2
   track_new_devices: no
-  consider_home: 1800
+  consider_home: 600

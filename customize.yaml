@@ -80,7 +80,7 @@ group.speedtest:
   friendly_name: Internet
   icon: mdi:speedometer
   
-group.weather:
+group.weather_gist:
   friendly_name: Weather
   icon: mdi:weather-partlycloudy
 
@@ -99,13 +99,58 @@ sensor.speedtest_ping:
   friendly_name: Ping
   icon: mdi:message-alert
 
+# Forecast.io
+sensor.weather_summary:
+  friendly_name: Summary
+  icon: mdi:library-books
+  
+sensor.weather_minutely_summary:
+  friendly_name: Next Hour
+  icon: mdi:calendar-clock
+
+sensor.weather_hourly_summary:
+  friendly_name: Daily Forecast
+  icon: mdi:calendar-today
+
+sensor.weather_daily_summary:
+  friendly_name: Week Ahead
+  icon: mdi:magnify
+  
 sensor.weather_temperature:
   friendly_name: Temperature
   icon: mdi:thermometer
+
+sensor.weather_apparent_temperature:
+  friendly_name: Feels Like
+  icon: mdi:thermometer
+
+sensor.weather_dew_point:
+  friendly_name: Dew Point
+  icon: mdi:water
   
 sensor.weather_humidity:
   friendly_name: Humidity
   icon: mdi:water-percent
+ 
+sensor.weather_precip_type:
+  friendly_name: Precipitation
+  icon: mdi:weather-snowy-rainy
+ 
+sensor.weather_precip_intensity:
+  friendly_name: Precipitation Intensity
+  icon: mdi:weather-pouring
+
+sensor.weather_precip_probability:
+  friendly_name: Precipitation Probability
+  icon: mdi:percent
+ 
+sensor.weather_nearest_storm_distance:
+  friendly_name: Storm Distance
+  icon: mdi:weather-lightning
+
+sensor.weather_nearest_storm_bearing:
+  friendly_name: Storm Bearing
+  icon: mdi:compass-outline
   
 sensor.weather_pressure:
   friendly_name: Pressure
@@ -114,11 +159,30 @@ sensor.weather_pressure:
 sensor.weather_wind_speed:
   friendly_name: Wind Speed
   icon: mdi:weather-windy
+
+sensor.weather_wind_bearing:
+  friendly_name: Wind Bearing
+  icon: mdi:weather-windy  
   
+sensor.weather_cloud_cover:
+  friendly_name: Cloud Cover
+  icon: mdi:weather-cloudy
+  
+sensor.weather_visibility:
+  friendly_name: Visibility
+  icon: mdi:glasses
+  
+sensor.weather_ozone:
+  friendly_name: Ozone
+  icon: mdi:earth
+
+  
+# Steam  
 sensor.steam_76561197992716984:
   friendly_name: Steam
   icon: mdi:steam
 
+# Google Distance  
 sensor.kevin_morning_commute:
   icon: mdi:briefcase
 
