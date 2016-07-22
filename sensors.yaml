@@ -18,3 +18,41 @@
     - download
     - upload
     
+- platform: steam_online
+  api_key: !env_var STEAM_API
+  accounts:
+    - 76561197992716984
+
+# Travel Time to Work
+- platform: google_travel_time
+  name: Kevin Morning Commute
+  api_key: !env_var GOOGLE_API
+  origin: !env_var HOME_ADDRESS
+  destination: !env_var WORK_ADDRESS
+  options:
+    mode: driving
+    
+- platform: google_travel_time
+  name: Allegra Morning Commute
+  api_key: !env_var GOOGLE_API
+  origin: !env_var HOME_ADDRESS
+  destination: !env_var WORK_ADDRESS_ALLEGRA
+  options:
+    mode: driving
+
+# Travel Time Home    
+- platform: google_travel_time
+  name: Kevin Evening Commute
+  api_key: !env_var GOOGLE_API
+  origin: !env_var WORK_ADDRESS
+  destination: !env_var HOME_ADDRESS
+  options:
+    mode: driving
+    
+- platform: google_travel_time
+  name: Allegra Evening Commute
+  api_key: !env_var GOOGLE_API
+  origin: !env_var WORK_ADDRESS_ALLEGRA
+  destination: !env_var HOME_ADDRESS
+  options:
+    mode: driving

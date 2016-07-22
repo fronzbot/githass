@@ -2,7 +2,7 @@ homeassistant:
   name: Home
   latitude: !env_var LATITUDE
   longitude: !env_var LONGITUDE
-  elevation: 512
+  elevation: 154
   temperature_unit: F
   time_zone: America/New_York
   customize: !include customize.yaml

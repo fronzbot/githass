@@ -1,14 +1,14 @@
 kevin:
   name: Lannister
   mac: AC:CF:85:01:73:8A
-  picture: /local/kevin.jpg
+  picture: 
   track: yes
   hide_if_away: no
   
 allegra:
   name: Targaryen
   mac: 64:BC:0C:66:F9:51
-  picture: /local/allegra.jpg
+  picture: 
   track: yes
   hide_if_away: no
 

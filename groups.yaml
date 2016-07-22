@@ -6,7 +6,7 @@
 default_view:
   view: yes
   entities:
-  #  - group.weather
+    - group.weather
     - group.interior
     - group.exterior
     - group.speedtest
@@ -15,16 +15,14 @@ living_room:
   name: Living Room
   view: yes
   entities:
-    - light.Corner
-    - group.couch
+    - group.lights_living_room
     - media_player.mantarys
     
 den:
   name: Den
   view: yes
   entities:
-    - light.Computer
-    - light.Back_Den 
+    - group.lights_den
     
 family:
   name: Family
@@ -71,20 +69,26 @@ exterior:
 ##################    
 kevin:
   - device_tracker.kevin
+#  - sensor.steam_76561197992716984
+  - sensor.kevin_morning_commute
+  - sensor.kevin_evening_commute
     
 allegra:
   - device_tracker.allegra
+  - sensor.allegra_morning_commute
+  - sensor.allegra_evening_commute
     
 ##################
 # Sensors
 ##################    
 speedtest:
-  - sensor.speedtest_ping
   - sensor.speedtest_download
   - sensor.speedtest_upload
+  - updater.updater
   
-#weather:
-#  - sensor.openweathermap_temperature
-#  - sensor.openweathermap_humidity
-#  - sensor.openweathermap_pressure
-#  - sensor.openweathermap_wind_speed
+weather:
+  - sun.sun
+  - sensor.weather_temperature
+  - sensor.weather_humidity
+  - sensor.weather_pressure
+  - sensor.weather_wind_speed

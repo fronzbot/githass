@@ -15,7 +15,7 @@ light.Corner:
   friendly_name: Corner
 
 light.Computer:
-  friendly_name: Comupter
+  friendly_name: Computer
   icon: mdi:laptop-chromebook
   
 light.Back_Den:
@@ -75,14 +75,7 @@ group.basement:
 group.family:
   friendly_name: Family
   
-group.kevin:
-  friendly_name: Kevin
-  entity_picture: /local/kevin.jpg
-  
-group.allegra:
-  friendly_name: Allegra
-  entity_picture: /local/allegra.jpg
-  
+ 
 group.speedtest:
   friendly_name: Internet
   icon: mdi:speedometer
@@ -96,7 +89,7 @@ group.weather:
 ################## 
 sensor.speedtest_download:
   friendly_name: Download
-  icon: mdi:speedometer
+  icon: mdi:download
 
 sensor.speedtest_upload:
   friendly_name: Upload
@@ -106,18 +99,45 @@ sensor.speedtest_ping:
   friendly_name: Ping
   icon: mdi:message-alert
 
-sensor.openweathermap_temperature:
+sensor.weather_temperature:
   friendly_name: Temperature
   icon: mdi:thermometer
   
-sensor.openweathermap_humidity:
+sensor.weather_humidity:
   friendly_name: Humidity
   icon: mdi:water-percent
   
-sensor.openweathermap_pressure:
+sensor.weather_pressure:
   friendly_name: Pressure
   icon: mdi:chart-bar
   
-sensor.openweathermap_wind_speed:
+sensor.weather_wind_speed:
   friendly_name: Wind Speed
   icon: mdi:weather-windy
+  
+sensor.steam_76561197992716984:
+  friendly_name: Steam
+  icon: mdi:steam
+
+sensor.kevin_morning_commute:
+  icon: mdi:briefcase
+
+sensor.allegra_morning_commute:
+  icon: mdi:briefcase
+  
+sensor.kevin_evening_commute:
+  icon: mdi:home-map-marker
+  
+sensor.allegra_evening_commute:
+  icon: mdi:home-map-marker
+
+##################
+# Entities
+################## 
+device_tracker.kevin:
+  friendly_name: Lannister
+  icon: mdi:cellphone-android
+  
+device_tracker.allegra:
+  friendly_name: Targaryen
+  icon: mdi:cellphone-android
