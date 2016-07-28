@@ -1,18 +1,15 @@
 # Turn lights on in the morning as long as the sun
-# is not up (so this really should only activate 
-# in the winter time).
+# is below certain angle (dark room, so 15 degrees selected)
 alias: Wakeup
 trigger:
   - platform: numeric_state
     entity_id: sun.sun
     value_template: '{{ state.attributes.elevation }}'
-    below: 4
-
+    below: 15
 condition:
   - condition: time
     after: '6:30:00'
-    before: '8:00:00'
-    
+    before: '8:00:00'   
 action:
   service: light.turn_on
-  entity_id: group.couch
+  entity_id: light.couch_left

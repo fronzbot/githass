@@ -1,0 +1,15 @@
+# Turn on lights at a reduced brightness
+name: Not Home At Night
+entities:
+  light.couch_left:
+    state: on
+    transition: 2
+    brightness: 100
+  light.couch_right:
+    state: on
+    transition: 2
+    brightness: 100
+  light.computer:
+    state: on
+    transistion: 2
+    brightness: 100

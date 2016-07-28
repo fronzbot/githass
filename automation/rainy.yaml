@@ -9,7 +9,7 @@ condition:
   condition: and
   conditions:
     - condition: time
-      after: '11:00'
+      after: '07:00'
       before: '18:00'
     - condition: state
       entity_id: group.all_devices
