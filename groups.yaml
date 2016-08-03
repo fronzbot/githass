@@ -26,6 +26,12 @@ den:
   view: yes
   entities:
     - group.lights_den
+
+bedroom:
+  name: Bedroom
+  view: yes
+  entities:
+    - group.bedroom_climate
     
 family:
   name: Family
@@ -99,6 +105,10 @@ living_room_climate:
   - sensor.living_room_occupancy
   - sensor.living_room_temperature
   - sensor.living_room_humidity
+
+bedroom_climate:
+  - sensor.bedroom_occupancy
+  - sensor.bedroom_temperature
   
 ##################
 # Sensors
@@ -128,7 +138,7 @@ weather_all:
   - sensor.weather_temperature
   - sensor.weather_apparent_temperature
   - sensor.weather_dew_point
-  - sensor.weather_precip_type
+  - sensor.weather_precip
   - sensor.weather_precip_intensity
   - sensor.weather_precip_probability
   - sensor.weather_nearest_storm_distance
