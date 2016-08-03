@@ -6,15 +6,18 @@
 default_view:
   view: yes
   entities:
-    - group.weather_gist
+    - group.thermostat
     - group.interior
     - group.exterior
     - group.speedtest
+    - group.weather_gist
+    
     
 living_room:
   name: Living Room
   view: yes
   entities:
+    - group.living_room_climate
     - group.lights_living_room
     - media_player.mantarys
     
@@ -36,7 +39,7 @@ weather:
   view: yes
   entities:
     - group.weather_all
-
+    
 ##################
 # Lights
 ##################
@@ -83,7 +86,20 @@ allegra:
   - device_tracker.allegra
   - sensor.allegra_morning_commute
   - sensor.allegra_evening_commute
-    
+
+##################
+# Thermostat
+##################
+thermostat:
+  - sensor.living_room_temperature
+  - sensor.living_room_humidity
+  - sensor.bedroom_temperature
+
+living_room_climate:
+  - sensor.living_room_occupancy
+  - sensor.living_room_temperature
+  - sensor.living_room_humidity
+  
 ##################
 # Sensors
 ##################    
@@ -97,7 +113,7 @@ weather_gist:
   - sensor.weather_summary
   - sensor.weather_temperature
   - sensor.weather_dew_point
-  - sensor.weather_precip_type
+  - sensor.weather_precip
   - sensor.weather_cloud_cover
   - sensor.weather_pressure
   - sensor.weather_wind_speed

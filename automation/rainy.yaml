@@ -3,7 +3,7 @@
 alias: Raining
 trigger:
   - platform: state
-    entity_id: sensor.weather_precip_type
+    entity_id: sensor.weather_precip
     state: 'rain' 
 condition:
   condition: and

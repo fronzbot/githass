@@ -83,6 +83,9 @@ group.speedtest:
 group.weather_gist:
   friendly_name: Weather
   icon: mdi:weather-partlycloudy
+  
+group.living_room_climate:
+  friendly_name: Climate
 
 ##################
 # Sensors
@@ -132,7 +135,7 @@ sensor.weather_humidity:
   friendly_name: Humidity
   icon: mdi:water-percent
  
-sensor.weather_precip_type:
+sensor.weather_precip:
   friendly_name: Precipitation
   icon: mdi:weather-snowy-rainy
  
@@ -176,6 +179,25 @@ sensor.weather_ozone:
   friendly_name: Ozone
   icon: mdi:earth
 
+sensor.living_room_temperature:
+  friendly_name: Living Room Temperature
+  icon: mdi:nest-thermostat
+  
+sensor.bedroom_temperature:
+  friendly_name: Bedroom Temperature
+  icon: mdi:nest-thermostat
+  
+sensor.living_room_humidity:
+  friendly_name: Living Room Humidity
+  icon: mdi:water-percent
+  
+sensor.living_room_occupancy:
+  friendly_name: In Living Room
+  icon: mdi:account-multiple
+  
+sensor.bedroom_occupancy:
+  friendly_name: In Bedroom
+  icon: mdi:account-multiple
   
 # Steam  
 sensor.steam_76561197992716984:

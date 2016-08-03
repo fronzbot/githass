@@ -74,3 +74,17 @@ android10e82a790c3cb8b3lan:
   picture: 
   track: no
   hide_if_away: no
+
+androidec1625865ac2307lan:
+  name: android-ec1625865ac2307.lan
+  mac: 00:AE:FA:EE:67:D9
+  picture: 
+  track: no
+  hide_if_away: no
+
+19216886138:
+  name: 192.168.86.138
+  mac: 44:61:32:FA:50:52
+  picture: 
+  track: no
+  hide_if_away: no

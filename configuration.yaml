@@ -33,3 +33,6 @@ wink:
   access_token: !env_var WINK_API
   refresh_token: !env_var WINK_REFRESH
 
+ecobee:
+  api_key: !env_var ECOBEE_API
+  hold_temp: True
