@@ -4,3 +4,5 @@
 /*.db
 /deps/
 /www/
+/ecobee.conf
+/*.conf
