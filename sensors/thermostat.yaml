@@ -1,0 +1,26 @@
+platform: template
+sensors:
+  thermo_mode:
+    value_template: '{{ states.thermostat.living_room.attributes.mode }}'
+    warnings: off
+  thermo_away:
+    value_template: '{{ states.thermostat.living_room.attributes.away_mode }}'
+    warnings: off
+  thermo_hvac:
+    value_template: '{{ states.thermostat.living_room.attributes.hvac_mode }}'
+    warnings: off
+  thermo_temp:
+    value_template: '{{ states.thermostat.living_room.attributes.current_temperature }}'
+    warnings: off
+  thermo_target_high:
+    value_template: '{{ states.thermostat.living_room.attributes.target_temp_high }}'
+    warnings: off
+  thermo_target_low:
+    value_template: '{{ states.thermostat.living_room.attributes.target_temp_low }}'
+    warnings: off
+  thermo_fan:
+    value_template: '{{ states.thermostat.living_room.attributes.fan }}'
+    warnings: off
+  thermo_current_operation:
+    value_template: '{{ states.thermostat.living_room.attributes.current_operation }}'
+    warnings: off

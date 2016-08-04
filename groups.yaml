@@ -11,7 +11,12 @@ default_view:
     - group.exterior
     - group.speedtest
     - group.weather_gist
-    
+
+climate:
+  name: Thermostat
+  view: yes
+  entities:
+    - group.hvac
     
 living_room:
   name: Living Room
@@ -97,9 +102,12 @@ allegra:
 # Thermostat
 ##################
 thermostat:
+  - sensor.thermo_hvac
+  - sensor.thermo_temp
   - sensor.living_room_temperature
-  - sensor.living_room_humidity
   - sensor.bedroom_temperature
+  - sensor.living_room_humidity
+
 
 living_room_climate:
   - sensor.living_room_occupancy
@@ -109,6 +117,16 @@ living_room_climate:
 bedroom_climate:
   - sensor.bedroom_occupancy
   - sensor.bedroom_temperature
+
+hvac:
+  - thermostat.living_room
+  - sensor.thermo_hvac
+  - sensor.thermo_current_operation
+  - sensor.thermo_fan
+  - sensor.thermo_mode
+  - sensor.thermo_temp
+  - sensor.thermo_target_high
+  - sensor.thermo_target_low
   
 ##################
 # Sensors

@@ -8,3 +8,7 @@
 - !include automation/away.yaml
 - !include automation/home.yaml
 - !include automation/rainy.yaml
+
+# Thermostat
+- !include automation/thermostat_home.yaml
+- !include automation/thermostat_away.yaml

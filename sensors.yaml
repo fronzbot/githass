@@ -1,75 +1,10 @@
 # Sensors
-- platform: forecast
-  api_key: !env_var FORECASTIO_API
-  monitored_conditions:
-    - summary
-    - icon
-    - nearest_storm_distance
-    - nearest_storm_bearing
-    - precip_type
-    - precip_intensity
-    - precip_probability
-    - temperature
-    - apparent_temperature
-    - dew_point
-    - wind_speed
-    - wind_bearing
-    - cloud_cover
-    - humidity
-    - pressure
-    - visibility
-    - ozone
-    - minutely_summary
-    - hourly_summary
-    - daily_summary
-  units: us
-  
-- platform: time_date
-  display_options:
-    - "date_time"
-    
-- platform: speedtest
-  name: speedtest
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-    
-- platform: steam_online
-  api_key: !env_var STEAM_API
-  accounts:
-    - 76561197992716984
-
-# Travel Time to Work
-- platform: google_travel_time
-  name: Kevin Morning Commute
-  api_key: !env_var GOOGLE_API
-  origin: !env_var HOME_ADDRESS
-  destination: !env_var WORK_ADDRESS
-  options:
-    mode: driving
-    
-- platform: google_travel_time
-  name: Allegra Morning Commute
-  api_key: !env_var GOOGLE_API
-  origin: !env_var HOME_ADDRESS
-  destination: !env_var WORK_ADDRESS_ALLEGRA
-  options:
-    mode: driving
-
-# Travel Time Home    
-- platform: google_travel_time
-  name: Kevin Evening Commute
-  api_key: !env_var GOOGLE_API
-  origin: !env_var WORK_ADDRESS
-  destination: !env_var HOME_ADDRESS
-  options:
-    mode: driving
-    
-- platform: google_travel_time
-  name: Allegra Evening Commute
-  api_key: !env_var GOOGLE_API
-  origin: !env_var WORK_ADDRESS_ALLEGRA
-  destination: !env_var HOME_ADDRESS
-  options:
-    mode: driving
+- !include sensors/thermostat.yaml
+- !include sensors/speedtest.yaml
+- !include sensors/steam.yaml
+- !include sensors/time.yaml
+- !include sensors/weather.yaml
+- !include sensors/kevin_commute_morning.yaml
+- !include sensors/kevin_commute_evening.yaml
+- !include sensors/allegra_commute_morning.yaml
+- !include sensors/allegra_commute_evening.yaml

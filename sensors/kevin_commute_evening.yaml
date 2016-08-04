@@ -1,0 +1,7 @@
+platform: google_travel_time
+name: Kevin Evening Commute
+api_key: !env_var GOOGLE_API
+origin: !env_var WORK_ADDRESS
+destination: !env_var HOME_ADDRESS
+options:
+  mode: driving

@@ -1,0 +1,4 @@
+platform: steam_online
+api_key: !env_var STEAM_API
+accounts:
+  - 76561197992716984

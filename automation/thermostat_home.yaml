@@ -1,0 +1,21 @@
+# Set thermostat to home mode if we're home
+alias: Thermostat Home
+trigger:
+  - platform: state
+    entity_id: group.all_devices
+    state: 'home'
+condition:
+  - condition: time
+    after: '10:00:00'
+    before: '18:00:00'
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+action:
+  service: thermostat.set_away_mode
+  entity_id: thermostat.living_room
+  data:
+    away_mode: false

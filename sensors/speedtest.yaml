@@ -1,0 +1,6 @@
+platform: speedtest
+name: speedtest
+monitored_conditions:
+  - ping
+  - download
+  - upload

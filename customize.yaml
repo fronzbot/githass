@@ -75,7 +75,6 @@ group.basement:
 group.family:
   friendly_name: Family
   
- 
 group.speedtest:
   friendly_name: Internet
   icon: mdi:speedometer
@@ -89,6 +88,12 @@ group.living_room_climate:
 
 group.bedroom_climate:
   friendly_name: Climate
+  
+group.hvac:
+  friendly_name: Thermostat
+
+  
+
 
 ##################
 # Sensors
@@ -182,13 +187,14 @@ sensor.weather_ozone:
   friendly_name: Ozone
   icon: mdi:earth
 
+# Thermostat
 sensor.living_room_temperature:
   friendly_name: Living Room Temperature
-  icon: mdi:nest-thermostat
+  icon: mdi:thermometer
   
 sensor.bedroom_temperature:
   friendly_name: Bedroom Temperature
-  icon: mdi:nest-thermostat
+  icon: mdi:thermometer
   
 sensor.living_room_humidity:
   friendly_name: Living Room Humidity
@@ -201,6 +207,39 @@ sensor.living_room_occupancy:
 sensor.bedroom_occupancy:
   friendly_name: In Bedroom
   icon: mdi:account-multiple
+
+sensor.thermo_hvac:
+  friendly_name: HVAC
+  icon: mdi:air-conditioner
+  
+sensor.thermo_mode:
+  friendly_name: Home/Away
+  icon: mdi:home
+
+sensor.thermo_away:
+  friendly_name: Away Mode
+  icon: mdi:account-switch
+  
+sensor.thermo_temp:
+  friendly_name: Temperature Setpoint
+  icon: mdi:nest-thermostat
+  
+sensor.thermo_target_high:
+  friendly_name: AC Target
+  icon: mdi:weather-snowy
+  
+sensor.thermo_target_low:
+  friendly_name: Heat Target
+  icon: mdi:fire
+  
+sensor.thermo_current_operation:
+  friendly_name: Current Mode
+  icon: mdi:air-conditioner
+  
+sensor.thermo_fan:
+  friendly_name: Fan
+  icon: mdi:fan
+  
   
 # Steam  
 sensor.steam_76561197992716984:
