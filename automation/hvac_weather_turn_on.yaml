@@ -12,12 +12,4 @@ condition:
       entity_id: sensor.thermo_hvac
       state: 'off'
 action:
-  service: input_select.select_option
-  entity_id: input_select.hvac_option
-  data_template:
-    option: >
-      {% if states.sensor.weather_temperature.state | float > states.sensor.thermo_target_high.state | float + 2.0 and states.sensor.weather_temperature.state | float < states.sensor.thermo_target_low.state | float - 2.0 %}
-        Auto
-      {% else %}
-        Off
-      {% endif %}
+  service: script.hvac_set

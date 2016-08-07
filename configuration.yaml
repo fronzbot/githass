@@ -21,6 +21,7 @@ scene: !include scenes.yaml
 #input_slider: !include input_sliders.yaml
 input_select: !include input_select.yaml
 input_boolean: !include input_boolean.yaml
+script: !include scripts.yaml
 
 # Enables
 logbook:

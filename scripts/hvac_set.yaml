@@ -1,0 +1,26 @@
+hvac_set:
+  alias: Set HVAC Option
+  sequence:
+    - service: input_select.select_option
+      entity_id: input_select.hvac_option
+      data_template:
+        option: >
+          {% if states.sensor.weather_temperature.state | float < states.sensor.thermo_target_high.state | float - 2.0 and states.sensor.weather_temperature.state | float > states.sensor.thermo_target_low.state | float + 2.0 %}
+            Off
+          {% elif states.sensor.weather_temperature.state | float > states.sensor.thermo_target_high.state | float + 2.0 and states.sensor.weather_temperature.state | float < states.sensor.thermo_target_low.state | float - 2.0 %} %}
+            Auto
+          {% else %}
+            Auto
+          {% endif %}
+    - service: thermostat.set_hvac_mode
+      entity_id: thermostat.living_room
+      data_template:
+        hvac_mode: >
+          {% if states.sensor.weather_temperature.state | float < states.sensor.thermo_target_high.state | float - 2.0 and states.sensor.weather_temperature.state | float > states.sensor.thermo_target_low.state | float + 2.0 %}
+            off
+          {% elif states.sensor.weather_temperature.state | float > states.sensor.thermo_target_high.state | float + 2.0 and states.sensor.weather_temperature.state | float < states.sensor.thermo_target_low.state | float - 2.0 %} %}
+            auto
+          {% else %}
+            auto
+          {% endif %}
+      
