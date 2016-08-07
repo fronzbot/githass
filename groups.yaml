@@ -88,8 +88,8 @@ home_lights:
   - group.lights_living_room
   - group.lights_den
   - group.basement
+  - light.Porch
   - group.Driveway
-  - group.Porch
  
 ##################
 # Family
