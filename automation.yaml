@@ -14,5 +14,7 @@
 - !include automation/hvac_update_mode_list.yaml
 - !include automation/hvac_away_mode.yaml
 - !include automation/hvac_resume_schedule.yaml
+- !include automation/hvac_weather_turn_on.yaml
 - !include automation/hvac_weather_turn_off.yaml
 - !include automation/hvac_disable_weather.yaml
+- !include automation/hvac_update_weather_track.yaml

@@ -191,7 +191,9 @@ sensor.weather_ozone:
   friendly_name: Ozone
   icon: mdi:earth
 
+##################
 # Thermostat
+################## 
 sensor.living_room_temperature:
   friendly_name: Living Room Temperature
   icon: mdi:thermometer
@@ -225,7 +227,7 @@ sensor.thermo_away:
   icon: mdi:account-switch
   
 sensor.thermo_temp:
-  friendly_name: Temperature Setpoint
+  friendly_name: Current Temperature
   icon: mdi:nest-thermostat
   
 sensor.thermo_target_high:

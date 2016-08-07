@@ -6,5 +6,5 @@ hvac_away_mode:
   
 thermo_weather:
   name: Weather Tracking
-  initial: off
+  initial: on
   icon: mdi:weather-sunset

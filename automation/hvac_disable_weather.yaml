@@ -4,6 +4,14 @@ trigger:
   entity_id: input_boolean.thermo_weather
   from: 'on'
   to: 'off'
+condition:
+  condition: template
+  value_template: >
+    {% if states.input_select.hvac_option.state=='Auto' or states.input_select.hvac_option.state=='Off' %}
+      true
+    {% else %}
+      false
+    {% endif %}
 action:
   service: input_select.select_option
   entity_id: input_select.hvac_option

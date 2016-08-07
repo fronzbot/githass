@@ -1,0 +1,13 @@
+# Sets weather tracking to 'off' if heat or cool mode selected for HVAC
+alias: Thermostat Turn Off Weather Tracking
+trigger:
+  - platform: state
+    entity_id: input_select.hvac_option
+    state: 'Cool'
+  - platform: state
+    entity_id: input_select.hvac_option
+    state: 'Heat'
+action:
+  service: input_boolean.turn_off
+  entity_id: input_boolean.thermo_weather
+
