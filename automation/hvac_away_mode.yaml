@@ -1,0 +1,14 @@
+# Sets Away Mode Based on boolean select
+alias: Thermostat Away Mode
+trigger:
+  - platform: state
+    entity_id: input_boolean.hvac_away_mode
+    to: 'on'
+  - platform: state
+    entity_id: group.all_devices
+    state: 'not_home'
+action:
+  service: thermostat.set_away_mode
+  entity_id: thermostat.living_room
+  data_template:
+    away_mode: on

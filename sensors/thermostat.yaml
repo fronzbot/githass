@@ -2,25 +2,36 @@ platform: template
 sensors:
   thermo_mode:
     value_template: '{{ states.thermostat.living_room.attributes.mode }}'
-    warnings: off
+    warnings: Off
+    entity_id: thermostat.living_room
   thermo_away:
     value_template: '{{ states.thermostat.living_room.attributes.away_mode }}'
-    warnings: off
+    warnings: Off
+    entity_id: thermostat.living_room
   thermo_hvac:
     value_template: '{{ states.thermostat.living_room.attributes.hvac_mode }}'
-    warnings: off
+    warnings: Off
+    entity_id: thermostat.living_room
   thermo_temp:
     value_template: '{{ states.thermostat.living_room.attributes.current_temperature }}'
-    warnings: off
+    unit_of_measurement: '°F'
+    warnings: Off
+    entity_id: thermostat.living_room
   thermo_target_high:
     value_template: '{{ states.thermostat.living_room.attributes.target_temp_high }}'
-    warnings: off
+    unit_of_measurement: '°F'
+    warnings: Off
+    entity_id: thermostat.living_room
   thermo_target_low:
     value_template: '{{ states.thermostat.living_room.attributes.target_temp_low }}'
-    warnings: off
+    unit_of_measurement: '°F'
+    warnings: Off
+    entity_id: thermostat.living_room
   thermo_fan:
     value_template: '{{ states.thermostat.living_room.attributes.fan }}'
-    warnings: off
+    warnings: Off
+    entity_id: thermostat.living_room
   thermo_current_operation:
     value_template: '{{ states.thermostat.living_room.attributes.current_operation }}'
-    warnings: off
+    warnings: Off
+    entity_id: thermostat.living_room

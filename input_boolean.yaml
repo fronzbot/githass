@@ -1,2 +1,10 @@
-#
+# Select away mode for ecobee
+hvac_away_mode:
+  name: Set Away Mode
+  initial: off
+  icon: mdi:home
   
+thermo_weather:
+  name: Weather Tracking
+  initial: off
+  icon: mdi:weather-sunset

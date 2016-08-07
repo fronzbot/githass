@@ -1,0 +1,30 @@
+# Sets HVAC based on input   
+alias: Thermostat HVAC Select
+trigger:
+  - platform: state
+    entity_id: input_select.hvac_option
+    state: 'Cool'
+  - platform: state
+    entity_id: input_select.hvac_option
+    state: 'Heat'
+  - platform: state
+    entity_id: input_select.hvac_option
+    state: 'Auto'
+  - platform: state
+    entity_id: input_select.hvac_option
+    state: 'Off'
+action:
+  service: thermostat.set_hvac_mode
+  entity_id: thermostat.living_room
+  data_template:
+    hvac_mode: >
+      {% if is_state('input_select.hvac_option', 'Auto') %}
+        auto
+      {% elif is_state('input_select.hvac_option', 'Cool') %}
+        Cool
+      {% elif is_state('input_select.hvac_option', 'Heat') %}
+        heat
+      {% elif is_state('input_select.hvac_option', 'Off') %}
+        off
+      {% else %}
+      {% endif %}

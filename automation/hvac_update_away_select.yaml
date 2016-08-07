@@ -1,0 +1,28 @@
+# Update input switch based on away mode
+alias: Thermostat Away Switch Update
+trigger:
+  - platform: state
+    entity_id: group.all_devices
+    from: 'not_home'
+    to: 'home'
+  - platform: state
+    entity_id: group.all_devices
+    from: 'home'
+    to: 'not_home'
+  - platform: state
+    entity_id: sensor.thermo_away
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id: sensor.thermo_away
+    from: 'on'
+    to: 'off'
+action:
+  service_template: >
+    {% if is_state('sensor.thermo_away', 'off') or is_state('group.all_devices', 'not_home') %}
+      homeassistant.turn_off
+    {% elif is_state('sensor.thermo_away', 'on') %}
+      homeassistant.turn_on
+    {% else %}
+    {% endif %}
+  entity_id: input_boolean.hvac_away_mode

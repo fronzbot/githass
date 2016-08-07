@@ -1,0 +1,11 @@
+alias: Thermostat Disable Weather Tracking
+trigger:
+  platform: state
+  entity_id: input_boolean.thermo_weather
+  from: 'on'
+  to: 'off'
+action:
+  service: input_select.select_option
+  entity_id: input_select.hvac_option
+  data_template:
+    option: 'Auto'

@@ -1,2 +1,7 @@
-# 
-  
+#
+ac_target_slider:
+  name: High Setpoint
+  initial: 76
+  min: 65
+  max: 85
+  step: 1

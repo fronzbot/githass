@@ -6,17 +6,18 @@
 default_view:
   view: yes
   entities:
-    - group.thermostat
-    - group.interior
-    - group.exterior
-    - group.speedtest
+    - group.home_lights
+    - group.temperatures
     - group.weather_gist
+    - group.speedtest
 
-climate:
+thermostat:
   name: Thermostat
   view: yes
   entities:
-    - group.hvac
+    - group.thermostat_info
+    - group.temperatures
+    
     
 living_room:
   name: Living Room
@@ -81,9 +82,15 @@ interior:
       
 exterior:
   - group.Driveway
-  - light.Porch  
-    
+  - light.Porch
   
+home_lights:
+  - group.lights_living_room
+  - group.lights_den
+  - group.basement
+  - group.Driveway
+  - group.Porch
+ 
 ##################
 # Family
 ##################    
@@ -101,14 +108,6 @@ allegra:
 ##################
 # Thermostat
 ##################
-thermostat:
-  - sensor.thermo_hvac
-  - sensor.thermo_temp
-  - sensor.living_room_temperature
-  - sensor.bedroom_temperature
-  - sensor.living_room_humidity
-
-
 living_room_climate:
   - sensor.living_room_occupancy
   - sensor.living_room_temperature
@@ -118,15 +117,23 @@ bedroom_climate:
   - sensor.bedroom_occupancy
   - sensor.bedroom_temperature
 
-hvac:
+temperatures:
+  - sensor.thermo_temp
+  - sensor.living_room_temperature
+  - sensor.bedroom_temperature
+  - sensor.weather_temperature
+  - sensor.thermo_mode
+  - input_boolean.thermo_weather
+
+thermostat_info:
   - thermostat.living_room
+  - sensor.thermo_target_high
+  - sensor.thermo_target_low
+  - input_boolean.hvac_away_mode
+  - input_select.hvac_option
   - sensor.thermo_hvac
   - sensor.thermo_current_operation
   - sensor.thermo_fan
-  - sensor.thermo_mode
-  - sensor.thermo_temp
-  - sensor.thermo_target_high
-  - sensor.thermo_target_low
   
 ##################
 # Sensors
@@ -137,7 +144,6 @@ speedtest:
   - updater.updater
   
 weather_gist:
-  - sun.sun
   - sensor.weather_summary
   - sensor.weather_temperature
   - sensor.weather_dew_point

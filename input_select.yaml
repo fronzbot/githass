@@ -1,1 +1,10 @@
 # Thermostat AC or Heat
+hvac_option:
+ name: HVAC Option
+ options:
+   - 'Auto'
+   - 'Cool'
+   - 'Heat'
+   - 'Off'
+ inital: Auto
+ icon: mdi:chemical-weapon

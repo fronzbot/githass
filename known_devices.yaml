@@ -88,3 +88,10 @@ androidec1625865ac2307lan:
   picture: 
   track: no
   hide_if_away: no
+
+19216886139:
+  name: 192.168.86.139
+  mac: F4:B8:5E:BF:F5:90
+  picture: 
+  track: no
+  hide_if_away: no

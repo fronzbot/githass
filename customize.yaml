@@ -89,10 +89,14 @@ group.living_room_climate:
 group.bedroom_climate:
   friendly_name: Climate
   
-group.hvac:
+group.thermostat_info:
   friendly_name: Thermostat
 
+group.temperatures:
+  friendly_name: Climate
   
+group.home_lights:
+  friendly_name: Lights
 
 
 ##################
@@ -128,7 +132,7 @@ sensor.weather_daily_summary:
   icon: mdi:magnify
   
 sensor.weather_temperature:
-  friendly_name: Temperature
+  friendly_name: Outside Temperature
   icon: mdi:thermometer
 
 sensor.weather_apparent_temperature:
@@ -209,7 +213,7 @@ sensor.bedroom_occupancy:
   icon: mdi:account-multiple
 
 sensor.thermo_hvac:
-  friendly_name: HVAC
+  friendly_name: HVAC Mode
   icon: mdi:air-conditioner
   
 sensor.thermo_mode:
@@ -233,7 +237,7 @@ sensor.thermo_target_low:
   icon: mdi:fire
   
 sensor.thermo_current_operation:
-  friendly_name: Current Mode
+  friendly_name: Current Status
   icon: mdi:air-conditioner
   
 sensor.thermo_fan:
