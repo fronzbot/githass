@@ -25,19 +25,23 @@ living_room:
   entities:
     - group.living_room_climate
     - group.lights_living_room
+#    - media_player.lys_tv
     - media_player.mantarys
+    - media_player.my_shield_android_tv
     
 den:
   name: Den
   view: yes
   entities:
     - group.lights_den
+    - media_player.plex_web_chrome
 
 bedroom:
   name: Bedroom
   view: yes
   entities:
     - group.bedroom_climate
+    - media_player.asshai
     
 family:
   name: Family

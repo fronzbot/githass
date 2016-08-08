@@ -15,7 +15,7 @@ device_tracker: !include device_trackers.yaml
 sensor: !include sensors.yaml
 automation: !include automation.yaml
 group: !include groups.yaml
-#media_player: !include media.yaml
+media_player: !include media.yaml
 camera: !include cameras.yaml
 scene: !include scenes.yaml
 #input_slider: !include input_sliders.yaml
