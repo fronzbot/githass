@@ -6,7 +6,7 @@
 #  host: 192.168.86.114
 #  name: Lys (TV)
   
-- platform: firetv
-  host: localhost:5556
-  device: default
-  name: Asshai
+#- platform: firetv
+#  host: localhost:5556
+#  device: default
+#  name: Asshai
