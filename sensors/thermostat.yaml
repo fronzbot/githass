@@ -1,9 +1,5 @@
 platform: template
 sensors:
-  thermo_mode:
-    value_template: '{{ states.thermostat.living_room.attributes.mode }}'
-    warnings: Off
-    entity_id: thermostat.living_room
   thermo_away:
     value_template: '{{ states.thermostat.living_room.attributes.away_mode }}'
     warnings: Off
@@ -33,5 +29,18 @@ sensors:
     entity_id: thermostat.living_room
   thermo_current_operation:
     value_template: '{{ states.thermostat.living_room.attributes.current_operation }}'
+    warnings: Off
+    entity_id: thermostat.living_room
+  thermo_mode:
+    value_template: >
+      {% if states.thermostat.living_room.attributes.away_mode == 'on' %}
+        Away
+      {% elif  states.thermostat.living_room.attributes.away_mode == 'off' and states.thermostat.living_room.attributes.mode == 'sleep' %}
+        Sleeping
+      {% elif  states.thermostat.living_room.attributes.away_mode == 'off' and states.thermostat.living_room.attributes.mode == 'home' %}
+        Home
+      {% else %}
+        Error
+      {% endif %}
     warnings: Off
     entity_id: thermostat.living_room
