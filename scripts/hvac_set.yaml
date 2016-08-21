@@ -7,7 +7,7 @@ hvac_set:
         option: >
           {% if states.sensor.weather_temperature.state | float < states.sensor.thermo_target_high.state | float - 2.0 and states.sensor.weather_temperature.state | float > states.sensor.thermo_target_low.state | float + 2.0 %}
             Off
-          {% elif states.sensor.weather_temperature.state | float > states.sensor.thermo_target_high.state | float + 2.0 and states.sensor.weather_temperature.state | float < states.sensor.thermo_target_low.state | float - 2.0 %} %}
+          {% elif states.sensor.weather_temperature.state | float > states.sensor.thermo_target_high.state | float + 2.0 and states.sensor.weather_temperature.state | float < states.sensor.thermo_target_low.state | float - 2.0 %}
             Auto
           {% else %}
             Auto
@@ -16,9 +16,9 @@ hvac_set:
       entity_id: thermostat.living_room
       data_template:
         hvac_mode: >
-          {% if states.sensor.weather_temperature.state | float < states.sensor.thermo_target_high.state | float - 2.0 and states.sensor.weather_temperature.state | float > states.sensor.thermo_target_low.state | float + 2.0 %}
+          {% if (states.sensor.weather_temperature.state | float) < (states.sensor.thermo_target_high.state | float - 2.0) and (states.sensor.weather_temperature.state | float) > (states.sensor.thermo_target_low.state | float + 2.0) %}
             off
-          {% elif states.sensor.weather_temperature.state | float > states.sensor.thermo_target_high.state | float + 2.0 and states.sensor.weather_temperature.state | float < states.sensor.thermo_target_low.state | float - 2.0 %} %}
+          {% elif (states.sensor.weather_temperature.state | float) > (states.sensor.thermo_target_high.state | float + 2.0) and (states.sensor.weather_temperature.state | float) < (states.sensor.thermo_target_low.state | float - 2.0) %}
             auto
           {% else %}
             auto

@@ -6,6 +6,9 @@ condition:
   condition: and
   conditions:
     - condition: state
+      entity_id: input_boolean.hvac_override
+      state: 'off'
+    - condition: state
       entity_id: input_boolean.thermo_weather
       state: 'on'
     - condition: state

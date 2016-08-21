@@ -4,7 +4,9 @@
 # Tabs
 ##################
 default_view:
+  name: Home
   view: yes
+  icon: mdi:home
   entities:
     - group.home_lights
     - group.temperatures
@@ -14,6 +16,7 @@ default_view:
 thermostat:
   name: Thermostat
   view: yes
+  icon: mdi:nest-thermostat
   entities:
     - group.thermostat_info
     - group.temperatures
@@ -22,6 +25,7 @@ thermostat:
 living_room:
   name: Living Room
   view: yes
+  icon: mdi:movie
   entities:
     - group.living_room_climate
     - group.lights_living_room
@@ -32,6 +36,7 @@ living_room:
 den:
   name: Den
   view: yes
+  icon: mdi:laptop
   entities:
     - group.lights_den
     - media_player.plex_web_chrome
@@ -39,6 +44,7 @@ den:
 bedroom:
   name: Bedroom
   view: yes
+  icon: mdi:hotel
   entities:
     - group.bedroom_climate
     - media_player.asshai
@@ -46,6 +52,7 @@ bedroom:
 family:
   name: Family
   view: yes
+  icon: mdi:account-multiple
   entities:
     - group.kevin
     - group.allegra
@@ -53,8 +60,17 @@ family:
 weather:
   name: Weather
   view: yes
+  icon: mdi:weather-sunset
   entities:
     - group.weather_all
+    
+automation_override:
+  name: Automation Override
+  view: yes
+  icon: mdi:settings
+  entities:
+    - input_boolean.hvac_override
+    - input_boolean.device_tracking_override
     
 ##################
 # Lights

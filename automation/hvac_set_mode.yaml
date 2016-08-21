@@ -13,6 +13,7 @@ trigger:
   - platform: state
     entity_id: input_select.hvac_option
     state: 'Off'
+
 action:
   service: thermostat.set_hvac_mode
   entity_id: thermostat.living_room

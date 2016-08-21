@@ -8,3 +8,13 @@ thermo_weather:
   name: Weather Tracking
   initial: on
   icon: mdi:weather-sunset
+  
+hvac_override:
+  name: HVAC Override
+  initial: off
+  icon: mdi:nest-thermostat
+  
+device_tracking_override:
+  name: Device Tracking Override
+  initial: off
+  icon: mdi:cellphone-android

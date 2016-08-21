@@ -8,15 +8,20 @@ trigger:
     entity_id: group.all_devices
     state: 'home'
 condition:
-  - condition: time
-    after: '17:00:00'
-    before: '19:00:00'
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
+  condition: and
+  conditions:
+    - condition: time
+      after: '17:00:00'
+      before: '19:00:00'
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+    - condition: state
+      entity_id: input_boolean.device_tracking_override
+      state: 'off'
 action:
   service: light.turn_on
   entity_id: group.couch
