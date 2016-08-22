@@ -7,9 +7,10 @@ trigger:
   - platform: state
     entity_id: input_select.hvac_option
     state: 'Heat'
-condition: state
-entity_id: input_boolean.hvac_override
-state: 'off'
+condition:
+  - condition: state
+    entity_id: input_boolean.hvac_override
+    state: 'off'
 action:
   service: input_boolean.turn_off
   entity_id: input_boolean.thermo_weather
