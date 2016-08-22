@@ -3,6 +3,7 @@ alias: Wakeup
 trigger:
   - platform: time
     after: '6:30:00'
+    before: '7:00:00'
 
 action:
   service: light.turn_on
