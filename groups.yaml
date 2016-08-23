@@ -69,8 +69,10 @@ automation_override:
   view: yes
   icon: mdi:settings
   entities:
+    - input_boolean.force_hvac_trigger
     - input_boolean.hvac_override
     - input_boolean.device_tracking_override
+    
     
 ##################
 # Lights

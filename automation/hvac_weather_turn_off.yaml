@@ -1,7 +1,12 @@
 alias: Thermostat Turn Off on Weather
 trigger:
-  platform: state
-  entity_id: sensor.weather_temperature
+  - platform: state
+    entity_id: sensor.thermo_outside_temp
+    to: 'Fair'
+  - platform: state
+    entity_id: input_boolean.force_hvac_trigger
+    from: 'off'
+    to: 'on'
 condition:
   condition: and
   conditions:

@@ -5,9 +5,9 @@ hvac_set:
       entity_id: input_select.hvac_option
       data_template:
         option: >
-          {% if (states.sensor.weather_temperature.state | float) < 74.0 and (states.sensor.weather_temperature.state | float) > 55.0%}
+          {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
             Off
-          {% elif (states.sensor.weather_temperature.state | float) > 75.0 or (states.sensor.weather_temperature.state | float) < 54.0 %}
+          {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
             Auto
           {% else %}
           {% endif %}
@@ -15,9 +15,11 @@ hvac_set:
       entity_id: thermostat.living_room
       data_template:
         hvac_mode: >
-          {% if (states.sensor.weather_temperature.state | float) < 74.0 and (states.sensor.weather_temperature.state | float) > 55.0%}
+          {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
             off
-          {% elif (states.sensor.weather_temperature.state | float) > 75.0 or (states.sensor.weather_temperature.state | float) < 54.0 %}
+          {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
             auto
           {% else %}
           {% endif %}
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.force_hvac_trigger
