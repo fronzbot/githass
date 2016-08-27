@@ -5,3 +5,5 @@
 /deps/
 /ecobee.conf
 /*.conf
+/ha.env
+/secrets.yaml
