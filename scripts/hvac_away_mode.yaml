@@ -1,13 +1,13 @@
 alias: Set HVAC Away Status
 sequence:
-  - entity_id: input_boolean.hvac_away_mode
-    service_template: >
+  - service_template: >
         {% if is_state('group.all_devices', 'home') %}
           homeassistant.turn_off
         {% elif is_state('group.all_devices', 'not_home') %}
           homeassistant.turn_on
         {% else %}
         {% endif %}
+    entity_id: input_boolean.hvac_away_mode
   - service: thermostat.set_away_mode
     entity_id: thermostat.living_room
     data_template:
@@ -18,7 +18,5 @@ sequence:
           on
         {% else %}
         {% endif %}
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.force_hvac_trigger
       
     

@@ -27,7 +27,7 @@ script: !include scripts.yaml
 # Enables
 logbook:
 history:
-#discovery:
+discovery:
 sun:
 frontend:
 conversation:

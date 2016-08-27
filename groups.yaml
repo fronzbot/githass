@@ -9,66 +9,51 @@ default_view:
   icon: mdi:home
   entities:
     - group.home_lights
-    - group.temperatures
+    - group.temp_gist
     - group.weather_gist
     - group.speedtest
 
-thermostat:
+tab_lights:
+  name: Lights and Media
+  view: yes
+  icon: mdi:filmstrip
+  entities:
+    - group.lights_living_room
+    - group.lights_den
+    - group.lights_basement
+    - group.all_media
+    
+tab_thermo:
   name: Thermostat
   view: yes
-  icon: mdi:nest-thermostat
+  icon: mdi:thermometer
   entities:
     - group.thermostat_info
     - group.temperatures
-    
-    
-living_room:
-  name: Living Room
-  view: yes
-  icon: mdi:movie
-  entities:
-    - group.living_room_climate
-    - group.lights_living_room
-#    - media_player.lys_tv
-    - media_player.mantarys
-    - media_player.my_shield_android_tv
-    
-den:
-  name: Den
-  view: yes
-  icon: mdi:laptop
-  entities:
-    - group.lights_den
-    - media_player.plex_web_chrome
 
-bedroom:
-  name: Bedroom
-  view: yes
-  icon: mdi:hotel
-  entities:
-    - group.bedroom_climate
-    - media_player.asshai
-    
-family:
-  name: Family
+tab_presence:
+  name: Presence
   view: yes
   icon: mdi:account-multiple
   entities:
     - group.kevin
     - group.allegra
-    
-weather:
+    - group.living_room_climate
+    - group.bedroom_climate
+      
+tab_weather:
   name: Weather
   view: yes
   icon: mdi:weather-sunset
   entities:
     - group.weather_all
     
-automation_override:
+tab_automation_override:
   name: Automation Override
   view: yes
   icon: mdi:settings
   entities:
+    - group.rasp_pi_monitor
     - input_boolean.force_hvac_trigger
     - input_boolean.hvac_override
     - input_boolean.device_tracking_override
@@ -100,7 +85,7 @@ lights_den:
 interior:
   - group.lights_living_room
   - group.lights_den
-  - group.basement
+  - group.lights_basement
       
 exterior:
   - group.Driveway
@@ -112,13 +97,19 @@ home_lights:
   - group.basement
   - light.Porch
   - group.Driveway
- 
+
+all_media:
+  - media_player.mantarys
+  - media_player.my_shield_android_tv
+  - media_player.plex_web_chrome
+  #- media_player.asshai
+  
 ##################
 # Family
 ##################    
 kevin:
   - device_tracker.kevin
-#  - sensor.steam_76561197992716984
+  - sensor.steam_76561197992716984
   - sensor.kevin_morning_commute
   - sensor.kevin_evening_commute
     
@@ -148,7 +139,9 @@ temperatures:
   - input_boolean.thermo_weather
 
 thermostat_info:
+  - sensor.thermo_outside_temp
   - thermostat.living_room
+  - thermostat.living_room_humidity
   - sensor.thermo_target_high
   - sensor.thermo_target_low
   - input_boolean.hvac_away_mode
@@ -156,6 +149,14 @@ thermostat_info:
   - sensor.thermo_hvac
   - sensor.thermo_current_operation
   - sensor.thermo_fan
+
+temp_gist:
+  - sensor.thermo_outside_temp
+  - sensor.living_room_temperature
+  - sensor.bedroo_temperature
+  - sensor.weather_temperature
+  - sensor.thermo_mode
+  - sensor.thermo_hvac
   
 ##################
 # Sensors
@@ -170,9 +171,6 @@ weather_gist:
   - sensor.weather_temperature
   - sensor.weather_dew_point
   - sensor.weather_precip
-  - sensor.weather_cloud_cover
-  - sensor.weather_pressure
-  - sensor.weather_wind_speed
 
 weather_all:
   - sun.sun
@@ -197,3 +195,10 @@ weather_all:
   - sensor.weather_visibility
   - sensor.weather_ozone  
   - camera.home_radar
+
+rasp_pi_monitor:
+  - sensor.glances_cpu_load
+  - sensor.glances_total
+  - sensor.glances_ram_use
+  - sensor.glances_swap_use
+  - sensor.glances_disk_use

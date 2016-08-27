@@ -83,6 +83,9 @@ group.lights_living_room:
   friendly_name: Living Room Lights
   icon: mdi:projector-screen
   
+group.weather_all:
+  friendly_name: Weather
+  
 group.lights_den:
   friendly_name: Den Lights
   icon: mdi:laptop-chromebook  
@@ -103,21 +106,33 @@ group.weather_gist:
   icon: mdi:weather-partlycloudy
   
 group.living_room_climate:
-  friendly_name: Climate
+  friendly_name: Living Room Climate
 
 group.bedroom_climate:
-  friendly_name: Climate
+  friendly_name: Bedroom Climate
   
 group.thermostat_info:
   friendly_name: Thermostat
 
 group.temperatures:
-  friendly_name: Climate
+  friendly_name: Indoor Climate
+
+group.temp_gist:
+  friendly_name: Climate Summary
   
 group.home_lights:
   friendly_name: Lights
 
+group.all_media:
+  friendly_name: Media
+  icon: mdi:music-circle
+  
+group.thermo_gist:
+  friendly_name: Climate Summary
 
+group.rasp_pi_monitor:
+  friendly_name: Raspberry Pi Monitor
+  
 ##################
 # Sensors
 ################## 
@@ -264,7 +279,10 @@ sensor.thermo_current_operation:
 sensor.thermo_fan:
   friendly_name: Fan
   icon: mdi:fan
-  
+
+sensor.thermo_outside_temp:
+  friendly_name: Outside  
+  icon: mdi:weather-sunset
   
 # Steam  
 sensor.steam_76561197992716984:
@@ -284,6 +302,65 @@ sensor.kevin_evening_commute:
 sensor.allegra_evening_commute:
   icon: mdi:home-map-marker
 
+  
+# Glances
+sensor.glances_disk_use:
+  friendly_name: Disk Usage
+  icon: mdi:sd
+
+sensor.glances_disk_use_2:
+  friendly_name: Disk Space Used
+  icon: mdi:sd
+  
+sensor.glances_disk_free:
+  friendly_name: Free Space
+  icon: mdi:sd
+  
+sensor.glances_ram_use:
+  friendly_name: RAM Usage
+  icon: mdi:chip
+  
+sensor.glances_ram_use_2:
+  friendly_name: RAM Used
+  icon: mdi:chip
+  
+sensor.glances_ram_free:
+  friendly_name: RAM Free
+  icon: mdi:chip
+  
+sensor.glances_swap_use:
+  friendly_name: Swap Usage
+  icon: mdi:swap-horizontal
+  
+sensor.glances_swap_use_2:
+  friendly_name: Swap Used
+  icon: mdi:swap-horizontal
+  
+sensor.glances_swap_free:
+  friendly_name: Swap Free
+  icon: mdi:swap-horizontal
+  
+sensor.glances_cpu_load:
+  friendly_name: CPU Load
+  icon: mdi:memory
+  
+sensor.glances_running:
+  friendly_Name: CPU Running Processes
+  icon: mdi:memory
+  
+sensor.glances_total:
+  friendly_name: CPU Total Processes
+  icon: mdi:memory
+  
+sensor.glances_thread:
+  friendly_name: CPU Threads
+  icon: mdi:memory
+  
+sensor.glances_sleeping:
+  friendly_name: CPU Sleeping Threads
+  icon: mdi:sleep
+  
+  
 ##################
 # Entities
 ################## 

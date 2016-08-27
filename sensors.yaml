@@ -8,3 +8,4 @@
 - !include sensors/kevin_commute_evening.yaml
 - !include sensors/allegra_commute_morning.yaml
 - !include sensors/allegra_commute_evening.yaml
+- !include sensors/glances.yaml
