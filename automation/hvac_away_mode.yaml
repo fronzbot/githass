@@ -2,17 +2,16 @@
 alias: Thermostat Away Mode
 trigger:
   - platform: state
-    entity_id: input_boolean.hvac_away_mode
-    to: 'on'
+    entity_id: group.all_devices
+    from: 'not_home'
+    to: 'home'
   - platform: state
     entity_id: group.all_devices
-    state: 'not_home'
+    from: 'home'
+    to: 'not_home'
 condition: 
   - condition: state
     entity_id: input_boolean.device_tracking_override
     state: 'off'
 action:
-  service: thermostat.set_away_mode
-  entity_id: thermostat.living_room
-  data_template:
-    away_mode: on
+  service: script.hvac_away_mode

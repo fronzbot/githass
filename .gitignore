@@ -1,9 +1,7 @@
-/hass.env
 /*.log
-/plex.conf
 /*.db
-/deps/
-/ecobee.conf
 /*.conf
-/ha.env
+/*.env
 /secrets.yaml
+/deps/
+/*/secrets.yaml

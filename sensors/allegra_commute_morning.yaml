@@ -1,7 +1,7 @@
 platform: google_travel_time
 name: Allegra Morning Commute
-api_key: !env_var GOOGLE_API
-origin: !env_var HOME_ADDRESS
-destination: !env_var WORK_ADDRESS_ALLEGRA
+api_key: !secret google_api
+origin: !secret home_address
+destination: !secret work_address_allegra
 options:
   mode: driving

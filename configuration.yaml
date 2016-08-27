@@ -1,15 +1,15 @@
 homeassistant:
   name: Home
-  latitude: !env_var LATITUDE
-  longitude: !env_var LONGITUDE
+  latitude: !secret latitude
+  longitude: !secret longitude
   elevation: 154
   temperature_unit: F
   time_zone: America/New_York
   customize: !include customize.yaml
   unit_system: imperial
-
+  
 http:
-  api_password: !env_var API_PASS
+  api_password: !secret password
   
 # Includes
 device_tracker: !include device_trackers.yaml
@@ -19,7 +19,7 @@ group: !include groups.yaml
 media_player: !include media.yaml
 camera: !include cameras.yaml
 scene: !include scenes.yaml
-#input_slider: !include input_sliders.yaml
+input_slider: !include input_sliders.yaml
 input_select: !include input_select.yaml
 input_boolean: !include input_boolean.yaml
 script: !include scripts.yaml
@@ -27,7 +27,7 @@ script: !include scripts.yaml
 # Enables
 logbook:
 history:
-discovery:
+#discovery:
 sun:
 frontend:
 conversation:
@@ -35,9 +35,9 @@ updater:
 
 # Other stuff
 wink:
-  access_token: !env_var WINK_API
-  refresh_token: !env_var WINK_REFRESH
+  access_token: !secret wink_api
+  refresh_token: !secret wink_api_refresh
 
 ecobee:
-  api_key: !env_var ECOBEE_API
+  api_key: !secret ecobee_api
   hold_temp: True

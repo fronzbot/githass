@@ -1,5 +1,5 @@
 platform: forecast
-api_key: !env_var FORECASTIO_API
+api_key: !secret forecast_api
 monitored_conditions:
   - summary
   - icon

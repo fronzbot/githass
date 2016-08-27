@@ -1,35 +1,63 @@
 platform: template
 sensors:
   thermo_away:
-    value_template: '{{ states.thermostat.living_room.attributes.away_mode }}'
-    warnings: Off
+    value_template: >
+      {% if states.thermostat.living_room.attributes.away_mode %}
+        {{ states.thermostat.living_room.attributes.away_mode }}
+      {% else %}
+        Unknown
+      {% endif %}
     entity_id: thermostat.living_room
   thermo_hvac:
-    value_template: '{{ states.thermostat.living_room.attributes.hvac_mode }}'
-    warnings: Off
+    value_template: >
+      {% if states.thermostat.living_room.attributes.hvac_mode %}
+        {{ states.thermostat.living_room.attributes.hvac_mode }}
+      {% else %}
+        Unknown
+      {% endif %} 
     entity_id: thermostat.living_room
   thermo_temp:
-    value_template: '{{ states.thermostat.living_room.attributes.current_temperature }}'
+    value_template: >
+      {% if states.thermostat.living_room.attributes.current_temperature %}
+        {{ states.thermostat.living_room.attributes.current_temperature }}
+      {% else %}
+        Unknown
+      {% endif %} 
     unit_of_measurement: '°F'
-    warnings: Off
     entity_id: thermostat.living_room
   thermo_target_high:
-    value_template: '{{ states.thermostat.living_room.attributes.target_temp_high }}'
+    value_template: >
+      {% if states.thermostat.living_room.attributes.target_temp_high %}
+        {{ states.thermostat.living_room.attributes.target_temp_high }}
+      {% else %}
+        Unknown
+      {% endif %} 
     unit_of_measurement: '°F'
-    warnings: Off
     entity_id: thermostat.living_room
   thermo_target_low:
-    value_template: '{{ states.thermostat.living_room.attributes.target_temp_low }}'
+    value_template: >
+      {% if states.thermostat.living_room.attributes.target_temp_low %}
+        {{ states.thermostat.living_room.attributes.target_temp_low }}
+      {% else %}
+        Unknown
+      {% endif %} 
     unit_of_measurement: '°F'
-    warnings: Off
     entity_id: thermostat.living_room
   thermo_fan:
-    value_template: '{{ states.thermostat.living_room.attributes.fan }}'
-    warnings: Off
+    value_template: >
+      {% if states.thermostat.living_room.attributes.fan %}
+        {{ states.thermostat.living_room.attributes.fan }}
+      {% else %}
+        Unknown
+      {% endif %}
     entity_id: thermostat.living_room
   thermo_current_operation:
-    value_template: '{{ states.thermostat.living_room.attributes.current_operation }}'
-    warnings: Off
+    value_template: >
+      {% if states.thermostat.living_room.attributes.current_operation %}
+        {{ states.thermostat.living_room.attributes.current_operation }}
+      {% else %}
+        Unknown
+      {% endif %}
     entity_id: thermostat.living_room
   thermo_mode:
     value_template: >
@@ -53,6 +81,6 @@ sensors:
       {% elif (states.sensor.weather_temperature.state | float) < 45.0 %}
         Cold
       {% else %}
-        Unknown
+        Fair
       {% endif %}
     warnings: Off

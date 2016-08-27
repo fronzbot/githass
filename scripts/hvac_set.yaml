@@ -1,25 +1,24 @@
-hvac_set:
-  alias: Set HVAC Option
-  sequence:
-    - service: input_select.select_option
-      entity_id: input_select.hvac_option
-      data_template:
-        option: >
-          {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
-            Off
-          {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
-            Auto
-          {% else %}
-          {% endif %}
-    - service: thermostat.set_hvac_mode
-      entity_id: thermostat.living_room
-      data_template:
-        hvac_mode: >
-          {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
-            off
-          {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
-            auto
-          {% else %}
-          {% endif %}
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.force_hvac_trigger
+alias: Set HVAC Option
+sequence:
+  - service: input_select.select_option
+    entity_id: input_select.hvac_option
+    data_template:
+      option: >
+        {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
+          Off
+        {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
+          Auto
+        {% else %}
+        {% endif %}
+  - service: thermostat.set_hvac_mode
+    entity_id: thermostat.living_room
+    data_template:
+      hvac_mode: >
+        {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
+          off
+        {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
+          auto
+        {% else %}
+        {% endif %}
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.force_hvac_trigger
