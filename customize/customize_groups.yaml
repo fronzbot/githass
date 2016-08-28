@@ -1,0 +1,73 @@
+  
+##################
+# Groups
+################## 
+group.couch:
+  friendly_name: Couch
+  icon: mdi:theater
+
+group.interior:
+  friendly_name: Indoor Lights
+  icon: mdi:home
+  
+group.exterior:
+  friendly_name: Outdoor Lights
+  icon: mdi:white-balance-sunny
+  
+group.driveway:
+  friendly_name: Driveway
+  icon: mdi:car
+  
+group.lights_living_room:
+  friendly_name: Living Room Lights
+  icon: mdi:projector-screen
+  
+group.weather_all:
+  friendly_name: Weather
+  
+group.lights_den:
+  friendly_name: Den Lights
+  icon: mdi:laptop-chromebook  
+  
+group.basement:
+  friendly_name: Basement
+  icon: mdi:stairs
+
+group.family:
+  friendly_name: Family
+  
+group.speedtest:
+  friendly_name: Internet
+  icon: mdi:speedometer
+  
+group.weather_gist:
+  friendly_name: Weather
+  icon: mdi:weather-partlycloudy
+  
+group.living_room_climate:
+  friendly_name: Living Room Climate
+
+group.bedroom_climate:
+  friendly_name: Bedroom Climate
+  
+group.thermostat_info:
+  friendly_name: Thermostat
+
+group.temperatures:
+  friendly_name: Indoor Climate
+
+group.temp_gist:
+  friendly_name: Climate Summary
+  
+group.home_lights:
+  friendly_name: Lights
+
+group.all_media:
+  friendly_name: Media
+  icon: mdi:music-circle
+  
+group.thermo_gist:
+  friendly_name: Climate Summary
+
+group.rasp_pi_monitor:
+  friendly_name: Raspberry Pi Monitor

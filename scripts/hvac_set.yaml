@@ -10,8 +10,8 @@ sequence:
           Auto
         {% else %}
         {% endif %}
-  - service: thermostat.set_hvac_mode
-    entity_id: thermostat.living_room
+  - service: climate.set_operation_mode
+    entity_id: climate.living_room
     data_template:
       hvac_mode: >
         {% if states.sensor.thermo_outside_temp.state == 'Fair' %}

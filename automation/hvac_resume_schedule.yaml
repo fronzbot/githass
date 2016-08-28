@@ -12,7 +12,7 @@ condition:
     entity_id: input_boolean.device_tracking_override
     state: 'off'
 action:
-  service: thermostat.set_away_mode
-  entity_id: thermostat.living_room
+  service: climate.set_away_mode
+  entity_id: climate.living_room
   data_template:
     away_mode: off

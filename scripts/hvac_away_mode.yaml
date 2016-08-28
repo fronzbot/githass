@@ -8,8 +8,8 @@ sequence:
         {% else %}
         {% endif %}
     entity_id: input_boolean.hvac_away_mode
-  - service: thermostat.set_away_mode
-    entity_id: thermostat.living_room
+  - service: climate.set_away_mode
+    entity_id: climate.living_room
     data_template:
       away_mode: >
         {% if is_state('group.all_devices', 'home') %}

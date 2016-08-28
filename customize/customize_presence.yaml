@@ -1,0 +1,40 @@
+##################
+# Entities
+################## 
+device_tracker.kevin:
+  friendly_name: Lannister
+  icon: mdi:cellphone-android
+  
+device_tracker.allegra:
+  friendly_name: Targaryen
+  icon: mdi:cellphone-android
+
+  
+# Google Distance  
+sensor.kevin_morning_commute:
+  icon: mdi:briefcase
+
+sensor.allegra_morning_commute:
+  icon: mdi:briefcase
+  
+sensor.kevin_evening_commute:
+  icon: mdi:home-map-marker
+  
+sensor.allegra_evening_commute:
+  icon: mdi:home-map-marker
+
+  
+# Steam  
+sensor.steam_76561197992716984:
+  friendly_name: Steam
+  icon: mdi:steam
+
+  
+# Ecobee sensors
+binary_sensor.living_room_occupancy:
+  friendly_name: In Living Room
+  icon: mdi:account-multiple
+  
+binary_sensor.bedroom_occupancy:
+  friendly_name: In Bedroom
+  icon: mdi:account-multiple

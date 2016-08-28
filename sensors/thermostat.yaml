@@ -2,76 +2,71 @@ platform: template
 sensors:
   thermo_away:
     value_template: >
-      {% if states.thermostat.living_room.attributes.away_mode %}
-        {{ states.thermostat.living_room.attributes.away_mode }}
+      {% if states.climate.living_room.attributes.away_mode %}
+        {{ states.climate.living_room.attributes.away_mode }}
       {% else %}
         Unknown
       {% endif %}
-    entity_id: thermostat.living_room
+    entity_id: climate.living_room
+    
   thermo_hvac:
     value_template: >
-      {% if states.thermostat.living_room.attributes.hvac_mode %}
-        {{ states.thermostat.living_room.attributes.hvac_mode }}
+      {% if states.climate.living_room.attributes.operation_mode == 'auto' %}
+        Auto
+      {% elif states.climate.living_room.attributes.operation_mode == 'off' %}
+        Off
+      {% elif states.climate.living_room.attributes.operation_mode == 'idle' %}
+        Idle
       {% else %}
-        Unknown
+        {{ states.climate.living_room.attributes.operation_mode }}
       {% endif %} 
-    entity_id: thermostat.living_room
+    entity_id: climate.living_room
+    
   thermo_temp:
     value_template: >
-      {% if states.thermostat.living_room.attributes.current_temperature %}
-        {{ states.thermostat.living_room.attributes.current_temperature }}
+      {% if states.climate.living_room.attributes.current_temperature %}
+        {{ states.climate.living_room.attributes.current_temperature }}
       {% else %}
         Unknown
       {% endif %} 
     unit_of_measurement: '°F'
-    entity_id: thermostat.living_room
-  thermo_target_high:
-    value_template: >
-      {% if states.thermostat.living_room.attributes.target_temp_high %}
-        {{ states.thermostat.living_room.attributes.target_temp_high }}
-      {% else %}
-        Unknown
-      {% endif %} 
-    unit_of_measurement: '°F'
-    entity_id: thermostat.living_room
-  thermo_target_low:
-    value_template: >
-      {% if states.thermostat.living_room.attributes.target_temp_low %}
-        {{ states.thermostat.living_room.attributes.target_temp_low }}
-      {% else %}
-        Unknown
-      {% endif %} 
-    unit_of_measurement: '°F'
-    entity_id: thermostat.living_room
+    entity_id: climate.living_room
+    
   thermo_fan:
     value_template: >
-      {% if states.thermostat.living_room.attributes.fan %}
-        {{ states.thermostat.living_room.attributes.fan }}
+      {% if states.climate.living_room.attributes.fan %}
+        {{ states.climate.living_room.attributes.fan }}
       {% else %}
         Unknown
       {% endif %}
-    entity_id: thermostat.living_room
+    entity_id: climate.living_room
+    
   thermo_current_operation:
     value_template: >
-      {% if states.thermostat.living_room.attributes.current_operation %}
-        {{ states.thermostat.living_room.attributes.current_operation }}
+      {% if states.climate.living_room.state == 'auto' %}
+        Auto
+      {% elif states.climate.living_room.state == 'off' %}
+        Off
+      {% elif states.climate.living_room.state == 'idle' %}
+        Idle
       {% else %}
-        Unknown
-      {% endif %}
-    entity_id: thermostat.living_room
+        {{ states.climate.living_room.state }}
+      {% endif %} 
+    entity_id: climate.living_room
+  
   thermo_mode:
     value_template: >
-      {% if states.thermostat.living_room.attributes.away_mode == 'on' %}
+      {% if states.climate.living_room.attributes.mode == 'on' %}
         Away
-      {% elif  states.thermostat.living_room.attributes.away_mode == 'off' and states.thermostat.living_room.attributes.mode == 'sleep' %}
+      {% elif  states.climate.living_room.attributes.away_mode == 'off' and states.climate.living_room.attributes.mode == 'sleep' %}
         Sleeping
-      {% elif  states.thermostat.living_room.attributes.away_mode == 'off' and states.thermostat.living_room.attributes.mode == 'home' %}
+      {% elif  states.climate.living_room.attributes.away_mode == 'off' and states.climate.living_room.attributes.mode == 'home' %}
         Home
       {% else %}
         Error
       {% endif %}
-    warnings: Off
-    entity_id: thermostat.living_room
+    entity_id: climate.living_room
+    
   thermo_outside_temp:
     value_template: > 
       {% if (states.sensor.weather_temperature.state | float) < 74.0 and (states.sensor.weather_temperature.state | float) > 50.0 %}
@@ -83,4 +78,3 @@ sensors:
       {% else %}
         Fair
       {% endif %}
-    warnings: Off

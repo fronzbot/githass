@@ -3,7 +3,7 @@
 Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 
 ###Components Used:
-- Forecast.io for weather
+- Forecast.io and Wunderground for weather
 - NMAP Device Tracking
 - Ecobee3 Thermostat + 1 Remote Sensor
 - Wink Hub
@@ -24,7 +24,7 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 ###Future Improvements:
 - ~~Automation override switches~~ (added 8/21/2016)
 - ~~Rapberry pi status monitoring~~ (added 8/27/2016)
-- Integrate Alexa (I have an Echo, it just doesn't talk to HA yet)
+- Integrate Alexa (![emulated_hue}(https://home-assistant.io/components/emulated_hue/) looks promising)
 - Selectable scenes
 - Vacation Modes
 - More components:
@@ -38,6 +38,7 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
   
 Current setup cost estimate: $500 
 
+(Images last updated 8/27/2016, may not reflect current configuration)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_home_page.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_media.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_thermostat.png)

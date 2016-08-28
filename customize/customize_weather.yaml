@@ -1,0 +1,64 @@
+# Wunderground and Forecastio customization
+sensor.weather_summary:
+  friendly_name: Summary
+  icon: mdi:library-books
+  
+sensor.weather_minutely_summary:
+  friendly_name: Next Hour
+  icon: mdi:calendar-clock
+
+sensor.weather_hourly_summary:
+  friendly_name: Daily Forecast
+  icon: mdi:calendar-today
+
+sensor.weather_daily_summary:
+  friendly_name: Week Ahead
+  icon: mdi:magnify
+  
+sensor.weather_temperature:
+  friendly_name: Outside Temperature
+  icon: mdi:thermometer
+
+sensor.weather_feels_like:
+  friendly_name: Feels Like
+  icon: mdi:thermometer
+
+sensor.weather_dew_point:
+  friendly_name: Dew Point
+  icon: mdi:oil-temperature
+  
+sensor.weather_humidity:
+  friendly_name: Humidity
+  icon: mdi:water-percent
+ 
+sensor.weather_precip_type:
+  friendly_name: Precipitation
+  icon: mdi:weather-snowy-rainy
+ 
+sensor.weather_precip_intensity:
+  friendly_name: Precipitation Intensity
+  icon: mdi:weather-pouring
+
+sensor.weather_precip_probability:
+  friendly_name: Precipitation Probability
+  icon: mdi:percent
+  
+sensor.weather_pressure:
+  friendly_name: Pressure
+  icon: mdi:chart-bar
+  
+sensor.weather_wind_speed:
+  friendly_name: Wind Speed
+  icon: mdi:weather-windy
+
+sensor.weather_wind_bearing:
+  friendly_name: Wind Bearing
+  icon: mdi:weather-windy  
+    
+sensor.weather_ozone:
+  friendly_name: Ozone
+  icon: mdi:earth
+  
+sensor.weather_uv:
+  friendly_name: UV Index
+  icon: mdi:weather-sunny

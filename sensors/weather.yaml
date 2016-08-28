@@ -1,24 +1,104 @@
-platform: forecast
-api_key: !secret forecast_api
-monitored_conditions:
-  - summary
-  - icon
-  - nearest_storm_distance
-  - nearest_storm_bearing
-  - precip_type
-  - precip_intensity
-  - precip_probability
-  - temperature
-  - apparent_temperature
-  - dew_point
-  - wind_speed
-  - wind_bearing
-  - cloud_cover
-  - humidity
-  - pressure
-  - visibility
-  - ozone
-  - minutely_summary
-  - hourly_summary
-  - daily_summary
-units: us
+platform: template
+sensors:
+  # Wunderground
+  weather_summary:
+    value_template: '{{ states.sensor.pws_weather.state }}'
+    entity_id: sensor.pws
+  
+  weather_precip_intensity:
+    value_template: '{{ states.sensor.pws_precip_in.state }}'
+    entity_id: sensor.pws
+    unit_of_measurement: 'in.'
+  
+  weather_temperature:
+    value_template: '{{ states.sensor.pws_temp_f.state }}'
+    entity_id: sensor.pws
+    unit_of_measurement: '°F'
+  
+  weather_dew_point:
+    value_template: '{{ states.sensor.pws_dewpoint_f.state }}'
+    entity_id: sensor.pws
+    unit_of_measurement: '°F'
+
+  weather_feels_like:
+    value_template: '{{ states.sensor.pws_feelslike_f.state }}'
+    entity_id: sensor.pws
+    unit_of_measurement: '°F'
+  
+  weather_humidity:
+    value_template: '{{ states.sensor.pws_relative_humidity.state }}'
+    entity_id: sensor.pws
+  
+  weather_pressure:
+    value_template: '{{ states.sensor.pws_pressure_mb.state }}'
+    entity_id: sensor.pws
+    unit_of_measurement: 'mbar'
+  
+  weather_wind_speed:
+    value_template: '{{ states.sensor.pws_wind_mph.state }}'
+    entity_id: sensor.pws
+    unit_of_measurement: 'mph'
+  
+  weather_wind_bearing:
+    value_template: '{{ states.sensor.pws_wind_dir.state }}'
+    entity_id: sensor.pws
+  
+  weather_uv:
+    value_template: > 
+      {% if states.sensor.pws_uv.state | int < 3 %}
+        Very Low
+      {% elif states.sensor.pws_uv.state | int < 5 %}
+        Low
+      {% elif states.sensor.pws_uv.state | int < 7 %}
+        Moderate
+      {% elif states.sensor.pws_uv.state | int < 10 %}
+        High
+      {% elif state.sensor.pws_uv.state %}
+        Very High
+      {% else %}
+        Unknown
+      {% endif %}
+    entity_id: sensor.pws
+  
+  # Forecast.io
+  weather_minutely_summary:
+    value_template: '{{ states.sensor.forecastio_minutely_summary.state }}'
+    entity_id: sensor.forecastio
+    
+  weather_hourly_summary:
+    value_template: '{{ states.sensor.forecastio_hourly_summary.state }}'
+    entity_id: sensor.forecastio
+  
+  weather_daily_summary:
+    value_template: '{{ states.sensor.forecastio_daily_summary.state }}'
+    entity_id: sensor.forecastio
+  
+  weather_ozone:
+    value_template: '{{ states.sensor.forecastio_ozone.state }}'
+    entity_id: sensor.forecastio
+  
+  weather_cloud_cover:
+    value_template: '{{ states.sensor.forecastio_cloud_cover.state }}'
+    entity_id: sensor.forecastio
+  
+  weather_precip_probability:
+    value_template: '{{ states.sensor.forecastio_precip_probability.state }}'
+    entity_id: sensor.forecastio
+    unit_of_measurement: '%'
+  
+  weather_precip_type:
+    value_template: >
+      {% if states.sensor.forecastio_precip.state == 'rain' %}
+        Rain
+      {% elif states.sensor.forecastio_precip.state == 'snow' %}
+        Snow
+      {% elif states.sensor.forecastio_precip.state == 'sleet' %}
+        Sleet
+      {% elif states.sensor.forecastio_precip.state == '0' %}
+        -
+      {% else %}
+        {{ states.sensor.forecastio_precip.state }}
+      {% endif %}
+    entity_id: sensor.forecastio
+    
+
