@@ -4,7 +4,7 @@ alias: Outdoor Lights at Sunset
 trigger:
   - platform: sun
     event: sunset
-    offset: '-00:15:00'
+    offset: '+00:15:00'
 action:
   service: light.turn_on
   entity_id: group.exterior

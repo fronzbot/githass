@@ -56,7 +56,7 @@ sensors:
   
   thermo_mode:
     value_template: >
-      {% if states.climate.living_room.attributes.mode == 'on' %}
+      {% if states.climate.living_room.attributes.away_mode == 'on' %}
         Away
       {% elif  states.climate.living_room.attributes.away_mode == 'off' and states.climate.living_room.attributes.mode == 'sleep' %}
         Sleeping

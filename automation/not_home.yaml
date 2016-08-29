@@ -1,10 +1,9 @@
 # Turn on lights if we're not home and it's dark out
 alias: Away From Home
 trigger:
-  - platform: numeric_state
-    entity_id: sun.sun
-    value_template: '{{ state.attributes.elevation }}'
-    below: 0
+  - platform: sun
+    event: sunset
+    offset: '-00:15:00'
   - platform: state
     entity_id: group.all_devices
     to: 'not_home'
