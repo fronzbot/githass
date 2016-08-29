@@ -18,6 +18,6 @@ condition:
       state: 'on'
     - condition: state
       entity_id: sensor.thermo_hvac
-      state: 'auto'
+      state: 'Auto'
 action:
   service: script.hvac_set

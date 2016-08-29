@@ -16,7 +16,7 @@ sensors:
       {% elif states.climate.living_room.attributes.operation_mode == 'off' %}
         Off
       {% elif states.climate.living_room.attributes.operation_mode == 'idle' %}
-        Idle
+        Off
       {% else %}
         {{ states.climate.living_room.attributes.operation_mode }}
       {% endif %} 
