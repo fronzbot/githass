@@ -57,7 +57,7 @@ tab_automation_override:
     - input_boolean.force_hvac_trigger
     - input_boolean.hvac_override
     - input_boolean.device_tracking_override
-    
+    - input_boolean.debug
     
 ##################
 # Lights

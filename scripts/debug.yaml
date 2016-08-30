@@ -1,0 +1,7 @@
+alias: Debug Script
+sequence:
+  - service: climate.set_operation_mode
+    entity_id: climate.living_room
+    operation_mode: 'off'
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.debug

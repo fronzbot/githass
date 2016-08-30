@@ -18,3 +18,6 @@
 - !include automation/hvac_weather_turn_off.yaml
 - !include automation/hvac_disable_weather.yaml
 - !include automation/hvac_update_weather_track.yaml
+
+# Debug
+- !include automation/debug.yaml

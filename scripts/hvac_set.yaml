@@ -13,7 +13,7 @@ sequence:
   - service: climate.set_operation_mode
     entity_id: climate.living_room
     data_template:
-      hvac_mode: >
+      operation_mode: >
         {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
           off
         {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}

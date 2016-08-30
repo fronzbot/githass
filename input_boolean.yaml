@@ -23,3 +23,8 @@ force_hvac_trigger:
   name: HVAC Trigger Force
   initial: off
   icon: mdi:weather-sunset
+  
+debug:
+  name: Debugger
+  initial: off
+  icon: mdi:bug
