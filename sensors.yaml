@@ -5,7 +5,7 @@
 - !include sensors/time.yaml
 - !include sensors/forecastio.yaml
 - !include sensors/wunderground.yaml
-- !include sensors/weather.yaml
+#- !include sensors/weather.yaml
 - !include sensors/kevin_commute_morning.yaml
 - !include sensors/kevin_commute_evening.yaml
 - !include sensors/allegra_commute_morning.yaml

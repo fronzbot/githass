@@ -1,64 +1,64 @@
 # Wunderground and Forecastio customization
-sensor.weather_summary:
+sensor.pws_weather:
   friendly_name: Summary
   icon: mdi:library-books
   
-sensor.weather_minutely_summary:
+sensor.forecastio_minutely_summary:
   friendly_name: Next Hour
   icon: mdi:calendar-clock
 
-sensor.weather_hourly_summary:
+sensor.forecastio_hourly_summary:
   friendly_name: Daily Forecast
   icon: mdi:calendar-today
 
-sensor.weather_daily_summary:
+sensor.forecastio_daily_summary:
   friendly_name: Week Ahead
   icon: mdi:magnify
   
-sensor.weather_temperature:
+sensor.pws_temp_f:
   friendly_name: Outside Temperature
   icon: mdi:thermometer
 
-sensor.weather_feels_like:
+sensor.pws_feelslike_f:
   friendly_name: Feels Like
   icon: mdi:thermometer
 
-sensor.weather_dew_point:
+sensor.pws_dewpoint_f:
   friendly_name: Dew Point
   icon: mdi:oil-temperature
   
-sensor.weather_humidity:
+sensor.pws_relative_humidity:
   friendly_name: Humidity
   icon: mdi:water-percent
  
-sensor.weather_precip_type:
+sensor.forecastio_precip:
   friendly_name: Precipitation
   icon: mdi:weather-snowy-rainy
  
-sensor.weather_precip_intensity:
+sensor.pws_precip_today_in:
   friendly_name: Precipitation Intensity
   icon: mdi:weather-pouring
 
-sensor.weather_precip_probability:
+sensor.pws_precip_probability:
   friendly_name: Precipitation Probability
   icon: mdi:percent
   
-sensor.weather_pressure:
+sensor.pws_pressure_in:
   friendly_name: Pressure
   icon: mdi:chart-bar
   
-sensor.weather_wind_speed:
+sensor.pws_wind_mph:
   friendly_name: Wind Speed
   icon: mdi:weather-windy
 
-sensor.weather_wind_bearing:
+sensor.pws_wind_dir:
   friendly_name: Wind Bearing
   icon: mdi:weather-windy  
     
-sensor.weather_ozone:
+sensor.forecastio_ozone:
   friendly_name: Ozone
   icon: mdi:earth
   
-sensor.weather_uv:
+sensor.pws_uv:
   friendly_name: UV Index
   icon: mdi:weather-sunny

@@ -2,7 +2,7 @@ platform: template
 sensors:
   thermo_away:
     value_template: >
-      {% if states.climate.living_room.attributes.away_mode %}
+      {% if states.climate.living_room %}
         {{ states.climate.living_room.attributes.away_mode }}
       {% else %}
         Unknown
@@ -17,14 +17,17 @@ sensors:
         Off
       {% elif states.climate.living_room.attributes.operation_mode == 'idle' %}
         Off
-      {% else %}
+      {% elif states.climate.living_room %}
         {{ states.climate.living_room.attributes.operation_mode }}
+      {% else %}
+        Unknown
       {% endif %} 
+      
     entity_id: climate.living_room
     
   thermo_temp:
     value_template: >
-      {% if states.climate.living_room.attributes.current_temperature %}
+      {% if states.climate.living_room %}
         {{ states.climate.living_room.attributes.current_temperature }}
       {% else %}
         Unknown
@@ -34,7 +37,7 @@ sensors:
     
   thermo_fan:
     value_template: >
-      {% if states.climate.living_room.attributes.fan %}
+      {% if states.climate.living_room %}
         {{ states.climate.living_room.attributes.fan }}
       {% else %}
         Unknown
@@ -49,9 +52,12 @@ sensors:
         Off
       {% elif states.climate.living_room.state == 'idle' %}
         Idle
-      {% else %}
+      {% elif states.climate.living_room %}
         {{ states.climate.living_room.state }}
+      {% else %}
+        Unknown
       {% endif %} 
+    
     entity_id: climate.living_room
   
   thermo_mode:
@@ -65,16 +71,18 @@ sensors:
       {% else %}
         Error
       {% endif %}
+    
     entity_id: climate.living_room
     
   thermo_outside_temp:
     value_template: > 
-      {% if (states.sensor.weather_temperature.state | float) < 74.0 and (states.sensor.weather_temperature.state | float) > 50.0 %}
+      {% if (states.sensor.pws_temp_f.state | float) < 74.0 and (states.sensor.pws_temp_f.state | float) > 50.0 %}
         Fair
-      {% elif (states.sensor.weather_temperature.state | float) > 77.0 %}
+      {% elif (states.sensor.pws_temp_f.state | float) > 77.0 %}
         Hot
-      {% elif (states.sensor.weather_temperature.state | float) < 45.0 %}
+      {% elif (states.sensor.pws_temp_f.state | float) < 45.0 %}
         Cold
       {% else %}
         Fair
       {% endif %}
+    
