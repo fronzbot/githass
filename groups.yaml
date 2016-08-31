@@ -26,7 +26,7 @@ tab_lights:
 tab_thermo:
   name: Thermostat
   view: yes
-  icon: mdi:thermometer
+  icon: mdi:fan
   entities:
     - group.temperatures
     - group.thermostat_info

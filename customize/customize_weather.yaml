@@ -39,13 +39,18 @@ sensor.pws_precip_today_in:
   friendly_name: Precipitation Intensity
   icon: mdi:weather-pouring
 
-sensor.pws_precip_probability:
+sensor.forecastio_precip_probability:
   friendly_name: Precipitation Probability
   icon: mdi:percent
   
 sensor.pws_pressure_in:
   friendly_name: Pressure
   icon: mdi:chart-bar
+
+sensor.forecastio_visibility:
+  friendly_name: Visibility
+  icon: mdi:weather-fog
+  
   
 sensor.pws_wind_mph:
   friendly_name: Wind Speed
