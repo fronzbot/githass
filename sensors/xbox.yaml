@@ -1,0 +1,4 @@
+platform: xbox_live
+api_key: !secret xbox_api
+xuid:
+  - 2533274813006504

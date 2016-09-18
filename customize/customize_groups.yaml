@@ -71,3 +71,12 @@ group.thermo_gist:
 
 group.rasp_pi_monitor:
   friendly_name: Raspberry Pi Monitor
+  
+group.automations_sun:
+  friendly_name: Sun/Time Automations
+
+group.automations_presence:
+  friendly_name: Presence Automations
+  
+group.automations_hvac:
+  friendly_name: Thermostat Automations
