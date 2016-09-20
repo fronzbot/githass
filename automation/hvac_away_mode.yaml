@@ -12,14 +12,5 @@ trigger:
   - platform: state
     entity_id: input_boolean.hvac_away_mode
     to: 'on'
-condition:
-  condition: and
-  conditions:
-    - condition: state
-      entity_id: input_boolean.device_tracking_override
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.hvac_override
-      state: 'off'
 action:
   service: script.hvac_away_mode
