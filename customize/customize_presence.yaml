@@ -4,6 +4,10 @@
 device_tracker.kevin:
   friendly_name: Lannister
   icon: mdi:cellphone-android
+
+device_tracker.kevin_watch:
+  friendly_name: Android Watch
+  icon: mdi:watch
   
 device_tracker.allegra:
   friendly_name: Targaryen

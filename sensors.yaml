@@ -1,7 +1,7 @@
 # Sensors
 - !include sensors/thermostat.yaml
 - !include sensors/speedtest.yaml
-- !include sensors/steam.yaml
+#- !include sensors/steam.yaml
 - !include sensors/time.yaml
 - !include sensors/forecastio.yaml
 - !include sensors/wunderground.yaml
@@ -11,4 +11,4 @@
 - !include sensors/allegra_commute_morning.yaml
 - !include sensors/allegra_commute_evening.yaml
 - !include sensors/glances.yaml
-- !include sensors/xbox.yaml
+#- !include sensors/xbox.yaml

@@ -103,8 +103,8 @@ home_lights:
 
 all_media:
   - media_player.mantarys
-  - media_player.my_shield_android_tv
-  - media_player.plex_web_chrome
+  #- media_player.my_shield_android_tv
+  #- media_player.plex_web_chrome
   #- media_player.asshai
   
 ##################
@@ -112,8 +112,9 @@ all_media:
 ##################    
 kevin:
   - device_tracker.kevin
-  - sensor.steam_76561197992716984
-  - sensor.xbox_fronzbot
+  #- device_tracker.kevin_watch
+  #- sensor.steam_76561197992716984
+  #- sensor.xbox_fronzbot
   - sensor.kevin_morning_commute
   - sensor.kevin_evening_commute
     

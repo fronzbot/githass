@@ -5,6 +5,13 @@ kevin:
   track: yes
   hide_if_away: no
   
+kevin_watch:
+  name: Kevin's Watch
+  mac: F8:95:C7:7D:35:0E
+  picture: 
+  track: yes
+  hide_if_away: no
+
 allegra:
   name: Targaryen
   mac: 64:BC:0C:66:F9:51
