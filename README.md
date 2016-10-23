@@ -3,7 +3,7 @@
 Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 
 ###Components Used:
-- Forecast.io and Wunderground for weather
+- Dark Sky  and Wunderground for weather
 - NMAP Device Tracking
 - Ecobee3 Thermostat + 1 Remote Sensor
 - Wink Hub
@@ -11,6 +11,7 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
   -  7 GE Link Bulbs (Zigbee)
 - NVIDIA Shield TV
 - PLEX Server
+- Emulated Hue (for Amazon Echo and future Google Home support)
 
 ###Automations:
 - Light control based on device presence and sun status
@@ -24,9 +25,9 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 ###Future Improvements:
 - ~~Automation override switches~~ (added 8/21/2016)
 - ~~Rapberry pi status monitoring~~ (added 8/27/2016)
-- Integrate Alexa (![emulated_hue}(https://home-assistant.io/components/emulated_hue/) looks promising)
+- ~~Integrate Alexa (![emulated_hue}(https://home-assistant.io/components/emulated_hue/) looks promising)~~ (added 10/23/2016)
 - Selectable scenes
-- Vacation Modes
+- ~~Vacation Modes~~ (Covered by existing automations)
 - More components:
   - Home weather station (to replace forecast.io)
   - Lights/switches
@@ -38,11 +39,13 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
   
 Current setup cost estimate: $500 
 
-(Images last updated 9/18/2016, may not reflect current configuration)
+(Images last updated 10/23/2016, may not reflect current configuration)
+![](https://github.com/fronzbot/githass/blob/master/images/HA_Setup.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_home_page.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_media.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_thermostat.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_presence.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_weather1.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_weather2.png)
+![](https://github.com/fronzbot/githass/blob/master/images/ha_stats.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_override.png)
