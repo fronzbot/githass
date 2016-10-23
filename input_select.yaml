@@ -6,5 +6,5 @@ hvac_option:
    - 'Cool'
    - 'Heat'
    - 'Off'
- inital: Auto
+ initial: Auto
  icon: mdi:chemical-weapon

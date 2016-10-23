@@ -1,0 +1,25 @@
+##################
+# Input Boolean
+##################
+
+input_boolean.hvac_away_mode:
+  icon: mdi:home
+  emulated_hue: true
+  emulated_hue_name: "Away Mode"
+  
+input_boolean.thermo_weather:
+  icon: mdi:weather-sunset
+  emulated_hue: true
+  emulated_hue_name: "Weather Tracking"
+   
+input_boolean.device_tracking_override:
+  icon: mdi:cellphone-android
+  emulated_hue: false
+  
+input_boolean.force_hvac_trigger:
+  icon: mdi:weather-sunset
+  emulated_hue: false
+  
+input_boolean.debug:
+  icon: mdi:bug
+  emulated_hue: false

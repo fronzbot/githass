@@ -16,7 +16,7 @@ device_tracker: !include device_trackers.yaml
 sensor: !include sensors.yaml
 automation: !include automation.yaml
 group: !include groups.yaml
-#media_player: !include media.yaml
+media_player: !include media.yaml
 camera: !include cameras.yaml
 scene: !include scenes.yaml
 #input_slider: !include input_sliders.yaml
@@ -30,14 +30,23 @@ history:
 discovery:
 sun:
 frontend:
-conversation:
 updater:
+  reporting: no
 
 # Other stuff
 wink:
   access_token: !secret wink_api
-  refresh_token: !secret wink_api_refresh
+  #refresh_token: !secret wink_api_refresh
 
+emulated_hue:
+  host_ip: 192.168.86.89
+  listen_port: 8300
+  expose_by_default: true
+  exposed_domains:
+    - light
+    - group
+    - input_boolean
+  
 ecobee:
   api_key: !secret ecobee_api
   hold_temp: True

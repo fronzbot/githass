@@ -5,78 +5,151 @@
 group.couch:
   friendly_name: Couch
   icon: mdi:theater
+  emulated_hue: true
+  emulated_hue_name: "Couch"
 
 group.interior:
   friendly_name: Indoor Lights
   icon: mdi:home
+  emulated_hue: false
   
 group.exterior:
   friendly_name: Outdoor Lights
   icon: mdi:white-balance-sunny
+  emulated_hue: true
+  emulated_hue_name: "Outside Lights"
   
 group.driveway:
   friendly_name: Driveway
   icon: mdi:car
+  emulated_hue: true
+  emulated_hue_name: "Outside Lights"
   
 group.lights_living_room:
   friendly_name: Living Room Lights
   icon: mdi:projector-screen
+  emulated_hue: true
+  emulated_hue_name: "Living Room"
   
 group.weather_all:
   friendly_name: Weather
-  
+  emulated_hue: false
+   
 group.lights_den:
   friendly_name: Den Lights
   icon: mdi:laptop-chromebook  
+  emulated_hue: true
+  emulated_hue_name: "Den"
   
 group.basement:
   friendly_name: Basement
   icon: mdi:stairs
+  emulated_hue: true
+  emulated_hue_name: "Basement"
 
 group.family:
   friendly_name: Family
+  emulated_hue: false
   
 group.speedtest:
   friendly_name: Internet
   icon: mdi:speedometer
+  emulated_hue: false
   
 group.weather_gist:
   friendly_name: Weather
   icon: mdi:weather-partlycloudy
+  emulated_hue: false
   
 group.living_room_climate:
   friendly_name: Living Room Climate
-
+  emulated_hue: false
+  
 group.bedroom_climate:
   friendly_name: Bedroom Climate
-  
+  emulated_hue: false
+
 group.thermostat_info:
   friendly_name: Thermostat
+  emulated_hue: false
 
 group.temperatures:
   friendly_name: Indoor Climate
-
+  emulated_hue: false
+  
 group.temp_gist:
   friendly_name: Climate Summary
+  emulated_hue: false
   
 group.home_lights:
   friendly_name: Lights
+  emulated_hue: false
 
 group.all_media:
   friendly_name: Media
   icon: mdi:music-circle
-  
+  emulated_hue: false
+
 group.thermo_gist:
   friendly_name: Climate Summary
-
+  emulated_hue: false
+  
 group.rasp_pi_monitor:
   friendly_name: Raspberry Pi Monitor
+  emulated_hue: false
+  
+group.living_room_stats:
+  friendly_name: Living Room Stats
+  emulated_hue: false
+  
+group.bedroom_stats:
+  friendly_name: Bedroom Stats
+  emulated_hue: false
+  
+group.download_stats:
+  friendly_name: Download Stats
+  emulated_hue: false
+  
+group.upload_stats:
+  friendly_name: Upload Stats
+  emulated_hue: false
   
 group.automations_sun:
   friendly_name: Sun/Time Automations
-
+  emulated_hue: false
+ 
 group.automations_presence:
   friendly_name: Presence Automations
+  emulated_hue: false
   
 group.automations_hvac:
   friendly_name: Thermostat Automations
+  emulated_hue: false
+  
+group.kevin:
+  emulated_hue: false
+  
+group.allegra:
+  emulated_hue: false
+  
+# 'ALL' GROUPS  
+group.all_automations:
+  emulated_hue: false
+  
+group.all_locks:
+  emulated_hue: false
+  
+group.all_switches:
+  emulated_hue: false
+  
+group.all_scripts:
+  emulated_hue: false
+
+group.all_devices:
+  emulated_hue: false
+
+group.all_lights:
+  emulated_hue_name: "All Lights"
+  
+group.all_covers:
+  emulated_hue: false

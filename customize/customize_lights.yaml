@@ -4,37 +4,53 @@
 light.Couch_Left:
   friendly_name: Couch Left
   icon: mdi:theater
+  emulated_hue: true
+  emulated_hue_name: "Couch Left"
 
 light.Couch_Right:
   friendly_name: Couch Right
   icon: mdi:theater
+  emulated_hue: true
+  emulated_hue_name: "Couch Right"
   
 light.Corner:
   friendly_name: Corner
+  emulated_hue: true
+  emulated_hue_name: "Corner"
 
 light.Computer:
   friendly_name: Computer
   icon: mdi:laptop-chromebook
+  emulated_hue: true
+  emulated_hue_name: "Computer"
   
 light.Back_Den:
   friendly_name: Back Den
+  emulated_hue: true
+  emulated_hue_name: "Back Den"
   
 light.Porch:
   friendly_name: Porch
   icon: mdi:gate
+  emulated_hue: true
+  emulated_hue_name: "Porch"
   
 light.Driveway1:
   friendly_name: Driveway 1
   icon: mdi:car
+  emulated_hue: false
 
 light.Driveway2:
   friendly_name: Driveway 2
   icon: mdi:car
+  emulated_hue: false
   
 light.Basement1:
   friendly_name: Basement 1
   icon: mdi:stairs
+  emulated_hue: false
   
 light.Basement2:
   friendly_name: Basement 2
   icon: mdi_stairs
+  emulated_hue: false

@@ -1,5 +1,5 @@
-platform: forecast
-api_key: !secret forecast_api
+platform: darksky
+api_key: !secret darksky_api
 monitored_conditions:
   - summary
   - icon

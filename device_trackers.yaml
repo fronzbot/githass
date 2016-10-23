@@ -1,6 +1,7 @@
 # Trackers
 
-# Scan devices every two minutes (might be too quick)
+# Scan devices every one minutes (Android 7.0+ tends to 
+# not be found if this is longer)
 # Consider a device 'home' for 10 minutes before
 # allowing a state change
 - platform: nmap_tracker

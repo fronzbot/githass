@@ -2,24 +2,19 @@
 hvac_away_mode:
   name: Set Away Mode
   initial: off
-  icon: mdi:home
   
 thermo_weather:
   name: Weather Tracking
   initial: on
-  icon: mdi:weather-sunset
    
 device_tracking_override:
   name: Device Tracking Override
   initial: off
-  icon: mdi:cellphone-android
   
 force_hvac_trigger:
   name: HVAC Trigger Force
   initial: off
-  icon: mdi:weather-sunset
   
 debug:
   name: Debugger
   initial: off
-  icon: mdi:bug

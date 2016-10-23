@@ -1,6 +1,6 @@
 # Media players
-#- platform: cast
-#- platform: plex
+- platform: cast
+- platform: plex
 
 #- platform: samsungtv
 #  host: 192.168.86.114
