@@ -23,7 +23,7 @@ group.driveway:
   friendly_name: Driveway
   icon: mdi:car
   emulated_hue: true
-  emulated_hue_name: "Outside Lights"
+  emulated_hue_name: "Driveway"
   
 group.lights_living_room:
   friendly_name: Living Room Lights
