@@ -6,8 +6,10 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - Dark Sky  and Wunderground for weather
 - NMAP Device Tracking
 - Ecobee3 Thermostat + 1 Remote Sensor
+- Phillips Hue Hub
+  -  3 2nd Gen Color Ambience Bulbs
 - Wink Hub
-  - 3 Cree Connected Bulbs (Zigbee)
+  -  3 Cree Connected Bulbs (Zigbee) [Only 1 connected right now]
   -  7 GE Link Bulbs (Zigbee)
 - NVIDIA Shield TV
 - PLEX Server
@@ -26,9 +28,11 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - ~~Automation override switches~~ (added 8/21/2016)
 - ~~Rapberry pi status monitoring~~ (added 8/27/2016)
 - ~~Integrate Alexa (![emulated_hue}(https://home-assistant.io/components/emulated_hue/) looks promising)~~ (added 10/23/2016)
-- Selectable scenes
+- ~~Selectable scenes~~ (added 11/6/2016)
 - ~~Vacation Modes~~ (Covered by existing automations)
+- Full local control
 - More components:
+  - Z-wave stick (for future Wink removal)
   - Home weather station (to replace forecast.io)
   - Lights/switches
   - Door/window sensors
@@ -37,12 +41,12 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
   - [Washer/dryer status](https://home-assistant.io/blog/2016/08/03/laundry-automation-update/) (custom sensor, probably)
   - Dishwasher status (custom sensor, probably)
   
-Current setup cost estimate: $500 
+Current setup cost estimate: $660 
 
-(Images last updated 10/23/2016, may not reflect current configuration)
-![](https://github.com/fronzbot/githass/blob/master/images/HA_setup.png)
+(Images last updated 11/06/2016, may not reflect current configuration)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_home_page.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_media.png)
+![](https://github.com/fronzbot/githass/blob/master/images/ha_media2.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_thermostat.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_presence.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_weather1.png)

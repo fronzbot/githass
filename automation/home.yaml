@@ -23,6 +23,8 @@ condition:
       entity_id: input_boolean.device_tracking_override
       state: 'off'
 action:
-  service: light.turn_on
-  entity_id: group.couch
+  - service: light.turn_on
+    entity_id: group.couch
+  - service: light.turn_on
+    entity_id: light.kitchen_table
     

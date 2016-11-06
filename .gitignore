@@ -1,7 +1,7 @@
 /.HA_VERSION
 /.uuid
 /*.log
-/*.db
+/*.db*
 /*.conf
 /*.env
 /secrets.yaml

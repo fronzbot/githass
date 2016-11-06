@@ -19,6 +19,7 @@ tab_lights:
   icon: mdi:filmstrip
   entities:
     - group.lights_living_room
+    - group.lights_kitchen
     - group.lights_den
     - group.lights_basement
     - group.all_media
@@ -64,6 +65,7 @@ tab_automation_override:
   view: yes
   icon: mdi:settings
   entities:
+    - group.scenes
     - input_boolean.force_hvac_trigger
     - input_boolean.hvac_override
     - input_boolean.device_tracking_override
@@ -75,6 +77,12 @@ tab_automation_override:
 ##################
 # Lights
 ##################
+scenes:
+  - scene.christmas
+  - scene.daylight
+  - scene.night
+  - scene.sabres
+  
 couch:
   - light.Couch_Left
   - light.Couch_Right
@@ -88,8 +96,12 @@ driveway:
   - light.Driveway2
 
 lights_living_room:
-  - group.couch
+  - light.Couch_Left
+  - light.Couch_Right
   - light.Corner
+  
+lights_kitchen:
+  - light.kitchen_table
   
 lights_den:
   - light.Computer
@@ -99,6 +111,7 @@ interior:
   - group.lights_living_room
   - group.lights_den
   - group.lights_basement
+  - group.lights_kitchen
       
 exterior:
   - group.Driveway
@@ -106,14 +119,16 @@ exterior:
   
 home_lights:
   - group.lights_living_room
+  - group.lights_kitchen
   - group.lights_den
   - group.basement
   - light.Porch
   - group.Driveway
 
 all_media:
-  - media_player.mantarys
-  - media_player.my_shield_android_tv
+  - media_player.google_home
+  - media_player.shield
+  - media_player.shield_android_tv
   - media_player.plex_web_chrome
   #- media_player.asshai
   

@@ -1,0 +1,16 @@
+# Turn on lights in Buffalo Sabres colors
+# http://www.developers.meethue.com/documentation/hue-xy-values
+name: Sabres
+entities:
+  light.couch_left:
+    state: on
+    xy_color: [0.4871, 0.4681]
+    brightness: 278
+  light.couch_right:
+    state: on
+    xy_color: [0.1559,0.1599]
+    brightness: 200
+  light.corner:
+    state: on
+    xy_color: [0.4871, 0.4681]
+    brightness: 278

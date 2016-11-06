@@ -1,0 +1,16 @@
+# Turn on lights for daytime colors
+# http://www.developers.meethue.com/documentation/hue-xy-values
+name: Daylight
+entities:
+  light.couch_left:
+    state: on
+    color_temp: 278
+    brightness: 278
+  light.couch_right:
+    state: on
+    color_temp: 278
+    brightness: 278
+  light.corner:
+    state: on
+    color_temp: 278
+    brightness: 278

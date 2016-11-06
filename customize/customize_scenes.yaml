@@ -1,0 +1,23 @@
+##################
+# Lights
+##################
+scene.christmas:
+  icon: mdi:gift
+  emulated_hue: true
+  emulated_hue_name: "Christmas"
+
+scene.daylight:
+  icon: mdi:weather-sunny
+  emulated_hue: true
+  emulated_hue_name: "Day Time"
+  
+scene.night:
+  icon: mdi:weather-night
+  emulated_hue: true
+  emulated_hue_name: "Night Time"
+
+scene.sabres:
+  icon: mdi:sword
+  emulated_hue: true
+  emulated_hue_name: "Sabres"
+  

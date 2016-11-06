@@ -8,6 +8,12 @@ group.couch:
   emulated_hue: true
   emulated_hue_name: "Couch"
 
+group.lights_kitchen:
+  friendly_name: Kitchen
+  icon: mdi:fridge
+  emulated_hue: true
+  emulated_hue_name: "Kitchen"
+  
 group.interior:
   friendly_name: Indoor Lights
   icon: mdi:home

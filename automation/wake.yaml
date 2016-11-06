@@ -5,5 +5,7 @@ trigger:
     after: '6:30:00'
 
 action:
-  service: light.turn_on
-  entity_id: light.couch_left
+  - service: light.turn_on
+    entity_id: light.couch_left
+  - service: light.turn_on
+    entity_id: light.kitchen_table

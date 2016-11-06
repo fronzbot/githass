@@ -1,0 +1,16 @@
+# Turn on lights for nightime colors
+# http://www.developers.meethue.com/documentation/hue-xy-values
+name: Night
+entities:
+  light.couch_left:
+    state: on
+    color_temp: 500
+    brightness: 278
+  light.couch_right:
+    state: on
+    color_temp: 500
+    brightness: 278
+  light.corner:
+    state: on
+    color_temp: 500
+    brightness: 278

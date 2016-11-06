@@ -3,13 +3,11 @@
 ##################
 light.Couch_Left:
   friendly_name: Couch Left
-  icon: mdi:theater
   emulated_hue: true
   emulated_hue_name: "Couch Left"
 
 light.Couch_Right:
   friendly_name: Couch Right
-  icon: mdi:theater
   emulated_hue: true
   emulated_hue_name: "Couch Right"
   
@@ -52,5 +50,11 @@ light.Basement1:
   
 light.Basement2:
   friendly_name: Basement 2
-  icon: mdi_stairs
+  icon: mdi:stairs
   emulated_hue: false
+  
+light.kitchen_table:
+  friendly_name: Kitchen Table
+  icon: mdi:food-apple
+  emulated_hue: true
+  emulated_hue_name: "Table"
