@@ -102,3 +102,17 @@ androidec1625865ac2307lan:
   picture: 
   track: no
   hide_if_away: no
+
+f4f5d8b3b922:
+  hide_if_away: false
+  mac: F4:F5:D8:B3:B9:22
+  name: f4f5d8b3b922
+  picture:
+  track: false
+
+philipshuelan:
+  hide_if_away: false
+  mac: 00:17:88:2B:CC:D4
+  name: Philips-hue.lan
+  picture:
+  track: false

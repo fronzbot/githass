@@ -26,12 +26,23 @@ script: !include scripts.yaml
 
 # Enables
 logbook:
-history:
+#history:
 discovery:
 sun:
 frontend:
 updater:
   reporting: no
+recorder:
+  purge_days: 10
+history:
+  include:
+    domains:
+      - sensor
+      - climate
+      - device_trackers
+  exclude:
+    entities:
+      - sensor.glances
 
 # Other stuff
 wink:
@@ -61,18 +72,18 @@ panel_custom:
     config:
       title: Home
       
-swtich:
+switch:
   - platform: flux
     lights:
       - light.corner
       - light.couch_left
       - light.couch_right
-    # name: Flux
+    name: Flux
     # start_time: '7:00'
     # stop_time: '22:00'
-    # start_colortemp: 3800
-    # sunset_colortemp: 2800
-    # stop_colortemp: 2000
-    # brightness: 278
-    # mode: xy
+    start_colortemp: 3800
+    sunset_colortemp: 3000
+    stop_colortemp: 2200
+    brightness: 254
+    mode: xy
   

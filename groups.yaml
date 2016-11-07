@@ -99,7 +99,8 @@ lights_living_room:
   - light.Couch_Left
   - light.Couch_Right
   - light.Corner
-  
+  - switch.flux
+
 lights_kitchen:
   - light.kitchen_table
   
