@@ -5,6 +5,7 @@ switch.flux:
   friendly_name: Flux
   emulated_hue: true
   emulated_hue_name: "Flux"
+  icon: mdi:google-circles-extended
 
 light.Couch_Left:
   friendly_name: Couch Left

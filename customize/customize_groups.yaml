@@ -14,6 +14,9 @@ group.lights_kitchen:
   emulated_hue: true
   emulated_hue_name: "Kitchen"
   
+group.flux:
+  friendly_name: Flux
+  
 group.interior:
   friendly_name: Indoor Lights
   icon: mdi:home

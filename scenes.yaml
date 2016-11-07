@@ -1,5 +1,6 @@
 - !include scenes/not_home_at_night.yaml
 - !include scenes/christmas.yaml
+- !include scenes/movies.yaml
 - !include scenes/day.yaml
 - !include scenes/night.yaml
 - !include scenes/sabres.yaml

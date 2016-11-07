@@ -1,19 +1,19 @@
-# Turn on lights in christmas colors
+# Dim lights for movies
 # Left, Right are spring green, corner is crimson
 # http://www.developers.meethue.com/documentation/hue-xy-values
-name: Christmas
+name: Movie Mode
 entities:
   switch.flux:
     state: off
   light.couch_left:
     state: on
-    xy_color: [0.1972,0.6781]
-    brightness: 278
+    color_temp: 500
+    brightness: 50
   light.couch_right:
     state: on
-    xy_color: [0.6508, 0.2881]
-    brightness: 200
+    color_temp: 500
+    brightness: 50
   light.corner:
     state: on
-    xy_color: [0.1972,0.6781]
-    brightness: 278
+    color_temp: 500
+    brightness: 50

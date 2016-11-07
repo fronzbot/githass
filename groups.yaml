@@ -19,6 +19,7 @@ tab_lights:
   icon: mdi:filmstrip
   entities:
     - group.lights_living_room
+    - group.flux
     - group.lights_kitchen
     - group.lights_den
     - group.lights_basement
@@ -79,6 +80,7 @@ tab_automation_override:
 ##################
 scenes:
   - scene.christmas
+  - scene.movie_mode
   - scene.daylight
   - scene.night
   - scene.sabres
@@ -99,8 +101,11 @@ lights_living_room:
   - light.Couch_Left
   - light.Couch_Right
   - light.Corner
-  - switch.flux
 
+flux:
+  - switch.flux
+  
+  
 lights_kitchen:
   - light.kitchen_table
   
