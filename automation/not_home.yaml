@@ -22,3 +22,4 @@ condition:
 action:
   service: light.turn_on
   entity_id: group.couch
+

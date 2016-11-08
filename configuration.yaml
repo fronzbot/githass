@@ -78,12 +78,8 @@ switch:
       - light.corner
       - light.couch_left
       - light.couch_right
-    name: Flux
-    # start_time: '7:00'
-    # stop_time: '22:00'
-    start_colortemp: 3800
-    sunset_colortemp: 3000
-    stop_colortemp: 2200
-    brightness: 254
-    mode: xy
+    start_colortemp: 3600
+    stop_colortemp: 2500
+    brightness: 255
+    mode: mired
   

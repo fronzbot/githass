@@ -116,3 +116,17 @@ philipshuelan:
   name: Philips-hue.lan
   picture:
   track: false
+
+android55c8d45b671a31adlan:
+  hide_if_away: false
+  mac: 40:88:05:F1:71:98
+  name: android-55c8d45b671a31ad.lan
+  picture:
+  track: false
+
+androida2c91af244e69dbclan:
+  hide_if_away: false
+  mac: A0:39:F7:46:9E:7F
+  name: android-a2c91af244e69dbc.lan
+  picture:
+  track: false
