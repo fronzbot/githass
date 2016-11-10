@@ -11,7 +11,7 @@ default_view:
     - group.home_lights
     - group.temp_gist
     - group.weather_gist
-    - group.speedtest
+    #- group.speedtest
 
 tab_lights:
   name: Lights and Media
@@ -19,7 +19,7 @@ tab_lights:
   icon: mdi:filmstrip
   entities:
     - group.lights_living_room
-    - group.flux
+    - group.flux_switch
     - group.lights_kitchen
     - group.lights_den
     - group.lights_basement
@@ -60,6 +60,7 @@ tab_statistics:
     - group.download_stats
     - group.upload_stats
     - group.rasp_pi_monitor
+    - group.tracking
     
 tab_automation_override:
   name: Automation Override
@@ -102,7 +103,7 @@ lights_living_room:
   - light.Couch_Right
   - light.Corner
 
-flux:
+flux_switch:
   - switch.flux
   
   
@@ -137,7 +138,8 @@ all_media:
   - media_player.shield_android_tv
   - media_player.plex_web_chrome
   #- media_player.asshai
-  
+
+ 
 ##################
 # Family
 ##################    
@@ -257,12 +259,14 @@ bedroom_stats:
   - sensor.stats_bedroom_min
   
 download_stats:
+  - sensor.speedtest_download
   - sensor.stats_download_mean
   - sensor.stats_download_std
   - sensor.stats_download_max
   - sensor.stats_download_min
   
 upload_stats:
+  - sensor.speedtest_upload
   - sensor.stats_upload_mean
   - sensor.stats_upload_std
   - sensor.stats_upload_max
@@ -288,3 +292,23 @@ automations_hvac:
   - automation.thermostat_away_mode
   - automation.thermostat_hvac_update
   - automation.thermostat_disable_weather_tracking
+  
+  
+##################
+# Trackers
+##################    
+tracking:
+  - updater.updater
+  - sensor.baratheon
+  - sensor.google_home
+  - sensor.echo
+  - sensor.ecobee
+  - sensor.hue_hub
+  - sensor.winkhub
+  - sensor.blink_camera
+  - sensor.tablo
+  - sensor.shield
+  - sensor.fire_tv
+  - sensor.tv_living_room
+  - sensor.xbox_one
+  - sensor.wii_u

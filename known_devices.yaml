@@ -9,7 +9,7 @@ kevin_watch:
   name: Kevin's Watch
   mac: F8:95:C7:7D:35:0E
   picture: 
-  track: yes
+  track: no
   hide_if_away: no
 
 allegra:
@@ -19,6 +19,97 @@ allegra:
   track: yes
   hide_if_away: no
 
+google_home:
+  name: Google Home
+  mac: F4:F5:D8:B3:B9:22
+  picture:
+  track: yes
+  hide_if_away: no
+
+hue_hub:
+  hide_if_away: false
+  mac: 00:17:88:2B:CC:D4
+  name: Phillips Hue
+  picture:
+  track: true
+  
+echo:
+  hide_if_away: false
+  mac: 74:C2:46:B8:28:29
+  name: Amazon Echo
+  picture:
+  track: true
+
+fire_tv:
+  name: Fire TV
+  mac: 00:BB:3A:49:F1:63
+  picture: 
+  track: yes
+  hide_if_away: no  
+  
+tablo:
+  name: tablo
+  mac: 00:0E:8E:65:45:B6
+  picture: 
+  track: yes
+  hide_if_away: no
+  
+xbox_one:
+  name: Xbox One
+  mac: B4:AE:2B:5A:72:53
+  picture:
+  track: yes
+  hide_if_away: no
+  
+ecobee:
+  name: Ecobee
+  mac: 44:61:32:FA:50:52
+  picture: 
+  track: yes
+  hide_if_away: no
+  
+baratheon:
+  name: Baratheon
+  mac: 30:B5:C2:a9:F5:D4
+  picture:
+  track: yes
+  hide_if_away: no
+  
+shield:
+  name: NVidia Shield TV
+  mac: 00:04:4B:49:35:FA
+  picture: 
+  track: yes
+  hide_if_away: no  
+  
+winkhub:
+  name: Wink Hub
+  mac: B4:79:A7:1A:7C:4A
+  picture: 
+  track: yes
+  hide_if_away: no
+
+blink_camera:
+  name: Blink
+  mac: 00:03:7F:17:E7:7D
+  picture: 
+  track: yes
+  hide_if_away: no
+  
+tv_living_room:
+  name: Living Room TV
+  mac: FC:8F:90:A8:F9:59
+  picture: 
+  track: yes
+  hide_if_away: no
+  
+wii_u:
+  name: Wii U
+  mac: B8:AE:6E:5B:35:B0
+  picture:
+  track: yes
+  hide_if_away: no  
+  
 wnce2001lan:
   name: wnce2001.lan
   mac: 04:A1:51:6F:B5:43
@@ -33,51 +124,9 @@ onhubhere:
   track: no
   hide_if_away: no
 
-19216886108:
-  name: 192.168.86.108
-  mac: B4:79:A7:1A:7C:4A
-  picture: 
-  track: no
-  hide_if_away: no
-
-kindle28a5d664elan:
-  name: kindle-28a5d664e.lan
-  mac: 00:BB:3A:49:F1:63
-  picture: 
-  track: no
-  hide_if_away: no
-
 kindle57c71c008lan:
   name: kindle-57c71c008.lan
   mac: 10:AE:60:04:A5:98
-  picture: 
-  track: no
-  hide_if_away: no
-
-localhostlan:
-  name: localhost.lan
-  mac: FC:8F:90:A8:F9:59
-  picture: 
-  track: no
-  hide_if_away: no
-
-19216886101:
-  name: 192.168.86.101
-  mac: 00:03:7F:17:E7:7D
-  picture: 
-  track: no
-  hide_if_away: no
-
-19216886133:
-  name: 192.168.86.133
-  mac: 00:0E:8E:65:45:B6
-  picture: 
-  track: no
-  hide_if_away: no
-
-android10e82a790c3cb8b3lan:
-  name: android-10e82a790c3cb8b3.lan
-  mac: 00:04:4B:49:35:FA
   picture: 
   track: no
   hide_if_away: no
@@ -89,33 +138,12 @@ androidec1625865ac2307lan:
   track: no
   hide_if_away: no
 
-19216886138:
-  name: 192.168.86.138
-  mac: 44:61:32:FA:50:52
-  picture: 
-  track: no
-  hide_if_away: no
-
 19216886139:
   name: 192.168.86.139
   mac: F4:B8:5E:BF:F5:90
   picture: 
   track: no
   hide_if_away: no
-
-f4f5d8b3b922:
-  hide_if_away: false
-  mac: F4:F5:D8:B3:B9:22
-  name: f4f5d8b3b922
-  picture:
-  track: false
-
-philipshuelan:
-  hide_if_away: false
-  mac: 00:17:88:2B:CC:D4
-  name: Philips-hue.lan
-  picture:
-  track: false
 
 android55c8d45b671a31adlan:
   hide_if_away: false

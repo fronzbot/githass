@@ -14,7 +14,7 @@ group.lights_kitchen:
   emulated_hue: true
   emulated_hue_name: "Kitchen"
   
-group.flux:
+group.flux_switch:
   friendly_name: Flux
   
 group.interior:
@@ -139,6 +139,10 @@ group.kevin:
   emulated_hue: false
   
 group.allegra:
+  emulated_hue: false
+  
+group.tracking:
+  friendly_name: Device Status
   emulated_hue: false
   
 # 'ALL' GROUPS  

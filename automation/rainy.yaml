@@ -12,7 +12,7 @@ condition:
       after: '07:00'
       before: '18:00'
     - condition: state
-      entity_id: group.all_devices
+      entity_id: sensor.occupancy
       state: 'home'
 action:
   service: light.turn_on

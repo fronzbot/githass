@@ -5,7 +5,7 @@ trigger:
     event: sunset
     offset: '-00:15:00'
   - platform: state
-    entity_id: group.all_devices
+    entity_id: sensor.occupancy
     to: 'not_home'
 condition:
   condition: and
@@ -14,7 +14,7 @@ condition:
       after: '16:00:00'
       before: '22:00:00'
     - condition: state
-      entity_id: group.all_devices
+      entity_id: sensor.occupancy
       state: 'not_home'
     - condition: state
       entity_id: input_boolean.device_tracking_override

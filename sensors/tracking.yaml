@@ -1,0 +1,170 @@
+platform: template
+sensors:
+  baratheon:
+    value_template: >
+      {% if states.device_tracker.baratheon  %}
+        {% if states.device_tracker.baratheon.state == 'home' %}
+          Online
+        {% elif states.device_tracker.baratheon.state == 'not_home' %}
+          Offline
+        {% else %}
+          Unknown
+        {% endif %}
+      {% else %}
+      {% endif %}
+  
+  google_home:
+    value_template: >
+      {% if states.device_tracker.google_home  %}
+        {% if states.device_tracker.google_home.state == 'home' %}
+          Online
+        {% elif states.device_tracker.google_home.state == 'not_home' %}
+          Offline
+        {% else %}
+          Unknown
+        {% endif %}
+      {% else %}
+      {% endif %}
+
+  echo:
+    value_template: >
+      {% if states.device_tracker.echo  %}
+        {% if states.device_tracker.echo.state == 'home' %}
+          Online
+        {% elif states.device_tracker.echo.state == 'not_home' %}
+          Offline
+        {% else %}
+          Unknown
+        {% endif %}
+      {% else %}
+      {% endif %}
+      
+  ecobee:
+    value_template: >
+      {% if states.device_tracker.ecobee  %}
+        {% if states.device_tracker.ecobee.state == 'home' %}
+          Online
+        {% elif states.device_tracker.ecobee.state == 'not_home' %}
+          Offline
+        {% else %}
+          Unknown
+        {% endif %}
+      {% else %}
+      {% endif %}
+      
+  hue_hub:
+    value_template: >
+      {% if states.device_tracker.hue_hub  %}
+        {% if states.device_tracker.hue_hub.state == 'home' %}
+          Online
+        {% elif states.device_tracker.hue_hub.state == 'not_home' %}
+          Offline
+        {% else %}
+          Unknown
+        {% endif %}
+      {% else %}
+      {% endif %}
+      
+  winkhub:
+    value_template: >
+      {% if states.device_tracker.winkhub  %}
+        {% if states.device_tracker.winkhub.state == 'home' %}
+          Online
+        {% elif states.device_tracker.winkhub.state == 'not_home' %}
+          Offline
+        {% else %}
+          Unknown
+        {% endif %}
+      {% else %}
+      {% endif %}
+      
+  blink_camera:
+    value_template: >
+      {% if states.device_tracker.blink_camera  %}
+        {% if states.device_tracker.blink_camera.state == 'home' %}
+          Online
+        {% elif states.device_tracker.blink_camera.state == 'not_home' %}
+          Offline
+        {% else %}
+          Unknown
+        {% endif %}
+      {% else %}
+      {% endif %}
+      
+  tablo:
+    value_template: >
+      {% if states.device_tracker.tablo  %}
+        {% if states.device_tracker.tablo.state == 'home' %}
+          Online
+        {% elif states.device_tracker.tablo.state == 'not_home' %}
+          Offline
+        {% else %}
+          Unknown
+        {% endif %}
+      {% else %}
+      {% endif %}
+      
+  shield:
+    value_template: >
+      {% if states.device_tracker.shield  %}
+        {% if states.device_tracker.shield.state == 'home' %}
+          Online
+        {% elif states.device_tracker.shield.state == 'not_home' %}
+          Offline
+        {% else %}
+          Unknown
+        {% endif %}
+      {% else %}
+      {% endif %}
+      
+  fire_tv:
+    value_template: >
+      {% if states.device_tracker.fire_tv  %}
+        {% if states.device_tracker.fire_tv.state == 'home' %}
+          Online
+        {% elif states.device_tracker.fire_tv.state == 'not_home' %}
+          Offline
+        {% else %}
+          Unknown
+        {% endif %}
+      {% else %}
+      {% endif %}
+      
+  tv_living_room:
+    value_template: >
+      {% if states.device_tracker.tv_living_room  %}
+        {% if states.device_tracker.tv_living_room.state == 'home' %}
+          Online
+        {% elif states.device_tracker.tv_living_room.state == 'not_home' %}
+          Offline
+        {% else %}
+          Unknown
+        {% endif %}
+      {% else %}
+      {% endif %}
+      
+  xbox_one:
+    value_template: >
+      {% if states.device_tracker.xbox_one  %}
+        {% if states.device_tracker.xbox_one.state == 'home' %}
+          Online
+        {% elif states.device_tracker.xbox_one.state == 'not_home' %}
+          Offline
+        {% else %}
+          Unknown
+        {% endif %}
+      {% else %}
+      {% endif %}
+      
+  wii_u:
+    value_template: >
+      {% if states.device_tracker.wii_u  %}
+        {% if states.device_tracker.wii_u.state == 'home' %}
+          Online
+        {% elif states.device_tracker.wii_u.state == 'not_home' %}
+          Offline
+        {% else %}
+          Unknown
+        {% endif %}
+      {% else %}
+      {% endif %}

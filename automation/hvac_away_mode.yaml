@@ -2,11 +2,11 @@
 alias: Thermostat Away Mode
 trigger:
   - platform: state
-    entity_id: group.all_devices
+    entity_id: sensor.occupancy
     from: 'not_home'
     to: 'home'
   - platform: state
-    entity_id: group.all_devices
+    entity_id: sensor.occupancy
     from: 'home'
     to: 'not_home'
   - platform: state

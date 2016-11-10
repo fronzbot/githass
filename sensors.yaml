@@ -13,6 +13,8 @@
 - !include sensors/glances.yaml
 #- !include sensors/xbox.yaml
 - !include sensors/statistics.yaml
+- !include sensors/occupancy.yaml
+- !include sensors/tracking.yaml
 
 # Stats sensors
 - platform: statistics
