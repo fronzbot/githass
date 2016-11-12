@@ -16,7 +16,8 @@ and then run the alias after upgrading homeassistant
 
 In order to work correctly, the patch.ini file must be setup with the following information:
 
-```[Setup]
+```
+[Setup]
 hass: <HA INSTALL DIR>
 
 [filename1.py]
@@ -30,7 +31,8 @@ dir: ...
 ```
 
 ### Example patch.ini
-```[Setup]
+```
+[Setup]
 hass: /home/hass/.homeassistant/
 
 [nmap_tracker.py]
