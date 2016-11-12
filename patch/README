@@ -1,24 +1,17 @@
-#================================
-# Kevin Fronczak
-# November 12, 2016
-# README for ha_patch.py
-#================================
+# ha_patch.py
+## Custom patching utility for homeassistant
 
 This directory contains a python script that will patch certain files to provide
 behavior that I want (and is probably not a good idea to push to everyone)
 
-#================================
-# USAGE
-#================================
+### Usage
 To run, navigate to <homeassistant install directoy>/patch and type
+- sudo python ha_patch.py
+on the commandline.  
 
-  sudo python ha_patch.py
-  
-on the commandline.  It is recommended to add the following to your .bash_aliases file (or whatever you use)
+It is recommended to add the following to your .bash_aliases file (or whatever you use)
 and then run the alias after upgrading homeassistant
-
-  alias ha_patch='sudo python <homeassistant install directory>/patch/ha_patch.py'
-  
+- alias ha_patch='sudo python <homeassistant install directory>/patch/ha_patch.py'
 In order to work correctly, the patch.ini file must be setup with the following information:
 
 [Setup]
@@ -33,7 +26,7 @@ replace: <new text that will replace 'find'>
 dir: ...
 ...
 
-##### EXAMPLE #####
+### Example patch.ini
 [Setup]
 hass: /home/hass/.homeassistant/
 
@@ -43,9 +36,7 @@ find: options = '-F --host-timeout 5s '
 replace: options = '-sS --privileged --host-timeout 5s '
 
 
-#================================
-# What the script does
-#================================
+### What the script does
 The first time this script it run, it will create a directory that contains the original contents
 of each file listed below.  This serve as reference points to determine if it's safe to make a change
 or if it requires more user interaction.  After an upgrade, run the script and it will diff the new file 
