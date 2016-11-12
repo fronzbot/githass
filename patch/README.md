@@ -5,24 +5,24 @@ This directory contains a python script that will patch certain files to provide
 behavior that I want (and is probably not a good idea to push to everyone)
 
 ### Usage
-To run, navigate to <homeassistant install directoy>/patch and type
+To run, navigate to ```<HA INSTALL DIR>/patch``` and type
 ```sudo python ha_patch.py```
 
 on the commandline.  
 
 It is recommended to add the following to your .bash_aliases file (or whatever you use)
 and then run the alias after upgrading homeassistant
-```alias ha_patch='sudo python <homeassistant install directory>/patch/ha_patch.py```
+```alias ha_patch='sudo python <HA INSTALL DIR>/patch/ha_patch.py```
 
 In order to work correctly, the patch.ini file must be setup with the following information:
 
 ```[Setup]
-hass: <homeassistant install directory>
+hass: <HA INSTALL DIR>
 
 [filename1.py]
-dir: <location of file>
-find: <text to replace>
-replace: <new text that will replace 'find'>
+dir: <DIR FOR FILENAME1>
+find: <TEXT TO REPLACE>
+replace: <NEW TEXT>
 
 [filename2.py]
 dir: ...
