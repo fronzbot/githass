@@ -7,32 +7,46 @@ behavior that I want (and is probably not a good idea to push to everyone)
 ### Usage
 To run, navigate to <homeassistant install directoy>/patch and type
 - sudo python ha_patch.py
+
 on the commandline.  
 
 It is recommended to add the following to your .bash_aliases file (or whatever you use)
 and then run the alias after upgrading homeassistant
-- alias ha_patch='sudo python <homeassistant install directory>/patch/ha_patch.py'
+- alias ha_patch='sudo python {homeassistant install directory}/patch/ha_patch.py'
+
 In order to work correctly, the patch.ini file must be setup with the following information:
 
 [Setup]
-hass: <homeassistant install directory>
+
+hass: {homeassistant install directory}
 
 [filename1.py]
-dir: <location of file>
-find: <text to replace>
-replace: <new text that will replace 'find'>
+
+dir: {location of file}
+
+find: {text to replace}
+
+replace: {new text that will replace 'find'}
+
 
 [filename2.py]
+
 dir: ...
+
 ...
 
 ### Example patch.ini
 [Setup]
+
 hass: /home/hass/.homeassistant/
 
+
 [nmap_tracker.py]
+
 dir: /srv/hass/hass_venv/lib/python3.4/site-packages/homeassistant/components/device_tracker/
+
 find: options = '-F --host-timeout 5s '
+
 replace: options = '-sS --privileged --host-timeout 5s '
 
 
