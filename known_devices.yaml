@@ -70,7 +70,7 @@ ecobee:
   
 baratheon:
   name: Baratheon
-  mac: 30:B5:C2:a9:F5:D4
+  mac: 30:B5:C2:19:F5:D4
   picture:
   track: yes
   hide_if_away: no
@@ -156,5 +156,12 @@ androida2c91af244e69dbclan:
   hide_if_away: false
   mac: A0:39:F7:46:9E:7F
   name: android-a2c91af244e69dbc.lan
+  picture:
+  track: false
+
+001861277bd9:
+  hide_if_away: false
+  mac: 00:18:61:27:7B:D9
+  name: 001861277bd9
   picture:
   track: false

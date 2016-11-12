@@ -12,26 +12,52 @@ http:
   api_password: !secret password
   
 # Includes
-device_tracker: !include device_trackers.yaml
-sensor: !include sensors.yaml
 automation: !include automation.yaml
-group: !include groups.yaml
-media_player: !include media.yaml
 camera: !include cameras.yaml
-scene: !include scenes.yaml
-#input_slider: !include input_sliders.yaml
-input_select: !include input_select.yaml
+device_tracker: !include device_trackers.yaml
+group: !include_dir_merge_named groups
 input_boolean: !include input_boolean.yaml
+input_select: !include input_select.yaml
+media_player: !include media.yaml
+scene: !include scenes.yaml
 script: !include scripts.yaml
+sensor: !include sensors.yaml
+switch: !include switch.yaml
 
 # Enables
-logbook:
-#history:
+frontend:
 discovery:
 sun:
-frontend:
 updater:
-  reporting: no
+  reporting: False
+
+# Only include useful stuff in logs
+# Basically, get rid of anything that updates
+# in set intervals
+logbook:
+  exclude:
+    domains: 
+      - sensor
+  include:
+    entities:
+      - sensor.occupancy
+      - sensor.thermo_mode
+      - sensor.thermo_hvac
+      - sensor.thermo_fan
+      - sensor.thermo_current_operation
+      - sensor.thermo_outside_temp
+    
+  
+# No need to clog up log with useless stuff
+logger:
+  default: warn
+  logs:
+    homeassistant.components.sensor: error
+    homeassistant.components.media_player: critical
+
+# For history, want to keep database to manageable size
+# so dump data after 10 days and only track useful
+# information (ie. don't care about light/switch stuff)
 recorder:
   purge_days: 10
 history:
@@ -40,14 +66,16 @@ history:
       - sensor
       - climate
       - device_trackers
-  exclude:
-    entities:
-      - sensor.glances
 
-# Other stuff
+#==========================================
+# Other components (wink, hue, etc)
+#==========================================
 wink:
-  access_token: !secret wink_api
-  #refresh_token: !secret wink_api_refresh
+  #access_token: !secret wink_api
+  email: !secret wink_email
+  password: !secret wink_password
+  client_id: !secret wink_client_id
+  client_secret: !secret wink_client_secret
 
 emulated_hue:
   exposed_domains:
@@ -55,7 +83,8 @@ emulated_hue:
     - group
     - input_boolean
     - scene
- 
+    - switch
+    
 light:
   platform: hue
   host: 192.168.86.191
@@ -63,7 +92,7 @@ light:
 ecobee:
   api_key: !secret ecobee_api
   hold_temp: True
- 
+  
 panel_custom:
   - name: react
     sidebar_title: React
@@ -72,14 +101,5 @@ panel_custom:
     config:
       title: Home
       
-switch:
-  - platform: flux
-    lights:
-      - light.corner
-      - light.couch_left
-      - light.couch_right
-    start_colortemp: 3600
-    stop_colortemp: 2500
-    brightness: 255
-    mode: mired
+
   

@@ -1,0 +1,84 @@
+#===================================================
+# Lights, scenes, and switches that control lights
+#===================================================
+scenes:
+  name: Scenes
+  entities:
+    - scene.christmas
+    - scene.movie_mode
+    - scene.daylight
+    - scene.night
+    - scene.sabres
+  
+couch:
+  name: Couch
+  icon: mdi:theater
+  entities:
+    - light.Couch_Left
+    - light.Couch_Right
+      
+basement:
+  name: Basement
+  icon: mdi:stairs
+  entities:
+    - light.Basement1
+    - light.Basement2
+
+driveway:
+  name: Driveway
+  icon: mdi:car
+  entities:
+    - light.Driveway1
+    - light.Driveway2
+
+lights_living_room:
+  name: Living Room Lights
+  icon: mdi:television
+  entities:
+    - light.Couch_Left
+    - light.Couch_Right
+    - light.Corner
+    
+flux_switch:
+  name: Flux
+  entities:
+    - switch.flux
+
+lights_kitchen:
+  name: Kitchen
+  icon: mdi:fridge
+  entities:
+    - light.kitchen_table
+  
+lights_den:
+  name: Den Lights
+  icon: mdi:desktop-tower
+  entities:
+    - light.Computer
+    - light.Back_Den
+  
+interior:
+  name: Indoor Lights
+  icon: mdi:home
+  entities:
+    - group.lights_living_room
+    - group.lights_den
+    - group.lights_basement
+    - group.lights_kitchen
+    
+exterior:
+  name: Outdoor Lights
+  icon: mdi:white-balance-sunny
+  entities:
+    - group.Driveway
+    - light.Porch
+  
+home_lights:
+  name: Lights
+  entities:
+    - group.lights_living_room
+    - group.lights_kitchen
+    - group.lights_den
+    - group.basement
+    - light.Porch
+    - group.Driveway

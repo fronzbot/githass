@@ -1,0 +1,26 @@
+#===================================================
+# Automations
+#===================================================
+automations_sun:
+  name: Sun/Time Automations
+  entities:
+    - automation.inside_lights_at_night
+    - automation.outdoor_lights_at_sunset
+    - automation.wakeup
+    - automation.outdoor_lights_off
+ 
+automations_presence:
+  name: Presence Automations
+  entities:
+    - automation.away_from_home
+    - automation.home_from_work
+    - automation.not_home
+    - automation.raining
+  
+automations_hvac:
+  name: Thermostat Automations
+  entities:
+    - automation.set_thermostat_on_weather
+    - automation.thermostat_away_mode
+    - automation.thermostat_hvac_update
+    - automation.thermostat_disable_weather_tracking

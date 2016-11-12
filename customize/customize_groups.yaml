@@ -1,151 +1,135 @@
-  
-##################
-# Groups
-################## 
-group.couch:
-  friendly_name: Couch
-  icon: mdi:theater
-  emulated_hue: true
-  emulated_hue_name: "Couch"
+#===================================================
+# Sets the emulated_hue exposure for all groups
+# Note, order is used to manually force location
+# of panels on frontend
+#===================================================
 
-group.lights_kitchen:
-  friendly_name: Kitchen
-  icon: mdi:fridge
-  emulated_hue: true
-  emulated_hue_name: "Kitchen"
-  
-group.flux_switch:
-  friendly_name: Flux
-  
-group.interior:
-  friendly_name: Indoor Lights
-  icon: mdi:home
+#============================  
+# from groups/lights.yaml
+#============================
+group.scenes:
+  order: 1
   emulated_hue: false
   
-group.exterior:
-  friendly_name: Outdoor Lights
-  icon: mdi:white-balance-sunny
+group.couch:
   emulated_hue: true
-  emulated_hue_name: "Outside Lights"
+  emulated_hue_name: "Couch"
+  
+group.basement:
+  emulated_hue: true
+  emulated_hue_name: "Basement"
   
 group.driveway:
-  friendly_name: Driveway
-  icon: mdi:car
   emulated_hue: true
   emulated_hue_name: "Driveway"
   
 group.lights_living_room:
-  friendly_name: Living Room Lights
-  icon: mdi:projector-screen
   emulated_hue: true
   emulated_hue_name: "Living Room"
   
-group.weather_all:
-  friendly_name: Weather
+group.flux_switch:
   emulated_hue: false
-   
+  
+group.lights_kitchen:
+  emulated_hue: true
+  emulated_hue_name: "Kitchen"
+  
 group.lights_den:
-  friendly_name: Den Lights
-  icon: mdi:laptop-chromebook  
   emulated_hue: true
   emulated_hue_name: "Den"
   
-group.basement:
-  friendly_name: Basement
-  icon: mdi:stairs
+group.interior:
+  emulated_hue: false
+    
+group.exterior:
   emulated_hue: true
-  emulated_hue_name: "Basement"
-
-group.family:
-  friendly_name: Family
-  emulated_hue: false
-  
-group.speedtest:
-  friendly_name: Internet
-  icon: mdi:speedometer
-  emulated_hue: false
-  
-group.weather_gist:
-  friendly_name: Weather
-  icon: mdi:weather-partlycloudy
-  emulated_hue: false
-  
-group.living_room_climate:
-  friendly_name: Living Room Climate
-  emulated_hue: false
-  
-group.bedroom_climate:
-  friendly_name: Bedroom Climate
-  emulated_hue: false
-
-group.thermostat_info:
-  friendly_name: Thermostat
-  emulated_hue: false
-
-group.temperatures:
-  friendly_name: Indoor Climate
-  emulated_hue: false
-  
-group.temp_gist:
-  friendly_name: Climate Summary
-  emulated_hue: false
+  emulated_hue_name: "Outside Lights"
   
 group.home_lights:
-  friendly_name: Lights
+  order: 1
   emulated_hue: false
 
-group.all_media:
-  friendly_name: Media
-  icon: mdi:music-circle
-  emulated_hue: false
-
-group.thermo_gist:
-  friendly_name: Climate Summary
-  emulated_hue: false
-  
-group.rasp_pi_monitor:
-  friendly_name: Raspberry Pi Monitor
-  emulated_hue: false
-  
-group.living_room_stats:
-  friendly_name: Living Room Stats
-  emulated_hue: false
-  
-group.bedroom_stats:
-  friendly_name: Bedroom Stats
-  emulated_hue: false
-  
-group.download_stats:
-  friendly_name: Download Stats
-  emulated_hue: false
-  
-group.upload_stats:
-  friendly_name: Upload Stats
-  emulated_hue: false
-  
-group.automations_sun:
-  friendly_name: Sun/Time Automations
-  emulated_hue: false
- 
-group.automations_presence:
-  friendly_name: Presence Automations
-  emulated_hue: false
-  
-group.automations_hvac:
-  friendly_name: Thermostat Automations
-  emulated_hue: false
-  
+#============================  
+# from groups/devices.yaml
+#============================  
 group.kevin:
+  order: 1
+  emulated_hue: false
+    
+group.allegra:
+  order: 2
   emulated_hue: false
   
-group.allegra:
+group.all_media:
   emulated_hue: false
   
 group.tracking:
-  friendly_name: Device Status
   emulated_hue: false
   
+#============================  
+# from groups/climate.yaml
+#============================  
+group.living_room_climate:
+  order: 3
+  emulated_hue: false
+
+group.bedroom_climate:
+  order: 4
+  emulated_hue: false
+
+group.temperatures:
+  emulated_hue: false
+    
+group.thermostat_info:
+  emulated_hue: false
+
+group.temp_gist:
+  order: 2
+  emulated_hue: false
+
+#============================  
+# from groups/sensors.yaml
+#============================  
+group.speedtest:
+  emulated_hue: false
+  
+group.weather_gist:
+  order: 3
+  emulated_hue: false
+
+group.weather_all:
+  emulated_hue: false
+  
+group.rasp_pi_monitor:
+  emulated_hue: false
+  
+group.living_room_stats:
+  emulated_hue: false
+  
+group.bedroom_stats:
+  emulated_hue: false
+  
+group.download_stats:
+  emulated_hue: false
+  
+group.upload_stats:
+  emulated_hue: false
+
+#============================  
+# from groups/automations.yaml
+#============================ 
+group.automations_sun:
+  emulated_hue: false
+ 
+group.automations_presence:
+  emulated_hue: false
+  
+group.automations_hvac:
+  emulated_hue: false  
+  
+#============================  
 # 'ALL' GROUPS  
+#============================
 group.all_automations:
   emulated_hue: false
   
@@ -162,6 +146,7 @@ group.all_devices:
   emulated_hue: false
 
 group.all_lights:
+  emulated_hue: true
   emulated_hue_name: "All Lights"
   
 group.all_covers:

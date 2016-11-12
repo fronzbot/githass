@@ -2,6 +2,10 @@
 ##################
 # Thermostat
 ################## 
+climate.living_room:
+  friendly_name: Ecobee
+  icon: mdi:nest-thermostat
+  
 sensor.living_room_temperature:
   friendly_name: Living Room Temperature
   icon: mdi:thermometer
