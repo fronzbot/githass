@@ -26,7 +26,8 @@ replace: <NEW TEXT>
 
 [filename2.py]
 dir: ...
-...```
+...
+```
 
 ### Example patch.ini
 ```[Setup]
