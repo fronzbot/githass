@@ -38,10 +38,10 @@ tracking:
     - sensor.ecobee
     - sensor.hue_hub
     - sensor.winkhub
-    - sensor.blink_camera
     - sensor.tablo
     - sensor.shield
     - sensor.fire_tv
     - sensor.tv_living_room
     - sensor.xbox_one
     - sensor.wii_u
+    - sensor.blink_camera

@@ -50,7 +50,7 @@ tab_weather:
 tab_statistics:
   name: Statistics
   view: yes
-  icon: mdi:chart-line
+  icon: mdi:pulse
   entities:
     - group.living_room_stats
     - group.bedroom_stats

@@ -98,10 +98,10 @@ class NmapDeviceScanner(object):
         Returns boolean if scanning successful.
         """
         _LOGGER.info("Scanning...")
-
+               
         from nmap import PortScanner, PortScannerError
         scanner = PortScanner()
-
+        
         options = '-F --host-timeout 5s '
 
         if self.home_interval:

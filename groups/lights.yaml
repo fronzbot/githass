@@ -12,7 +12,7 @@ scenes:
   
 couch:
   name: Couch
-  icon: mdi:theater
+  icon: mdi:sofa
   entities:
     - light.Couch_Left
     - light.Couch_Right
@@ -33,7 +33,7 @@ driveway:
 
 lights_living_room:
   name: Living Room Lights
-  icon: mdi:television
+  icon: mdi:sofa
   entities:
     - light.Couch_Left
     - light.Couch_Right

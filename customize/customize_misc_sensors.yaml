@@ -15,11 +15,11 @@ sensor.speedtest_ping:
   
 sensor.baratheon:
   friendly_name: Baratheon
-  icon: mdi:desktop-tower
+  icon: mdi:windows
 
 sensor.google_home:
   friendly_name: Google Home
-  icon: mdi:google
+  icon: mdi:assistant
 
 sensor.echo:
   friendly_name: Amazon Echo
@@ -31,27 +31,27 @@ sensor.ecobee:
   
 sensor.hue_hub:
   friendly_name: Phillips Hue Hub
-  icon: mdi:lightbulb
+  icon: mdi:router-wireless
   
 sensor.winkhub:
   friendly_name: Wink Hub
-  icon: mdi:lightbulb
+  icon: mdi:router-wireless
+  
+sensor.tablo:
+  friendly_name: Tablo
+  icon: mdi:router-wireless
   
 sensor.blink_camera:
   friendly_name: Blink Camera
-  icon: mdi:nest-protect
-
-sensor.tablo:
-  friendly_name: Tablo
-  icon: mdi:radio-tower
+  icon: mdi:camera
   
 sensor.shield:
   friendly_name: NVidia Shield TV
-  icon: mdi:television
+  icon: mdi:television-guide
   
 sensor.fire_tv:
   friendly_name: Fire TV
-  icon: mdi:television
+  icon: mdi:television-guide
 
 sensor.tv_living_room:
   friendly_name: Living Room TV
@@ -59,8 +59,8 @@ sensor.tv_living_room:
   
 sensor.xbox_one:
   friendly_name: XBox One
-  icon: mdi:xbox
+  icon: mdi:google-controller
 
 sensor.wii_u:
   friendly_name: Wii U
-  icon: mdi:wii
+  icon: mdi:gamepad-variant
