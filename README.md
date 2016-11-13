@@ -7,10 +7,10 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - NMAP Device Tracking
 - Ecobee3 Thermostat + 1 Remote Sensor
 - Phillips Hue Hub
-  -  3 2nd Gen Color Ambience Bulbs
+  -  3x 2nd Gen Color Ambience Bulbs
 - Wink Hub
-  -  3 Cree Connected Bulbs (Zigbee) [Only 1 connected right now]
-  -  7 GE Link Bulbs (Zigbee)
+  -  3x Cree Connected Bulbs (Zigbee) [Only 1 connected right now]
+  -  7x GE Link Bulbs (Zigbee)
 - NVIDIA Shield TV
 - PLEX Server
 - Emulated Hue (for Amazon Echo and future Google Home support)
@@ -21,8 +21,8 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 
 ###Notes:
 1. I use secrets.yaml to hide sensitive information (like API keys)
-2. Currently, Home Assistant has ZERO local control over devices (Wink talks to cloud, Ecobee talks to cloud).  My goal is to force everything to be local so if the interenet goes out, my home will still be automated.
-  * This implies either a custom zigbee implementation to control lights or a local-only zigbee hub like Phillips Hue.  The downside being that I'd ALSO need to get a zwave radio to interface with future zwave components.  Another option would be to root the wink hub to force local-only control.
+2. Currently, Home Assistant has local control over on Hue devices (Wink talks to cloud, Ecobee talks to cloud).  My goal is to force everything to be local so if the interenet goes out, my home will still be automated.
+  * Most likely I'll just slowly phase out Wink and get a zwave stick for future ZWAVE components.  I'll have to just live with the ecobee cloud-only BS for now...
  
 ###Future Improvements:
 - ~~Automation override switches~~ (added 8/21/2016)
@@ -43,7 +43,7 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
   
 Current setup cost estimate: $660 
 
-(Images last updated 11/06/2016, may not reflect current configuration)
+(Images last updated 11/13/2016, may not reflect current configuration)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_home_page.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_media.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_media2.png)
