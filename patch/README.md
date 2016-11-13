@@ -7,7 +7,6 @@ behavior that I want (and is probably not a good idea to push to everyone)
 ### Usage
 To run, navigate to ```<HA INSTALL DIR>/patch``` and type
 ```sudo python ha_patch.py```
-
 on the commandline.  
 
 It is recommended to add the following to your .bash_aliases file (or whatever you use)
@@ -42,13 +41,14 @@ replace: options = '-sS --privileged --host-timeout 5s '
 ```
 
 ### What the script does
-The first time this script it run, it will create a directory that contains the original contents
-of each file listed below.  This serve as reference points to determine if it's safe to make a change
-or if it requires more user interaction.  After an upgrade, run the script and it will diff the new file 
-with the saved copy to determine any differences.  If there are none, it will peform the action described below.
-If there ARE differences, the script will notify the user and display the differences (and also write
-them to a log file).  The user can either then continue with the action described below, or postpone
-it to rectify the differences and determine if any changes need to be made by the action.  In either
-case, the new file will be copied over and used as the new reference file.
+The first time this script is run, it will create a directory that contains the original contents
+of each python file in the patch.ini configuration file.  This serves as reference points to determine if 
+it's safe to make a change or if it requires more user interaction.  After an upgrade, run the script and it 
+will diff the new file with the saved copy to determine any differences.  If there are none, it will peform 
+the find and replace indicated in the patch.ini file.  If there ARE differences, the script will notify the 
+user and display the differences.  The user can either then continue with the find/replace action, or postpone
+it to rectify the differences and determine if any changes need to be made.  The new file is only copied over
+if changes are accepted (and the file is copied BEFORE changes are made in order to serve as a fresh reference 
+point for future homeassistant versions)
 
 
