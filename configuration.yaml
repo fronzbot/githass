@@ -101,5 +101,8 @@ panel_custom:
     config:
       title: Home
       
-
+notify:
+  - name: notify
+    platform: pushbullet
+    api_key: !secret pushbullet_api
   

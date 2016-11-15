@@ -1,0 +1,25 @@
+# Turn on lights if we're not home and it's dark out
+alias: Not Home
+trigger:
+  - platform: sun
+    event: sunset
+    offset: '-00:15:00'
+  - platform: state
+    entity_id: sensor.occupancy
+    to: 'not_home'
+condition:
+  condition: and
+  conditions:
+    - condition: time
+      after: '16:00:00'
+      before: '22:00:00'
+    - condition: state
+      entity_id: sensor.occupancy
+      state: 'not_home'
+    - condition: state
+      entity_id: input_boolean.device_tracking_override
+      state: 'off'
+action:
+  service: light.turn_on
+  entity_id: group.couch
+
