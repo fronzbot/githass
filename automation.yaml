@@ -1,3 +1,6 @@
+# Startup Based
+- !include automation/flux_at_start.yaml
+
 # Time/Sun Based (Timers)
 - !include automation/sunset.yaml
 - !include automation/outside_off.yaml

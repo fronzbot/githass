@@ -25,7 +25,7 @@ google_home:
   picture:
   track: yes
   hide_if_away: no
-  consider_home: 120
+  consider_home: 300
 
 hue_hub:
   hide_if_away: false
@@ -33,7 +33,7 @@ hue_hub:
   name: Phillips Hue
   picture:
   track: true
-  consider_home: 120
+  consider_home: 300
   
 echo:
   hide_if_away: false
@@ -41,7 +41,7 @@ echo:
   name: Amazon Echo
   picture:
   track: true
-  consider_home: 120
+  consider_home: 300
 
 fire_tv:
   name: Fire TV
@@ -56,7 +56,7 @@ tablo:
   picture: 
   track: yes
   hide_if_away: no
-  consider_home: 120
+  consider_home: 300
   
 xbox_one:
   name: Xbox One
@@ -71,7 +71,7 @@ ecobee:
   picture: 
   track: yes
   hide_if_away: no
-  consider_home: 120
+  consider_home: 300
   
 baratheon:
   name: Baratheon
@@ -93,7 +93,7 @@ winkhub:
   picture: 
   track: yes
   hide_if_away: no
-  consider_home: 120
+  consider_home: 300
 
 blink_camera:
   name: Blink
