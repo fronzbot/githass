@@ -35,9 +35,22 @@ def main():
     #-------------------------------------
   for file in filenames:
     # Create full path names
-    dir         = ConfigSectionMap(file)['dir']
-    find        = ConfigSectionMap(file)['find']
-    replace     = ConfigSectionMap(file)['replace']
+    dir       = ConfigSectionMap(file)['dir']
+    
+    if 'find' in ConfigSectionMap(file):
+      find    = ConfigSectionMap(file)['find']
+    else:
+      find    = None
+      
+    if 'replace' in ConfigSectionMap(file):
+      replace = ConfigSectionMap(file)['replace']
+    else:
+      replace = None
+      
+    if 'file' in ConfigSectionMap(file): 
+      newFile = ConfigSectionMap("Setup")['hass'] + ConfigSectionMap(file)['file']
+    else:
+      newFile = None
     
     source_file = dir   + file
     ref_file    = hadir + file
@@ -66,21 +79,25 @@ def main():
       
     if(choice):
       shutil.copy(source_file, ref_file)
-      perform_patch(file, dir, find, replace)
+      perform_patch(file, dir, find, replace, newFile)
     else:
       print('Exited without patching\n')
     
-def perform_patch(file, dir, find, replace):
+def perform_patch(file, dir, find, replace, newFile):
   src = dir + file
-  f = open(src, 'r')
-  filedata = f.read()
-  f.close()
-
-  newdata = filedata.replace(find, replace)
-
-  f = open(src,'w')
-  f.write(newdata)
-  f.close()
+  
+  if newFile:
+    shutil.copy(newFile, src)
+  else:
+    f = open(src, 'r')
+    filedata = f.read()
+    f.close()
+  
+    newdata = filedata.replace(find, replace)
+  
+    f = open(src,'w')
+    f.write(newdata)
+    f.close()
   print(file + ' patched!')
 
 def ConfigSectionMap(section):

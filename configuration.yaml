@@ -50,10 +50,10 @@ logbook:
   
 # No need to clog up log with useless stuff
 logger:
-  default: warn
-  logs:
-    homeassistant.components.sensor: error
-    homeassistant.components.media_player: critical
+  #default: warn
+  #logs:
+  #  homeassistant.components.sensor: error
+  #  homeassistant.components.media_player: critical
 
 # For history, want to keep database to manageable size
 # so dump data after 10 days and only track useful
