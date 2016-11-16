@@ -1,6 +1,8 @@
 """
 Flux for Home-Assistant.
+
 The idea was taken from https://github.com/KpaBap/hue-flux/
+
 For more details about this component, please refer to the documentation at
 https://home-assistant.io/components/switch.flux/
 """
@@ -135,7 +137,7 @@ class FluxSwitch(SwitchDevice):
         self._state = True
         self.unsub_tracker = track_utc_time_change(self.hass, self.flux_update,
                                                    second=[0, 30])
-        self.shedule_update_ha_state()
+        self.update_ha_state()
 
     def turn_off(self, **kwargs):
         """Turn off flux."""
@@ -144,7 +146,7 @@ class FluxSwitch(SwitchDevice):
             self.unsub_tracker = None
 
         self._state = False
-        self.shedule_update_ha_state()
+        self.update_ha_state()
 
     def flux_update(self, now=None):
         """Update all the lights using flux."""
@@ -152,6 +154,10 @@ class FluxSwitch(SwitchDevice):
             now = as_local(dt_now())
         else:
             now = as_local(now)
+        
+        sunrise = next_rising(self.hass, SUN).replace(day=now.day,
+                                                          month=now.month,
+                                                          year=now.year)
         sunset = next_setting(self.hass, SUN).replace(day=now.day,
                                                       month=now.month,
                                                       year=now.year)
@@ -160,35 +166,35 @@ class FluxSwitch(SwitchDevice):
                                 minute=self._stop_time.minute,
                                 second=0)
 
-        if start_time < now < sunset:
+        if sunrise < now < start_time:
             # Daytime
             time_state = 'day'
-            temp_range = abs(self._start_colortemp - self._sunset_colortemp)
+            temp = self._start_colortemp
+            percentage_complete = 1
+        elif start_time <= now < sunset:
+            # Daytime transition
+            time_state = 'day transition'
+            temp_range = self._start_colortemp - self._sunset_colortemp
             day_length = int(sunset.timestamp() - start_time.timestamp())
             seconds_from_start = int(now.timestamp() - start_time.timestamp())
             percentage_complete = seconds_from_start / day_length
             temp_offset = temp_range * percentage_complete
-            if self._start_colortemp > self._sunset_colortemp:
-                temp = self._start_colortemp - temp_offset
-            else:
-                temp = self._start_colortemp + temp_offset
-        else:
-            # Nightime
-            time_state = 'night'
-            if now < stop_time and now > start_time:
-                now_time = now
-            else:
-                now_time = stop_time
-            temp_range = abs(self._sunset_colortemp - self._stop_colortemp)
+            temp = self._start_colortemp + temp_offset
+        elif sunset <= now < stop_time:
+            # Nighttime transition
+            time_state = 'night transition'
+            temp_range = self._sunset_colortemp - self._stop_colortemp
             night_length = int(stop_time.timestamp() - sunset.timestamp())
-            seconds_from_sunset = int(now_time.timestamp() -
-                                      sunset.timestamp())
+            seconds_from_sunset = int(now.timestamp() - sunset.timestamp())
             percentage_complete = seconds_from_sunset / night_length
             temp_offset = temp_range * percentage_complete
-            if self._sunset_colortemp > self._stop_colortemp:
-                temp = self._sunset_colortemp - temp_offset
-            else:
-                temp = self._sunset_colortemp + temp_offset
+            temp = self._sunset_colortemp + temp_offset
+        else:
+            # Nighttime
+            time_state = 'night'
+            temp = self._stop_colortemp
+            percentage_complete = 1
+        
         x_val, y_val, b_val = color_RGB_to_xy(*color_temperature_to_rgb(temp))
         brightness = self._brightness if self._brightness else b_val
         if self._mode == MODE_XY:
@@ -205,7 +211,7 @@ class FluxSwitch(SwitchDevice):
             mired = max(HASS_COLOR_MIN, min(mired, HASS_COLOR_MAX))
             set_lights_temp(self.hass, self._lights, mired, brightness)
             _LOGGER.info("Lights updated to mired:%s brightness:%s, %s%%"
-                         " of %s cycle complete at %s", mired, brightness,
+                         " of %s cycle complete at %s",mired, brightness,
                          round(percentage_complete * 100),
                          time_state, as_local(now))
 
