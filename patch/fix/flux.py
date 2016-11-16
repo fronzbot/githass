@@ -7,6 +7,7 @@ For more details about this component, please refer to the documentation at
 https://home-assistant.io/components/switch.flux/
 """
 from datetime import time
+from datetime import timedelta
 import logging
 import voluptuous as vol
 
@@ -29,6 +30,7 @@ _LOGGER = logging.getLogger(__name__)
 CONF_LIGHTS = 'lights'
 CONF_START_TIME = 'start_time'
 CONF_STOP_TIME = 'stop_time'
+CONF_SUNSET_OFFSET = 'sunset_offset'
 CONF_START_CT = 'start_colortemp'
 CONF_SUNSET_CT = 'sunset_colortemp'
 CONF_STOP_CT = 'stop_colortemp'
@@ -45,6 +47,8 @@ PLATFORM_SCHEMA = vol.Schema({
     vol.Optional(CONF_NAME, default="Flux"): cv.string,
     vol.Optional(CONF_START_TIME): cv.time,
     vol.Optional(CONF_STOP_TIME, default=time(22, 0)): cv.time,
+    vol.Optional(CONF_SUNSET_OFFSET): 
+        vol.All(vol.Coerce(int), vol.Range(min=0, max=720)),
     vol.Optional(CONF_START_CT, default=4000):
         vol.All(vol.Coerce(int), vol.Range(min=1000, max=40000)),
     vol.Optional(CONF_SUNSET_CT, default=3000):
@@ -85,12 +89,13 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     lights = config.get(CONF_LIGHTS)
     start_time = config.get(CONF_START_TIME)
     stop_time = config.get(CONF_STOP_TIME)
+    sunset_offset = config.get(CONF_SUNSET_OFFSET)
     start_colortemp = config.get(CONF_START_CT)
     sunset_colortemp = config.get(CONF_SUNSET_CT)
     stop_colortemp = config.get(CONF_STOP_CT)
     brightness = config.get(CONF_BRIGHTNESS)
     mode = config.get(CONF_MODE)
-    flux = FluxSwitch(name, hass, False, lights, start_time, stop_time,
+    flux = FluxSwitch(name, hass, False, lights, start_time, stop_time, sunset_offset,
                       start_colortemp, sunset_colortemp, stop_colortemp,
                       brightness, mode)
     add_devices([flux])
@@ -105,7 +110,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 class FluxSwitch(SwitchDevice):
     """Representation of a Flux switch."""
 
-    def __init__(self, name, hass, state, lights, start_time, stop_time,
+    def __init__(self, name, hass, state, lights, start_time, stop_time, sunset_offset,
                  start_colortemp, sunset_colortemp, stop_colortemp,
                  brightness, mode):
         """Initialize the Flux switch."""
@@ -115,6 +120,7 @@ class FluxSwitch(SwitchDevice):
         self._lights = lights
         self._start_time = start_time
         self._stop_time = stop_time
+        self._sunset_offset = sunset_offset
         self._start_colortemp = start_colortemp
         self._sunset_colortemp = sunset_colortemp
         self._stop_colortemp = stop_colortemp
@@ -165,7 +171,12 @@ class FluxSwitch(SwitchDevice):
         stop_time = now.replace(hour=self._stop_time.hour,
                                 minute=self._stop_time.minute,
                                 second=0)
-
+        if self._sunset_offset is not None:
+          start_time = sunset - timedelta(minutes=self._sunset_offset)
+          stop_time = sunset + timedelta(minutes=self._sunset_offset)
+        
+        _LOGGER.info("Sunset offset = %s", self._sunset_offset)
+        _LOGGER.info("Start time = %s, Sunset = %s, Stop time = %s", start_time, sunset, stop_time)
         if sunrise < now < start_time:
             # Daytime
             time_state = 'day'
@@ -174,7 +185,7 @@ class FluxSwitch(SwitchDevice):
         elif start_time <= now < sunset:
             # Daytime transition
             time_state = 'day transition'
-            temp_range = self._start_colortemp - self._sunset_colortemp
+            temp_range = self._sunset_colortemp - self._start_colortemp
             day_length = int(sunset.timestamp() - start_time.timestamp())
             seconds_from_start = int(now.timestamp() - start_time.timestamp())
             percentage_complete = seconds_from_start / day_length
@@ -183,7 +194,7 @@ class FluxSwitch(SwitchDevice):
         elif sunset <= now < stop_time:
             # Nighttime transition
             time_state = 'night transition'
-            temp_range = self._sunset_colortemp - self._stop_colortemp
+            temp_range = self._stop_colortemp - self._sunset_colortemp
             night_length = int(stop_time.timestamp() - sunset.timestamp())
             seconds_from_sunset = int(now.timestamp() - sunset.timestamp())
             percentage_complete = seconds_from_sunset / night_length
