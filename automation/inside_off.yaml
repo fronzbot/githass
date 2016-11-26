@@ -3,7 +3,7 @@
 alias: Inside Lights at Night
 trigger:
   - platform: time
-    after: '00:12:00'
+    after: '00:12:03'
     
 action:
   service: light.turn_off

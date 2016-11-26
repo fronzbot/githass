@@ -171,3 +171,10 @@ androida2c91af244e69dbclan:
   name: 001861277bd9
   picture:
   track: false
+
+arrynlan:
+  hide_if_away: false
+  mac: 74:2F:68:1F:85:37
+  name: Arryn.lan
+  picture:
+  track: false

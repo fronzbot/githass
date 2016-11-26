@@ -1,12 +1,6 @@
 ##################
 # Lights
 ##################
-switch.flux:
-  friendly_name: Flux
-  emulated_hue: true
-  emulated_hue_name: "Flux"
-  icon: mdi:google-circles-extended
-
 light.Couch_Left:
   friendly_name: Couch Left
   emulated_hue: true
@@ -64,3 +58,13 @@ light.kitchen_table:
   icon: mdi:food-apple
   emulated_hue: true
   emulated_hue_name: "Table"
+  
+switch.outside_switch_p_switch_2_0:
+  friendly_name: Outside Porch Outlet
+  icon: mdi:power-plug
+  emulated_hue: false
+  
+switch.outside_switch_d_switch_3_0:
+  friendly_name: Outside Driveway Outlet
+  icon: mdi:power-plug
+  emulated_hue: false

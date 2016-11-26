@@ -8,6 +8,7 @@ automations_sun:
     - automation.outdoor_lights_at_sunset
     - automation.wakeup
     - automation.outdoor_lights_off
+    - automation.holiday_lights
  
 automations_presence:
   name: Presence Automations

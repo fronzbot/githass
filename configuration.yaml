@@ -22,7 +22,7 @@ media_player: !include media.yaml
 scene: !include scenes.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
-switch: !include switch.yaml
+#switch: !include switch.yaml
 
 # Enables
 frontend:
@@ -35,38 +35,39 @@ updater:
 # Basically, get rid of anything that updates
 # in set intervals
 logbook:
-  exclude:
-    domains: 
-      - sensor
-  include:
-    entities:
-      - sensor.occupancy
-      - sensor.thermo_mode
-      - sensor.thermo_hvac
-      - sensor.thermo_fan
-      - sensor.thermo_current_operation
-      - sensor.thermo_outside_temp
+#  exclude:
+#    domains: 
+#      - sensor
+#  include:
+#    entities:
+#      - sensor.occupancy
+#      - sensor.thermo_mode
+#      - sensor.thermo_hvac
+#      - sensor.thermo_fan
+#      - sensor.thermo_current_operation
+#      - sensor.thermo_outside_temp
     
   
 # No need to clog up log with useless stuff
 logger:
-  #default: warn
-  #logs:
-  #  homeassistant.components.sensor: error
-  #  homeassistant.components.media_player: critical
+  default: warn
+  logs:
+    homeassistant.components.sensor: warning
+    homeassistant.components.media_player: critical
+#    homeassistant.components.light: info
+#    homeassistant.components.emulated_hue: info
 
 # For history, want to keep database to manageable size
-# so dump data after 10 days and only track useful
+# so dump data after 6 days and only track useful
 # information (ie. don't care about light/switch stuff)
 recorder:
-  purge_days: 10
+  purge_days: 6
 history:
   include:
     domains:
       - sensor
       - climate
       - device_trackers
-
 #==========================================
 # Other components (wink, hue, etc)
 #==========================================
@@ -77,21 +78,25 @@ wink:
   client_id: !secret wink_client_id
   client_secret: !secret wink_client_secret
 
+light:
+  platform: hue
+  host: 192.168.86.191
+  allow_unreachable: true
+  
 emulated_hue:
+  host_ip: 192.168.86.89
   exposed_domains:
     - light
     - group
     - input_boolean
     - scene
-    - switch
-    
-light:
-  platform: hue
-  host: 192.168.86.191
- 
+
 ecobee:
   api_key: !secret ecobee_api
   hold_temp: True
+
+zwave:
+  usb_path: /dev/ttyACM0
   
 panel_custom:
   - name: react

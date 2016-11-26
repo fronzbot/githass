@@ -48,6 +48,10 @@ group.exterior:
 group.home_lights:
   order: 1
   emulated_hue: false
+  
+group.outdoor_switches:
+  emulated_hue: true
+  emulated_hue_name: "Holiday Lights"
 
 #============================  
 # from groups/devices.yaml

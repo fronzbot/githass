@@ -8,6 +8,8 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - Ecobee3 Thermostat + 1 Remote Sensor
 - Phillips Hue Hub
   -  3x 2nd Gen Color Ambience Bulbs
+- Aeotec Z-wave Stick
+  -  2x GE Z-wave Switches
 - Wink Hub
   -  3x Cree Connected Bulbs (Zigbee) [Only 1 connected right now]
   -  7x GE Link Bulbs (Zigbee)
@@ -21,8 +23,8 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 
 ###Notes:
 1. I use secrets.yaml to hide sensitive information (like API keys)
-2. Currently, Home Assistant has local control over on Hue devices (Wink talks to cloud, Ecobee talks to cloud).  My goal is to force everything to be local so if the interenet goes out, my home will still be automated.
-  * Most likely I'll just slowly phase out Wink and get a zwave stick for future ZWAVE components.  I'll have to just live with the ecobee cloud-only BS for now...
+2. Currently, Home Assistant has local control over only Hue and Z-wave devices (Wink talks to cloud, Ecobee talks to cloud).  My goal is to force everything to be local so if the interenet goes out, my home will still be automated.
+  * Most likely I'll just slowly phase out Wink and ~~get a zwave stick for future ZWAVE components~~.  I'll have to just live with the ecobee cloud-only BS for now...
  
 ###Future Improvements:
 - ~~Automation override switches~~ (added 8/21/2016)
@@ -32,7 +34,7 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - ~~Vacation Modes~~ (Covered by existing automations)
 - Full local control
 - More components:
-  - Z-wave stick (for future Wink removal)
+  - ~~Z-wave stick (for future Wink removal)~~ (added 11/25/2016)
   - Home weather station (to replace forecast.io)
   - Lights/switches
   - Door/window sensors
@@ -41,9 +43,9 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
   - [Washer/dryer status](https://home-assistant.io/blog/2016/08/03/laundry-automation-update/) (custom sensor, probably)
   - Dishwasher status (custom sensor, probably)
   
-Current setup cost estimate: $660 
+Current setup cost estimate: $770 
 
-(Images last updated 11/13/2016, may not reflect current configuration)
+(Images last updated 11/25/2016, may not reflect current configuration)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_home_page.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_media.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_media2.png)

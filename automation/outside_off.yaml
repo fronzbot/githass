@@ -3,7 +3,9 @@
 alias: Outdoor Lights Off
 trigger:
   - platform: time
-    after: '00:40:00'
+    after: '00:40:07'
 action:
-  service: light.turn_off
-  entity_id: group.exterior
+  - service: light.turn_off
+    entity_id: group.exterior
+  - service: switch.turn_off
+    entity_id: group.outdoor_switches

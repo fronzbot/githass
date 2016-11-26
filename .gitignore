@@ -7,3 +7,6 @@
 /secrets.yaml
 /deps/
 /*/secrets.yaml
+/*.txt
+/*.xml
+/*.sqlite

@@ -1,0 +1,9 @@
+# Turn on holiday lights at sunset
+alias: Holiday Lights
+trigger:
+  - platform: sun
+    event: sunset
+    offset: '+00:15:00'
+action:
+  - service: switch.turn_on
+    entity_id: group.outdoor_switches

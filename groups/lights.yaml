@@ -38,11 +38,6 @@ lights_living_room:
     - light.Couch_Left
     - light.Couch_Right
     - light.Corner
-    
-flux_switch:
-  name: Flux
-  entities:
-    - switch.flux
 
 lights_kitchen:
   name: Kitchen
@@ -82,3 +77,11 @@ home_lights:
     - group.basement
     - light.Porch
     - group.Driveway
+    - group.outdoor_switches
+    
+outdoor_switches:
+  name: Outside Plugs
+  icon: mdi:power-plug
+  entities:
+    - switch.outside_switch_p_switch_2_0
+    - switch.outside_switch_d_switch_3_0

@@ -3,8 +3,6 @@
 # http://www.developers.meethue.com/documentation/hue-xy-values
 name: Christmas
 entities:
-  switch.flux:
-    state: off
   light.couch_left:
     state: on
     xy_color: [0.1972,0.6781]
