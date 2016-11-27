@@ -1,6 +1,12 @@
 #===================================================
 # Lights, scenes, and switches that control lights
 #===================================================
+flux_switch:
+  name: Flux
+  icon: mdi:theme-light-dark
+  entities: 
+    - input_boolean.flux
+
 scenes:
   name: Scenes
   entities:

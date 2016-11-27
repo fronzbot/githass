@@ -1,6 +1,8 @@
 # Turn on lights at a reduced brightness
 name: Not Home At Night
 entities:
+  input_boolean.flux:
+    state: off
   light.couch_left:
     state: on
     transition: 2

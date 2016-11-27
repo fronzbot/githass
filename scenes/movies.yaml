@@ -3,6 +3,8 @@
 # http://www.developers.meethue.com/documentation/hue-xy-values
 name: Movie Mode
 entities:
+  input_boolean.flux:
+    state: off
   light.couch_left:
     state: on
     color_temp: 500

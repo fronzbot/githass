@@ -18,3 +18,7 @@ force_hvac_trigger:
 debug:
   name: Debugger
   initial: off
+  
+flux:
+  name: Flux
+  initial: on

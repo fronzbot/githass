@@ -2,6 +2,8 @@
 # http://www.developers.meethue.com/documentation/hue-xy-values
 name: Sabres
 entities:
+  input_boolean.flux:
+    state: off
   light.couch_left:
     state: on
     xy_color: [0.4871, 0.4681]

@@ -23,3 +23,9 @@ input_boolean.force_hvac_trigger:
 input_boolean.debug:
   icon: mdi:bug
   emulated_hue: false
+  
+input_boolean.flux:
+  group: 2
+  icon: mdi:theme-light-dark
+  emulated_hue: true
+  emulated_hue_name: "Flux"
