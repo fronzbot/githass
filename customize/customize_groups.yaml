@@ -24,17 +24,21 @@ group.driveway:
   emulated_hue_name: "Driveway"
   
 group.lights_living_room:
+  order: 1
   emulated_hue: true
   emulated_hue_name: "Living Room"
   
 group.flux_switch:
+  order: 2
   emulated_hue: false
   
 group.lights_kitchen:
+  order: 3
   emulated_hue: true
   emulated_hue_name: "Kitchen"
   
 group.lights_den:
+  order: 4
   emulated_hue: true
   emulated_hue_name: "Den"
   

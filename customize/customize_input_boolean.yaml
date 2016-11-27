@@ -25,7 +25,6 @@ input_boolean.debug:
   emulated_hue: false
   
 input_boolean.flux:
-  group: 2
   icon: mdi:theme-light-dark
   emulated_hue: true
   emulated_hue_name: "Flux"
