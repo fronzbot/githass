@@ -28,3 +28,7 @@ input_boolean.flux:
   icon: mdi:theme-light-dark
   emulated_hue: true
   emulated_hue_name: "Flux"
+  
+input_boolean.christmas_lights:
+  icon: mdi:gift
+  emulated_hue: false

@@ -3,7 +3,20 @@ alias: Holiday Lights
 trigger:
   - platform: sun
     event: sunset
-    offset: '+00:15:00'
+    offset: '+00:15:10'
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: 'input_boolean.christmas_lights'
+      state: 'on'
 action:
   - service: switch.turn_on
     entity_id: group.outdoor_switches
+  - service: light.turn_off
+    entity_id: group.driveway
+  - service: light.turn_on
+    entity_id: light.porch
+    data:
+      brightness: 278
+      xy_color: [0.1972,0.6781]

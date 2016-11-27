@@ -16,3 +16,7 @@ entities:
     state: on
     color_temp: 278
     brightness: 278
+  light.kitchen_table:
+    state: on
+    color_temp: 278
+    brightness: 278

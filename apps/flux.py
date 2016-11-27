@@ -52,7 +52,7 @@ class Flux(appapi.AppDaemon):
     
 
   def update_on_change(self, entity, attribute, old, new, kwargs):
-    if self.get_state(entity) == "on":
+    if self.get_state(entity) == "on" and old == "off":
       #self.log(entity + " just turned on")
       self.update_color(None)
   

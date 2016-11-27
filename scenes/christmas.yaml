@@ -17,3 +17,7 @@ entities:
     state: on
     xy_color: [0.1972,0.6781]
     brightness: 278
+  light.kitchen_table:
+    state: on
+    xy_color: [0.1972,0.6781]
+    brightness: 278

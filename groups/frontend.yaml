@@ -69,6 +69,7 @@ tab_automation_override:
     - input_boolean.hvac_override
     - input_boolean.device_tracking_override
     - input_boolean.debug
+    - input_boolean.christmas_lights
     - group.automations_sun
     - group.automations_presence
     - group.automations_hvac

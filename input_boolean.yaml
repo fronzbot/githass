@@ -22,3 +22,7 @@ debug:
 flux:
   name: Flux
   initial: on
+  
+christmas_lights:
+  name: Christmas Lights
+  initial: off

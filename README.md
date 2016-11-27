@@ -7,12 +7,11 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - NMAP Device Tracking
 - Ecobee3 Thermostat + 1 Remote Sensor
 - Phillips Hue Hub
-  -  3x 2nd Gen Color Ambience Bulbs
+  -  5x 2nd Gen Color Ambience Bulbs
 - Aeotec Z-wave Stick
   -  2x GE Z-wave Switches
 - Wink Hub
-  -  3x Cree Connected Bulbs (Zigbee) [Only 1 connected right now]
-  -  7x GE Link Bulbs (Zigbee)
+  -  7x GE Link Bulbs (Zigbee) [6/7 Used- trying to phase out Wink]
 - NVIDIA Shield TV
 - PLEX Server
 - Emulated Hue (for Amazon Echo and future Google Home support)
@@ -43,7 +42,7 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
   - [Washer/dryer status](https://home-assistant.io/blog/2016/08/03/laundry-automation-update/) (custom sensor, probably)
   - Dishwasher status (custom sensor, probably)
   
-Current setup cost estimate: $770 
+Current setup cost estimate: $1050
 
 (Images last updated 11/25/2016, may not reflect current configuration)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_home_page.png)
