@@ -43,14 +43,24 @@ light.Driveway2:
   icon: mdi:car
   emulated_hue: false
   
-light.Basement1:
-  friendly_name: Basement 1
-  icon: mdi:stairs
+light.basement_ceiling_1:
+  friendly_name: Basement Ceiling 1
   emulated_hue: false
   
-light.Basement2:
-  friendly_name: Basement 2
-  icon: mdi:stairs
+light.basement_ceiling_2:
+  friendly_name: Basement Ceiling 2
+  emulated_hue: false
+
+light.basement_ceiling_3:
+  friendly_name: Basement Ceiling 3
+  emulated_hue: false
+
+light.basement_fireplace_1:
+  friendly_name: Basement Ceiling 1
+  emulated_hue: false
+  
+light.basement_fireplace_2:
+  friendly_name: Basement Ceiling 2
   emulated_hue: false
   
 light.kitchen_table:

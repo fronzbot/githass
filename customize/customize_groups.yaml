@@ -15,9 +15,15 @@ group.couch:
   emulated_hue: true
   emulated_hue_name: "Couch"
   
-group.basement:
+group.basement_ceiling:
+  order: 5
   emulated_hue: true
   emulated_hue_name: "Basement"
+  
+group.basement_fireplace:
+  order: 6
+  emulated_hue: true
+  emulated_hue_name: "Fireplace"
   
 group.driveway:
   emulated_hue: true
@@ -41,6 +47,10 @@ group.lights_den:
   order: 4
   emulated_hue: true
   emulated_hue_name: "Den"
+
+group.lights_basement:
+  order: 5
+  emulated_hue: false
   
 group.interior:
   emulated_hue: false

@@ -11,6 +11,7 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - Aeotec Z-wave Stick
   -  2x GE Z-wave Switches
 - Wink Hub
+  -  3x Cree Connected Bulbs (Zigbee)
   -  7x GE Link Bulbs (Zigbee) [6/7 Used- trying to phase out Wink]
 - NVIDIA Shield TV
 - PLEX Server
