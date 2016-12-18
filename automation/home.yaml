@@ -27,4 +27,8 @@ action:
     entity_id: group.couch
   - service: light.turn_on
     entity_id: light.kitchen_table
-    
+  - delay: 0:05:00
+  - service: tts.google_say
+    entity_id: media_player.google_home
+    data:
+      message: "Welcome Home"

@@ -23,13 +23,6 @@ couch:
     - light.Couch_Left
     - light.Couch_Right
       
-basement:
-  name: Basement
-  icon: mdi:stairs
-  entities:
-    - light.Basement1
-    - light.Basement2
-
 driveway:
   name: Driveway
   icon: mdi:car
@@ -57,6 +50,13 @@ lights_den:
   entities:
     - light.Computer
     - light.Back_Den
+
+lights_basement:
+  name: Basement
+  icon: mdi:stairs
+  entities:
+    - group.basement_ceiling
+    - group.basement_fireplace
   
 interior:
   name: Indoor Lights
@@ -80,10 +80,25 @@ home_lights:
     - group.lights_living_room
     - group.lights_kitchen
     - group.lights_den
-    - group.basement
+    - group.lights_basement
     - light.Porch
     - group.Driveway
     - group.outdoor_switches
+
+basement_ceiling:
+  name: Basement
+  icon: mdi:stairs
+  entities:
+    - light.basement_ceiling_1
+    - light.basement_ceiling_2
+    - light.basement_ceiling_3
+    
+basement_fireplace:
+  name: Basement Fireplace
+  icon: mdi:fire
+  entities:
+    - light.basement_fireplace_1
+    - light.basement_fireplace_2
     
 outdoor_switches:
   name: Outside Plugs

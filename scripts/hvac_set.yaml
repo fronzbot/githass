@@ -20,5 +20,19 @@ sequence:
           auto
         {% else %}
         {% endif %}
+  - service: tts.google_say
+    entity_id: media_player.google_home
+    data_template:
+      message: > 
+        {% if states.sensor.occupancy.state == 'home' and states.sensor.thermo_mode.state == 'Home' %}
+          {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
+            'It's pretty nice outside, so I'm turning the thermostat off'
+          {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
+            'It's getting {{ states.sensor.thermo_outside_temp.state }} outside, so I'm setting the thermostat to auto'
+          {% else %}
+          {% endif %}
+        {% else %}
+        {% endif %}
+          
   - service: input_boolean.turn_off
     entity_id: input_boolean.force_hvac_trigger

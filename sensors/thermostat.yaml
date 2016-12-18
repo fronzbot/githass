@@ -46,14 +46,18 @@ sensors:
   thermo_current_operation:
     value_template: >
       {% if states.climate.living_room  %}
-        {% if states.climate.living_room.state == 'auto' %}
+        {% if states.climate.living_room.attributes.operation == 'auto' %}
           Auto
-        {% elif states.climate.living_room.state == 'off' %}
+        {% elif states.climate.living_room.attributes.operation == 'off' %}
           Off
-        {% elif states.climate.living_room.state == 'idle' %}
+        {% elif states.climate.living_room.attributes.operation == 'idle' %}
           Idle
+        {% elif states.climate.living_room.attributes.operation == 'heat' %}
+          Heat
+        {% elif states.climate.living_room.attributes.operation == 'cool' %}
+          Cool
         {% elif states.climate.living_room %}
-          {{ states.climate.living_room.state }}
+          {{ states.climate.living_room.attributes.operation }}
         {% else %}
           Unknown
         {% endif %}

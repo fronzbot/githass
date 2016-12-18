@@ -178,3 +178,31 @@ arrynlan:
   name: Arryn.lan
   picture:
   track: false
+
+kindle2bd7e75e2lan:
+  hide_if_away: false
+  mac: 88:71:E5:5B:CA:89
+  name: kindle-2bd7e75e2.lan
+  picture:
+  track: false
+
+meereenlan:
+  hide_if_away: false
+  mac: B4:AE:2B:5A:72:55
+  name: MEEREEN.lan
+  picture:
+  track: false
+
+kindlecb5291dfalan:
+  hide_if_away: false
+  mac: 34:D2:70:E2:2B:A2
+  name: kindle-cb5291dfa.lan
+  picture:
+  track: false
+
+testwifihere:
+  hide_if_away: false
+  mac: F4:F2:6D:E4:99:66
+  name: testwifi.here
+  picture:
+  track: false

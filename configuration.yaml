@@ -10,6 +10,9 @@ homeassistant:
   
 http:
   api_password: !secret password
+  ssl_certificate: !secret cert_location
+  ssl_key: !secret key_location
+  base_url: !secret ha_url
   
 # Includes
 automation: !include automation.yaml
@@ -68,6 +71,52 @@ history:
       - sensor
       - climate
       - device_trackers
+  exclude:
+    domains:
+      - light
+      - switch
+      - input_boolean
+      - group
+      - media_player
+    entities:
+      - sensor.glances_ram_use_2
+      - sensor.glances_ram_free
+      - sensor.glances_thread
+      - sensor.glances_sleeping
+      - sensor.glances_cpu_load
+      - sensor.dark_sky_visibility
+      - sensor.dark_sky_summary
+      - sensor.dark_sky_minutely_summary
+      - sensor.dark_sky_hourly_summary
+      - sensor.dark_sky_daily_summary
+      - sensor.dark_sky_apparent_temperature
+      - sensor.dark_sky_dew_point
+      - sensor.pws_weather
+      - sensor.pws_station_id
+      - sensor.pws_feelslike_string
+      - sensor.pws_precip_today_string
+      - sensor.pws_uv
+      - sensor.pws_solarradiation
+      - sensor.pws_feelslike_c
+      - sensor.pws_feelslike_f
+      - sensor.pws_dewpoint_c
+      - sensor.pws_temp_c
+      - sensor.stats_living_room_min
+      - sensor.stats_living_room_max
+      - sensor.stats_living_room_std
+      - sensor.stats_living_room_mean
+      - sensor.stats_bedroom_min
+      - sensor.stats_bedroom_max
+      - sensor.stats_bedroom_std
+      - sensor.stats_download_min
+      - sensor.stats_download_max
+      - sensor.stats_download_std
+      - sensor.stats_download_mean
+      - sensor.stats_upload_min
+      - sensor.stats_upload_max
+      - sensor.stats_upload_std
+      - sensor.stats_upload_mean
+      
 #==========================================
 # Other components (wink, hue, etc)
 #==========================================
@@ -85,6 +134,8 @@ light:
   
 emulated_hue:
   host_ip: 192.168.86.89
+  type: google_home
+  listen_port: 80
   exposed_domains:
     - light
     - group
@@ -110,4 +161,8 @@ notify:
   - name: notify
     platform: pushbullet
     api_key: !secret pushbullet_api
-  
+ 
+tts:
+  - platform: google
+    cache: true
+    

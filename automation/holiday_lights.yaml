@@ -3,7 +3,7 @@ alias: Holiday Lights
 trigger:
   - platform: sun
     event: sunset
-    offset: '+00:15:10'
+    offset: '+00:15:07'
 condition:
   condition: and
   conditions:
@@ -18,5 +18,5 @@ action:
   - service: light.turn_on
     entity_id: light.porch
     data:
-      brightness: 278
+      brightness: 150
       xy_color: [0.1972,0.6781]
