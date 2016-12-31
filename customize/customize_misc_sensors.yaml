@@ -64,3 +64,20 @@ sensor.xbox_one:
 sensor.wii_u:
   friendly_name: Wii U
   icon: mdi:gamepad-variant
+  
+# Zwave sensors
+sensor.water_heater_current_4_20:
+  friendly_name: Water Heater Current
+  icon: mdi:flash
+  
+sensor.water_heater_voltage_4_16:
+  friendly_name: Water Heater Voltage
+  icon: mdi:flash
+  
+sensor.water_heater_power_4_8:
+  friendly_name: Water Heater Power
+  icon: mdi:flash
+  
+sensor.water_heater_energy_4_0:
+  friendly_name: Water Heater Energy
+  icon: mdi:flash

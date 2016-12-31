@@ -2,7 +2,7 @@
 # Entities
 ################## 
 device_tracker.kevin:
-  friendly_name: Lannister
+  friendly_name: Nexus 6P
   icon: mdi:cellphone-android
 
 device_tracker.kevin_watch:
@@ -10,7 +10,7 @@ device_tracker.kevin_watch:
   icon: mdi:watch
   
 device_tracker.allegra:
-  friendly_name: Targaryen
+  friendly_name: Nexus 5X
   icon: mdi:cellphone-android
 
   

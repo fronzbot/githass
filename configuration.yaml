@@ -34,43 +34,21 @@ sun:
 updater:
   reporting: False
 
-# Only include useful stuff in logs
-# Basically, get rid of anything that updates
-# in set intervals
 logbook:
-#  exclude:
-#    domains: 
-#      - sensor
-#  include:
-#    entities:
-#      - sensor.occupancy
-#      - sensor.thermo_mode
-#      - sensor.thermo_hvac
-#      - sensor.thermo_fan
-#      - sensor.thermo_current_operation
-#      - sensor.thermo_outside_temp
-    
-  
+
 # No need to clog up log with useless stuff
 logger:
   default: warn
   logs:
     homeassistant.components.sensor: warning
     homeassistant.components.media_player: critical
-#    homeassistant.components.light: info
-#    homeassistant.components.emulated_hue: info
 
 # For history, want to keep database to manageable size
-# so dump data after 6 days and only track useful
+# so dump data after 10 days and only track useful
 # information (ie. don't care about light/switch stuff)
 recorder:
-  purge_days: 6
+  purge_days: 10
 history:
-  include:
-    domains:
-      - sensor
-      - climate
-      - device_trackers
   exclude:
     domains:
       - light
@@ -78,44 +56,6 @@ history:
       - input_boolean
       - group
       - media_player
-    entities:
-      - sensor.glances_ram_use_2
-      - sensor.glances_ram_free
-      - sensor.glances_thread
-      - sensor.glances_sleeping
-      - sensor.glances_cpu_load
-      - sensor.dark_sky_visibility
-      - sensor.dark_sky_summary
-      - sensor.dark_sky_minutely_summary
-      - sensor.dark_sky_hourly_summary
-      - sensor.dark_sky_daily_summary
-      - sensor.dark_sky_apparent_temperature
-      - sensor.dark_sky_dew_point
-      - sensor.pws_weather
-      - sensor.pws_station_id
-      - sensor.pws_feelslike_string
-      - sensor.pws_precip_today_string
-      - sensor.pws_uv
-      - sensor.pws_solarradiation
-      - sensor.pws_feelslike_c
-      - sensor.pws_feelslike_f
-      - sensor.pws_dewpoint_c
-      - sensor.pws_temp_c
-      - sensor.stats_living_room_min
-      - sensor.stats_living_room_max
-      - sensor.stats_living_room_std
-      - sensor.stats_living_room_mean
-      - sensor.stats_bedroom_min
-      - sensor.stats_bedroom_max
-      - sensor.stats_bedroom_std
-      - sensor.stats_download_min
-      - sensor.stats_download_max
-      - sensor.stats_download_std
-      - sensor.stats_download_mean
-      - sensor.stats_upload_min
-      - sensor.stats_upload_max
-      - sensor.stats_upload_std
-      - sensor.stats_upload_mean
       
 #==========================================
 # Other components (wink, hue, etc)

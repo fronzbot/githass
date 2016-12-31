@@ -1,6 +1,14 @@
 #===================================================
 # Sensors
 #===================================================
+
+energy:
+  name: Energy
+  entities:
+    - switch.water_heater_switch_4_0
+    - sensor.water_heater_power_4_8
+    - sensor.water_heater_current_4_20
+    
 speedtest:
   name: Internet
   icon: mdi:speedometer
@@ -88,3 +96,4 @@ upload_stats:
     - sensor.stats_upload_std
     - sensor.stats_upload_max
     - sensor.stats_upload_min
+    

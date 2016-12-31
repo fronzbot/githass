@@ -1,5 +1,5 @@
 kevin:
-  name: Lannister
+  name: Nexus 6P
   mac: ac:cf:85:29:02:ec
   picture: 
   track: yes
@@ -13,8 +13,8 @@ kevin_watch:
   hide_if_away: no
 
 allegra:
-  name: Targaryen
-  mac: 64:BC:0C:66:F9:51
+  name: Nexus 5X
+  mac: 64:bc:0c:66:fd:0b
   picture: 
   track: yes
   hide_if_away: no
@@ -206,3 +206,11 @@ testwifihere:
   name: testwifi.here
   picture:
   track: false
+
+roc1kfronlt01lan:
+  hide_if_away: false
+  mac: 34:02:86:61:3E:97
+  name: ROC1-KFRON-LT01.lan
+  picture:
+  track: false
+  vendor: Intel Corporate
