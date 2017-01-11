@@ -44,10 +44,10 @@ logger:
     homeassistant.components.media_player: critical
 
 # For history, want to keep database to manageable size
-# so dump data after 10 days and only track useful
+# so dump data after 30 days and only track useful
 # information (ie. don't care about light/switch stuff)
 recorder:
-  purge_days: 10
+  purge_days: 30
 history:
   exclude:
     domains:
@@ -76,6 +76,7 @@ emulated_hue:
   host_ip: 192.168.86.89
   type: google_home
   listen_port: 80
+  expose_by_default: false
   exposed_domains:
     - light
     - group
@@ -89,14 +90,6 @@ ecobee:
 zwave:
   usb_path: /dev/ttyACM0
   
-panel_custom:
-  - name: react
-    sidebar_title: React
-    sidebar_icon: mdi:vector-square
-    url_path: todomvc
-    config:
-      title: Home
-      
 notify:
   - name: notify
     platform: pushbullet

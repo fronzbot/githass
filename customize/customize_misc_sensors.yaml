@@ -13,58 +13,6 @@ sensor.speedtest_ping:
   friendly_name: Ping
   icon: mdi:message-alert
   
-sensor.baratheon:
-  friendly_name: Baratheon
-  icon: mdi:windows
-
-sensor.google_home:
-  friendly_name: Google Home
-  icon: mdi:assistant
-
-sensor.echo:
-  friendly_name: Amazon Echo
-  icon: mdi:amazon
-
-sensor.ecobee:
-  friendly_name: Ecobee Thermostat
-  icon: mdi:nest-thermostat
-  
-sensor.hue_hub:
-  friendly_name: Phillips Hue Hub
-  icon: mdi:router-wireless
-  
-sensor.winkhub:
-  friendly_name: Wink Hub
-  icon: mdi:router-wireless
-  
-sensor.tablo:
-  friendly_name: Tablo
-  icon: mdi:router-wireless
-  
-sensor.blink_camera:
-  friendly_name: Blink Camera
-  icon: mdi:camera
-  
-sensor.shield:
-  friendly_name: NVidia Shield TV
-  icon: mdi:television-guide
-  
-sensor.fire_tv:
-  friendly_name: Fire TV
-  icon: mdi:television-guide
-
-sensor.tv_living_room:
-  friendly_name: Living Room TV
-  icon: mdi:television
-  
-sensor.xbox_one:
-  friendly_name: XBox One
-  icon: mdi:google-controller
-
-sensor.wii_u:
-  friendly_name: Wii U
-  icon: mdi:gamepad-variant
-  
 # Zwave sensors
 sensor.water_heater_current_4_20:
   friendly_name: Water Heater Current

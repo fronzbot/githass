@@ -14,25 +14,13 @@ speedtest:
   icon: mdi:speedometer
   entities:
     - sensor.speedtest_download
-    - sensor.stats_download_mean
     - sensor.speedtest_upload
-    - sensor.stats_upload_mean
     - updater.updater
   
-weather_gist:
-  name: Weather
-  icon: mdi:weather-partlycloudy
-  entities:
-    - sensor.pws_weather
-    - sensor.pws_temp_f
-    - sensor.pws_dewpoint_f
-    - sensor.dark_sky_precip
-
 weather_all:
   name: Weather
   entities:
     - sun.sun
-    # - sensor.dark_sky_icon
     - sensor.pws_weather
     - sensor.dark_sky_minutely_summary
     - sensor.dark_sky_hourly_summary
@@ -62,38 +50,4 @@ rasp_pi_monitor:
     - sensor.stats_ram_max
     - sensor.glances_swap_use
     - sensor.glances_disk_use
-  
-living_room_stats:
-  name: Living Room Stats
-  entities:
-    - sensor.stats_living_room_mean
-    - sensor.stats_living_room_std
-    - sensor.stats_living_room_max
-    - sensor.stats_living_room_min
-  
-bedroom_stats:
-  name: Bedroom Stats
-  entities:
-    - sensor.stats_bedroom_mean
-    - sensor.stats_bedroom_std
-    - sensor.stats_bedroom_max
-    - sensor.stats_bedroom_min
-  
-download_stats:
-  name: Download Stats
-  entities:
-    - sensor.speedtest_download
-    - sensor.stats_download_mean
-    - sensor.stats_download_std
-    - sensor.stats_download_max
-    - sensor.stats_download_min
-  
-upload_stats:
-  name: Upload Stats
-  entities:
-    - sensor.speedtest_upload
-    - sensor.stats_upload_mean
-    - sensor.stats_upload_std
-    - sensor.stats_upload_max
-    - sensor.stats_upload_min
     

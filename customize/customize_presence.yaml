@@ -2,38 +2,13 @@
 # Entities
 ################## 
 device_tracker.kevin:
-  friendly_name: Nexus 6P
+  friendly_name: Kevin
   icon: mdi:cellphone-android
-
-device_tracker.kevin_watch:
-  friendly_name: Android Watch
-  icon: mdi:watch
-  
+ 
 device_tracker.allegra:
-  friendly_name: Nexus 5X
+  friendly_name: Allegra
   icon: mdi:cellphone-android
 
-  
-# Google Distance  
-sensor.kevin_morning_commute:
-  icon: mdi:briefcase
-
-sensor.allegra_morning_commute:
-  icon: mdi:briefcase
-  
-sensor.kevin_evening_commute:
-  icon: mdi:home-map-marker
-  
-sensor.allegra_evening_commute:
-  icon: mdi:home-map-marker
-
-  
-# Steam  
-sensor.steam_76561197992716984:
-  friendly_name: Steam
-  icon: mdi:steam
-
-  
 # Ecobee sensors
 binary_sensor.living_room_occupancy:
   friendly_name: In Living Room

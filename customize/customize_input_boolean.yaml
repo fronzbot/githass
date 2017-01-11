@@ -14,15 +14,12 @@ input_boolean.thermo_weather:
    
 input_boolean.device_tracking_override:
   icon: mdi:cellphone-android
-  emulated_hue: false
   
 input_boolean.force_hvac_trigger:
   icon: mdi:weather-sunset
-  emulated_hue: false
   
 input_boolean.debug:
   icon: mdi:bug
-  emulated_hue: false
   
 input_boolean.flux:
   icon: mdi:theme-light-dark
@@ -31,4 +28,3 @@ input_boolean.flux:
   
 input_boolean.christmas_lights:
   icon: mdi:gift
-  emulated_hue: false

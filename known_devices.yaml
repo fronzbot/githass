@@ -1,5 +1,5 @@
 kevin:
-  name: Nexus 6P
+  name: Kevin
   mac: ac:cf:85:29:02:ec
   picture: 
   track: yes
@@ -13,7 +13,7 @@ kevin_watch:
   hide_if_away: no
 
 allegra:
-  name: Nexus 5X
+  name: Allegra
   mac: 64:bc:0c:66:fd:0b
   picture: 
   track: yes
@@ -23,7 +23,7 @@ google_home:
   name: Google Home
   mac: F4:F5:D8:B3:B9:22
   picture:
-  track: yes
+  track: no
   hide_if_away: no
   consider_home: 300
 
@@ -32,7 +32,7 @@ hue_hub:
   mac: 00:17:88:2B:CC:D4
   name: Phillips Hue
   picture:
-  track: true
+  track: no
   consider_home: 300
   
 echo:
@@ -40,21 +40,21 @@ echo:
   mac: 74:C2:46:B8:28:29
   name: Amazon Echo
   picture:
-  track: true
+  track: no
   consider_home: 300
 
 fire_tv:
   name: Fire TV
   mac: 00:BB:3A:49:F1:63
   picture: 
-  track: yes
+  track: no
   hide_if_away: no  
   
 tablo:
   name: tablo
   mac: 00:0E:8E:65:45:B6
   picture: 
-  track: yes
+  track: no
   hide_if_away: no
   consider_home: 300
   
@@ -62,14 +62,14 @@ xbox_one:
   name: Xbox One
   mac: B4:AE:2B:5A:72:53
   picture:
-  track: yes
+  track: no
   hide_if_away: no
   
 ecobee:
   name: Ecobee
   mac: 44:61:32:FA:50:52
   picture: 
-  track: yes
+  track: no
   hide_if_away: no
   consider_home: 300
   
@@ -77,21 +77,21 @@ baratheon:
   name: Baratheon
   mac: 30:B5:C2:19:F5:D4
   picture:
-  track: yes
+  track: no
   hide_if_away: no
   
 shield:
   name: NVidia Shield TV
   mac: 00:04:4B:49:35:FA
   picture: 
-  track: yes
+  track: no
   hide_if_away: no  
   
 winkhub:
   name: Wink Hub
   mac: B4:79:A7:1A:7C:4A
   picture: 
-  track: yes
+  track: no
   hide_if_away: no
   consider_home: 300
 
@@ -99,21 +99,21 @@ blink_camera:
   name: Blink
   mac: 00:03:7F:17:E7:7D
   picture: 
-  track: yes
+  track: no
   hide_if_away: no
   
 tv_living_room:
   name: Living Room TV
   mac: FC:8F:90:A8:F9:59
   picture: 
-  track: yes
+  track: no
   hide_if_away: no
   
 wii_u:
   name: Wii U
   mac: B8:AE:6E:5B:35:B0
   picture:
-  track: yes
+  track: no
   hide_if_away: no  
   
 wnce2001lan:

@@ -1,23 +1,6 @@
 #===================================================
 # Family devices, etc
 #===================================================
-kevin:
-  name: Kevin
-  entities:
-    - device_tracker.kevin
-    #- device_tracker.kevin_watch
-    #- sensor.steam_76561197992716984
-    #- sensor.xbox_fronzbot
-    - sensor.kevin_morning_commute
-    - sensor.kevin_evening_commute
-    
-allegra:
-  name: Allegra
-  entities:
-    - device_tracker.allegra
-    - sensor.allegra_morning_commute
-    - sensor.allegra_evening_commute
-  
 all_media:
   name: Media
   icon: mdi:music-circle
@@ -25,23 +8,12 @@ all_media:
     - media_player.google_home
     - media_player.shield
     - media_player.shield_android_tv
-    - media_player.plex_web_chrome
+    #- media_player.plex_web_chrome
     #- media_player.asshai
-  
-tracking:
-  name: Device Status
+    
+presence_gist:
+  name: Presence
   entities:
-    - updater.updater
-    - sensor.baratheon
-    - sensor.google_home
-    - sensor.echo
-    - sensor.ecobee
-    - sensor.hue_hub
-    - sensor.winkhub
-    - sensor.tablo
-    - sensor.shield
-    - sensor.fire_tv
-    - sensor.tv_living_room
-    - sensor.xbox_one
-    - sensor.wii_u
-    - sensor.blink_camera
+    - sensor.thermo_mode
+    - device_tracker.kevin
+    - device_tracker.allegra

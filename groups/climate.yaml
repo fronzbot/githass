@@ -2,52 +2,30 @@
 # Thermostat, Weather
 #===================================================
 
-living_room_climate:
-  name: Living Room Climate
-  entities:
-    - binary_sensor.living_room_occupancy
-    - sensor.living_room_temperature
-    - sensor.living_room_humidity
-
-bedroom_climate:
-  name: Bedroom Climate
-  entities:
-    - binary_sensor.bedroom_occupancy
-    - sensor.bedroom_temperature
-
-temperatures:
-  name: Indoor Climate
-  entities:
-    - climate.living_room
-    - sensor.living_room_temperature
-    - sensor.stats_living_room_std
-    - sensor.bedroom_temperature
-    - sensor.stats_bedroom_std
-    - sensor.pws_temp_f
-    - sensor.living_room_humidity
-    - sensor.thermo_mode
-    - input_boolean.thermo_weather
-    
 thermostat_info:
   name: Thermostat
   entities:
+    - climate.living_room
     - sensor.thermo_outside_temp
-    #- sensor.living_room_temperature
-    #- sensor.living_room_humidity
-    #- sensor.thermo_target_high
-    #- sensor.thermo_target_low
-    - input_boolean.hvac_away_mode
-    - input_select.hvac_option
+    - sensor.thermo_current_operation  
+    - sensor.pws_temp_f    
+    - sensor.living_room_temperature
+    - sensor.bedroom_temperature
+    - sensor.living_room_humidity
+    - sensor.pws_relative_humidity
     - sensor.thermo_hvac
     - sensor.thermo_current_operation
     - sensor.thermo_fan
+    - input_boolean.thermo_weather
+    - input_select.hvac_option
 
 temp_gist:
   name: Climate Summary
   entities:
+    - climate.living_room
     - sensor.thermo_outside_temp
+    - sensor.thermo_current_operation    
     - sensor.living_room_temperature
     - sensor.bedroom_temperature
     - sensor.pws_temp_f
-    - sensor.thermo_mode
-    - sensor.thermo_hvac
+   

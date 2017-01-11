@@ -1,14 +1,11 @@
 switch.outside_switch_p_switch_2_0:
   friendly_name: Outside Porch Outlet
   icon: mdi:power-plug
-  emulated_hue: false
   
 switch.outside_switch_d_switch_3_0:
   friendly_name: Outside Driveway Outlet
   icon: mdi:power-plug
-  emulated_hue: false
   
 switch.water_heater_switch_4_0:
   friendly_name: Water Heater Switch
   icon: mdi:water
-  emulated_hue: false

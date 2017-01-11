@@ -19,13 +19,11 @@ light.Corner:
 light.Computer:
   friendly_name: Computer
   icon: mdi:laptop-chromebook
-  emulated_hue: true
-  emulated_hue_name: "Computer"
+  emulated_hue: false
   
 light.Back_Den:
   friendly_name: Back Den
-  emulated_hue: true
-  emulated_hue_name: "Back Den"
+  emulated_hue: false
   
 light.Porch:
   friendly_name: Porch
@@ -56,16 +54,16 @@ light.basement_ceiling_3:
   emulated_hue: false
 
 light.basement_fireplace_1:
-  friendly_name: Basement Ceiling 1
+  friendly_name: Basement Fireplace 1
   emulated_hue: false
   
 light.basement_fireplace_2:
-  friendly_name: Basement Ceiling 2
+  friendly_name: Basement Fireplace 2
   emulated_hue: false
   
 light.kitchen_table:
   friendly_name: Kitchen Table
   icon: mdi:food-apple
   emulated_hue: true
-  emulated_hue_name: "Table"
+  emulated_hue_name: "Kitchen"
   

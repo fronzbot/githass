@@ -7,20 +7,14 @@ default_view:
   icon: mdi:home
   entities:
     - group.home_lights
-    - group.energy
     - group.temp_gist
-    - group.weather_gist
+    - group.presence_gist
 
-tab_lights:
-  name: Lights and Media
+tab_media:
+  name: Media
   view: yes
   icon: mdi:filmstrip
   entities:
-    - group.lights_living_room
-    - group.flux_switch
-    - group.lights_kitchen
-    - group.lights_den
-    - group.lights_basement
     - group.all_media
     
 tab_thermo:
@@ -28,19 +22,8 @@ tab_thermo:
   view: yes
   icon: mdi:fan
   entities:
-    - group.temperatures
     - group.thermostat_info
-
-tab_presence:
-  name: Presence
-  view: yes
-  icon: mdi:account-multiple
-  entities:
-    - group.kevin
-    - group.allegra
-    - group.living_room_climate
-    - group.bedroom_climate
-      
+    
 tab_weather:
   name: Weather
   view: yes
@@ -48,25 +31,24 @@ tab_weather:
   entities:
     - group.weather_all
 
-tab_statistics:
-  name: Statistics
+tab_system:
+  name: System
   view: yes
   icon: mdi:pulse
   entities:
-    - group.living_room_stats
-    - group.bedroom_stats
-    - group.download_stats
-    - group.upload_stats
+    - group.speedtest
     - group.rasp_pi_monitor
-    - group.tracking
+    - group.energy
     
-tab_automation_override:
-  name: Automation Override
+tab_automation:
+  name: Automations
   view: yes
   icon: mdi:settings
   entities:
     - group.scenes
-    - input_boolean.force_hvac_trigger
+    - input_boolean.flux
+    - input_boolean.hvac_away_mode
+    - input_boolean.thermo_weather
     - input_boolean.hvac_override
     - input_boolean.device_tracking_override
     - input_boolean.debug

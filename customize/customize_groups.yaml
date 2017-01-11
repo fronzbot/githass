@@ -17,8 +17,7 @@ group.couch:
   
 group.basement_ceiling:
   order: 5
-  emulated_hue: true
-  emulated_hue_name: "Basement"
+  emulated_hue: false
   
 group.basement_fireplace:
   order: 6
@@ -40,8 +39,7 @@ group.flux_switch:
   
 group.lights_kitchen:
   order: 3
-  emulated_hue: true
-  emulated_hue_name: "Kitchen"
+  emulated_hue: false
   
 group.lights_den:
   order: 4
@@ -50,7 +48,8 @@ group.lights_den:
 
 group.lights_basement:
   order: 5
-  emulated_hue: false
+  emulated_hue: true
+  emualted_hue_name: "Basement"
   
 group.interior:
   emulated_hue: false
@@ -65,85 +64,27 @@ group.home_lights:
   
 group.outdoor_switches:
   emulated_hue: true
-  emulated_hue_name: "Holiday Lights"
+  emulated_hue_name: "Outside Switches"
 
 #============================  
 # from groups/devices.yaml
 #============================  
-group.kevin:
-  order: 1
-  emulated_hue: false
-    
-group.allegra:
-  order: 2
-  emulated_hue: false
-  
-group.all_media:
-  emulated_hue: false
-  
-group.tracking:
-  emulated_hue: false
+
   
 #============================  
 # from groups/climate.yaml
 #============================  
-group.living_room_climate:
-  order: 3
-  emulated_hue: false
 
-group.bedroom_climate:
-  order: 4
-  emulated_hue: false
-
-group.temperatures:
-  emulated_hue: false
-    
-group.thermostat_info:
-  emulated_hue: false
-
-group.temp_gist:
-  order: 2
-  emulated_hue: false
 
 #============================  
 # from groups/sensors.yaml
 #============================  
-group.speedtest:
-  emulated_hue: false
-  
-group.weather_gist:
-  order: 3
-  emulated_hue: false
 
-group.weather_all:
-  emulated_hue: false
-  
-group.rasp_pi_monitor:
-  emulated_hue: false
-  
-group.living_room_stats:
-  emulated_hue: false
-  
-group.bedroom_stats:
-  emulated_hue: false
-  
-group.download_stats:
-  emulated_hue: false
-  
-group.upload_stats:
-  emulated_hue: false
 
 #============================  
 # from groups/automations.yaml
 #============================ 
-group.automations_sun:
-  emulated_hue: false
- 
-group.automations_presence:
-  emulated_hue: false
-  
-group.automations_hvac:
-  emulated_hue: false  
+
   
 #============================  
 # 'ALL' GROUPS  

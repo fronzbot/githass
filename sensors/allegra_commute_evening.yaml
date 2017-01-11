@@ -1,7 +1,0 @@
-platform: google_travel_time
-name: Allegra Evening Commute
-api_key: !secret google_api
-origin: !secret work_address_allegra
-destination: !secret home_address
-options:
-  mode: driving
