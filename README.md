@@ -11,11 +11,11 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - Aeotec Z-wave Stick
   -  2x GE Z-wave Switches
 - Wink Hub
-  -  3x Cree Connected Bulbs (Zigbee)
-  -  7x GE Link Bulbs (Zigbee) [6/7 Used- trying to phase out Wink]
+  -  7x GE Link Bulbs (Zigbee)
 - NVIDIA Shield TV
 - PLEX Server
 - Emulated Hue (for Amazon Echo and future Google Home support)
+- HTML5 Push Notifications
 
 ###Automations:
 - Light control based on device presence and sun status
@@ -40,17 +40,16 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
   - Door/window sensors
   - IP Cameras
   - Sprinkler/Irrigation automation
-  - [Washer/dryer status](https://home-assistant.io/blog/2016/08/03/laundry-automation-update/) (custom sensor, probably)
+  - ~~Washer status~~ (testing as of 1/15/2017)
   - Dishwasher status (custom sensor, probably)
   
-Current setup cost estimate: $1050
+Current setup cost estimate: $1100
 
-(Images last updated 11/25/2016, may not reflect current configuration)
+(Images last updated 1/15/2017, may not reflect current configuration)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_home_page.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_media.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_media2.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_thermostat.png)
-![](https://github.com/fronzbot/githass/blob/master/images/ha_presence.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_weather1.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_weather2.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_stats.png)

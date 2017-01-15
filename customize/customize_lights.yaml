@@ -16,14 +16,18 @@ light.Corner:
   emulated_hue: true
   emulated_hue_name: "Corner"
 
-light.Computer:
-  friendly_name: Computer
-  icon: mdi:laptop-chromebook
+light.Corner_Den:
+  friendly_name: Corner Den
   emulated_hue: false
   
 light.Back_Den:
   friendly_name: Back Den
   emulated_hue: false
+  
+light.Desk:
+  friendly_name: Computer Desk
+  emulated_hue: true
+  emulated_hue_name: "Desk"
   
 light.Porch:
   friendly_name: Porch
@@ -41,23 +45,23 @@ light.Driveway2:
   icon: mdi:car
   emulated_hue: false
   
-light.basement_ceiling_1:
-  friendly_name: Basement Ceiling 1
-  emulated_hue: false
+# light.basement_ceiling_1:
+  # friendly_name: Basement Ceiling 1
+  # emulated_hue: false
   
-light.basement_ceiling_2:
-  friendly_name: Basement Ceiling 2
-  emulated_hue: false
+# light.basement_ceiling_2:
+  # friendly_name: Basement Ceiling 2
+  # emulated_hue: false
 
-light.basement_ceiling_3:
-  friendly_name: Basement Ceiling 3
-  emulated_hue: false
+# light.basement_ceiling_3:
+  # friendly_name: Basement Ceiling 3
+  # emulated_hue: false
 
-light.basement_fireplace_1:
+light.fireplace1:
   friendly_name: Basement Fireplace 1
   emulated_hue: false
   
-light.basement_fireplace_2:
+light.fireplace2:
   friendly_name: Basement Fireplace 2
   emulated_hue: false
   

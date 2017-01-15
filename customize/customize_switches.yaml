@@ -6,6 +6,6 @@ switch.outside_switch_d_switch_3_0:
   friendly_name: Outside Driveway Outlet
   icon: mdi:power-plug
   
-switch.water_heater_switch_4_0:
-  friendly_name: Water Heater Switch
-  icon: mdi:water
+switch.power_mon_1_switch_4_0:
+  friendly_name: Washing Machine Power
+  icon: mdi:power

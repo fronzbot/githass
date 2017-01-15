@@ -12,5 +12,8 @@ trigger:
   - platform: state
     entity_id: input_boolean.hvac_away_mode
     to: 'on'
+  - platform: state
+    entity_id: input_boolean.hvac_away_mode
+    to: 'off'
 action:
   service: script.hvac_away_mode

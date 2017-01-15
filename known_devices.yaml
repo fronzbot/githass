@@ -1,7 +1,7 @@
 kevin:
   name: Kevin
   mac: ac:cf:85:29:02:ec
-  picture: 
+  picture: /local/kevin.jpg
   track: yes
   hide_if_away: no
   
@@ -15,7 +15,7 @@ kevin_watch:
 allegra:
   name: Allegra
   mac: 64:bc:0c:66:fd:0b
-  picture: 
+  picture: /local/allegra.jpg
   track: yes
   hide_if_away: no
 
@@ -214,3 +214,11 @@ roc1kfronlt01lan:
   picture:
   track: false
   vendor: Intel Corporate
+
+74c2461d6e2e:
+  hide_if_away: false
+  mac: 74:C2:46:1D:6E:2E
+  name: 74c2461d6e2e
+  picture:
+  track: false
+  vendor: Amazon Technologies Inc.

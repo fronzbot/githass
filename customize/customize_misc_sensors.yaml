@@ -14,18 +14,18 @@ sensor.speedtest_ping:
   icon: mdi:message-alert
   
 # Zwave sensors
-sensor.water_heater_current_4_20:
-  friendly_name: Water Heater Current
+sensor.power_mon_1_current_4_20:
+  friendly_name: Washing Machine Current
   icon: mdi:flash
   
-sensor.water_heater_voltage_4_16:
-  friendly_name: Water Heater Voltage
+sensor.power_mon_1_voltage_4_16:
+  friendly_name: Washing Machine Voltage
   icon: mdi:flash
   
-sensor.water_heater_power_4_8:
-  friendly_name: Water Heater Power
+sensor.power_mon_1_power_4_8:
+  friendly_name: Washing Machine Power
   icon: mdi:flash
   
-sensor.water_heater_energy_4_0:
-  friendly_name: Water Heater Energy
+sensor.power_mon_1_energy_4_0:
+  friendly_name: Washing Machine Energy
   icon: mdi:flash

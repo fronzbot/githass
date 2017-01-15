@@ -30,6 +30,13 @@ driveway:
     - light.Driveway1
     - light.Driveway2
 
+den_couch:
+  name: Den Couch
+  icon: mdi:sofa
+  entities:
+    - light.Corner_Den
+    - light.Back_Den
+    
 lights_living_room:
   name: Living Room Lights
   icon: mdi:sofa
@@ -48,14 +55,14 @@ lights_den:
   name: Den Lights
   icon: mdi:desktop-tower
   entities:
-    - light.Computer
-    - light.Back_Den
+    - group.den_couch
+    - light.Desk
 
 lights_basement:
   name: Basement
   icon: mdi:stairs
   entities:
-    - group.basement_ceiling
+    #- group.basement_ceiling
     - group.basement_fireplace
   
 interior:
@@ -85,20 +92,20 @@ home_lights:
     - group.Driveway
     - group.outdoor_switches
 
-basement_ceiling:
-  name: Basement
-  icon: mdi:stairs
-  entities:
-    - light.basement_ceiling_1
-    - light.basement_ceiling_2
-    - light.basement_ceiling_3
+# basement_ceiling:
+  # name: Basement
+  # icon: mdi:stairs
+  # entities:
+    # - light.basement_ceiling_1
+    # - light.basement_ceiling_2
+    # - light.basement_ceiling_3
     
 basement_fireplace:
   name: Basement Fireplace
   icon: mdi:fire
   entities:
-    - light.basement_fireplace_1
-    - light.basement_fireplace_2
+    - light.fireplace1
+    - light.fireplace2
     
 outdoor_switches:
   name: Outside Plugs

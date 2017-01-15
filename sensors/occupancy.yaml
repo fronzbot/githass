@@ -2,7 +2,7 @@ platform: template
 sensors:
   occupancy:
     value_template: >
-      {% if states.binary_sensor.living_room_occupancy  %}
+      {% if states.device_tracker.kevin.state  %}
         {% if states.device_tracker.kevin.state == 'home' or states.device_tracker.allegra.state == 'home'%}
           home
         {% else %}
