@@ -21,8 +21,7 @@ group.couch:
   
 group.basement_fireplace:
   order: 6
-  emulated_hue: true
-  emulated_hue_name: "Basement"
+  emulated_hue: false
   
 group.driveway:
   emulated_hue: true

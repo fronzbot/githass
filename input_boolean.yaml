@@ -26,3 +26,7 @@ flux:
 christmas_lights:
   name: Christmas Lights
   initial: off
+  
+on_the_way_home:
+  name: On The Way Home
+  initial: off

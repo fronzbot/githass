@@ -28,3 +28,6 @@ input_boolean.flux:
   
 input_boolean.christmas_lights:
   icon: mdi:gift
+  
+input_boolean.on_the_way_home:
+  icon: mdi:map-marker
