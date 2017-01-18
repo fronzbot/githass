@@ -19,13 +19,17 @@ automation: !include automation.yaml
 camera: !include cameras.yaml
 device_tracker: !include device_trackers.yaml
 group: !include_dir_merge_named groups
+history: !include history.yaml
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 media_player: !include media.yaml
+recorder: !include recorder.yaml
 scene: !include scenes.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
+zwave: !include zwave.yaml
 #switch: !include switch.yaml
+
 
 # Enables
 frontend:
@@ -43,20 +47,6 @@ logger:
     homeassistant.components.sensor: warning
     homeassistant.components.media_player: critical
 
-# For history, want to keep database to manageable size
-# so dump data after 30 days and only track useful
-# information (ie. don't care about light/switch stuff)
-recorder:
-  purge_days: 30
-history:
-  exclude:
-    domains:
-      - light
-      - switch
-      - input_boolean
-      - group
-      - media_player
-      
 #==========================================
 # Other components (wink, hue, etc)
 #==========================================
@@ -86,10 +76,7 @@ emulated_hue:
 ecobee:
   api_key: !secret ecobee_api
   hold_temp: True
-
-zwave:
-  usb_path: /dev/ttyACM0
-  
+ 
 notify:
   - name: notify
     platform: html5

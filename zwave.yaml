@@ -1,0 +1,3 @@
+usb_path: /dev/ttyACM0
+config_path: /srv/hass/src/open-zwave-control-panel/config
+polling_interval: 120000
