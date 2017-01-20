@@ -16,11 +16,11 @@ sensor.speedtest_ping:
 # Zwave sensors
 sensor.power_mon_1_current_4_20:
   friendly_name: Washing Machine Current
-  icon: mdi:arrow-down-bold-circle-outline
+  icon: mdi:music-note-whole
   
 sensor.power_mon_1_voltage_4_16:
   friendly_name: Washing Machine Voltage
-  icon: mdi:flash
+  icon: mdi:car-battery
   
 sensor.power_mon_1_power_4_8:
   friendly_name: Washing Machine Power
