@@ -76,7 +76,7 @@ class Flux(appapi.AppDaemon):
         
         curr_brightness = self.get_state(light, "brightness")
         mired           = int(1e6/new_color)
-        new_brightness  = int(curr_brightness + self.perc_complete*(254 - curr_brightness))
+        new_brightness  = 254#int(curr_brightness + self.perc_complete*(254 - curr_brightness))
         
         #self.log("Current Time is "+str(self.current_time)+" in "+self.segment+" cycle and it is "+str(self.perc_complete*100)+"% Complete --> "+str(mired)+" ("+light+")")
 

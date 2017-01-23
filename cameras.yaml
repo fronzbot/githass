@@ -5,4 +5,3 @@
 - platform: blink
   username: !secret blink_username
   password: !secret blink_password
-  name: 'Living Room'   
