@@ -1,47 +1,36 @@
 '''
 Uses blink api from https://github.com/fronzbot/blinkpy
 '''
+import asyncio
 import logging
 
 import requests
 import voluptuous as vol
+from datetime import timedelta
 
-from homeassistant.components.camera import (Camera, PLATFORM_SCHEMA)
-from homeassistant.components.http import (CONF_BASE_URL, CONF_SERVER_PORT)
-from homeassistant.const import (
-    CONF_USERNAME, CONF_PASSWORD)
+from homeassistant.components import blink
+from homeassistant.components.camera import Camera
+from homeassistant.const import CONF_PATH
 from homeassistant.helpers import config_validation as cv
+from homeassistant.util.async import run_coroutine_threadsafe
+from homeassistant.util import Throttle
 
-REQUIREMENTS = ['blinkpy==0.2.0']
+DEPENDENCIES = ['blink']
+
+MIN_TIME_BETWEEN_UPDATES = timedelta(seconds=60)
 
 _LOGGER = logging.getLogger(__name__)
 
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Required(CONF_PASSWORD): cv.string,
-    vol.Required(CONF_USERNAME): cv.string
-})
-
-
 def setup_platform(hass, config, add_devices, discovery_info=None):
     """Setup a Blink Camera."""
-    global NETWORK
-    global DEVICE_DICT
-    import blinkpy
-
-    NETWORK = blinkpy.Blink(
-        username=config.get(CONF_USERNAME),
-        password=config.get(CONF_PASSWORD))
-
-    NETWORK.setup_system()
-    
-    _LOGGER.info("Initialized Blink Module")
+    if discovery_info is None:
+        return
+        
+    data = hass.data[blink.DOMAIN].blink
     
     devs = list()
-    DEVICE_DICT = dict()
-    for device in NETWORK.cameras:
-        devs.append(BlinkCamera(device))
-        new_name = "blink_" + device.name.replace(" ", "_")
-        DEVICE_DICT[new_name] = device
+    for name, device in data.cameras.items():
+        devs.append(BlinkCamera(hass, data, name, discovery_info[CONF_PATH]))
 
     add_devices(devs)
 
@@ -49,25 +38,38 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 class BlinkCamera(Camera):
     """An implementation of a Blink Camera"""
 
-    def __init__(self, device):
+    def __init__(self, hass, data, name, path):
         """Initialize a camera"""
         super().__init__()
-        self._name = "blink_" + device.name.replace(" ", "_")
-        self._thumbnail = device.thumbnail
-        self._clip = device.clip
-        self._header = device.header
+        self.data = data
+        self.hass = hass
+        self._name = name
+        self._imagefile = path + name.replace(" ", "_") + '.jpg'
+        self.last_thumb = data.cameras[self._name].thumbnail
 
-        _LOGGER.info("Initialized Blink Camera %s", self._name)
+        _LOGGER.info("Initialized blink camera %s", self._name)
 
     @property
     def name(self):
         """Returns camera name"""
         return self._name
+    
+    @Throttle(MIN_TIME_BETWEEN_UPDATES)
+    def write_image(self):
+        _LOGGER.info("WRITING IMAGE TO FILE")
+        self.last_thumb = self.data.camera_thumbs[self._name]
+        self.data.cameras[self._name].image_to_file(self._imagefile)
+        
 
     def camera_image(self):
+        """Return bytes of camera image."""
+        return run_coroutine_threadsafe(
+            self.async_camera_image(), self.hass.loop).result()
+    
+    @asyncio.coroutine
+    def async_camera_image(self):
         """Return a still image reponse from the camera."""
-        NETWORK.refresh()
-        self._thumbnail = DEVICE_DICT[self._name].thumbnail
-        self._clip = DEVICE_DICT[self._name].clip
-        response = requests.get(self._thumbnail, headers=self._header)
-        return response.content
+        _LOGGER.info("INSIDE IMAGE ROUTINE with %s", self.last_thumb)
+        self.write_image()
+        with open(self._imagefile, 'rb') as file:
+            return file.read()
