@@ -67,7 +67,7 @@ light.fireplace2:
   
 light.kitchen_table:
   friendly_name: Kitchen Table
-  icon: mdi:food-apple
+  icon: mdi:food-variant
   emulated_hue: true
   emulated_hue_name: "Kitchen"
   

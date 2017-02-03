@@ -1,0 +1,12 @@
+platform: template
+sensors: 
+  washer:
+    value_template: >
+      {% if states.sensor.power_mon_1_power_4_8 %}
+        {% if (states.sensor.power_mon_1_power_4_8.state | float) > 1.0 %}
+          Running
+        {% else %}
+          Not Running
+        {% endif %}
+      {% else %}
+      {% endif %}

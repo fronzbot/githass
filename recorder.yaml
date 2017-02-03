@@ -1,2 +1,0 @@
-db_url: !secret db_url
-purge_days: 10

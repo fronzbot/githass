@@ -222,3 +222,19 @@ roc1kfronlt01lan:
   picture:
   track: false
   vendor: Amazon Technologies Inc.
+
+android10e82a790c3cb8b3lan:
+  hide_if_away: false
+  mac: 00:04:4B:49:35:F8
+  name: android-10e82a790c3cb8b3.lan
+  picture:
+  track: false
+  vendor: NVIDIA
+
+winterfelllan:
+  hide_if_away: false
+  mac: B8:27:EB:86:85:2F
+  name: winterfell.lan
+  picture:
+  track: false
+  vendor: Raspberry Pi Foundation

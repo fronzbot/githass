@@ -54,3 +54,7 @@ rasp_pi_monitor:
     - sensor.glances_swap_use
     - sensor.glances_disk_use
     
+appliances:
+  name: Appliances
+  entities:
+    - sensor.washer

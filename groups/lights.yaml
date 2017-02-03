@@ -47,7 +47,7 @@ lights_living_room:
 
 lights_kitchen:
   name: Kitchen
-  icon: mdi:fridge
+  icon: mdi:food-variant
   entities:
     - light.kitchen_table
   
@@ -63,7 +63,8 @@ lights_basement:
   icon: mdi:stairs
   entities:
     #- group.basement_ceiling
-    - group.basement_fireplace
+    - light.fireplace1
+    - light.fireplace2
   
 interior:
   name: Indoor Lights

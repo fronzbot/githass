@@ -11,4 +11,6 @@
 /*.xml
 /*.sqlite
 /tts/
-
+/jupyter
+/*.json
+/apps/__pycache__
