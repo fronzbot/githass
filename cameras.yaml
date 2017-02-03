@@ -1,7 +1,0 @@
-- platform: generic
-  still_image_url: !secret radar_link
-  name: Home Radar
-  
-- platform: blink
-  username: !secret blink_username
-  password: !secret blink_password

@@ -1,38 +1,39 @@
-alias: Set HVAC Option
-sequence:
-  - service: input_select.select_option
-    entity_id: input_select.hvac_option
-    data_template:
-      option: >
-        {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
-          Off
-        {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
-          Auto
-        {% else %}
-        {% endif %}
-  - service: climate.set_operation_mode
-    entity_id: climate.living_room
-    data_template:
-      operation_mode: >
-        {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
-          off
-        {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
-          auto
-        {% else %}
-        {% endif %}
-  - service: tts.google_say
-    entity_id: media_player.google_home
-    data_template:
-      message: > 
-        {% if states.sensor.occupancy.state == 'home' and states.sensor.thermo_mode.state == 'Home' %}
+hvac_set:
+  alias: Set HVAC Option
+  sequence:
+    - service: input_select.select_option
+      entity_id: input_select.hvac_option
+      data_template:
+        option: >
           {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
-            'It's pretty nice outside, so I'm turning the thermostat off'
+          Off
           {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
-            'It's getting {{ states.sensor.thermo_outside_temp.state }} outside, so I'm setting the thermostat to auto'
+          Auto
           {% else %}
           {% endif %}
-        {% else %}
-        {% endif %}
-          
-  - service: input_boolean.turn_off
-    entity_id: input_boolean.force_hvac_trigger
+    - service: climate.set_operation_mode
+      entity_id: climate.living_room
+      data_template:
+        operation_mode: >
+          {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
+          off
+          {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
+          auto
+          {% else %}
+          {% endif %}
+    - service: tts.google_say
+      entity_id: media_player.google_home
+      data_template:
+        message: > 
+          {% if states.sensor.occupancy.state == 'home' and states.sensor.thermo_mode.state == 'Home' %}
+          {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
+              'It's pretty nice outside, so I'm turning the thermostat off'
+          {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
+              'It's getting {{ states.sensor.thermo_outside_temp.state }} outside, so I'm setting the thermostat to auto'
+          {% else %}
+          {% endif %}
+          {% else %}
+          {% endif %}
+            
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.force_hvac_trigger

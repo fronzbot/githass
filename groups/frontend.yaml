@@ -9,6 +9,7 @@ default_view:
     - group.home_lights
     - group.temp_gist
     - group.presence_gist
+    - group.appliances
 
 tab_media:
   name: Media
@@ -56,3 +57,4 @@ tab_automation:
     - group.automations_sun
     - group.automations_presence
     - group.automations_hvac
+    - group.automations_notify

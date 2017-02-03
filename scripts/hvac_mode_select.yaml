@@ -1,16 +1,17 @@
-alias: Set HVAC Mode
-sequence:
-  - service: input_select.select_option
-    entity_id: input_select.hvac_option
-    data_template:
-      option: >
-        {% if is_state('sensor.thermo_hvac', 'Auto') %}
+hvac_mode_select:
+  alias: Set HVAC Mode
+  sequence:
+    - service: input_select.select_option
+      entity_id: input_select.hvac_option
+      data_template:
+        option: >
+          {% if is_state('sensor.thermo_hvac', 'Auto') %}
           Auto
-        {% elif is_state('sensor.thermo_hvac', 'Cool') %}
+          {% elif is_state('sensor.thermo_hvac', 'Cool') %}
           Cool
-        {% elif is_state('sensor.thermo_hvac', 'Heat') %}
+          {% elif is_state('sensor.thermo_hvac', 'Heat') %}
           Heat
-        {% elif is_state('sensor.thermo_hvac', 'Off') %}
+          {% elif is_state('sensor.thermo_hvac', 'Off') %}
           Off
-        {% else %}
-        {% endif %}
+          {% else %}
+          {% endif %}

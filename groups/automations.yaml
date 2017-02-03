@@ -25,3 +25,8 @@ automations_hvac:
     - automation.thermostat_away_mode
     - automation.thermostat_hvac_update
     - automation.thermostat_disable_weather_tracking
+    
+automations_notify:
+  name: Notification Automations
+  entities:
+    - automation.notify_on_washer_status

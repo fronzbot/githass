@@ -1,0 +1,20 @@
+alias: Notify on Washer Status
+trigger:
+  - platform: state
+    entity_id: sensor.washer
+    from: 'Not Running'
+    to: 'Running'
+  - platform: state
+    entity_id: sensor.washer
+    from: 'Running'
+    to: 'Not Running'
+action:
+  - service: notify.notify
+    data_template:
+      message: >
+        {% if states.sensor.washer.state == 'Running' %}
+          Washer cycle started!
+        {% elif states.sensor.washer.state == 'Not Running' %}
+          Washer cycle complete!
+        {% else %}
+        {% endif %}

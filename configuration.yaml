@@ -13,23 +13,21 @@ http:
   ssl_certificate: !secret cert_location
   ssl_key: !secret key_location
   base_url: !secret ha_url
-  
+ 
 # Includes
-automation: !include automation.yaml
-camera: !include cameras.yaml
-device_tracker: !include device_trackers.yaml
+automation: !include_dir_list automation
+camera: !include includes/cameras.yaml
+device_tracker: !include includes/device_trackers.yaml
 group: !include_dir_merge_named groups
-history: !include history.yaml
-input_boolean: !include input_boolean.yaml
-input_select: !include input_select.yaml
-media_player: !include media.yaml
-recorder: !include recorder.yaml
-scene: !include scenes.yaml
-script: !include scripts.yaml
-sensor: !include sensors.yaml
-zwave: !include zwave.yaml
-#switch: !include switch.yaml
-
+history: !include includes/history.yaml
+input_boolean: !include includes/input_boolean.yaml
+input_select: !include includes/input_select.yaml
+media_player: !include includes/media.yaml
+recorder: !include includes/recorder.yaml
+scene: !include_dir_list scenes
+script: !include_dir_merge_named scripts
+sensor: !include_dir_list sensors
+zwave: !include includes/zwave.yaml
 
 # Enables
 frontend:
@@ -42,7 +40,7 @@ logbook:
 
 # No need to clog up log with useless stuff
 logger:
-  default: warn
+  default: warning
   logs:
     homeassistant.components.sensor: warning
     homeassistant.components.media_player: critical
@@ -52,11 +50,8 @@ logger:
 # Other components (wink, hue, etc)
 #==========================================
 wink:
-  #access_token: !secret wink_api
   email: !secret wink_email
   password: !secret wink_password
-  client_id: !secret wink_client_id
-  client_secret: !secret wink_client_secret
 
 light:
   platform: hue
@@ -77,15 +72,16 @@ emulated_hue:
 ecobee:
   api_key: !secret ecobee_api
   hold_temp: True
- 
+
+#blink:
+#  username: !secret blink_username
+#  password: !secret blink_password
+
 notify:
   - name: notify
     platform: html5
     gcm_api_key: !secret gcm_api_key
     gcm_sender_id: !secret gcm_sender_id
-  #- name: notify
-  #  platform: pushbullet
-  #  api_key: !secret pushbullet_api
  
 tts:
   - platform: google

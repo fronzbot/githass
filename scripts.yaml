@@ -1,3 +1,0 @@
-hvac_set: !include scripts/hvac_set.yaml
-hvac_away_mode: !include scripts/hvac_away_mode.yaml
-hvac_mode_select: !include scripts/hvac_mode_select.yaml

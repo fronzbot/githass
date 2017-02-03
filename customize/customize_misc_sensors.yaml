@@ -29,3 +29,8 @@ sensor.power_mon_1_power_4_8:
 sensor.power_mon_1_energy_4_0:
   friendly_name: Washing Machine Energy
   icon: mdi:flash
+  
+sensor.washer:
+  friendly_name: Washing Machine
+  #icon: mdi:washing-machine
+  icon: mdi:tshirt-crew

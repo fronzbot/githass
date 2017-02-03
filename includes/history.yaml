@@ -9,3 +9,5 @@ exclude:
     - input_boolean
     - group
     - media_player
+  entities:
+    - sun.sun
