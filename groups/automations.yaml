@@ -30,3 +30,4 @@ automations_notify:
   name: Notification Automations
   entities:
     - automation.notify_on_washer_status
+    - automation.notify_on_system_use

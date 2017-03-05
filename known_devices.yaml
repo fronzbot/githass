@@ -238,3 +238,19 @@ winterfelllan:
   picture:
   track: false
   vendor: Raspberry Pi Foundation
+
+android81837d7522f515b7lan:
+  hide_if_away: false
+  mac: 08:FD:0E:FF:21:82
+  name: android-81837d7522f515b7.lan
+  picture:
+  track: false
+  vendor: Samsung Electronics Co.,Ltd
+
+7475485bf788:
+  hide_if_away: false
+  mac: 74:75:48:5B:F7:88
+  name: 7475485bf788
+  picture:
+  track: false
+  vendor: Amazon Technologies Inc.

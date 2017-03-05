@@ -36,7 +36,7 @@ class Flux(appapi.AppDaemon):
     self.sun_offset_mins = [-45, 90, -60, 120]
     self.daytime_color   = 4500
     self.twilight_color  = 3000
-    self.nighttime_color = 2500
+    self.nighttime_color = 2200
     self.perc_complete   = 0
     
     self.color_dict      = {'twilight_day': self.nighttime_color, 'daytime': self.twilight_color, 'twilight_night': self.daytime_color, 'nighttime': self.twilight_color}

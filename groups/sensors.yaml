@@ -47,10 +47,10 @@ rasp_pi_monitor:
   name: Raspberry Pi Monitor
   entities:
     - sensor.glances_cpu_load
-    - sensor.stats_cpu_max
+#    - sensor.stats_cpu_max
     - sensor.glances_total
     - sensor.glances_ram_use
-    - sensor.stats_ram_max
+#    - sensor.stats_ram_max
     - sensor.glances_swap_use
     - sensor.glances_disk_use
     
