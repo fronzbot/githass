@@ -3,24 +3,8 @@ sensor.pws_weather:
   friendly_name: Summary
   icon: mdi:library-books
   
-sensor.dark_sky_minutely_summary:
-  friendly_name: Next Hour
-  icon: mdi:calendar-clock
-
-sensor.dark_sky_hourly_summary:
-  friendly_name: Daily Forecast
-  icon: mdi:calendar-today
-
-sensor.dark_sky_daily_summary:
-  friendly_name: Week Ahead
-  icon: mdi:magnify
-  
 sensor.pws_temp_f:
   friendly_name: Outside Temperature
-  icon: mdi:thermometer
-
-sensor.pws_feelslike_f:
-  friendly_name: Feels Like
   icon: mdi:thermometer
 
 sensor.pws_dewpoint_f:
@@ -31,26 +15,17 @@ sensor.pws_relative_humidity:
   friendly_name: Humidity
   icon: mdi:water-percent
  
-sensor.dark_sky_precip:
-  friendly_name: Precipitation
-  icon: mdi:weather-snowy-rainy
- 
 sensor.pws_precip_today_in:
   friendly_name: Precipitation Intensity
   icon: mdi:weather-pouring
-
-sensor.dark_sky_precip_probability:
-  friendly_name: Precipitation Probability
-  icon: mdi:percent
   
-sensor.pws_pressure_in:
+sensor.pws_pressure_mb:
   friendly_name: Pressure
   icon: mdi:chart-bar
 
 sensor.dark_sky_visibility:
   friendly_name: Visibility
   icon: mdi:weather-fog
-  
   
 sensor.pws_wind_mph:
   friendly_name: Wind Speed

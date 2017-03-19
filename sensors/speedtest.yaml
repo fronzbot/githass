@@ -1,7 +1,6 @@
 platform: speedtest
 minute:
-  - 15
-  - 45
+  - 20
 name: speedtest
 monitored_conditions:
   - ping

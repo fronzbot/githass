@@ -17,6 +17,8 @@ tab_media:
   icon: mdi:filmstrip
   entities:
     - group.all_media
+    - camera.living_room
+    - group.blink_controls
     
 tab_thermo:
   name: Thermostat

@@ -1,0 +1,9 @@
+host_ip: 192.168.86.89
+type: google_home
+listen_port: 80
+expose_by_default: false
+exposed_domains:
+  - light
+  - group
+  - input_boolean
+  - scene

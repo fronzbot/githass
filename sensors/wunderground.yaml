@@ -5,12 +5,7 @@ monitored_conditions:
   - weather
   - temp_f
   - station_id
-  - feelslike_f
-  - feelslike_string
-  - heat_index_f
-  - heat_index_string
   - dewpoint_f
-  - dewpoint_string
   - wind_mph
   - UV
   - pressure_mb
@@ -19,5 +14,4 @@ monitored_conditions:
   - relative_humidity
   - visibility_mi
   - precip_today_in
-  - precip_today_string
   - solarradiation

@@ -34,3 +34,11 @@ sensor.washer:
   friendly_name: Washing Machine
   #icon: mdi:washing-machine
   icon: mdi:tshirt-crew
+  
+sensor.blink_living_room_notifications:
+  friendly_name: Logged Motion Events
+  icon: mdi:run-fast
+
+binary_sensor.blink_armed_status:
+  friendly_name: System Armed
+  icon: mdi:security

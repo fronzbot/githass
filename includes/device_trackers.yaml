@@ -6,7 +6,8 @@
 # allowing a state change
 - platform: nmap_tracker
   hosts: 192.168.86.1/24
-  home_interval: 1
+  home_interval: 2
+  interval_seconds: 45
   track_new_devices: no
   consider_home: 630
   scan_options: ' --privileged -sS --host-timeout 5s '

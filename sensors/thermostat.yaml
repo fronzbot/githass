@@ -71,12 +71,8 @@ sensors:
       {% if states.climate.living_room  %}
         {% if states.climate.living_room.attributes.away_mode == 'on' %}
           Away
-        {% elif  states.climate.living_room.attributes.away_mode == 'off' and states.climate.living_room.attributes.mode == 'sleep' %}
-          Sleeping
-        {% elif  states.climate.living_room.attributes.away_mode == 'off' and states.climate.living_room.attributes.mode == 'home' %}
-          Home
-        {% else %}
-          Error
+        {% else %}  
+          {{ states.climate.living_room.attributes.mode }}
         {% endif %}
       {% else %}
       {% endif %}

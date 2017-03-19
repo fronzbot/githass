@@ -1,0 +1,5 @@
+default: warning
+logs:
+  homeassistant.components.sensor: warning
+  homeassistant.components.media_player: critical
+  homeassistant.components.camera: debug

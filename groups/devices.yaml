@@ -9,8 +9,13 @@ all_media:
     - media_player.shield
     - media_player.shield_android_tv
     - media_player.plex_web_chrome
-    - camera.blink_living_room
     #- media_player.asshai
+    
+blink_controls:
+  name: Blink Controls
+  entities:
+    - sensor.blink_living_room_notifications
+    - binary_sensor.blink_armed_status
     
 presence_gist:
   name: Presence

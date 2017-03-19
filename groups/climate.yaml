@@ -17,7 +17,6 @@ thermostat_info:
     - sensor.thermo_current_operation
     - sensor.thermo_fan
     - input_boolean.thermo_weather
-    - input_select.hvac_option
 
 temp_gist:
   name: Climate Summary
