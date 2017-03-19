@@ -2,7 +2,7 @@
 ## Home Assistant Configuration
 Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 
-###Components Used:
+### Components Used:
 - Dark Sky  and Wunderground for weather
 - NMAP Device Tracking
 - Ecobee3 Thermostat + 1 Remote Sensor
@@ -17,16 +17,16 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - Emulated Hue (for Amazon Echo and future Google Home support)
 - HTML5 Push Notifications
 
-###Automations:
+### Automations:
 - Light control based on device presence and sun status
 - Theromstat control based on outside temperature and device presence (away mode)
 
-###Notes:
+### Notes:
 1. I use secrets.yaml to hide sensitive information (like API keys)
 2. Currently, Home Assistant has local control over only Hue and Z-wave devices (Wink talks to cloud, Ecobee talks to cloud).  My goal is to force everything to be local so if the interenet goes out, my home will still be automated.
   * Most likely I'll just slowly phase out Wink and ~~get a zwave stick for future ZWAVE components~~.  I'll have to just live with the ecobee cloud-only BS for now...
  
-###Future Improvements:
+### Future Improvements:
 - ~~Automation override switches~~ (added 8/21/2016)
 - ~~Rapberry pi status monitoring~~ (added 8/27/2016)
 - ~~Integrate Alexa (![emulated_hue}(https://home-assistant.io/components/emulated_hue/) looks promising)~~ (added 10/23/2016)
