@@ -27,8 +27,8 @@ driveway:
   name: Driveway
   icon: mdi:car
   entities:
-    - light.Driveway1
-    - light.Driveway2
+    - light.driveway1
+    - light.driveway2
 
 den_couch:
   name: Den Couch
@@ -79,8 +79,8 @@ exterior:
   name: Outdoor Lights
   icon: mdi:white-balance-sunny
   entities:
-    - group.Driveway
-    - light.Porch
+    - group.driveway
+    - light.porch
   
 home_lights:
   name: Lights
@@ -89,8 +89,8 @@ home_lights:
     - group.lights_kitchen
     - group.lights_den
     - group.lights_basement
-    - light.Porch
-    - group.Driveway
+    - light.porch
+    - group.driveway
     - group.outdoor_switches
 
 # basement_ceiling:

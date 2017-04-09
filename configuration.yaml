@@ -58,4 +58,3 @@ ecobee:
  
 tts:
   - platform: google
-    cache: true

@@ -3,7 +3,7 @@ alias: Holiday Lights
 trigger:
   - platform: sun
     event: sunset
-    offset: '+00:15:07'
+    offset: '+00:16:00'
 condition:
   condition: and
   conditions:

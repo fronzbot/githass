@@ -254,3 +254,35 @@ android81837d7522f515b7lan:
   picture:
   track: false
   vendor: Amazon Technologies Inc.
+
+iphonelan:
+  hide_if_away: false
+  mac: 0C:3E:9F:37:67:46
+  name: iPhone.lan
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+723acb0e315d:
+  hide_if_away: false
+  mac: 72:3A:CB:0E:31:5D
+  name: 723acb0e315d
+  picture:
+  track: false
+  vendor: unknown
+
+703acb0e315b:
+  hide_if_away: false
+  mac: 70:3A:CB:0E:31:5B
+  name: 703acb0e315b
+  picture:
+  track: false
+  vendor: Google, Inc.
+
+baratheonlan:
+  hide_if_away: false
+  mac: 94:DE:80:B1:54:29
+  name: Baratheon.lan
+  picture:
+  track: false
+  vendor: GIGA-BYTE TECHNOLOGY CO.,LTD.

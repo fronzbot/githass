@@ -6,10 +6,9 @@ trigger:
     after: '00:40:07'
 action:
   - service: light.turn_off
-    entity_id: light.driveway1
-  - service: light.turn_off
-    entity_id: light.driveway2
-  - service: light.turn_off
-    entity_id: light.porch
+    entity_id: group.exterior
   - service: switch.turn_off
     entity_id: group.outdoor_switches
+  - delay: '00:00:10'
+  - service: light.turn_off
+    entity_id: group.exterior
