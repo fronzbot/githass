@@ -13,7 +13,7 @@ condition:
 action:
   - service: switch.turn_on
     entity_id: group.outdoor_switches
-  - service: light.turn_off
+  - service: switch.turn_off
     entity_id: group.driveway
   - service: light.turn_on
     entity_id: light.porch

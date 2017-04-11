@@ -27,8 +27,7 @@ driveway:
   name: Driveway
   icon: mdi:car
   entities:
-    - light.driveway1
-    - light.driveway2
+    - switch.driveway_switch_2_0
 
 den_couch:
   name: Den Couch
@@ -63,8 +62,8 @@ lights_basement:
   icon: mdi:stairs
   entities:
     #- group.basement_ceiling
-    - light.fireplace1
-    - light.fireplace2
+    - light.fireplace_1
+    - light.fireplace_2
   
 interior:
   name: Indoor Lights
@@ -79,7 +78,6 @@ exterior:
   name: Outdoor Lights
   icon: mdi:white-balance-sunny
   entities:
-    - group.driveway
     - light.porch
   
 home_lights:
@@ -112,5 +110,5 @@ outdoor_switches:
   name: Outside Plugs
   icon: mdi:power-plug
   entities:
-    - switch.outside_switch_p_switch_2_0
-    - switch.outside_switch_d_switch_3_0
+    - switch.outdoor_1_switch_4_0
+    - switch.outdoor_2_switch_5_0

@@ -1,11 +1,11 @@
-switch.outside_switch_p_switch_2_0:
+switch.outdoor_1_switch_5_0:
   friendly_name: Outside Porch Outlet
   icon: mdi:power-plug
   
-switch.outside_switch_d_switch_3_0:
+switch.outdoor_1_switch_4_0:
   friendly_name: Outside Driveway Outlet
   icon: mdi:power-plug
   
-switch.power_mon_1_switch_4_0:
+switch.power_mon_switch_3_0:
   friendly_name: Washing Machine Power
   icon: mdi:power

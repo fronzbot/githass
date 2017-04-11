@@ -2,8 +2,8 @@ platform: template
 sensors: 
   washer:
     value_template: >
-      {% if states.sensor.power_mon_1_power_4_8 %}
-        {% if (states.sensor.power_mon_1_power_4_8.state | float) > 1.0 and (states.sensor.power_mon_1_power_4_8.state | float) < 1000.0 %}
+      {% if states.sensor.power_mon_power_3_8 %}
+        {% if (states.sensor.power_mon_power_3_8.state | float) > 1.0 and (states.sensor.power_mon_power_3_8.state | float) < 1000.0 %}
           Running
         {% else %}
           Not Running

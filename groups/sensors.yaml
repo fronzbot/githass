@@ -5,13 +5,10 @@
 energy:
   name: Energy
   entities:
-    #- switch.power_mon_1_switch_4_0
-    #- sensor.power_mon_1_previous_reading_4_1
-    - sensor.power_mon_1_voltage_4_16
-    - sensor.power_mon_1_current_4_20
-    - sensor.power_mon_1_power_4_8
-    
-    
+    - sensor.power_mon_voltage_3_16
+    - sensor.power_mon_current_3_20
+    - sensor.power_mon_power_3_8
+
 speedtest:
   name: Internet
   icon: mdi:speedometer

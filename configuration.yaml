@@ -44,9 +44,9 @@ updater:
 #==========================================
 # Other components (wink, hue, etc)
 #==========================================
-wink:
-  email: !secret wink_email
-  password: !secret wink_password
+#wink:
+ # email: !secret wink_email
+  #password: !secret wink_password
 
 ecobee:
   api_key: !secret ecobee_api
