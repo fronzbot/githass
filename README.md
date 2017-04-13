@@ -12,8 +12,6 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - Aeotec Z-wave Stick
   -  3x GE Z-wave Switches
   -  1x Aeotec Smart Switch 
-~~- Wink Hub~~ (removed as of 4/12/2017))
-~~  -  7x GE Link Bulbs (Zigbee)~~
 - NVIDIA Shield TV
 - PLEX Server
 - Emulated Hue (Amazon Echo and Google Home)
