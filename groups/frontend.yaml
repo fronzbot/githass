@@ -42,6 +42,7 @@ tab_system:
     - group.speedtest
     - group.rasp_pi_monitor
     - group.energy
+    - group.zwave_devices
     
 tab_automation:
   name: Automations

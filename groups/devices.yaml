@@ -24,3 +24,13 @@ presence_gist:
     - device_tracker.allegra
     - sensor.thermo_mode
     - input_boolean.on_the_way_home
+
+zwave_devices:
+  name: Z-Wave Devices
+  icon: mdi:access-point
+  entities:
+    - zwave.aeotec_zw090_zstick_gen5_1
+    - zwave.driveway_2
+    - zwave.outdoor_1_4
+    - zwave.outdoor_2_5
+    - zwave.power_mon_3

@@ -42,19 +42,8 @@ updater:
   reporting: False
 
 #==========================================
-# Other components (wink, hue, etc)
+# Other components
 #==========================================
-#wink:
- # email: !secret wink_email
-  #password: !secret wink_password
-
 ecobee:
   api_key: !secret ecobee_api
   hold_temp: True
-
-#blink:
-#  username: !secret blink_username
-#  password: !secret blink_password
- 
-tts:
-  - platform: google
