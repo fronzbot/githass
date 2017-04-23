@@ -1,6 +1,14 @@
 - platform: generic
   still_image_url: !secret radar_link
   name: Home Radar
+
+- platform: local_file
+  file_path: /home/hass/images/Temperature.png
+  name: Temperature
+
+- platform: local_file
+  file_path: /home/hass/images/Internet.png
+  name: Internet
   
 #- platform: blink
 #  username: !secret blink_username

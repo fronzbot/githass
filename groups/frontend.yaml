@@ -43,6 +43,8 @@ tab_system:
     - group.rasp_pi_monitor
     - group.energy
     - group.zwave_devices
+    - camera.temperature
+    - camera.internet
     
 tab_automation:
   name: Automations
