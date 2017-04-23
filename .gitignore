@@ -5,6 +5,7 @@
 /*.conf
 /*.env
 /secrets.yaml
+/known_devices.yaml
 /deps/
 /*/secrets.yaml
 /*.txt
@@ -14,3 +15,9 @@
 /jupyter
 /*.json
 /apps/__pycache__
+/*.pid
+/*.xml
+/*.csr
+/*.crt
+/*.key
+/.tox/
