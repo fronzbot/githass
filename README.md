@@ -1,4 +1,4 @@
-# githass
+# githass [![Build Status](https://travis-ci.org/fronzbot/githass.svg?branch=master)](https://travis-ci.org/fronzbot/githass)
 ## Home Assistant Configuration
 Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 
