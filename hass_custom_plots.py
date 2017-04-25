@@ -18,7 +18,8 @@ import matplotlib.pyplot as plt
 from matplotlib import figure
 from matplotlib import dates
 
-NDAYS = 1
+SKIP_NEW_DATA = False   # Allows to skip grabbing data for debug
+NDAYS = 0   # Number of days back to grab data (Debug feature)
 PATH = '/home/hass/.homeassistant/'
 CREDFILE = PATH + 'hassdb.json'
 DATAFILE = PATH + 'hassplotdata.json'
@@ -26,31 +27,39 @@ PLOTPATH = '/home/hass/images/'
 
 ''' List of sensor and names to use in plot '''
 # Note: each list is represetnative of a single plot
-TEMPERATURES = ['sensor.living_room_temperature',
-                'sensor.pws_temp_f']
+TEMPERATURES = {'sensor.living_room_temperature': ['Living Room', 'Temperature [F]', 'darkorchid'],
+                'sensor.pws_temp_f': ['Outside', 'Temperature [F]', 'seagreen']}
 
-INTERNET = ['sensor.speedtest_download']
+INTERNET = {'sensor.speedtest_download': ['Download', 'Speed [Mbps]', 'darkorchid']}
 
 ENTITIES = {'Temperature': TEMPERATURES,
             'Internet': INTERNET}
 
-MIN_MAX_PLOTS = ['sensor.living_room_temperature', 'sensor.speedtest_download']
+MIN_MAX_PLOTS = ['sensor.living_room_temperature', 'sensor.pws_temp_f', 'sensor.speedtest_download']
 
 def main():
     ''' Get credentials '''
+    print(str(datetime.datetime.now()))
     with open(CREDFILE) as json_data:
         d = json.load(json_data)
     
     hass = HassPlotting(d['dbname'], d['dbhost'], d['dbuid'], d['dbpass'])
     
-    hass.connect()
-    mydata = {}
-    for plotname, sensortype in ENTITIES.items():
-        mydata[plotname] = {}
-        result = hass.get_data(ENTITIES[plotname])
-        for key, value in result[1].items():
-            mydata[plotname][key] = {str(result[0]): result[1][key]}
-    data = hass.save_data(mydata)
+    if not SKIP_NEW_DATA:
+        hass.connect()
+        mydata = {}
+        for plotname, sensortype in ENTITIES.items():
+            mydata[plotname] = {}
+            print("Getting data for "+plotname+"...")
+            result = hass.get_data(ENTITIES[plotname])
+            for key, value in result[1].items():
+                mydata[plotname][key] = {str(result[0]): result[1][key]}
+        data = hass.save_data(mydata)
+    else:
+        print("Skipping new data collection")
+        data = hass.save_data(dict())
+        print(data)
+
     for sensor_type in data:
         hass.plot_data(sensor_type, data[sensor_type])
 
@@ -66,6 +75,7 @@ class HassPlotting(object):
 
     def connect(self):
         '''Method connects to database'''
+        print("Connecting...")
         conn = pymysql.connect(host=self.dbhost,
                                user=self.dbuid,
                                passwd=self.dbpass,
@@ -102,57 +112,82 @@ class HassPlotting(object):
     
     def save_data(self, data):
         '''Save new data to json file'''
+        print("Saving data...")
         new_data = {}
         if os.path.isfile(DATAFILE):
             with open(DATAFILE) as dfile:
                 old_data = json.load(dfile)
-            for sensor_type in data:
-                new_data[sensor_type] = {}
-                for sensor in data[sensor_type]:
-                    new_data[sensor_type][sensor] = self.merge_dicts(data[sensor_type][sensor], old_data[sensor_type][sensor])
-        else:
-            new_data = data
+            if data:
+                for sensor_type in data:
+                    new_data[sensor_type] = {}
+                    for sensor in data[sensor_type]:
+                        new_data[sensor_type][sensor] = self.merge_dicts(data[sensor_type][sensor], old_data[sensor_type][sensor])
+            else:
+                print("No new data, using old data")
+                new_data = old_data
 
-        with open(DATAFILE, 'w') as outfile:
-            json.dump(new_data, outfile)
+        else:
+            print("No json file found, creating new one")
+            new_data = data
+        
+        if not SKIP_NEW_DATA:
+            with open(DATAFILE, 'w') as outfile:
+                json.dump(new_data, outfile)
         return new_data
         
     def plot_data(self, figname, data_dict):
-        font = {'weight' : 'normal', 'size' : 6}
+        print("Plotting figure "+figname)
+        plt.style.use('fivethirtyeight')
+        font = {'weight' : 'normal', 'size' : 8}
         matplotlib.rc('font', **font)
         matplotlib.rc('lines', linewidth=4)
         matplotlib.rc({'axes.titlesize' : 'medium'})
-        plt.style.use('fivethirtyeight')
         fig = plt.figure()
         plt.hold(True)
         plt.grid(b = 'on')
         # Get the data to plot, first
         for sensor in data_dict:
+            print("\t"+sensor)
             xvals = []
             yavg = []
             ymin = []
             ymax = []
             xarray = []
+            days_stored = len(data_dict[sensor])
+            day_count = 0
             for x in sorted(data_dict[sensor]):
                 y = data_dict[sensor][x]
-                xvals.append(y[3])
+                #xvals.append(y[3])
                 yavg.append(y[0])
                 ymin.append(y[1])
                 ymax.append(y[2])
                 xarray.append(float(x))
+                xvals.append(days_stored - day_count)
+                day_count += 1
             plt.xticks(xarray, xvals)
-
+            
+            # Get ylabel and sensor names
+            YLABEL = 'Error'
+            LEGENDLABEL = 'Error'
+            FILLCOLOR = 'seagreen'
+            for ent_key, ent_value in ENTITIES.items():
+              if sensor in ent_value:
+                YLABEL = ent_value[sensor][1]
+                LEGENDLABEL = ent_value[sensor][0]
+                FILLCOLOR = ent_value[sensor][2]
+            
             if sensor in MIN_MAX_PLOTS:
-                plt.fill_between(x=xarray, y1=ymin, y2=ymax, facecolor='seagreen',interpolate=False, alpha=0.3)
-                plt.plot(xarray, yavg, label=sensor)
+                plt.fill_between(x=xarray, y1=ymin, y2=ymax, facecolor=FILLCOLOR,interpolate=False, alpha=0.2)
+                plt.plot(xarray, yavg, label=LEGENDLABEL)
             else:
-                plt.plot(xarray, yavg, label=sensor)
+                plt.plot(xarray, yavg, label=LEGENDLABEL)
            
         plt.legend(loc="lower left", fancybox=True, framealpha=0.4)
         plt.title(figname)
-        plt.xlabel('Time')
+        plt.xlabel('Days Ago')
+        plt.ylabel(YLABEL)
         plt.locator_params(axis='y', nticks=5)
-        plt.locator_params(axis='y', nticks=5)
+        #plt.locator_params(axis='x', nticks=10)
         plt.savefig(PLOTPATH + figname + '.png')
     
     def merge_dicts(self, x, y):
