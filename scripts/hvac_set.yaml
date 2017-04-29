@@ -12,6 +12,8 @@ hvac_set:
               auto
             {% else %}
             {% endif %}
+          {% else %}
+            off
           {% endif %}
   
     - service: input_boolean.turn_off
