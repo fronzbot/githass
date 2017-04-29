@@ -31,6 +31,7 @@ recorder: !include includes/recorder.yaml
 scene: !include_dir_list scenes
 script: !include_dir_merge_named scripts
 sensor: !include_dir_list sensors
+shell_command: !include includes/shell_command.yaml
 zwave: !include includes/zwave.yaml
 
 # Enables

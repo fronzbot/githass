@@ -21,3 +21,4 @@
 /*.crt
 /*.key
 /.tox/
+/bin/*.pipwd

@@ -49,3 +49,9 @@ appliances:
     - sensor.smoke_alarm_kitchen
     - sensor.smoke_alarm_living_room
     - sensor.smoke_alarm_nursery
+
+shell:
+  name: Shell Scripts
+  entities:
+    - script.github_pull
+    - script.hass_upgrade

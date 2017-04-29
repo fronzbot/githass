@@ -52,6 +52,8 @@ tab_automation:
   icon: mdi:settings
   entities:
     - group.scenes
+    - script.thermostat_control
+    - group.shell
     - input_boolean.flux
     - input_boolean.hvac_away_mode
     - input_boolean.thermo_weather

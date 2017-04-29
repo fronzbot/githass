@@ -2,3 +2,10 @@ script.thermostat_control:
   icon: mdi:air-conditioner
   emulated_hue: true
   emulated_hue_name: "Thermostat"
+
+script.github_pull:
+  icon: mdi:github-circle
+
+script.hass_upgrade:
+  icon: mdi:home-assistant
+  

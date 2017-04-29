@@ -1,0 +1,5 @@
+hass_upgrade:
+  alias: Upgrade Homeassistant
+  sequence:
+    - service: shell_command.hass_upgrade
+    - service: homeassistant.restart

@@ -1,0 +1,2 @@
+github_pull: bash /home/hass/.homeassistant/gitpull.sh
+hass_upgrade: bash /home/hass/.homeassistant/hass_upgrade.sh

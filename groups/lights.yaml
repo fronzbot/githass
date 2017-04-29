@@ -15,8 +15,7 @@ scenes:
     - scene.daylight
     - scene.night
     - scene.sabres
-    - script.thermostat_control
-  
+ 
 couch:
   name: Couch
   icon: mdi:sofa
