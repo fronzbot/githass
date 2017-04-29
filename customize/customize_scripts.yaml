@@ -1,0 +1,4 @@
+script.thermostat_control:
+  icon: mdi:air-conditioner
+  emulated_hue: true
+  emulated_hue_name: "Thermostat"

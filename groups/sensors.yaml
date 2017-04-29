@@ -43,6 +43,9 @@ rasp_pi_monitor:
     - sensor.glances_disk_use
     
 appliances:
-  name: Appliances
+  name: Alarms and Appliances
   entities:
     - sensor.washer
+    - sensor.smoke_alarm_kitchen
+    - sensor.smoke_alarm_living_room
+    - sensor.smoke_alarm_nursery

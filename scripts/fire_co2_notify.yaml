@@ -1,0 +1,7 @@
+fire_co2_notify:
+  alias: Fire/CO2 Notify Script
+  sequence:
+    - service: notify.notify
+      data_template:
+        message: >
+          "ALERT! Kitchen: {{ states.sensor.smoke_alarm_kitchen.state }}, Living Room: {{ states.sensor.smoke_alarm_living_room.state }}, Nursery: {{ states.sensor.smoke_alarm_nursery.state }}"

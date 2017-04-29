@@ -1,25 +1,17 @@
 hvac_set:
   alias: Set HVAC Option
   sequence:
-    - service: input_select.select_option
-      entity_id: input_select.hvac_option
-      data_template:
-        option: >
-          {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
-          Off
-          {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
-          Auto
-          {% else %}
-          {% endif %}
     - service: climate.set_operation_mode
       entity_id: climate.living_room
       data_template:
         operation_mode: >
-          {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
-          off
-          {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
-          auto
-          {% else %}
+          {% if is_state('input_boolean.thermo_weather', 'on') %}
+            {% if states.sensor.thermo_outside_temp.state == 'Fair' %}
+              off
+            {% elif states.sensor.thermo_outside_temp.state == 'Hot' or states.sensor.thermo_outside_temp.state == 'Cold' %}
+              auto
+            {% else %}
+            {% endif %}
           {% endif %}
   
     - service: input_boolean.turn_off

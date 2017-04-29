@@ -10,3 +10,51 @@ sensors:
         {% endif %}
       {% else %}
       {% endif %}
+      
+  smoke_alarm_kitchen:
+    value_template: >
+      {% if is_state("sensor.smoke_kitchen_alarm_level_8_1", "0") %}
+        Idle
+      {% elif is_state("sensor.smoke_kitchen_alarm_type_8_0", "0") %}
+        Idle
+      {% elif is_state("sensor.smoke_kitchen_alarm_type_8_0", "12") %}
+        Testing
+      {% elif is_state("sensor.smoke_kitchen_alarm_type_8_0", "1") %}
+        Fire
+      {% elif is_state("sensor.smoke_kitchen_alarm_type_8_0", "0") %}
+        CO2
+      {% else %}
+        Unknown
+      {% endif %}
+
+  smoke_alarm_living_room:
+    value_template: >
+      {% if is_state("sensor.smoke_living_room_alarm_level_9_1", "0") %}
+        Idle
+      {% elif is_state("sensor.smoke_living_room_alarm_type_9_0", "0") %}
+        Idle
+      {% elif is_state("sensor.smoke_living_room_alarm_type_9_0", "12") %}
+        Testing
+      {% elif is_state("sensor.smoke_living_room_alarm_type_9_0", "1") %}
+        Fire
+      {% elif is_state("sensor.smoke_living_room_alarm_type_9_0", "0") %}
+        CO2
+      {% else %}
+        Unknown
+      {% endif %}
+      
+  smoke_alarm_nursery:
+    value_template: >
+      {% if is_state("sensor.smoke_nursery_alarm_level_10_1", "0") %}
+        Idle
+      {% elif is_state("sensor.smoke_nursery_alarm_type_10_0", "0") %}
+        Idle
+      {% elif is_state("sensor.smoke_nursery_alarm_type_10_0", "12") %}
+        Testing
+      {% elif is_state("sensor.smoke_nursery_alarm_type_10_0", "1") %}
+        Fire
+      {% elif is_state("sensor.smoke_nursery_alarm_type_10_0", "0") %}
+        CO2
+      {% else %}
+        Unknown
+      {% endif %}

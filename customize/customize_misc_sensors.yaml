@@ -33,8 +33,19 @@ sensor.power_mon_energy_3_0:
 sensor.washer:
   friendly_name: Washing Machine
   icon: mdi:washing-machine
-  #icon: mdi:tshirt-crew
-  
+
+sensor.smoke_alarm_kitchen:
+  friendly_name: Smoke Alarm - Kitchen
+  icon: mdi:fire
+
+sensor.smoke_alarm_living_room:
+  friendly_name: Smoke Alarm - Living Room
+  icon: mdi:fire
+
+sensor.smoke_alarm_nursery:
+  friendly_name: Smoke Alarm - Nursery
+  icon: mdi:fire  
+
 sensor.blink_living_room_notifications:
   friendly_name: Logged Motion Events
   icon: mdi:run-fast
@@ -58,3 +69,13 @@ zwave.outdoor_2_5:
   
 zwave.power_mon_3:
   icon: mdi:power
+
+zwave.smoke_kitchen_8:
+  icon: mdi:nest-protect
+  
+zwave.smoke_living_room_9:
+  icon: mdi:nest-protect
+
+zwave.smoke_nursery_10:
+  icon: mdi:nest-protect
+

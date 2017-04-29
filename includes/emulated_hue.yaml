@@ -7,3 +7,5 @@ exposed_domains:
   - group
   - input_boolean
   - scene
+off_maps_to_on_domains:
+  - script

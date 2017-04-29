@@ -6,12 +6,12 @@ hvac_mode_select:
       data_template:
         option: >
           {% if is_state('sensor.thermo_hvac', 'Auto') %}
-          Auto
+            Auto
           {% elif is_state('sensor.thermo_hvac', 'Cool') %}
-          Cool
+            Cool
           {% elif is_state('sensor.thermo_hvac', 'Heat') %}
-          Heat
+            Heat
           {% elif is_state('sensor.thermo_hvac', 'Off') %}
-          Off
+            Off
           {% else %}
           {% endif %}

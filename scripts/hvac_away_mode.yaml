@@ -1,31 +1,21 @@
 hvac_away_mode:
   alias: Set HVAC Away Status
   sequence:
+    - service_template: >
+        {% if is_state('group.all_devices', 'home') %}
+          homeassistant.turn_off
+        {% elif is_state('group.all_devices', 'not_home') %}
+          homeassistant.turn_on
+        {% else %}
+        {% endif %}
+      entity_id: input_boolean.hvac_away_mode
     - service: climate.set_away_mode
       entity_id: climate.living_room
       data_template:
         away_mode: >
-          {% if is_state('sensor.occupancy', 'home') or is_state('input_boolean.on_the_way_home', 'on') %}
-          off
-          {% elif is_state('sensor.occupancy', 'not_home') %}
-          on
+          {% if is_state('group.all_devices', 'home') %}
+            off
+          {% elif is_state('group.all_devices', 'not_home') %}
+            on
           {% else %}
           {% endif %}
-    - delay:
-        seconds: 10
-    - service_template: >
-        {% if is_state('sensor.occupancy', 'home') or is_state('input_boolean.on_the_way_home', 'on')%}
-        homeassistant.turn_off
-        {% elif is_state('sensor.occupancy', 'not_home') %}
-        homeassistant.turn_on
-        {% else %}
-        {% endif %}
-        entity_id: input_boolean.hvac_away_mode
-    - service_template: >
-        {% if is_state('sensor.occupancy', 'home') %}
-        homeassistant.turn_off
-        {% else %}
-        {% endif %}
-        entity_id: input_boolean.on_the_way_home
-      
-    
