@@ -49,7 +49,7 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
   
 Current setup cost estimate: $1250
 
-(Images last updated 1/15/2017, may not reflect current configuration)
+(Images last updated 4/29/2017, may not reflect current configuration)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_home_page.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_media.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_media2.png)
