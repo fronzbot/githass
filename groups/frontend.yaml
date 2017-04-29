@@ -53,10 +53,7 @@ tab_automation:
   entities:
     - group.scenes
     - input_boolean.flux
-    - input_boolean.hvac_away_mode
     - input_boolean.thermo_weather
-    - input_boolean.hvac_override
-    - input_boolean.device_tracking_override
     - input_boolean.debug
     - input_boolean.christmas_lights
     - group.automations_sun
