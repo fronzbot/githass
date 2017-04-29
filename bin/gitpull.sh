@@ -1,3 +1,3 @@
 #!/bin/bash
-cd "/home/hass/.homeassistant/"
+cd ~hass/.homeassistant/
 git pull --no-edit
