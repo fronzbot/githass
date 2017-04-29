@@ -3,7 +3,7 @@
 Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 
 ### Components Used:
-- Dark Sky  and Wunderground for weather
+- Dark Sky and Wunderground for weather
 - NMAP Device Tracking
 - Ecobee3 Thermostat + 1 Remote Sensor
 - Phillips Hue Hub
@@ -12,6 +12,7 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - Aeotec Z-wave Stick
   -  3x GE Z-wave Switches
   -  1x Aeotec Smart Switch 
+  -  3x First Alert ZCOMBO Smoke/CO2 detectors
 - NVIDIA Shield TV
 - PLEX Server
 - Emulated Hue (Amazon Echo and Google Home)
@@ -21,6 +22,7 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - Light control based on device presence and sun status
 - Theromstat control based on outside temperature and device presence (away mode)
 - HA Reset notifications and memory leak notifications
+- Nightly data storage for daily average/max/min to be displayed as a graph in the front end (to get long-term history)
 
 ### Notes:
 1. I use secrets.yaml to hide sensitive information (like API keys)
@@ -37,15 +39,15 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - Full local control (Ecobee does not allow local only)
 - More components:
   - ~~Z-wave stick (for future Wink removal)~~ (added 11/25/2016)
-  - Home weather station (to replace forecast.io)
-  - Lights/switches
+  - Home weather station
+  - More Lights/switches
   - Door/window sensors
   - IP Cameras
   - Sprinkler/Irrigation automation
   - ~~Washer status~~
   - Dishwasher status (custom sensor, probably)
   
-Current setup cost estimate: $1100
+Current setup cost estimate: $1250
 
 (Images last updated 1/15/2017, may not reflect current configuration)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_home_page.png)
