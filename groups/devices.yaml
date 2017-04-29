@@ -9,7 +9,7 @@ all_media:
     - media_player.shield
     - media_player.shield_android_tv
     - media_player.plex_web_chrome
-    #- media_player.asshai
+    - media_player.asshai
     
 blink_controls:
   name: Blink Controls
