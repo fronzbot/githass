@@ -54,7 +54,8 @@ lights_den:
   name: Den Lights
   icon: mdi:desktop-tower
   entities:
-    - group.den_couch
+    - light.Back_Den
+    - light.Corner_Den
     - light.Desk
 
 lights_basement:
