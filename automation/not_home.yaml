@@ -16,9 +16,6 @@ condition:
     - condition: state
       entity_id: sensor.occupancy
       state: 'not_home'
-    - condition: state
-      entity_id: input_boolean.device_tracking_override
-      state: 'off'
 action:
   service: light.turn_on
   entity_id: group.couch
