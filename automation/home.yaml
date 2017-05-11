@@ -19,9 +19,6 @@ condition:
       - wed
       - thu
       - fri
-    - condition: state
-      entity_id: input_boolean.device_tracking_override
-      state: 'off'
 action:
   - service: light.turn_on
     entity_id: group.couch
