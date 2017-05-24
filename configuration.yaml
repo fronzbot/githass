@@ -48,3 +48,7 @@ updater:
 ecobee:
   api_key: !secret ecobee_api
   hold_temp: True
+
+blink:
+  username: !secret blink_username
+  password: !secret blink_password

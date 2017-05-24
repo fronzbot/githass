@@ -1,7 +1,23 @@
 # Wunderground and dark_sky customization
+sensor.pws_alerts:
+  friendly_name: Weather Alerts
+  icon: mdi:alert
+
 sensor.pws_weather:
   friendly_name: Summary
   icon: mdi:library-books
+
+sensor.pws_weather_1d:
+  friendly_name: Daily Forecast
+  icon: mdi:binoculars
+
+sensor.pws_temp_high_1d_f:
+  friendly_name: Forecast High
+  icon: mdi:arrow-up-bold
+
+sensor.pws_temp_low_1d_f:
+  friendly_name: Forecast Low
+  icon: mdi:arrow-down-bold
   
 sensor.pws_temp_f:
   friendly_name: Outside Temperature
@@ -17,6 +33,10 @@ sensor.pws_relative_humidity:
  
 sensor.pws_precip_today_in:
   friendly_name: Precipitation Intensity
+  icon: mdi:weather-pouring
+
+sensor.pws_precip_1d_in:
+  friendly_name: Forecast Precipitation
   icon: mdi:weather-pouring
   
 sensor.pws_pressure_mb:
