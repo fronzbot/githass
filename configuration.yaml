@@ -15,7 +15,8 @@ http:
   base_url: !secret ha_url
  
 # Includes
-automation: !include_dir_list automation
+# TODO: upgrade to new automation config panel
+automation old: !include_dir_list automation
 camera: !include includes/cameras.yaml
 device_tracker: !include includes/device_trackers.yaml
 emulated_hue: !include includes/emulated_hue.yaml
