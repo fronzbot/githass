@@ -3,5 +3,5 @@ blink_snap_picture:
   sequence:
     - service: blink.snap_picture
       data:
-        - friendly_name: "Living Room"
+        friendly_name: "Living Room"
       
