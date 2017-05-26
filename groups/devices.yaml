@@ -16,6 +16,7 @@ blink_controls:
   entities:
     - sensor.blink_living_room_notifications
     - binary_sensor.blink_armed_status
+    - script.blink_snap_picture
     
 presence_gist:
   name: Presence

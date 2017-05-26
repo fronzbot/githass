@@ -1,0 +1,7 @@
+blink_snap_picture:
+  alias: Blink Take New Picture
+  sequence:
+    - service: blink.snap_picture
+      data:
+        friendly_name: "Living Room"
+      

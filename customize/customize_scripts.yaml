@@ -8,4 +8,6 @@ script.github_pull:
 
 script.hass_upgrade:
   icon: mdi:home-assistant
-  
+
+script.blink_snap_picture:
+  icon: mdi:camera
