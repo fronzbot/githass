@@ -24,6 +24,7 @@ PATH = '/home/hass/.homeassistant/'
 CREDFILE = PATH + 'hassdb.json'
 DATAFILE = PATH + 'hassplotdata.json'
 PLOTPATH = '/home/hass/images/'
+LOGPATH = '/home/hass/hassplots.log'
 
 ''' List of sensor and names to use in plot '''
 # Note: each list is represetnative of a single plot
@@ -37,9 +38,14 @@ ENTITIES = {'Temperature': TEMPERATURES,
 
 MIN_MAX_PLOTS = ['sensor.living_room_temperature', 'sensor.pws_temp_f', 'sensor.speedtest_download']
 
+def plotlog(data):
+    now = str(datetime.datetime.now())
+    with open(LOGPATH, "a") as fid:
+        fid.write(now+'\t'+data+'\n')
+
+
 def main():
     ''' Get credentials '''
-    print(str(datetime.datetime.now()))
     with open(CREDFILE) as json_data:
         d = json.load(json_data)
     
@@ -50,15 +56,15 @@ def main():
         mydata = {}
         for plotname, sensortype in ENTITIES.items():
             mydata[plotname] = {}
-            print("Getting data for "+plotname+"...")
+            plotlog("Getting data for "+plotname+"...")
             result = hass.get_data(ENTITIES[plotname])
             for key, value in result[1].items():
                 mydata[plotname][key] = {str(result[0]): result[1][key]}
         data = hass.save_data(mydata)
     else:
-        print("Skipping new data collection")
+        plotlog("Skipping new data collection")
         data = hass.save_data(dict())
-        print(data)
+        plotlog(data)
 
     for sensor_type in data:
         hass.plot_data(sensor_type, data[sensor_type])
@@ -75,7 +81,7 @@ class HassPlotting(object):
 
     def connect(self):
         '''Method connects to database'''
-        print("Connecting...")
+        plotlog("Connecting...")
         conn = pymysql.connect(host=self.dbhost,
                                user=self.dbuid,
                                passwd=self.dbpass,
@@ -90,29 +96,33 @@ class HassPlotting(object):
             self.cursor.execute("SELECT state, last_changed FROM states WHERE entity_id = '"+entity+"' AND state != 'unknown'")
             value_array[entity]     = []
             now = datetime.datetime.now() - datetime.timedelta(days=NDAYS)
-            current_time = dates.date2num(now)-NDAYS
+            #current_time = 736476.0 + NDAYS
+            current_time = dates.date2num(now)
             now_string = str(now.month) + '/' + str(now.day) + '/' + str(now.year)
             value_sum = 0
             value_min = 8191
             value_max = -8191
             count = 0;
             for x in self.cursor.fetchall():
-                current_value = float(x[0])
-                stored_time = dates.date2num(x[1])
-                if stored_time >= current_time - 1:
-                    if current_value > value_max:
-                        value_max = current_value
-                    elif current_value < value_min:
-                        value_min = current_value
-                    value_sum += current_value
-                    count += 1
+                try:
+                    current_value = float(x[0])
+                    stored_time = dates.date2num(x[1])
+                    if stored_time >= current_time - 1:
+                        if current_value > value_max:
+                            value_max = current_value
+                        elif current_value < value_min:
+                            value_min = current_value
+                        value_sum += current_value
+                        count += 1
+                except ValueError:
+                    pass
             value_sum = value_sum / count
             value_array[entity] = [value_sum, value_min, value_max, now_string]
         return [current_time, value_array]
     
     def save_data(self, data):
         '''Save new data to json file'''
-        print("Saving data...")
+        plotlog("Saving data...")
         new_data = {}
         if os.path.isfile(DATAFILE):
             with open(DATAFILE) as dfile:
@@ -123,11 +133,11 @@ class HassPlotting(object):
                     for sensor in data[sensor_type]:
                         new_data[sensor_type][sensor] = self.merge_dicts(data[sensor_type][sensor], old_data[sensor_type][sensor])
             else:
-                print("No new data, using old data")
+                plotlog("No new data, using old data")
                 new_data = old_data
 
         else:
-            print("No json file found, creating new one")
+            plotlog("No json file found, creating new one")
             new_data = data
         
         if not SKIP_NEW_DATA:
@@ -136,7 +146,7 @@ class HassPlotting(object):
         return new_data
         
     def plot_data(self, figname, data_dict):
-        print("Plotting figure "+figname)
+        plotlog("Plotting figure "+figname)
         plt.style.use('fivethirtyeight')
         font = {'weight' : 'normal', 'size' : 8}
         matplotlib.rc('font', **font)
@@ -147,7 +157,7 @@ class HassPlotting(object):
         plt.grid(b = 'on')
         # Get the data to plot, first
         for sensor in data_dict:
-            print("\t"+sensor)
+            plotlog("\t"+sensor)
             xvals = []
             yavg = []
             ymin = []
