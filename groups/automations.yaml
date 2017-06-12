@@ -33,3 +33,4 @@ automations_notify:
     - automation.notify_on_system_use
     - automation.notify_on_restart
     - automation.notify_on_fireco2
+    - automation.notify_on_cert_expiry

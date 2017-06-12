@@ -43,6 +43,7 @@ rasp_pi_monitor:
     - sensor.glances_ram_use
     - sensor.glances_swap_use
     - sensor.glances_disk_use
+    - sensor.ssl_cert_expiry
     
 appliances:
   name: Alarms and Appliances
@@ -57,3 +58,4 @@ shell:
   entities:
     - script.github_pull
     - script.hass_upgrade
+    - script.ssl_renew_certificate

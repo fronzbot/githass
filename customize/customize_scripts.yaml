@@ -11,3 +11,6 @@ script.hass_upgrade:
 
 script.blink_snap_picture:
   icon: mdi:camera
+
+script.ssl_renew_certificate:
+  icon: mdi:lock

@@ -1,0 +1,5 @@
+platform: command_line
+name: ssl_cert_expiry
+unit_of_measurement: days
+scan_interval: 10800
+command: !secret cert_expiry_command
