@@ -393,7 +393,7 @@ def main():
              plot_lines=[
                  HassLine('Download', h.get_data(INTERNET_DOWN)),
                  HassLine('Upload', h.get_data(INTERNET_UPLOAD))
-             ])
+             ],
              dual_axis=True,
              line_axis=[0, 1])
 
