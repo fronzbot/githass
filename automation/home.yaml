@@ -6,7 +6,7 @@ alias: Home From Work
 trigger:
   - platform: state
     entity_id: sensor.occupancy
-    state: 'home'
+    to: 'home'
 condition:
   condition: and
   conditions:

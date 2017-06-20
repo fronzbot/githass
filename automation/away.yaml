@@ -6,9 +6,9 @@ alias: Away From Home
 trigger:
   - platform: state
     entity_id: sensor.occupancy
-    state: 'not_home'
+    to: 'not_home'
   - platform: time
-    after: '9:00:00'
+    at: '9:00:00'
 condition:
   condition: and
   conditions:

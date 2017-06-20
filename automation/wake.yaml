@@ -2,8 +2,7 @@
 alias: Wakeup
 trigger:
   - platform: time
-    after: '6:30:00'
-
+    at: '6:30:00'
 action:
   - service: light.turn_on
     entity_id: light.couch_left
