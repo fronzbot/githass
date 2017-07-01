@@ -5,9 +5,9 @@
 energy:
   name: Energy
   entities:
-    - sensor.power_mon_voltage_3_16
-    - sensor.power_mon_current_3_20
-    - sensor.power_mon_power_3_8
+    - sensor.power_mon_voltage
+    - sensor.power_mon_current
+    - sensor.power_mon_power
 
 speedtest:
   name: Internet

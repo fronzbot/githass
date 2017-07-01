@@ -9,7 +9,7 @@
 - platform: local_file
   file_path: /home/hass/images/Internet.png
   name: Internet
-  
-#- platform: blink
-#  username: !secret blink_username
-#  password: !secret blink_password
+
+- platform: local_file
+  file_path: /home/hass/images/Humidity.png
+  name: Humidity

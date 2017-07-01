@@ -27,7 +27,7 @@ driveway:
   name: Driveway
   icon: mdi:car
   entities:
-    - switch.driveway_switch_2_0
+    - switch.driveway_switch
 
 den_couch:
   name: Den Couch
@@ -111,5 +111,5 @@ outdoor_switches:
   name: Outside Plugs
   icon: mdi:power-plug
   entities:
-    - switch.outdoor_1_switch_4_0
-    - switch.outdoor_2_switch_5_0
+    - switch.outdoor_1_switch
+    - switch.outdoor_2_switch

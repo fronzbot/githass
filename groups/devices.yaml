@@ -30,11 +30,11 @@ zwave_devices:
   name: Z-Wave Devices
   icon: mdi:access-point
   entities:
-    - zwave.aeotec_zw090_zstick_gen5_1
-    - zwave.driveway_2
-    - zwave.outdoor_1_4
-    - zwave.outdoor_2_5
-    - zwave.power_mon_3
-    - zwave.smoke_kitchen_8
-    - zwave.smoke_living_room_9
-    - zwave.smoke_nursery_10
+    - zwave.aeotec_zw090_zstick_gen5
+    - zwave.driveway
+    - zwave.outdoor_1
+    - zwave.outdoor_2
+    - zwave.power_mon
+    - zwave.smoke_kitchen
+    - zwave.smoke_living_room
+    - zwave.smoke_nursery

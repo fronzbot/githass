@@ -2,8 +2,8 @@ platform: template
 sensors: 
   washer:
     value_template: >
-      {% if states.sensor.power_mon_power_3_8 %}
-        {% if (states.sensor.power_mon_power_3_8.state | float) > 0.1 and (states.sensor.power_mon_power_3_8.state | float) < 8191.0 %}
+      {% if states.sensor.power_mon_power %}
+        {% if (states.sensor.power_mon_power.state | float) > 0.1 and (states.sensor.power_mon_power.state | float) < 8191.0 %}
           Running
         {% else %}
           Not Running
@@ -13,15 +13,15 @@ sensors:
       
   smoke_alarm_kitchen:
     value_template: >
-      {% if is_state("sensor.smoke_kitchen_alarm_level_8_1", "0") %}
+      {% if is_state("sensor.smoke_kitchen_alarm_level", "0") %}
         Idle
-      {% elif is_state("sensor.smoke_kitchen_alarm_type_8_0", "13") %}
+      {% elif is_state("sensor.smoke_kitchen_alarm_type", "13") %}
         Idle
-      {% elif is_state("sensor.smoke_kitchen_alarm_type_8_0", "12") %}
+      {% elif is_state("sensor.smoke_kitchen_alarm_type", "12") %}
         Testing
-      {% elif is_state("sensor.smoke_kitchen_alarm_type_8_0", "1") %}
+      {% elif is_state("sensor.smoke_kitchen_alarm_type", "1") %}
         Fire
-      {% elif is_state("sensor.smoke_kitchen_alarm_type_8_0", "2") %}
+      {% elif is_state("sensor.smoke_kitchen_alarm_type", "2") %}
         CO2
       {% else %}
         Unknown
@@ -29,15 +29,15 @@ sensors:
 
   smoke_alarm_living_room:
     value_template: >
-      {% if is_state("sensor.smoke_living_room_alarm_level_9_1", "0") %}
+      {% if is_state("sensor.smoke_living_room_alarm_level", "0") %}
         Idle
-      {% elif is_state("sensor.smoke_living_room_alarm_type_9_0", "13") %}
+      {% elif is_state("sensor.smoke_living_room_alarm_type", "13") %}
         Idle
-      {% elif is_state("sensor.smoke_living_room_alarm_type_9_0", "12") %}
+      {% elif is_state("sensor.smoke_living_room_alarm_type", "12") %}
         Testing
-      {% elif is_state("sensor.smoke_living_room_alarm_type_9_0", "1") %}
+      {% elif is_state("sensor.smoke_living_room_alarm_type", "1") %}
         Fire
-      {% elif is_state("sensor.smoke_living_room_alarm_type_9_0", "2") %}
+      {% elif is_state("sensor.smoke_living_room_alarm_type", "2") %}
         CO2
       {% else %}
         Unknown
@@ -45,15 +45,15 @@ sensors:
       
   smoke_alarm_nursery:
     value_template: >
-      {% if is_state("sensor.smoke_nursery_alarm_level_10_1", "0") %}
+      {% if is_state("sensor.smoke_nursery_alarm_level", "0") %}
         Idle
-      {% elif is_state("sensor.smoke_nursery_alarm_type_10_0", "13") %}
+      {% elif is_state("sensor.smoke_nursery_alarm_type", "13") %}
         Idle
-      {% elif is_state("sensor.smoke_nursery_alarm_type_10_0", "12") %}
+      {% elif is_state("sensor.smoke_nursery_alarm_type", "12") %}
         Testing
-      {% elif is_state("sensor.smoke_nursery_alarm_type_10_0", "1") %}
+      {% elif is_state("sensor.smoke_nursery_alarm_type", "1") %}
         Fire
-      {% elif is_state("sensor.smoke_nursery_alarm_type_10_0", "2") %}
+      {% elif is_state("sensor.smoke_nursery_alarm_type", "2") %}
         CO2
       {% else %}
         Unknown

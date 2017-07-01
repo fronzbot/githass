@@ -18,19 +18,19 @@ sensor.ssl_cert_expiry:
   icon: mdi:lock
 
 # Zwave sensors
-sensor.power_mon_current_3_20:
+sensor.power_mon_current:
   friendly_name: Washing Machine Current
   icon: mdi:music-note-whole
   
-sensor.power_mon_voltage_3_16:
+sensor.power_mon_voltage:
   friendly_name: Washing Machine Voltage
   icon: mdi:car-battery
   
-sensor.power_mon_power_3_8:
+sensor.power_mon_power:
   friendly_name: Washing Machine Power
   icon: mdi:power
   
-sensor.power_mon_energy_3_0:
+sensor.power_mon_energy:
   friendly_name: Washing Machine Energy
   icon: mdi:flash
   
@@ -59,27 +59,27 @@ binary_sensor.blink_armed_status:
   icon: mdi:security
   
 # Zwave Devices
-zwave.aeotec_zw090_zstick_gen5_1:
+zwave.aeotec_zw090_zstick_gen5:
   icon: mdi:router-wireless
 
-zwave.driveway_2:
+zwave.driveway:
   icon: mdi:spotlight-beam
   
-zwave.outdoor_1_4:
+zwave.outdoor_1:
   icon: mdi:power-plug
   
-zwave.outdoor_2_5:
+zwave.outdoor_2:
   icon: mdi:power-plug
   
-zwave.power_mon_3:
+zwave.power_mon:
   icon: mdi:power
 
-zwave.smoke_kitchen_8:
+zwave.smoke_kitchen:
   icon: mdi:nest-protect
   
-zwave.smoke_living_room_9:
+zwave.smoke_living_room:
   icon: mdi:nest-protect
 
-zwave.smoke_nursery_10:
+zwave.smoke_nursery:
   icon: mdi:nest-protect
 

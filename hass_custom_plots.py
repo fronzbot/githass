@@ -44,11 +44,15 @@ INTERNET_DOWN = {
 INTERNET_UPLOAD = {
     "Upload": "sensor.speedtest_upload"
 }
+HUMIDITY_LIVING_ROOM = {
+    "Living Room Humidity": "sensor.living_room_humidity"
+}
+HUMIDITY_OUTDOORS = {
+    "Outdoor Humidity": "sensor.pws_relative_humidity"
+}
 
 # Stuff to track but not plot for now
 UNPLOTTED = {
-    "Living Room Humidity": "sensor.living_room_humidity",
-    "Outdoor Humidity": "sensor.pws_relative_humidity",
     "PMON1 Current": "sensor.power_mon_current_3_20",
     "PMON1 Voltage": "sensor.power_mon_voltage_3_16",
     "PMON1 Power": "sensor.power_mon_power_3_8",
@@ -63,6 +67,8 @@ ALL_LISTS = [
     TEMP_OUTDOORS,
     INTERNET_DOWN,
     INTERNET_UPLOAD,
+    HUMIDITY_LIVING_ROOM,
+    HUMIDITY_OUTDOORS,
     UNPLOTTED
 ]
 
@@ -396,6 +402,13 @@ def main():
              ],
              dual_axis=True,
              line_axis=[0, 1])
+    
+    HassPlot(plot_name='Humidity',
+             plot_axis='RH [%]',
+             plot_lines=[
+                 HassLine('Living Room', h.get_data(HUMIDITY_LIVING_ROOM)),
+                 HassLine('Outdoors', h.get_data(HUMIDITY_OUTDOORS))
+             ])
 
 
 if __name__ == '__main__':
