@@ -2,7 +2,9 @@ import pymysql
 import numpy as np
 import json
 import sys
+import os
 import matplotlib
+from datetime import datetime
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib import dates
@@ -16,6 +18,7 @@ IMGPATH = '/home/hass/images/'
 #PATH = './'
 DATAFILE = PATH + 'hassplotdata.json'
 CREDFILE = PATH + 'hassdb.json'
+LOGFILE  = PATH + 'hass_plots.log'
 
 # Colors
 COLORS    = ['#3E9BD8', '#ED5E2F', '#5DA846', '#F4B011']
@@ -53,9 +56,9 @@ HUMIDITY_OUTDOORS = {
 
 # Stuff to track but not plot for now
 UNPLOTTED = {
-    "PMON1 Current": "sensor.power_mon_current_3_20",
-    "PMON1 Voltage": "sensor.power_mon_voltage_3_16",
-    "PMON1 Power": "sensor.power_mon_power_3_8",
+    "PMON1 Current": "sensor.power_mon_current",
+    "PMON1 Voltage": "sensor.power_mon_voltage",
+    "PMON1 Power": "sensor.power_mon_power",
     "Pressure": "sensor.pws_pressure_mb"
 }
 
@@ -72,6 +75,17 @@ ALL_LISTS = [
     UNPLOTTED
 ]
 
+class HassLog(object):
+    def __init__(self, file):
+        self.log_file = file
+        if os.path.isfile(self.log_file):
+            init_text = 'GENERATED ON {:%Y-%b-%d %H:%M:%S}\n'.format(datetime.now())
+            self.log(init_text, type='w') 
+    
+    def log(self, text, type='a'):
+        with open(self.log_file, type) as f:
+            f.write(text)
+        
 
 class HassPlot(object):
     def __init__(self, plot_name, plot_axis, plot_lines, dual_axis=False,
@@ -362,15 +376,19 @@ class HassData(object):
 
 
 def main():
+    LOGGER = HassLog(LOGFILE)
+    TIMESTAMP = '{:%Y-%b-%d %H:%M:%S}\t'.format(datetime.now())
+    
     just_plot = False
     if len(sys.argv) > 1:
         if sys.argv[1] == 'just_plot':
             just_plot = True
-
+            LOGGER.log(TIMESTAMP + ' just plotting\n')
+    
     # Get credentials
     with open(CREDFILE) as json_data:
         d = json.load(json_data)
-
+    
     h = HassData(d['dbname'], d['dbhost'], d['dbuid'], d['dbpass'])
 
     # Connect
@@ -410,6 +428,7 @@ def main():
                  HassLine('Outdoors', h.get_data(HUMIDITY_OUTDOORS))
              ])
 
-
+    LOGGER.log(TIMESTAMP + ' Complete!\n')
+    
 if __name__ == '__main__':
     main()

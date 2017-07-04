@@ -43,7 +43,7 @@ tab_system:
     - group.rasp_pi_monitor
     - group.energy
     - group.zwave_devices
-    - camera.humidity
+    - camera.relative_humidity
     - camera.temperature
     - camera.internet
     
