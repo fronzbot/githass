@@ -27,11 +27,3 @@
       above: 58
   action:
     - service: script.thermostat_engine
-      data_template: >
-        {% if states.sensor.pws_feelslike_f | int > 77 %}
-          call_hot_outside: 1
-        {% elif states.sensor.pws_feelslike_f | int < 55 %}
-          call_cold_outside: 1
-        {% else %}
-          call_nice_outside: 1
-        {% endif %}

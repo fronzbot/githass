@@ -7,17 +7,17 @@ thermostat_engine:
     - service: script.thermostat_set
       data_template:
         mode: >
-          {%- macro hot_outside() -%}
+          {% if states.sensor.pws_feelslike_f | int > 77 %}
             {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}
               {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
                 'ac_home'
               {% else %}
                 'ac_sleep'
+              {% endif %}
             {% else %}
               'ac_away'
             {% endif %}
-          {%- endmacro -%}
-          {%- macro cold_outside() -%}
+          {% elif states.sensor.pws_feelslike_f | int < 55 %}
             {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}
               {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
                 'heat_home'
@@ -27,8 +27,7 @@ thermostat_engine:
             {% else %}
               'heat_away'
             {% endif %}
-          {%- endmacro -%}
-          {%- macro nice_outside() -%}
+          {% else %}
             {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') and (states.sensor.bedroom_temperature.state > states.sensor.pws_temp_f.state)%}
               {% if ((states.sensor.living_room_humidity.state | int) > 58) and (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
                 'ac_home'
@@ -38,4 +37,4 @@ thermostat_engine:
             {% else %}
               'off'
             {% endif %}
-          {%- endmacro -%}
+          {% endif %}
