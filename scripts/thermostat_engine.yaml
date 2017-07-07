@@ -18,7 +18,8 @@ thermostat_engine:
             {% endif %}
           {%- endmacro -%}
           {%- macro cold_outside() -%}
-            {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
+            {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}
+              {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
                 'heat_home'
               {% else %}
                 'heat_sleep'
