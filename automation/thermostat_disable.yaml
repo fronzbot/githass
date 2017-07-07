@@ -1,0 +1,10 @@
+- alias: 'Turn of thermostat'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.thermostat_enable
+      to: 'off'
+  action:
+    - service: climate.set_operation_mode
+      entity_id: climate.living_room
+      data:
+        operation_mode: 'off'

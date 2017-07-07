@@ -15,6 +15,3 @@ hvac_set:
           {% else %}
             auto
           {% endif %}
-  
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.force_hvac_trigger

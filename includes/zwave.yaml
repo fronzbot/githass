@@ -1,3 +1,7 @@
 usb_path: /dev/ttyACM0
-polling_interval: 120000
 new_entity_ids: true
+polling_interval: 120000
+device_config:
+    switch.driveway:
+        polling_intensity: 1
+    

@@ -1,0 +1,34 @@
+thermostat_set:
+  sequence:
+    - service: climate.set_operation_mode
+      entity_id: climate.living_room
+      data_template:
+        operation_mode: >
+          {% if ({{mode}} == 'ac_home') or ({{mode}} == 'ac_away') or ({{mode}} == 'ac_sleep')%}
+            'cool'
+          {% elif ({{mode}} == 'heat_home') or ({{mode}} == 'heat_away') or ({{mode}} == 'heat_sleep')%}
+            'heat'
+          {% elif ({{mode}} == 'off') %}
+            'off'
+          {% else %}
+          {% endif %}
+
+    - service: climate.set_temperature
+      entity_id: climate.living_room
+      data_template:
+        temperature: >
+          {% if ({{mode}} == 'ac_home') %}
+            75
+          {% elif ({{mode}} == 'ac_away') %}
+            82
+          {% elif ({{mode}} == 'ac_sleep') %}
+            78
+          {% elif ({{mode}} == 'heat_home') %}
+            67
+          {% elif ({{mode}} == 'heat_away') %}
+            57
+          {% elif ({{mode}} == 'heat_sleep') %}
+            62
+          {% else %}
+          {% endif %}
+            
