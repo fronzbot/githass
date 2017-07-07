@@ -22,6 +22,7 @@ thermostat_engine:
                 'heat_home'
               {% else %}
                 'heat_sleep'
+              {% endif %}
             {% else %}
               'heat_away'
             {% endif %}
