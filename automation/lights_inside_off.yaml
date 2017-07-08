@@ -1,6 +1,6 @@
 # Turn inside lights off around midnight (before exterior)
 
-alias: Lights-Inside Off
+alias: Lights Inside Off
 trigger:
   - platform: time
     at: '00:12:09'

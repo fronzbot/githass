@@ -1,5 +1,5 @@
 # Turn on lights if we're not home and it's dark out
-alias: Lights-Not Home
+alias: Lights Not Home
 trigger:
   - platform: sun
     event: sunset

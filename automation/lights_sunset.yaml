@@ -1,6 +1,6 @@
 # Turn on outside lights 15 minutes after sunset
 
-alias: Lights-Sunset
+alias: Lights Sunset
 trigger:
   - platform: sun
     event: sunset

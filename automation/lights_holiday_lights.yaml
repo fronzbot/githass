@@ -1,5 +1,5 @@
 # Turn on holiday lights at sunset
-alias: Lights-Holiday Lights
+alias: Lights Holiday Lights
 trigger:
   - platform: sun
     event: sunset

@@ -21,7 +21,7 @@ automations_presence:
 automations_hvac:
   name: Thermostat Automations
   entities:
-    - automation.thermostat_change
+    - automation.thermostat_change_on_weather
     - automation.thermostat_disable
     
 automations_notify:

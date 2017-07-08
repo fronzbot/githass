@@ -1,5 +1,5 @@
 # Turn lights on in the morning 
-alias: Lights-Wakeup
+alias: Lights Wakeup
 trigger:
   - platform: time
     at: '6:30:00'

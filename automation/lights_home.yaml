@@ -2,7 +2,7 @@
 # group.all_devices is 'home' if ANY device is home
 # Do this between 5pm and 7pm
 
-alias: Lights-Home
+alias: Lights Home
 trigger:
   - platform: state
     entity_id: sensor.occupancy

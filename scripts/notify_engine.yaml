@@ -17,10 +17,10 @@ notify_engine:
           {##################}
           {# BEGIN ROUTINES #}
           {##################}
-          {% if call_fire_co2() == 1 %}
+          {% if call_fire_co2 == 1 %}
             {{ fire_co2 }}
           {% endif %}
-          {% if call_washer_status() == 1 %}
+          {% if call_washer_status == 1 %}
             {{ washer_status }}
           {% endif %}
     
@@ -45,13 +45,13 @@ notify_engine:
           {##################}
           {# BEGIN ROUTINES #}
           {##################}
-          {% if call_on_restart() == 1 %}
+          {% if call_on_restart == 1 %}
             {{ on_restart() }}
           {% endif %}
-          {% if call_system_use() == 1 %}
+          {% if call_system_use == 1 %}
             {{ system_use() }}
           {% endif %}
-          {% if call_ssl_cert_expiry() == 1 %}
+          {% if call_ssl_cert_expiry == 1 %}
             {{ ssl_cert_expiry() }}
           {% endif %}
     

@@ -1,4 +1,4 @@
-alias: 'Change thermostat on weather'
+alias: Thermostat Change on Weather
 trigger:
   - platform: state
     entity_id: input_boolean.thermostat_enable

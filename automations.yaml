@@ -1,10 +1,10 @@
 # -------------------------------------------
 # FILE GENERATED USING gen_automations SCRIPT
-# GENERATED ON 2017-Jul-07 23:04:18
+# GENERATED ON 2017-Jul-07 23:12:14
 # -------------------------------------------
 
-- id: 'turn_off_thermostat'
-  alias: 'Turn off thermostat'
+- id: thermostat_disable
+  alias: Thermostat Disable
   trigger:
     - platform: state
       entity_id: input_boolean.thermostat_enable
@@ -29,8 +29,8 @@
     - service: script.notify_engine
       data_template:
         call_washer_status: 1
-- id: 'change_thermostat_on_weather'
-  alias: 'Change thermostat on weather'
+- id: thermostat_change_on_weather
+  alias: Thermostat Change on Weather
   trigger:
     - platform: state
       entity_id: input_boolean.thermostat_enable
@@ -65,7 +65,7 @@
 #Turn on couch lights if it's raining, someone
 # is home, and it's after 11am.
 - id: lights_rainy
-  alias: Lights-Rainy
+  alias: Lights Rainy
   trigger:
     - platform: state
       entity_id: sensor.pws_weather
@@ -119,7 +119,7 @@
 # Turn on outside lights 15 minutes after sunset
   
 - id: lights_sunset
-  alias: Lights-Sunset
+  alias: Lights Sunset
   trigger:
     - platform: sun
       event: sunset
@@ -134,7 +134,7 @@
       entity_id: group.driveway
 # Turn on lights if we're not home and it's dark out
 - id: lights_not_home
-  alias: Lights-Not Home
+  alias: Lights Not Home
   trigger:
     - platform: sun
       event: sunset
@@ -176,7 +176,7 @@
 # Turn on outside lights off at 12:40 am
   
 - id: lights_outdoor_off
-  alias: Lights-Outdoor Off
+  alias: Lights Outdoor Off
   trigger:
     - platform: time
       at: '00:40:07'
@@ -189,7 +189,7 @@
       entity_id: group.driveway
 # Turn on holiday lights at sunset
 - id: lights_holiday_lights
-  alias: Lights-Holiday Lights
+  alias: Lights Holiday Lights
   trigger:
     - platform: sun
       event: sunset
@@ -215,7 +215,7 @@
 # Only do this between 7:30am to 10:00am
   
 - id: lights_away
-  alias: Lights-Away
+  alias: Lights Away
   trigger:
     - platform: state
       entity_id: sensor.occupancy
@@ -237,7 +237,7 @@
       
 # Turn lights on in the morning 
 - id: lights_wakeup
-  alias: Lights-Wakeup
+  alias: Lights Wakeup
   trigger:
     - platform: time
       at: '6:30:00'
@@ -249,7 +249,7 @@
 # Turn inside lights off around midnight (before exterior)
   
 - id: lights_inside_off
-  alias: Lights-Inside Off
+  alias: Lights Inside Off
   trigger:
     - platform: time
       at: '00:12:09'
@@ -271,7 +271,7 @@
 # Do this between 5pm and 7pm
   
 - id: lights_home
-  alias: Lights-Home
+  alias: Lights Home
   trigger:
     - platform: state
       entity_id: sensor.occupancy

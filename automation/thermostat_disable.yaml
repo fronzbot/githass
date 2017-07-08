@@ -1,4 +1,4 @@
-alias: 'Turn off thermostat'
+alias: Thermostat Disable
 trigger:
   - platform: state
     entity_id: input_boolean.thermostat_enable
