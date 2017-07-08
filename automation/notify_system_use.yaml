@@ -12,6 +12,6 @@ trigger:
     entity_id: sensor.glances_swap_use
     above: 50.0
 action:
-  - service: script.notify_engine
+  - service: script.notify_kevin_engine
     data_template:
       call_system_use: 1

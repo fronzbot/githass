@@ -4,6 +4,6 @@ trigger:
     entity_id: sensor.ssl_cert_expiry
     below: 21
 action:
-  - service: script.notify_engine
+  - service: script.notify_kevin_engine
     data_template:
       call_ssl_cert_expiry: 1

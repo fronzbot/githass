@@ -19,6 +19,6 @@ trigger:
     entity_id: sensor.smoke_alarm_nursery
     to: "CO2"
 action:
-  - service: script.notify_engine
+  - service: script.notify_allengine
     data_template:
       call_fire_co2: 1

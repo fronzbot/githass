@@ -3,6 +3,6 @@ trigger:
   - platform: homeassistant
     event: start
 action:
-  - service: script.notify_engine
+  - service: script.notify_kevin_engine
     data_template:
       call_on_restart: 1
