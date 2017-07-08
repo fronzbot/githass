@@ -6,9 +6,8 @@ thermostat_info:
   name: Thermostat
   entities:
     - climate.living_room
-    - sensor.thermo_outside_temp
     - sensor.thermo_current_operation  
-    - sensor.pws_temp_f    
+    - sensor.pws_feelslike_f    
     - sensor.living_room_temperature
     - sensor.bedroom_temperature
     - sensor.living_room_humidity
@@ -22,7 +21,6 @@ temp_gist:
   name: Climate Summary
   entities:
     - climate.living_room
-    - sensor.thermo_outside_temp
     - sensor.thermo_current_operation    
     - sensor.living_room_temperature
     - sensor.bedroom_temperature

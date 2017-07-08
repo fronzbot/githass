@@ -22,34 +22,14 @@ sensor.thermo_hvac:
   friendly_name: HVAC Mode
   icon: mdi:air-conditioner
   
-sensor.thermo_mode:
-  friendly_name: Home/Away
-  icon: mdi:home
-
-sensor.thermo_away:
-  friendly_name: Away Mode
-  icon: mdi:account-switch
-  
 sensor.thermo_temp:
   friendly_name: Current Temperature
   icon: mdi:nest-thermostat
   
-#sensor.thermo_target_high:
-#  friendly_name: AC Target
-#  icon: mdi:weather-snowy
-  
-#sensor.thermo_target_low:
-#  friendly_name: Heat Target
-#  icon: mdi:fire
-  
 sensor.thermo_current_operation:
   friendly_name: Current Status
-  icon: mdi:air-conditioner
+  icon: mdi:waves
   
 sensor.thermo_fan:
   friendly_name: Fan
   icon: mdi:fan
-
-sensor.thermo_outside_temp:
-  friendly_name: Outside  
-  icon: mdi:weather-sunset

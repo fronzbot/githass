@@ -1,75 +1,19 @@
 platform: template
 sensors:
   thermo_hvac:
-    value_template: >
-      {% if states.climate.living_room %}
-        {% if states.climate.living_room.attributes.operation_mode == 'auto' %}
-          Auto
-        {% elif states.climate.living_room.attributes.operation_mode == 'off' %}
-          Off
-        {% elif states.climate.living_room.attributes.operation_mode == 'idle' %}
-          Off
-        {% elif states.climate.living_room %}
-          {{ states.climate.living_room.attributes.operation_mode }}
-        {% else %}
-        {% endif %}
-      {% else %}
-      {% endif %} 
-      
+    value_template: '{{ states.climate.living_room.attributes.operation_mode }}'     
     entity_id: climate.living_room
     
   thermo_temp:
-    value_template: >
-      {% if states.climate.living_room %}
-        {{ states.climate.living_room.attributes.current_temperature }}
-      {% else %}
-      {% endif %} 
+    value_template: '{{ states.climate.living_room.attributes.current_temperature }}'
     unit_of_measurement: '°F'
     entity_id: climate.living_room
     
   thermo_fan:
-    value_template: >
-      {% if states.climate.living_room %}
-        {{ states.climate.living_room.attributes.fan }}
-      {% else %}
-      {% endif %}
+    value_template: '{{ states.climate.living_room.attributes.fan }}'
     entity_id: climate.living_room
     
   thermo_current_operation:
-    value_template: >
-      {% if states.climate.living_room  %}
-        {% if states.climate.living_room.attributes.operation == 'auto' %}
-          Auto
-        {% elif states.climate.living_room.attributes.operation == 'off' %}
-          Off
-        {% elif states.climate.living_room.attributes.operation == 'idle' %}
-          Idle
-        {% elif states.climate.living_room.attributes.operation == 'heat' %}
-          Heat
-        {% elif states.climate.living_room.attributes.operation == 'cool' %}
-          Cool
-        {% elif states.climate.living_room %}
-          {{ states.climate.living_room.attributes.operation }}
-        {% else %}
-          Unknown
-        {% endif %}
-      {% else %}
-      {% endif %} 
-    
+    value_template: '{{ states.climate.living_room.attributes.operation }}'   
     entity_id: climate.living_room
-
-  thermo_outside_temp:
-    value_template: > 
-      {% if states.sensor.pws_temp_f %}
-        {% if (states.sensor.pws_feelslike_f.state | float) < 74.0 and (states.sensor.pws_feelslike_f.state | float) > 58.0 %}
-          Fair
-        {% elif (states.sensor.pws_feelslike_f.state | float) > 77.0 %}
-          Hot
-        {% elif (states.sensor.pws_feelslike_f.state | float) < 55.0 %}
-          Cold
-        {% else %}
-          Fair
-        {% endif %}
-      {% else %}
-      {% endif %}
     

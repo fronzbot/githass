@@ -1,6 +1,6 @@
 # -------------------------------------------
 # FILE GENERATED USING gen_automations SCRIPT
-# GENERATED ON 2017-Jul-08 15:58:43
+# GENERATED ON 2017-Jul-08 16:18:49
 # -------------------------------------------
 
 - id: thermostat_disable
