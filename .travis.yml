@@ -7,3 +7,5 @@ install:
     - pip3 install homeassistant
 script:
     - hass -c . --script check_config
+    - python gen_automations.python
+    - hass -c . --script check_config
