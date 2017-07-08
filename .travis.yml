@@ -5,8 +5,7 @@ before_install:
     - mv travis_secrets.yaml secrets.yaml
 install:
     - pip3 install homeassistant
-before_script:
-    - python gen_automations.py
 script:
     - hass -c . --script check_config
+    - python gen_automations.py && hass -c . --script check_config
     
