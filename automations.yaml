@@ -1,6 +1,6 @@
 # -------------------------------------------
 # FILE GENERATED USING gen_automations SCRIPT
-# GENERATED ON 2017-Jul-08 15:54:37
+# GENERATED ON 2017-Jul-08 15:58:43
 # -------------------------------------------
 
 - id: thermostat_disable
@@ -64,7 +64,7 @@
       entity_id: sensor.living_room_humidity
       above: 58
     - platform: template
-      value_template: {{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.pws_feelslike_f.state | float) > 2.0 }}
+      value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.pws_feelslike_f.state | float) > 2.0 }}'
     - platform: homeassistant
       event: start
   action:
