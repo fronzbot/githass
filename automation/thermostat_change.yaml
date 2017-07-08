@@ -31,10 +31,7 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.living_room_humidity
     above: 58
+  - platform: homeassistant
+    event: start
 action:
-  - service: script.thermostat_operation
-  - delay:
-      seconds: 2
-  - service: script.thermostat_temperature
-  - service: homeassistant.turn_off
-    entity_id: input_boolean.on_the_way_home
+  - service: script.thermostat_engine

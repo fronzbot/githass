@@ -1,6 +1,6 @@
 # -------------------------------------------
 # FILE GENERATED USING gen_automations SCRIPT
-# GENERATED ON 2017-Jul-08 14:13:24
+# GENERATED ON 2017-Jul-08 14:57:53
 # -------------------------------------------
 
 - id: thermostat_disable
@@ -63,13 +63,10 @@
     - platform: numeric_state
       entity_id: sensor.living_room_humidity
       above: 58
+    - platform: homeassistant
+      event: start
   action:
-    - service: script.thermostat_operation
-    - delay:
-        seconds: 2
-    - service: script.thermostat_temperature
-    - service: homeassistant.turn_off
-      entity_id: input_boolean.on_the_way_home
+    - service: script.thermostat_engine
 #Turn on couch lights if it's raining, someone
 # is home, and it's after 11am.
 - id: lights_rainy
