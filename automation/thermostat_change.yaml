@@ -1,4 +1,4 @@
---ERROR--alias: 'Change thermostat on weather'
+alias: 'Change thermostat on weather'
 trigger:
   - platform: state
     entity_id: input_boolean.thermostat_enable
@@ -15,7 +15,7 @@ trigger:
   - platform: state
     entity_id: sensor.occupancy
     to: 'not_home'  
-  - platform: numeric_state
+  - platform: state
     entity_id: sensor.pws_feelslike_f
     above: 77
   - platform: numeric_state
