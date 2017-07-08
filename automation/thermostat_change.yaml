@@ -15,7 +15,7 @@ trigger:
   - platform: state
     entity_id: sensor.occupancy
     to: 'not_home'  
-  - platform: state
+  - platform: numeric_state
     entity_id: sensor.pws_feelslike_f
     above: 77
   - platform: numeric_state
