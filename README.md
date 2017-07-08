@@ -34,8 +34,8 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - ~~Rapberry pi status monitoring~~ (added 8/27/2016)
 - ~~Integrate Alexa (![emulated_hue}(https://home-assistant.io/components/emulated_hue/) looks promising)~~ (added 10/23/2016)
 - ~~Selectable scenes~~ (added 11/6/2016)
-- ~~Vacation Modes~~ (Covered by existing automations)
-- Thermostat automations (instead of using built-in Ecobee scheduling)
+- Vacation Mode
+- ~~Thermostat automations (instead of using built-in Ecobee scheduling)~~ (added 7/8/2017)
 - Full local control (Ecobee does not allow local only)
 - More components:
   - ~~Z-wave stick (for future Wink removal)~~ (added 11/25/2016)
