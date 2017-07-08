@@ -1,4 +1,4 @@
-alias: 'Change thermostat on weather'
+--ERROR--alias: 'Change thermostat on weather'
 trigger:
   - platform: state
     entity_id: input_boolean.thermostat_enable
