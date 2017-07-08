@@ -20,7 +20,7 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 
 ### Automations:
 - Light control based on device presence and sun status
-- Theromstat control based on outside temperature and device presence (away mode)
+- Theromstat control based on outside temperature and device presence
 - HA Reset notifications and memory leak notifications
 - Nightly data storage for daily average/max/min to be displayed as a graph in the front end (to get long-term history)
 
@@ -49,7 +49,7 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
   
 Current setup cost estimate: $1250
 
-(Images last updated 4/29/2017, may not reflect current configuration)
+(Images last updated July 8, 2017, may not reflect current configuration)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_home_page.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_media.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_media2.png)
@@ -57,4 +57,5 @@ Current setup cost estimate: $1250
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_weather1.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_weather2.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_stats.png)
+![](https://github.com/fronzbot/githass/blob/master/images/ha_stats2.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_override.png)
