@@ -4,51 +4,59 @@ thermostat_engine:
       entity_id: input_boolean.thermostat_enable
       state: 'on'
 
+    - service: climate.set_operation_mode
+      data_template:
+        entity_id: climate.living_room
+        operation_mode: >
+          {% if (states.sensor.pws_feelslike_f.state | int) > 77 %}
+            auto
+          {% elif (states.sensor.pws_feelslike_f.state | int) < 55 %}
+            auto
+          {% elif (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}
+            {% if (states.sensor.bedroom_temperature.state | int > states.sensor.pws_temp_f.state | int) and (states.sensor.pws_temp_f.state | int > 72) %}
+              {% if ((states.sensor.living_room_humidity.state | int) > 58) and (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
+                auto
+              {% else %}
+                off
+              {% endif %}
+            {% else %}
+              off
+            {% endif %}
+          {% else %}
+            off
+          {% endif %}
+
     - service: climate.set_temperature
       data_template:
         entity_id: climate.living_room
-        temperature: >
-          {% if states.sensor.pws_feelslike_f | int > 77 %}
+        temperature: 75        
+        target_temp_high: >
+          {% if (states.sensor.pws_feelslike_f.state | int) > 77 %}
             {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') or (states.input_boolean.on_the_way_home.state == 'on') %}
               {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
-                75
+                {{ 75 | int }}
               {% else %}
-                78
+                {{ 78 | int }}
               {% endif %}
             {% else %}
-              82
+              {{ 82 | int }}
             {% endif %}
-          {% elif states.sensor.pws_feelslike_f | int < 55 %}
+          {% else %}
+            {{ 78 | int }}
+          {% endif %}
+        target_temp_low: >
+          {% if (states.sensor.pws_feelslike_f.state | int) < 55 %}
             {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') or (states.input_boolean.on_the_way_home.state == 'on') %}
               {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
-                67
+                {{ 67 | int }}
               {% else %}
-                63
+                {{ 62 | int }}
               {% endif %}
             {% else %}
-              57
+              {{ 57 | int }}
             {% endif %}
           {% else %}
-            {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') and (states.sensor.bedroom_temperature.state > states.sensor.pws_temp_f.state)%}
-              {% if ((states.sensor.living_room_humidity.state | int) > 58) and (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
-                75
-              {% endif %}
-            {% endif %}
+            {{ 55 | int }}
           {% endif %}
-        operation_mode: >
-          {% if states.sensor.pws_feelslike_f | int > 77 %}
-            'cool'
-          {% elif states.sensor.pws_feelslike_f | int < 55 %}
-            'heat'
-          {% elif (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') and (states.sensor.bedroom_temperature.state > states.sensor.pws_temp_f.state)%}
-              {% if ((states.sensor.living_room_humidity.state | int) > 58) and (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
-                'cool'
-              {% else %}
-                'off'
-              {% endif %}
-          {% else %}
-            'off'
-          {% endif %}
-
     - service: homeassistant.turn_off
       entity_id: input_boolean.on_the_way_home

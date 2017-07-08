@@ -1,6 +1,6 @@
 # -------------------------------------------
 # FILE GENERATED USING gen_automations SCRIPT
-# GENERATED ON 2017-Jul-07 23:31:25
+# GENERATED ON 2017-Jul-08 13:38:03
 # -------------------------------------------
 
 - id: thermostat_disable
@@ -27,7 +27,7 @@
       to: 'Not Running'
   action:
     - service: script.notify_all_engine
-      data_template:
+      data:
         call_washer_status: 1
 - id: thermostat_change_on_weather
   alias: Thermostat Change on Weather
@@ -38,6 +38,9 @@
     - platform: state
       entity_id: input_boolean.guest_mode
       to: 'on'
+    - platform: state
+      entity_id: input_boolean.guest_mode
+      to: 'off'
     - platform: state
       entity_id: input_boolean.on_the_way_home
       to: 'on'
@@ -89,7 +92,7 @@
       event: start
   action:
     - service: script.notify_kevin_engine
-      data_template:
+      data:
         call_on_restart: 1
 - id: notify_on_fire_co2
   alias: Notify on Fire/CO2
@@ -114,7 +117,7 @@
       to: "CO2"
   action:
     - service: script.notify_all_engine
-      data_template:
+      data:
         call_fire_co2: 1
 # Turn on outside lights 15 minutes after sunset
   
@@ -171,7 +174,7 @@
       above: 50.0
   action:
     - service: script.notify_kevin_engine
-      data_template:
+      data:
         call_system_use: 1
 # Turn on outside lights off at 12:40 am
   
@@ -264,7 +267,7 @@
       below: 21
   action:
     - service: script.notify_kevin_engine
-      data_template:
+      data:
         call_ssl_cert_expiry: 1
 # Turn lights on when someone comes home from work
 # group.all_devices is 'home' if ANY device is home
