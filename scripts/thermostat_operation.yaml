@@ -8,9 +8,9 @@ thermostat_operation:
       data_template:
         entity_id: climate.living_room
         operation_mode: >
-          {% if (states.sensor.pws_feelslike_f.state | int) > 77 or (states.input_boolean.guest_mode.state == 'on') %}
+          {% if (states.sensor.pws_feelslike_f.state | int) > 77 %}
             auto
-          {% elif (states.sensor.pws_feelslike_f.state | int) < 55 or (states.input_boolean.on_the_way_home.state == 'on')%}
+          {% elif (states.sensor.pws_feelslike_f.state | int) < 55 %}
             auto
           {% elif (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}
             {% if (states.sensor.bedroom_temperature.state | int > states.sensor.pws_temp_f.state | int) and (states.sensor.pws_temp_f.state | int > 72) %}

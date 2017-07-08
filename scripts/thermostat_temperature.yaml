@@ -17,7 +17,7 @@ thermostat_temperature:
       data_template:
         entity_id: climate.living_room         
         target_temp_high: >
-          {% if (states.sensor.pws_feelslike_f.state | int) > 77 or (states.input_boolean.guest_mode.state == 'on')%}
+          {% if (states.sensor.pws_feelslike_f.state | int) > 77 %}
             {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') or (states.input_boolean.on_the_way_home.state == 'on') %}
               {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
                 {{ 75 | int }}
@@ -31,7 +31,7 @@ thermostat_temperature:
             {{ 78 | int }}
           {% endif %}
         target_temp_low: >
-          {% if (states.sensor.pws_feelslike_f.state | int) < 55 or (states.input_boolean.on_the_way_home.state == 'on')%}
+          {% if (states.sensor.pws_feelslike_f.state | int) < 55 %}
             {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') or (states.input_boolean.on_the_way_home.state == 'on') %}
               {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
                 {{ 67 | int }}
