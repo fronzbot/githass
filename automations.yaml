@@ -1,6 +1,6 @@
 # -------------------------------------------
 # FILE GENERATED USING gen_automations SCRIPT
-# GENERATED ON 2017-Jul-07 22:29:13
+# GENERATED ON 2017-Jul-07 23:04:18
 # -------------------------------------------
 
 - id: 'turn_off_thermostat'
