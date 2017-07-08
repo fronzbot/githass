@@ -1,13 +1,5 @@
 platform: template
 sensors:
-  thermo_away:
-    value_template: >
-      {% if states.climate.living_room %}
-        {{ states.climate.living_room.attributes.away_mode }}
-      {% else %}
-      {% endif %}
-    entity_id: climate.living_room
-    
   thermo_hvac:
     value_template: >
       {% if states.climate.living_room %}
@@ -65,28 +57,15 @@ sensors:
       {% endif %} 
     
     entity_id: climate.living_room
-  
-  thermo_mode:
-    value_template: >
-      {% if states.climate.living_room  %}
-        {% if states.climate.living_room.attributes.away_mode == 'on' %}
-          Away
-        {% else %}  
-          {{ states.climate.living_room.attributes.mode }}
-        {% endif %}
-      {% else %}
-      {% endif %}
-    
-    entity_id: climate.living_room
-    
+
   thermo_outside_temp:
     value_template: > 
       {% if states.sensor.pws_temp_f %}
-        {% if (states.sensor.pws_temp_f.state | float) < 74.0 and (states.sensor.pws_temp_f.state | float) > 58.0 %}
+        {% if (states.sensor.pws_feelslike_f.state | float) < 74.0 and (states.sensor.pws_feelslike_f.state | float) > 58.0 %}
           Fair
-        {% elif (states.sensor.pws_temp_f.state | float) > 77.0 %}
+        {% elif (states.sensor.pws_feelslike_f.state | float) > 77.0 %}
           Hot
-        {% elif (states.sensor.pws_temp_f.state | float) < 55.0 %}
+        {% elif (states.sensor.pws_feelslike_f.state | float) < 55.0 %}
           Cold
         {% else %}
           Fair

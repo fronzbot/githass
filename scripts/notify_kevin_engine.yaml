@@ -1,0 +1,30 @@
+notify_kevin_engine:
+  sequence:
+    - service: notify.notify_kevin_phone
+      data_template:
+        message: >
+          {%- macro on_restart() -%}
+            Home Assistant restarted {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+          {%- endmacro -%}
+          {%- macro system_use() -%}
+            {% if states.sensor.glances_ram_use.state | float <= 100.0 %}
+              RAM Usage at {{states.sensor.glances_ram_use.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
+            {% elif states.sensor.glances_ram_use_2.state | float <= 100.0 %}
+              RAM Usage at {{states.sensor.glances_ram_use_2.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
+            {% endif %}
+          {%- endmacro -%}
+          {%- macro ssl_cert_expiry() -%}
+            Warning - SSL Certificate expires in {{states.sensor.ssl_cert_expiry.state}} days and has not been renewed!
+          {%- endmacro -%}
+          {##################}
+          {# BEGIN ROUTINES #}
+          {##################}
+          {% if call_on_restart == 1 %}
+            {{ on_restart() }}
+          {% endif %}
+          {% if call_system_use == 1 %}
+            {{ system_use() }}
+          {% endif %}
+          {% if call_ssl_cert_expiry == 1 %}
+            {{ ssl_cert_expiry() }}
+          {% endif %}

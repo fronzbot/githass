@@ -12,12 +12,6 @@ trigger:
     entity_id: sensor.glances_swap_use
     above: 50.0
 action:
-  - service: notify.notify_kevin_phone
-    data_template:
-      message: >
-        {% if states.sensor.glances_ram_use.state | float <= 100.0 %}
-          RAM Usage at {{states.sensor.glances_ram_use.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
-        {% elif states.sensor.glances_ram_use_2.state | float <= 100.0 %}
-          RAM Usage at {{states.sensor.glances_ram_use_2.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
-        {% else %}
-        {% endif %}
+  - service: script.notify_kevin_engine
+    data:
+      call_system_use: 1

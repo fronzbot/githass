@@ -1,0 +1,38 @@
+notify_all_engine:
+  sequence:
+    - service: notify.notify
+      data_template:
+        message: >
+          {%- macro fire_co2() -%}
+            ALERT! {{ now().strftime("%h %d, %Y at %H:%M:%S") }} Kitchen: {{ states.sensor.smoke_alarm_kitchen.state }}, Living Room: {{ states.sensor.smoke_alarm_living_room.state }}, Nursery: {{ states.sensor.smoke_alarm_nursery.state }}
+          {%- endmacro -%}
+          {%- macro washer_status() -%}
+            {% if states.sensor.washer.state == 'Running' %}
+              Washer cycle started {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+            {% elif states.sensor.washer.state == 'Not Running' %}
+              Washer cycle complete {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+            {% endif %}
+          {%- endmacro -%}
+          {%- macro on_way_home() -%}
+            Home Assistant: I turned the thermostat on, so the house will be nice and comfortable when you get home!
+          {%- endmacro -%}
+          {##################}
+          {# BEGIN ROUTINES #}
+          {##################}
+          {% if call_fire_co2 == 1 %}
+            {{ fire_co2() }}
+          {% endif %}
+          {% if call_washer_status == 1 %}
+            {{ washer_status() }}
+          {% endif %}
+          {% if call_on_way_home == 1 %}
+            {{ on_way_home() }}
+          {% endif %}
+    
+#    # TTS calls
+#    - service: script.speech_engine
+#      data_template:
+#        speech_message: >
+        
+    
+          

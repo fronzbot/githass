@@ -1,26 +1,6 @@
 ##################
 # Input Boolean
 ##################
-
-input_boolean.hvac_away_mode:
-  icon: mdi:home
-  emulated_hue: true
-  emulated_hue_name: "Away Mode"
-  
-input_boolean.thermo_weather:
-  icon: mdi:weather-sunset
-  emulated_hue: true
-  emulated_hue_name: "Weather Tracking"
-   
-input_boolean.device_tracking_override:
-  icon: mdi:cellphone-android
-  
-input_boolean.force_hvac_trigger:
-  icon: mdi:weather-sunset
-  
-input_boolean.debug:
-  icon: mdi:bug
-  
 input_boolean.flux:
   icon: mdi:theme-light-dark
   emulated_hue: true
@@ -31,3 +11,13 @@ input_boolean.christmas_lights:
   
 input_boolean.on_the_way_home:
   icon: mdi:map-marker
+
+input_boolean.guest_mode:
+  icon: mdi:account
+  emulated_hue: true
+  emulated_hue_name: "Guest Mode"
+
+input_boolean.thermostat_enable:
+  icon: mdi:nest-thermostat
+  emulated_hue: true
+  emulated_hue_name: "Thermostat"

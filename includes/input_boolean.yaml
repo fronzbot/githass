@@ -1,11 +1,7 @@
-thermo_weather:
-  name: Weather Tracking
-  initial: on
-
-debug:
-  name: Debugger
+on_the_way_home:
+  name: On the Way Home
   initial: off
-  
+
 flux:
   name: Flux
   initial: on
@@ -14,6 +10,11 @@ christmas_lights:
   name: Christmas Lights
   initial: off
   
-on_the_way_home:
-  name: On The Way Home
+guest_mode:
+  name: Guest Mode
   initial: off
+ 
+thermostat_enable:
+  name: Thermostat Enable
+  initial: on
+

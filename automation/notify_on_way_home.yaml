@@ -1,0 +1,9 @@
+alias: Notify on Way Home
+trigger:
+  - platform: state
+    entity_id: input_boolean.on_the_way_home
+    to: 'on'
+action:
+  - service: script.notify_all_engine
+    data:
+      call_on_way_home: 1

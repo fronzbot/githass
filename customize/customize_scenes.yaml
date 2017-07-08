@@ -25,3 +25,7 @@ scene.sabres:
   icon: mdi:sword
   emulated_hue: true
   emulated_hue_name: "Sabres"
+
+scene.on_the_way_home:
+  icon: mdi:map-marker
+  emulated_hue: false

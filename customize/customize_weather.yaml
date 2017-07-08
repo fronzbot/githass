@@ -18,6 +18,10 @@ sensor.pws_temp_high_1d_f:
 sensor.pws_temp_low_1d_f:
   friendly_name: Forecast Low
   icon: mdi:arrow-down-bold
+
+sensor.pws_feelslike_f:
+  friendly_name: Feelslike
+  icon: mdi:thermometer
   
 sensor.pws_temp_f:
   friendly_name: Outside Temperature

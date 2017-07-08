@@ -6,6 +6,7 @@ monitored_conditions:
   - weather_1d
   - alerts
   - temp_f
+  - feelslike_f
   - temp_high_1d_f
   - temp_low_1d_f
   - station_id

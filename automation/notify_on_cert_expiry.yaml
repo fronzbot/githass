@@ -4,6 +4,6 @@ trigger:
     entity_id: sensor.ssl_cert_expiry
     below: 21
 action:
-  - service: notify.notify_kevin_phone
-    data: 
-      message: 'Warning - SSL Certificate expires in 21 days and has not been renewed!'
+  - service: script.notify_kevin_engine
+    data:
+      call_ssl_cert_expiry: 1

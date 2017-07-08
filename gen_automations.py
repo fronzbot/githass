@@ -10,11 +10,11 @@ file already exists, the existing file is merged with the generated file.
 This allows for the old automation style to be maintained, which is far easier
 to maintain than the new single-file style.
 '''
-from os import listdir
+from os import listdir, getcwd
 from os.path import isfile, join
 from datetime import datetime
 
-DEFPATH = '/home/hass/.homeassistant'
+DEFPATH = getcwd()
 AUTOPATH = DEFPATH + '/automation'
 
 # Forces overwrite of automations.yaml

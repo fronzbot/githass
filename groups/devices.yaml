@@ -18,14 +18,13 @@ blink_controls:
     - sensor.blink_living_room_notifications
     - binary_sensor.blink_armed_status
     - script.blink_snap_picture
-    
+
 presence_gist:
   name: Presence
   entities:
     - device_tracker.kevin
     - device_tracker.allegra
-    - sensor.thermo_mode
-    - input_boolean.on_the_way_home
+    - scene.on_the_way_home
 
 zwave_devices:
   name: Z-Wave Devices

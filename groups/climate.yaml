@@ -16,7 +16,7 @@ thermostat_info:
     - sensor.thermo_hvac
     - sensor.thermo_current_operation
     - sensor.thermo_fan
-    - input_boolean.thermo_weather
+    - input_boolean.thermostat_enable
 
 temp_gist:
   name: Climate Summary
@@ -26,5 +26,5 @@ temp_gist:
     - sensor.thermo_current_operation    
     - sensor.living_room_temperature
     - sensor.bedroom_temperature
-    - sensor.pws_temp_f
+    - sensor.pws_feelslike_f
    

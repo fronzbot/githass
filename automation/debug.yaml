@@ -1,8 +1,0 @@
-alias: Debug
-trigger:
-  - platform: state
-    entity_id: input_boolean.debug
-    from: 'off'
-    to: 'on'
-action:
-  service: script.debug

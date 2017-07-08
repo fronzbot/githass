@@ -1,6 +1,6 @@
 #Turn on couch lights if it's raining, someone
 # is home, and it's after 11am.
-alias: Raining
+alias: Lights Rainy
 trigger:
   - platform: state
     entity_id: sensor.pws_weather

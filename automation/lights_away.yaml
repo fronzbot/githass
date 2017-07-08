@@ -2,7 +2,7 @@
 # group.all_devices is 'not_home' if ALL devices are not home
 # Only do this between 7:30am to 10:00am
 
-alias: Away From Home
+alias: Lights Away
 trigger:
   - platform: state
     entity_id: sensor.occupancy
