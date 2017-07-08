@@ -9,12 +9,6 @@ trigger:
     from: 'Running'
     to: 'Not Running'
 action:
-  - service: notify.notify
+  - service: script.notify_engine
     data_template:
-      message: >
-        {% if states.sensor.washer.state == 'Running' %}
-          Washer cycle started!
-        {% elif states.sensor.washer.state == 'Not Running' %}
-          Washer cycle complete!
-        {% else %}
-        {% endif %}
+      call_washer_status: 1

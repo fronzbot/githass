@@ -1,6 +1,6 @@
 # Turn on outside lights off at 12:40 am
 
-alias: Outdoor Lights Off
+alias: Lights-Outdoor Off
 trigger:
   - platform: time
     at: '00:40:07'

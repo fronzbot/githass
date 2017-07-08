@@ -3,6 +3,6 @@ trigger:
   - platform: homeassistant
     event: start
 action:
-  - service: notify.notify_kevin_phone
-    data: 
-      message: 'Startup: Home Assistant has been restarted!'
+  - service: script.notify_engine
+    data_template:
+      call_on_restart: 1

@@ -1,0 +1,64 @@
+notify_engine:
+  sequence:
+    - service: notify.notify
+      data_template:
+        message: >
+          {%- macro fire_co2() -%}
+            "ALERT! {{ now().strftime("%h %d, %Y at %H:%M:%S") }} Kitchen: {{ states.sensor.smoke_alarm_kitchen.state }}, Living Room: {{ states.sensor.smoke_alarm_living_room.state }}, Nursery: {{ states.sensor.smoke_alarm_nursery.state }}"
+          {%- endmacro -%}
+          {%- macro washer_status() -%}
+            {% if states.sensor.washer.state == 'Running' %}
+              Washer cycle started {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+            {% elif states.sensor.washer.state == 'Not Running' %}
+              Washer cycle complete {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+            {% else %}
+            {% endif %}
+          {%- endmacro -%}
+          {##################}
+          {# BEGIN ROUTINES #}
+          {##################}
+          {% if call_fire_co2() == 1 %}
+            {{ fire_co2 }}
+          {% endif %}
+          {% if call_washer_status() == 1 %}
+            {{ washer_status }}
+          {% endif %}
+    
+    # Now to set up notifications only for my phone
+    - service: notify.notify_kevin_phone
+      data_template:
+        message: >
+          {%- macro on_restart() -%}
+            Home Assistant restarted {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+          {%- endmacro -%}
+          {%- macro system_use() -%}
+            {% if states.sensor.glances_ram_use.state | float <= 100.0 %}
+              RAM Usage at {{states.sensor.glances_ram_use.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
+            {% elif states.sensor.glances_ram_use_2.state | float <= 100.0 %}
+              RAM Usage at {{states.sensor.glances_ram_use_2.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
+            {% else %}
+            {% endif %}
+          {%- endmacro -%}
+          {%- macro ssl_cert_expiry() -%}
+            Warning - SSL Certificate expires in {{states.sensor.ssl_cert_expiry.state}} days and has not been renewed!
+          {%- endmacro -%}
+          {##################}
+          {# BEGIN ROUTINES #}
+          {##################}
+          {% if call_on_restart() == 1 %}
+            {{ on_restart() }}
+          {% endif %}
+          {% if call_system_use() == 1 %}
+            {{ system_use() }}
+          {% endif %}
+          {% if call_ssl_cert_expiry() == 1 %}
+            {{ ssl_cert_expiry() }}
+          {% endif %}
+    
+#    # TTS calls
+#    - service: script.speech_engine
+#      data_template:
+#        speech_message: >
+        
+    
+          
