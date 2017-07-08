@@ -1,0 +1,7 @@
+name: On the Way Home
+entities:
+  # This triggers thermostat automations
+  input_boolean.on_the_way_home:
+    state: on
+  group.couch:
+    state: on

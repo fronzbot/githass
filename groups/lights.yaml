@@ -15,6 +15,7 @@ scenes:
     - scene.daylight
     - scene.night
     - scene.sabres
+    - scene.on_the_way_home
  
 couch:
   name: Couch

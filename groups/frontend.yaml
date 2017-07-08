@@ -57,6 +57,9 @@ tab_automation:
     - group.shell
     - input_boolean.flux
     - input_boolean.christmas_lights
+    - input_boolean.on_the_way_home
+    - input_boolean.guest_mode
+    - input_boolean.thermostat_enable
     - group.automations_sun
     - group.automations_presence
     - group.automations_hvac

@@ -1,6 +1,6 @@
 # -------------------------------------------
 # FILE GENERATED USING gen_automations SCRIPT
-# GENERATED ON 2017-Jul-08 14:57:53
+# GENERATED ON 2017-Jul-08 15:54:37
 # -------------------------------------------
 
 - id: thermostat_disable
@@ -63,6 +63,8 @@
     - platform: numeric_state
       entity_id: sensor.living_room_humidity
       above: 58
+    - platform: template
+      value_template: {{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.pws_feelslike_f.state | float) > 2.0 }}
     - platform: homeassistant
       event: start
   action:
@@ -137,6 +139,16 @@
         color_temp: 330
     - service: switch.turn_on
       entity_id: group.driveway
+- id: notify_on_way_home
+  alias: Notify on Way Home
+  trigger:
+    - platform: state
+      entity_id: input_boolean.on_the_way_home
+      to: 'on'
+  action:
+    - service: script.notify_all_engine
+      data:
+        call_on_way_home: 1
 # Turn on lights if we're not home and it's dark out
 - id: lights_not_home
   alias: Lights Not Home

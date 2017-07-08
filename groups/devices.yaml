@@ -24,8 +24,7 @@ presence_gist:
   entities:
     - device_tracker.kevin
     - device_tracker.allegra
-    - input_boolean.guest_mode
-    - input_boolean.on_the_way_home
+    - scene.on_the_way_home
 
 zwave_devices:
   name: Z-Wave Devices
