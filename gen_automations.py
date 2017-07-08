@@ -14,7 +14,7 @@ from os import listdir
 from os.path import isfile, join
 from datetime import datetime
 
-DEFPATH = '/home/hass/.homeassistant'
+DEFPATH = os.getcwd()
 AUTOPATH = DEFPATH + '/automation'
 
 # Forces overwrite of automations.yaml
