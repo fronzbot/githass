@@ -1,7 +1,7 @@
-debug:
-  name: Debugger
+on_the_way_home:
+  name: On the Way Home
   initial: off
-  
+
 flux:
   name: Flux
   initial: on

@@ -54,11 +54,8 @@ tab_automation:
   icon: mdi:settings
   entities:
     - group.scenes
-    - script.thermostat_control
     - group.shell
     - input_boolean.flux
-    - input_boolean.thermo_weather
-    - input_boolean.debug
     - input_boolean.christmas_lights
     - group.automations_sun
     - group.automations_presence

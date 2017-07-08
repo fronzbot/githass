@@ -23,6 +23,7 @@ weather_all:
     - sensor.pws_alerts
     - sensor.pws_weather_1d
     - sensor.pws_precip_1d_in
+    - sensor.pws_feelslike_f
     - sensor.pws_temp_f
     - sensor.pws_dewpoint_f
     - sensor.pws_relative_humidity

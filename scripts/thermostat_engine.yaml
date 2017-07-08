@@ -8,7 +8,7 @@ thermostat_engine:
       data_template:
         mode: >
           {% if states.sensor.pws_feelslike_f | int > 77 %}
-            {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}
+            {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') or (states.input_boolean.on_the_way_home.state == 'on') %}
               {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
                 'ac_home'
               {% else %}
@@ -18,7 +18,7 @@ thermostat_engine:
               'ac_away'
             {% endif %}
           {% elif states.sensor.pws_feelslike_f | int < 55 %}
-            {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}
+            {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') or (states.input_boolean.on_the_way_home.state == 'on') %}
               {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
                 'heat_home'
               {% else %}
@@ -38,3 +38,6 @@ thermostat_engine:
               'off'
             {% endif %}
           {% endif %}
+    
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.on_the_way_home
