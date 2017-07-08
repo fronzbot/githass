@@ -1,12 +1,71 @@
 # -------------------------------------------
 # FILE GENERATED USING gen_automations SCRIPT
-# GENERATED ON 2017-Jul-01 10:05:09
+# GENERATED ON 2017-Jul-07 22:29:13
 # -------------------------------------------
 
+- id: 'turn_off_thermostat'
+  alias: 'Turn off thermostat'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.thermostat_enable
+      to: 'off'
+  action:
+    - service: climate.set_operation_mode
+      entity_id: climate.living_room
+      data:
+        operation_mode: 'off'
+- id: notify_on_washer_status
+  alias: Notify on Washer Status
+  trigger:
+    - platform: state
+      entity_id: sensor.washer
+      from: 'Not Running'
+      to: 'Running'
+    - platform: state
+      entity_id: sensor.washer
+      from: 'Running'
+      to: 'Not Running'
+  action:
+    - service: script.notify_engine
+      data_template:
+        call_washer_status: 1
+- id: 'change_thermostat_on_weather'
+  alias: 'Change thermostat on weather'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.thermostat_enable
+      to: 'on'
+    - platform: state
+      entity_id: input_boolean.guest_mode
+      to: 'on'
+    - platform: state
+      entity_id: input_boolean.on_the_way_home
+      to: 'on'
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'home'
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'not_home'  
+    - platform: numeric_state
+      entity_id: sensor.pws_feelslike_f
+      above: 77
+    - platform: numeric_state
+      entity_id: sensor.pws_feelslike_f
+      below: 55
+    - platform: numeric_state
+      entity_id: sensor.pws_feelslike_f
+      above: 58
+      below: 74
+    - platform: numeric_state
+      entity_id: sensor.living_room_humidity
+      above: 58
+  action:
+    - service: script.thermostat_engine
 #Turn on couch lights if it's raining, someone
 # is home, and it's after 11am.
-- id: raining
-  alias: Raining
+- id: lights_rainy
+  alias: Lights-Rainy
   trigger:
     - platform: state
       entity_id: sensor.pws_weather
@@ -23,122 +82,15 @@
   action:
     service: light.turn_on
     entity_id: group.couch
-# Turn lights on in the morning 
-- id: wakeup
-  alias: Wakeup
-  trigger:
-    - platform: time
-      at: '6:30:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.couch_left
-    - service: light.turn_on
-      entity_id: light.kitchen_table
-- id: notify_on_washer_status
-  alias: Notify on Washer Status
-  trigger:
-    - platform: state
-      entity_id: sensor.washer
-      from: 'Not Running'
-      to: 'Running'
-    - platform: state
-      entity_id: sensor.washer
-      from: 'Running'
-      to: 'Not Running'
-  action:
-    - service: notify.notify
-      data_template:
-        message: >
-          {% if states.sensor.washer.state == 'Running' %}
-            Washer cycle started!
-          {% elif states.sensor.washer.state == 'Not Running' %}
-            Washer cycle complete!
-          {% else %}
-          {% endif %}
-# Turn lights off when everyone leaves for work
-# group.all_devices is 'not_home' if ALL devices are not home
-# Only do this between 7:30am to 10:00am
-  
-- id: away_from_home
-  alias: Away From Home
-  trigger:
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'
-    - platform: time
-      at: '9:00:00'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: sensor.occupancy
-        state: 'not_home'
-      - condition: time
-        after: '7:30:00'
-        before: '10:00:00'
-  action:
-    service: light.turn_off
-    entity_id: group.all_lights
-      
-# Turn lights on when someone comes home from work
-# group.all_devices is 'home' if ANY device is home
-# Do this between 5pm and 7pm
-  
-- id: home_from_work
-  alias: Home From Work
-  trigger:
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'home'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '16:00:00'
-        before: '19:00:00'
-        weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-  action:
-    - service: light.turn_on
-      entity_id: group.couch
-    - service: light.turn_on
-      entity_id: light.kitchen_table
 - id: notify_on_restart
   alias: Notify on Restart
   trigger:
     - platform: homeassistant
       event: start
   action:
-    - service: notify.notify_kevin_phone
-      data: 
-        message: 'Startup: Home Assistant has been restarted!'
-# Turn on holiday lights at sunset
-- id: holiday_lights
-  alias: Holiday Lights
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '+00:16:00'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: 'input_boolean.christmas_lights'
-        state: 'on'
-  action:
-    - service: switch.turn_on
-      entity_id: group.outdoor_switches
-    - service: switch.turn_off
-      entity_id: group.driveway
-    - service: light.turn_on
-      entity_id: light.porch
-      data:
-        brightness: 150
-        xy_color: [0.1972,0.6781]
+    - service: script.notify_engine
+      data_template:
+        call_on_restart: 1
 - id: notify_on_fire_co2
   alias: Notify on Fire/CO2
   trigger:
@@ -161,11 +113,13 @@
       entity_id: sensor.smoke_alarm_nursery
       to: "CO2"
   action:
-    - service: script.fire_co2_notify
+    - service: script.notify_engine
+      data_template:
+        call_fire_co2: 1
 # Turn on outside lights 15 minutes after sunset
   
-- id: outdoor_lights_at_sunset
-  alias: Outdoor Lights at Sunset
+- id: lights_sunset
+  alias: Lights-Sunset
   trigger:
     - platform: sun
       event: sunset
@@ -178,76 +132,9 @@
         color_temp: 330
     - service: switch.turn_on
       entity_id: group.driveway
-- id: notify_on_system_use
-  alias: Notify on System Use
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.glances_ram_use
-      above: 75.0
-      below: 100.0
-    - platform: numeric_state
-      entity_id: sensor.glances_ram_use_2
-      above: 75.0
-      below: 100.0
-    - platform: numeric_state
-      entity_id: sensor.glances_swap_use
-      above: 50.0
-  action:
-    - service: notify.notify_kevin_phone
-      data_template:
-        message: >
-          {% if states.sensor.glances_ram_use.state | float <= 100.0 %}
-            RAM Usage at {{states.sensor.glances_ram_use.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
-          {% elif states.sensor.glances_ram_use_2.state | float <= 100.0 %}
-            RAM Usage at {{states.sensor.glances_ram_use_2.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
-          {% else %}
-          {% endif %}
-- id: debug
-  alias: Debug
-  trigger:
-    - platform: state
-      entity_id: input_boolean.debug
-      from: 'off'
-      to: 'on'
-  action:
-    service: script.debug
-- id: set_thermostat_on_weather
-  alias: Set Thermostat on Weather
-  trigger:
-    - platform: state
-      entity_id: sensor.thermo_outside_temp
-      to: 'Fair'
-    - platform: state
-      entity_id: sensor.thermo_outside_temp
-      from: 'Fair'
-    - platform: state
-      entity_id: input_boolean.force_hvac_trigger
-      from: 'off'
-      to: 'on'
-  condition:
-    condition: or
-    conditions:
-      - condition: state
-        entity_id: sensor.thermo_hvac
-        state: 'Auto'
-      - condition: state
-        entity_id: sensor.thermo_hvac
-        state: 'Off'
-  action:
-    service: script.hvac_set
-# Turn inside lights off around midnight (before exterior)
-  
-- id: inside_lights_at_night
-  alias: Inside Lights at Night
-  trigger:
-    - platform: time
-      at: '00:12:09'
-  action:
-    - service: light.turn_off
-      entity_id: group.interior
 # Turn on lights if we're not home and it's dark out
-- id: not_home
-  alias: Not Home
+- id: lights_not_home
+  alias: Lights-Not Home
   trigger:
     - platform: sun
       event: sunset
@@ -268,10 +155,28 @@
     service: light.turn_on
     entity_id: group.couch
   
+- id: notify_on_system_use
+  alias: Notify on System Use
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.glances_ram_use
+      above: 75.0
+      below: 100.0
+    - platform: numeric_state
+      entity_id: sensor.glances_ram_use_2
+      above: 75.0
+      below: 100.0
+    - platform: numeric_state
+      entity_id: sensor.glances_swap_use
+      above: 50.0
+  action:
+    - service: script.notify_engine
+      data_template:
+        call_system_use: 1
 # Turn on outside lights off at 12:40 am
   
-- id: outdoor_lights_off
-  alias: Outdoor Lights Off
+- id: lights_outdoor_off
+  alias: Lights-Outdoor Off
   trigger:
     - platform: time
       at: '00:40:07'
@@ -282,6 +187,75 @@
       entity_id: group.outdoor_switches
     - service: switch.turn_off    
       entity_id: group.driveway
+# Turn on holiday lights at sunset
+- id: lights_holiday_lights
+  alias: Lights-Holiday Lights
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '+00:16:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'input_boolean.christmas_lights'
+        state: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id: group.outdoor_switches
+    - service: switch.turn_off
+      entity_id: group.driveway
+    - service: light.turn_on
+      entity_id: light.porch
+      data:
+        brightness: 150
+        xy_color: [0.1972,0.6781]
+# Turn lights off when everyone leaves for work
+# group.all_devices is 'not_home' if ALL devices are not home
+# Only do this between 7:30am to 10:00am
+  
+- id: lights_away
+  alias: Lights-Away
+  trigger:
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'not_home'
+    - platform: time
+      at: '9:00:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.occupancy
+        state: 'not_home'
+      - condition: time
+        after: '7:30:00'
+        before: '10:00:00'
+  action:
+    service: light.turn_off
+    entity_id: group.all_lights
+      
+# Turn lights on in the morning 
+- id: lights_wakeup
+  alias: Lights-Wakeup
+  trigger:
+    - platform: time
+      at: '6:30:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.couch_left
+    - service: light.turn_on
+      entity_id: light.kitchen_table
+# Turn inside lights off around midnight (before exterior)
+  
+- id: lights_inside_off
+  alias: Lights-Inside Off
+  trigger:
+    - platform: time
+      at: '00:12:09'
+  action:
+    - service: light.turn_off
+      entity_id: group.interior
 - id: notify_on_ssl_expiry
   alias: Notify on SSL Expiry
   trigger:
@@ -289,29 +263,33 @@
       entity_id: sensor.ssl_cert_expiry
       below: 21
   action:
-    - service: notify.notify_kevin_phone
-      data: 
-        message: 'Warning - SSL Certificate expires in 21 days and has not been renewed!'
-# Sets Away Mode Based on boolean select
-- id: thermostat_away_mode
-  alias: Thermostat Away Mode
+    - service: script.notify_engine
+      data_template:
+        call_ssl_cert_expiry: 1
+# Turn lights on when someone comes home from work
+# group.all_devices is 'home' if ANY device is home
+# Do this between 5pm and 7pm
+  
+- id: lights_home
+  alias: Lights-Home
   trigger:
     - platform: state
       entity_id: sensor.occupancy
-      from: 'not_home'
       to: 'home'
-    - platform: state
-      entity_id: sensor.occupancy
-      from: 'home'
-      to: 'not_home'
-    - platform: state
-      entity_id: input_boolean.hvac_away_mode
-      to: 'on'
-    - platform: state
-      entity_id: input_boolean.hvac_away_mode
-      to: 'off'
-    - platform: state
-      entity_id: input_boolean.on_the_way_home
-      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '16:00:00'
+        before: '19:00:00'
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   action:
-    service: script.hvac_away_mode
+    - service: light.turn_on
+      entity_id: group.couch
+    - service: light.turn_on
+      entity_id: light.kitchen_table

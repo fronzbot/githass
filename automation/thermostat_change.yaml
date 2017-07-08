@@ -1,32 +1,32 @@
-- alias: 'Change thermostat on weather'
-  trigger:
-    - platform: state
-      entity_id: input_boolean.thermostat_enable
-      to: 'on'
-    - platform: state
-      entity_id: input_boolean.guest_mode
-      to: 'on'
-    - platform: state
-      entity_id: input_boolean.on_the_way_home
-      to: 'on'
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'home'
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'  
-    - platform: state
-      entity_id: sensor.pws_feelslike_f
-      above: 77
-    - platform: state
-      entity_id: sensor.pws_feelslike_f
-      below: 55
-    - platform: state
-      entity_id: sensor.pws_feelslike_f
-      above: 58
-      below: 74
-    - platform: state
-      entity_id: sensor.living_room_humidity
-      above: 58
-  action:
-    - service: script.thermostat_engine
+alias: 'Change thermostat on weather'
+trigger:
+  - platform: state
+    entity_id: input_boolean.thermostat_enable
+    to: 'on'
+  - platform: state
+    entity_id: input_boolean.guest_mode
+    to: 'on'
+  - platform: state
+    entity_id: input_boolean.on_the_way_home
+    to: 'on'
+  - platform: state
+    entity_id: sensor.occupancy
+    to: 'home'
+  - platform: state
+    entity_id: sensor.occupancy
+    to: 'not_home'  
+  - platform: numeric_state
+    entity_id: sensor.pws_feelslike_f
+    above: 77
+  - platform: numeric_state
+    entity_id: sensor.pws_feelslike_f
+    below: 55
+  - platform: numeric_state
+    entity_id: sensor.pws_feelslike_f
+    above: 58
+    below: 74
+  - platform: numeric_state
+    entity_id: sensor.living_room_humidity
+    above: 58
+action:
+  - service: script.thermostat_engine
