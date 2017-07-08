@@ -20,5 +20,5 @@ trigger:
     to: "CO2"
 action:
   - service: script.notify_all_engine
-    data_template:
+    data:
       call_fire_co2: 1

@@ -10,5 +10,5 @@ trigger:
     to: 'Not Running'
 action:
   - service: script.notify_all_engine
-    data_template:
+    data:
       call_washer_status: 1

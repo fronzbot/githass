@@ -13,5 +13,5 @@ trigger:
     above: 50.0
 action:
   - service: script.notify_kevin_engine
-    data_template:
+    data:
       call_system_use: 1

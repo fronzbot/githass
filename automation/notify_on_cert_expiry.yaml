@@ -5,5 +5,5 @@ trigger:
     below: 21
 action:
   - service: script.notify_kevin_engine
-    data_template:
+    data:
       call_ssl_cert_expiry: 1
