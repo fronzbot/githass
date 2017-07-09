@@ -1,6 +1,6 @@
 # -------------------------------------------
 # FILE GENERATED USING gen_automations SCRIPT
-# GENERATED ON 2017-Jul-08 16:18:49
+# GENERATED ON 2017-Jul-08 20:20:54
 # -------------------------------------------
 
 - id: thermostat_disable
@@ -27,6 +27,9 @@
       to: 'Not Running'
   action:
     - service: script.notify_all_engine
+      data:
+        call_washer_status: 1
+    - service: script.speech_engine
       data:
         call_washer_status: 1
 - id: thermostat_change_on_weather
@@ -123,6 +126,9 @@
     - service: script.notify_all_engine
       data:
         call_fire_co2: 1
+    - service: script.speech_engine
+      data:
+        call_fire_co2: 1
 # Turn on outside lights 15 minutes after sunset
   
 - id: lights_sunset
@@ -139,6 +145,9 @@
         color_temp: 330
     - service: switch.turn_on
       entity_id: group.driveway
+    - service: script.speech_engine
+      data:
+        call_dark_outside: 1
 - id: notify_on_way_home
   alias: Notify on Way Home
   trigger:
@@ -227,6 +236,15 @@
       data:
         brightness: 150
         xy_color: [0.1972,0.6781]
+- id: tts_garbage_night
+  alias: TTS Garbage Night
+  trigger:
+    platform: time
+    at: '20:00:00'
+  action:
+    service: script.speech_engine
+    data:
+      call_garbage_night: 1
 # Turn lights off when everyone leaves for work
 # group.all_devices is 'not_home' if ALL devices are not home
 # Only do this between 7:30am to 10:00am

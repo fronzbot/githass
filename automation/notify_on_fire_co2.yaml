@@ -22,3 +22,6 @@ action:
   - service: script.notify_all_engine
     data:
       call_fire_co2: 1
+  - service: script.speech_engine
+    data:
+      call_fire_co2: 1

@@ -17,4 +17,3 @@ guest_mode:
 thermostat_enable:
   name: Thermostat Enable
   initial: on
-
