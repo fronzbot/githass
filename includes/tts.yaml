@@ -1,0 +1,3 @@
+- platform: google
+  cache: true
+  time_memory: 300

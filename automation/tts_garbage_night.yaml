@@ -1,0 +1,8 @@
+alias: TTS Garbage Night
+trigger:
+  platform: time
+  at: '20:00:00'
+action:
+  service: script.speech_engine
+  data:
+    call_garbage_night: 1

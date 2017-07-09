@@ -33,3 +33,4 @@ automations_notify:
     - automation.notify_on_fireco2
     - automation.notify_on_cert_expiry
     - automation.notify_on_way_home
+    - automation.tts_garbage_night

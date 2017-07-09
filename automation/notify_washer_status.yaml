@@ -12,3 +12,6 @@ action:
   - service: script.notify_all_engine
     data:
       call_washer_status: 1
+  - service: script.speech_engine
+    data:
+      call_washer_status: 1

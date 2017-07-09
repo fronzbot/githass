@@ -28,11 +28,4 @@ notify_all_engine:
           {% if call_on_way_home == 1 %}
             {{ on_way_home() }}
           {% endif %}
-    
-#    # TTS calls
-#    - service: script.speech_engine
-#      data_template:
-#        speech_message: >
-        
-    
           

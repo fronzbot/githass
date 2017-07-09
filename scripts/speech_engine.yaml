@@ -1,0 +1,78 @@
+# For all TTS processing
+# Inspired by @CCOSTAN https://github.com/CCOSTAN/Home-AssistantConfig
+
+speech_engine:
+  sequence:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: sensor.occupancy
+          state: 'home'
+        - condition: state
+          entity_id: input_boolean.guest_mode
+          state: 'on'
+  
+  # Speak to all google home devices
+    - service: script.speech_processing
+      data_template:
+        speech_message: >
+          {%- macro dark_outside() -%}
+            {{ [
+            "It's getting late, I will turn on the outside lights.",
+            "The sun has set, time to turn the lights on outside.  I'm on it.",
+            "I'll go ahead and turn the outside lights on, it's getting dark.",
+            "Looks like it's time to turn the lights on outside.  I got it."
+            ] | random }}
+          {%- endmacro -%}
+          {%- macro garbage_night() -%}
+            {%if now().strftime("%a") == 'Mon' %}
+              {{ [
+              "Just a reminder to take the garbage out. Pickup is tomorrow.",
+              "Beep beep. I don't mean to interrupt, but I wanted to make sure to remind you that it's garbage night.",
+              "It's starting to smell in here.  I think someone should take the trash out considering pick up is tomorrow.",
+              "Garbage pickup is tomorrow morning.  Just a friendly reminder!"
+              ] | random }}
+            {% endif %}
+          {%- endmacro -%}
+          {%- macro washer_status() -%}
+            {% if states.sensor.washer.state == 'Not Running' %}
+              {{ [
+              "Washer cycle is complete, time to throw the clothes into the dryer.",
+              "Looks like the wash just finished.  Figured I should let you know.",
+              "Just popping in to let you know the wash is done.",
+              ] | random }}
+            {% endif %}
+          {%- endmacro -%}
+          {%- macro fire_co2() -%}
+            {% if states.sensor.smoke_alarm_kitchen.state == 'Fire' %}
+              {{ [
+              "Are you cooking? Because there seems to be a fire in the kitchen.",
+              "There's a fire... sale.  OH MY GOD THE BURNING.  Seriously though, you should probably check the Kitchen because a fire has been detected.",
+              "Warning, fire detected in Kitchen.",
+              ] | random }}
+            {% elif (states.sensor.smoke_alarm_living_room.state == 'Fire') or (states.sensor.smoke_alarm_nursery.state == 'Fire') %}
+              {{ [
+              "Fire detected in the house.  Please find a safe exit.",
+              "Warning, there seems to be a fire in the house!",
+              "Fire!  Please leave the house immediately.  I repeat: Fire!",
+              ] | random }}
+            {% elif (states.sensor.smoke_alarm_living_room.state == 'CO2') or (states.sensor.smoke_alarm_nursery.state == 'CO2') or (states.sensor.smoke_alarm_kitchen.state == 'CO2') %}
+              {{ [
+              "Alert! Carbon Monoxide detected, please exit the house and call nine one one",
+              "Warning! Carbon Monoxide detected in house.  I repeat: Warning! Carbon Monoxide has been detected in the house.",
+              ] | random }}
+            {% endif %}
+          {%- endmacro -%}
+          
+          {% if call_dark_outside == 1 %}
+            {{ dark_outside() }}
+          {% endif %}
+          {% if call_garbage_night == 1 %}
+            {{ garbage_night() }}
+          {% endif %}
+          {% if call_washer_status == 1 %}
+            {{ washer_status() }}
+          {% endif %}
+          {% if call_fire_co2 == 1 %}
+            {{ fire_co2() }}
+          {% endif %}
