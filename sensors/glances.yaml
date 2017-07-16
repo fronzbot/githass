@@ -1,6 +1,6 @@
 platform: glances
 name: glances
-host: 192.168.86.89
+host: !secret ha_ip_addr
 port: 61208
 resources:
   - 'disk_use_percent'

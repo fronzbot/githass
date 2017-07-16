@@ -40,18 +40,18 @@ thermostat_engine:
       data_template:
         entity_id: climate.living_room 
         target_temp_high: >
-          {% if (states.sensor.pws_feelslike_f.state | float) > 77.0 %}
+          {% if (states.sensor.pws_feelslike_f.state | float) > 76.0 %}
             {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') or (states.input_boolean.on_the_way_home.state == 'on') %}
               {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
-                {{ 75 | int }}
+                {{ 74 | int }}
               {% else %}
                 {{ 78 | int }}
               {% endif %}
             {% else %}
               {{ 82 | int }}
             {% endif %}
-          {% elif (states.sensor.pws_feelslike_f.state | float > 74) %}
-            {% if ((states.climate.living_room.attributes.current_temperature | float) - (states.sensor.pws_feelslike_f.state | float)) >= 2.0 or ((states.sensor.living_room_humidity.state | int) > 59)%}
+          {% elif (states.sensor.pws_feelslike_f.state | float > 74.0) %}
+            {% if ((states.climate.living_room.attributes.current_temperature | float) - (states.sensor.pws_feelslike_f.state | float)) >= 1.0 or ((states.sensor.living_room_humidity.state | int) > 59)%}
               {{ (states.climate.living_room.attributes.current_temperature - 2.0) | int }}
             {% else %}
               {{ 80 | int }}
@@ -79,13 +79,13 @@ thermostat_engine:
       data_template:
         entity_id: climate.living_room
         operation_mode: >
-          {% if (states.sensor.pws_feelslike_f.state | float) > 77.0 %}
+          {% if (states.sensor.pws_feelslike_f.state | float) > 76.0 %}
             auto
           {% elif (states.sensor.pws_feelslike_f.state | float) < 55.0 %}
             auto
           {% elif (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}
             {% if (states.sensor.pws_feelslike_f.state | float > 74) and (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
-              {% if ((states.climate.living_room.attributes.current_temperature | float) - (states.sensor.pws_feelslike_f.state | float)) >= 2.0 or ((states.sensor.living_room_humidity.state | int) > 59)%}
+              {% if ((states.climate.living_room.attributes.current_temperature | float) - (states.sensor.pws_feelslike_f.state | float)) >= 1.0 or ((states.sensor.living_room_humidity.state | int) > 59)%}
                 auto
               {% else %}
                 off

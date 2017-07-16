@@ -2,7 +2,6 @@ db_url: !secret db_url
 purge_days: 10
 exclude:
   domains:
-    - automation
     - media_player
   entities:
     - sun.sun

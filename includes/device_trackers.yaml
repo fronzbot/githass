@@ -5,7 +5,7 @@
 # Consider a device 'home' for 10 minutes before
 # allowing a state change
 - platform: nmap_tracker
-  hosts: 192.168.86.1/24
+  hosts: !secret nmap_hosts
   home_interval: 2
   interval_seconds: 45
   track_new_devices: no
