@@ -1,5 +1,9 @@
 alias: Thermostat Change on Weather
 trigger:
+  - platform: time
+    at: '22:30:00'
+  - platform: time
+    at: '06:30:00'
   - platform: state
     entity_id: input_boolean.thermostat_enable
     to: 'on'
@@ -33,6 +37,10 @@ trigger:
     above: 58
   - platform: template
     value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.pws_feelslike_f.state | float) > 2.0 }}'
+  - platform: template
+    value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") > 21) }}'
+  - platform: template
+    value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") > 21) or (now().strftime("%H") < 5)) }}'
   - platform: homeassistant
     event: start
 action:
