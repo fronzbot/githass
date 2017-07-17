@@ -43,9 +43,17 @@ thermostat_engine:
           {% if (states.sensor.pws_feelslike_f.state | float) > 77.0 %}
             {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') or (states.input_boolean.on_the_way_home.state == 'on') %}
               {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
-                {{ 75 | int }}
+                {% if (states.sensor.living_room_humidity.state | int > 55) %}
+                  {{ 74 | int }}
+                {% else %}
+                  {{ 75 | int }}
+                {% endif %}
               {% else %}
-                {{ 78 | int }}
+                {% if (states.sensor.bedroom_temperature.state | int > 78) %}
+                  {{ (states.climate.living_room.attributes.current_temperature | int) - 1 }}
+                {% else %}
+                  {{ 78 | int }}
+                {% endif %}
               {% endif %}
             {% else %}
               {{ 82 | int }}
