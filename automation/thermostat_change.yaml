@@ -35,6 +35,9 @@ trigger:
   - platform: numeric_state
     entity_id: sensor.living_room_humidity
     above: 58
+  - platform: numeric_state
+    entity_id: sensor.living_room_humidity
+    below: 55
   - platform: template
     value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.pws_feelslike_f.state | float) > 2.0 }}'
   - platform: template
