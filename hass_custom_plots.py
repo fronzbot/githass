@@ -4,6 +4,7 @@ import json
 import sys
 import os
 import matplotlib
+import traceback
 from datetime import datetime
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -23,6 +24,7 @@ LOGFILE  = PATH + 'hass_plots.log'
 # Colors
 COLORS    = ['#3E9BD8', '#ED5E2F', '#5DA846', '#F4B011']
 BACKCOLOR = COLORS
+COLORMAP = {'blue': COLORS[0], 'red': COLORS[1], 'green': COLORS[2], 'yellow': COLORS[3]}
 ALPHA     = 0.15
 
 # Define dictionaries of sensors, each dictionary will be comined into a single
@@ -59,7 +61,8 @@ UNPLOTTED = {
     "PMON1 Current": "sensor.power_mon_current",
     "PMON1 Voltage": "sensor.power_mon_voltage",
     "PMON1 Power": "sensor.power_mon_power",
-    "Pressure": "sensor.pws_pressure_mb"
+    "Pressure": "sensor.pws_pressure_mb",
+    "Download_fastcom": "sensor.fastcom_download"
 }
 
 
@@ -78,18 +81,25 @@ ALL_LISTS = [
 class HassLog(object):
     def __init__(self, file):
         self.log_file = file
-        if os.path.isfile(self.log_file):
-            init_text = 'GENERATED ON {:%Y-%b-%d %H:%M:%S}\n'.format(datetime.now())
+        self.now = '{:%Y-%b-%d %H:%M:%S}'.format(datetime.now())
+        if not os.path.isfile(self.log_file):
+            init_text = 'GENERATED ON {}\n'.format(self.now)
             self.log(init_text, type='w') 
     
     def log(self, text, type='a'):
         with open(self.log_file, type) as f:
-            f.write(text)
+            if isinstance(text, str):
+                f.write('{} {}\n'.format(self.now, text))
+            else:
+                f.write('{}\n'.format(self.now))
+                for line in text:
+                    f.write(line)
+                
         
 
 class HassPlot(object):
     def __init__(self, plot_name, plot_axis, plot_lines, dual_axis=False,
-                 line_axis=[]):
+                 line_axis=[], custom_colors=None):
         ''' Basic plot object '''
 
         ''' Dual axis option added to allow 'un-alike' data on the same plot,
@@ -118,6 +128,13 @@ class HassPlot(object):
         self.plot_lines = plot_lines
         self.dual_axis = dual_axis
         self.line_axis = line_axis
+        
+        if custom_colors is None:
+            self.colors = COLORS
+            self.backcolors = COLORS
+        else:
+            self.colors = custom_colors
+            self.backcolors = custom_colors
 
         # Components broken into seperate functions so they can be overriden
         # by child classes as necessary
@@ -177,11 +194,11 @@ class HassPlot(object):
                 ax = self.ax1
 
             # Actually plot line and min/max fill between
-            ax.plot(time, data_avg, color=COLORS[i],
+            ax.plot(time, data_avg, color=self.colors[i],
                     label=line.line_name)
             ax.fill_between(time, data_min, data_max, alpha=ALPHA,
-                            edgecolor=BACKCOLOR[i],
-                            facecolor=BACKCOLOR[i])
+                            edgecolor=self.backcolors[i],
+                            facecolor=self.backcolors[i])
 
         self.ax1.legend(loc='best')
         if self.dual_axis:
@@ -374,16 +391,19 @@ class HassData(object):
 
         return data
 
+def log_traceback(ex, ex_traceback=None):
+    if ex_traceback is None:
+        ex_traceback = ex.__traceback__
+    tb_lines = [ line.rstrip('\n') for line in
+                 traceback.format_exception(ex.__class__, ex, ex_traceback)]
+    LOGGER.log(tb_lines)
 
 def main():
-    LOGGER = HassLog(LOGFILE)
-    TIMESTAMP = '{:%Y-%b-%d %H:%M:%S}\t'.format(datetime.now())
-    
     just_plot = False
     if len(sys.argv) > 1:
         if sys.argv[1] == 'just_plot':
             just_plot = True
-            LOGGER.log(TIMESTAMP + ' just plotting\n')
+            LOGGER.log('just plotting')
     
     # Get credentials
     with open(CREDFILE) as json_data:
@@ -393,6 +413,7 @@ def main():
 
     # Connect
     if not just_plot:
+        LOGGER.log('Connecting...')
         h.connect()
     # Read any old data from JSON file
     h.read_data()
@@ -404,31 +425,44 @@ def main():
         h.write_data()
 
     # Create Plot Objects and draw final figures
-    HassPlot(plot_name='Temperature',
+    LOGGER.log('Plotting...')
+    HassPlot(plot_name='Climate',
              plot_axis='Temp [F]',
              plot_lines=[
                  HassLine('Living Room', h.get_data(TEMP_LIVINGROOM)),
                  HassLine('Outdoors', h.get_data(TEMP_OUTDOORS)),
-                 HassLine('Bedroom', h.get_data(TEMP_BEDROOM))
-             ])
+                 HassLine('Bedroom', h.get_data(TEMP_BEDROOM)),
+                 HassLine('Living Room', h.get_data(HUMIDITY_LIVING_ROOM)),
+                 HassLine('Outdoors', h.get_data(HUMIDITY_OUTDOORS))
+             ],
+             dual_axis=True,
+             line_axis=[0, 0, 0, 1, 1],
+             custom_colors=[COLORMAP['blue'], COLORMAP['red'], COLORMAP['green'], COLORMAP['blue'], COLORMAP['red']])
 
     HassPlot(plot_name='Internet',
              plot_axis=['Speed [Mb/s]', 'Speed [Mb/s]'],
              plot_lines=[
-                 HassLine('Download', h.get_data(INTERNET_DOWN)),
+                 HassLine('Download (Speedtest)', h.get_data(INTERNET_DOWN)),
+                 #HassLine('Download (Fast.com)', h.get_data(INTERNET_DOWN)),
                  HassLine('Upload', h.get_data(INTERNET_UPLOAD))
              ],
              dual_axis=True,
+             #line_axis=[0, 0, 1])
              line_axis=[0, 1])
     
-    HassPlot(plot_name='Humidity',
-             plot_axis='RH [%]',
-             plot_lines=[
-                 HassLine('Living Room', h.get_data(HUMIDITY_LIVING_ROOM)),
-                 HassLine('Outdoors', h.get_data(HUMIDITY_OUTDOORS))
-             ])
+    # HassPlot(plot_name='Humidity',
+             # plot_axis='RH [%]',
+             # plot_lines=[
+                 # HassLine('Living Room', h.get_data(HUMIDITY_LIVING_ROOM)),
+                 # HassLine('Outdoors', h.get_data(HUMIDITY_OUTDOORS))
+             # ])
 
-    LOGGER.log(TIMESTAMP + ' Complete!\n')
+    LOGGER.log('Complete!')
     
 if __name__ == '__main__':
-    main()
+    LOGGER = HassLog(LOGFILE)
+    try:
+        main()
+    except Exception as e:
+        log_traceback(e)
+        print(e)

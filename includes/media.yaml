@@ -1,12 +1,5 @@
 # Media players
 - platform: cast
 - platform: plex
-
-#- platform: samsungtv
-#  host: 192.168.86.114
-#  name: Lys (TV)
-  
-#- platform: firetv
-#  host: localhost:5556
-#  device: default
-#  name: Asshai
+  ip_address: !secret plex_url
+  port: 32400

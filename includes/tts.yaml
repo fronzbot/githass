@@ -1,3 +1,2 @@
 - platform: google
-  cache: true
-  time_memory: 300
+  cache: false

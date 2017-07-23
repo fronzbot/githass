@@ -10,4 +10,4 @@ action:
   - service: switch.turn_off
     entity_id: group.outdoor_switches
   - service: switch.turn_off    
-    entity_id: group.driveway
+    entity_id: switch.driveway_switch

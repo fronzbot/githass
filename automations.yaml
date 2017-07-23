@@ -1,6 +1,6 @@
 # -------------------------------------------
 # FILE GENERATED USING gen_automations SCRIPT
-# GENERATED ON 2017-Jul-09 22:07:09
+# GENERATED ON 2017-Jul-23 11:48:04
 # -------------------------------------------
 
 - id: thermostat_disable
@@ -35,6 +35,10 @@
 - id: thermostat_change_on_weather
   alias: Thermostat Change on Weather
   trigger:
+    - platform: time
+      at: '22:30:00'
+    - platform: time
+      at: '06:30:00'
     - platform: state
       entity_id: input_boolean.thermostat_enable
       to: 'on'
@@ -66,8 +70,15 @@
     - platform: numeric_state
       entity_id: sensor.living_room_humidity
       above: 58
+    - platform: numeric_state
+      entity_id: sensor.living_room_humidity
+      below: 55
     - platform: template
       value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.pws_feelslike_f.state | float) > 2.0 }}'
+    - platform: template
+      value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") > 21) }}'
+    - platform: template
+      value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") > 21) or (now().strftime("%H") < 5)) }}'
     - platform: homeassistant
       event: start
   action:
@@ -144,7 +155,7 @@
         brightness: 278
         color_temp: 330
     - service: switch.turn_on
-      entity_id: group.driveway
+      entity_id: switch.driveway_switch
     - service: script.speech_engine
       data:
         call_dark_outside: 1
@@ -212,7 +223,7 @@
     - service: switch.turn_off
       entity_id: group.outdoor_switches
     - service: switch.turn_off    
-      entity_id: group.driveway
+      entity_id: switch.driveway_switch
 # Turn on holiday lights at sunset
 - id: lights_holiday_lights
   alias: Lights Holiday Lights
@@ -230,7 +241,7 @@
     - service: switch.turn_on
       entity_id: group.outdoor_switches
     - service: switch.turn_off
-      entity_id: group.driveway
+      entity_id: switch.driveway_switch
     - service: light.turn_on
       entity_id: light.porch
       data:

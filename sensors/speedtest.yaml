@@ -1,8 +1,13 @@
-platform: speedtest
-minute:
-  - 20
-name: speedtest
-monitored_conditions:
-  - ping
-  - download
-  - upload
+- platform: speedtest
+  minute:
+    - 20
+  name: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+- platform: fastdotcom
+  minute:
+    - 40
+  name: fastdotcom

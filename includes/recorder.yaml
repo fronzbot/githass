@@ -1,7 +1,10 @@
 db_url: !secret db_url
-purge_days: 10
+purge_days: 7
 exclude:
   domains:
+    - switch
+    - input_boolean
+    - group
     - media_player
   entities:
     - sun.sun

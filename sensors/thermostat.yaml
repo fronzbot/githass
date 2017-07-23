@@ -1,19 +1,19 @@
-platform: template
-sensors:
-  thermo_hvac:
-    value_template: '{{ states.climate.living_room.attributes.operation_mode }}'     
-    entity_id: climate.living_room
+- platform: template
+  sensors:
+    thermo_hvac:
+      value_template: '{{ states.climate.living_room.attributes.operation_mode }}'     
+      entity_id: climate.living_room
     
-  thermo_temp:
-    value_template: '{{ states.climate.living_room.attributes.current_temperature }}'
-    unit_of_measurement: '°F'
-    entity_id: climate.living_room
-    
-  thermo_fan:
-    value_template: '{{ states.climate.living_room.attributes.fan }}'
-    entity_id: climate.living_room
-    
-  thermo_current_operation:
-    value_template: '{{ states.climate.living_room.attributes.operation }}'   
-    entity_id: climate.living_room
+    thermo_temp:
+      value_template: '{{ states.climate.living_room.attributes.current_temperature }}'
+      unit_of_measurement: '°F'
+      entity_id: climate.living_room
+      
+    thermo_fan:
+      value_template: '{{ states.climate.living_room.attributes.fan }}'
+      entity_id: climate.living_room
+      
+    thermo_current_operation:
+      value_template: '{{ states.climate.living_room.attributes.operation }}'   
+      entity_id: climate.living_room
     

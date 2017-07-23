@@ -39,12 +39,11 @@ tab_system:
   view: yes
   icon: mdi:pulse
   entities:
-    - group.speedtest
+    - group.network_monitor
     - group.rasp_pi_monitor
     - group.energy
     - group.zwave_devices
-    - camera.relative_humidity
-    - camera.temperature
+    - camera.climate
     - camera.internet
     
     

@@ -9,4 +9,3 @@ speech_processing:
       data_template:
         message: >
           {{ speech_message }}
-        cache: true

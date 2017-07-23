@@ -1,6 +1,6 @@
-platform: darksky
-api_key: !secret darksky_api
-monitored_conditions:
-  - visibility
-  - ozone
-units: us
+- platform: darksky
+  api_key: !secret darksky_api
+  monitored_conditions:
+    - visibility
+    - ozone
+  units: us

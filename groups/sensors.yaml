@@ -9,14 +9,6 @@ energy:
     - sensor.power_mon_current
     - sensor.power_mon_power
 
-speedtest:
-  name: Internet
-  icon: mdi:speedometer
-  entities:
-    - sensor.speedtest_download
-    - sensor.speedtest_upload
-    - updater.updater
-  
 weather_all:
   name: Weather
   entities:
@@ -39,12 +31,29 @@ weather_all:
 rasp_pi_monitor:
   name: Raspberry Pi Monitor
   entities:
+    - sensor.hass_version
+    - sensor.hass_uptime
+    - sensor.last_boot
     - sensor.glances_cpu_load
     - sensor.glances_total
     - sensor.glances_ram_use
     - sensor.glances_swap_use
     - sensor.glances_disk_use
     - sensor.ssl_cert_expiry
+
+network_monitor:
+  name: Network Monitor
+  entities:
+    - sensor.wifi_status
+    - sensor.wifi_uptime
+    - sensor.speedtest_download
+    - sensor.fastcom_download
+    - sensor.speedtest_upload
+    - sensor.pihole_dns_queries_today
+    - sensor.pihole_ads_blocked_today
+    - sensor.pihole_ads_percentage_blocked_today
+    - sensor.wifi_current_version
+    - updater.updater
     
 appliances:
   name: Alarms and Appliances

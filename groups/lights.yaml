@@ -23,12 +23,6 @@ couch:
   entities:
     - light.Couch_Left
     - light.Couch_Right
-      
-driveway:
-  name: Driveway
-  icon: mdi:car
-  entities:
-    - switch.driveway_switch
 
 den_couch:
   name: Den Couch
@@ -90,7 +84,7 @@ home_lights:
     - group.lights_den
     - group.lights_basement
     - light.porch
-    - group.driveway
+    - switch.driveway_switch
     - group.outdoor_switches
 
 # basement_ceiling:

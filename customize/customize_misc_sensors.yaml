@@ -2,7 +2,7 @@
 # Sensors
 ################## 
 sensor.speedtest_download:
-  friendly_name: Download
+  friendly_name: Download (Speedtest)
   icon: mdi:download
 
 sensor.speedtest_upload:
@@ -13,10 +13,40 @@ sensor.speedtest_ping:
   friendly_name: Ping
   icon: mdi:message-alert
 
+sensor.fastcom_download:
+  friendly_name: Download (Fast.com)
+  icon: mdi:download
+
 sensor.ssl_cert_expiry:
   friendly_name: SSL Cert Expiry
   icon: mdi:lock
 
+# Google Wifi
+sensor.wifi_status:
+  friendly_name: Network Status
+  icon: mdi:google
+
+sensor.wifi_current_version:
+  friendly_name: Router Firmware Version
+  icon: mdi:checkbox-marked-circle-outline
+
+sensor.wifi_uptime:
+  friendly_name: Network Uptime
+  icon: mdi:update
+
+# Pi-hole
+sensor.pihole_dns_queries_today:
+  friendly_name: DNS Queries
+  icon: mdi:help-network
+  
+sensor.pihole_ads_blocked_today:
+  friendly_name: Ads Blocked
+  icon: mdi:security-network
+  
+sensor.pihole_ads_percentage_blocked_today:
+  friendly_name: Percentage of Ads Blocked
+  icon: mdi:security-network
+  
 # Zwave sensors
 sensor.power_mon_current:
   friendly_name: Washing Machine Current

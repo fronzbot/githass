@@ -7,3 +7,4 @@ exposed_domains:
   - group
   - input_boolean
   - scene
+  - switch

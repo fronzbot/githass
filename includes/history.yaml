@@ -1,13 +1,13 @@
 # For history, want to keep database to manageable size
-# so dump data after 10 days and only track useful
+# so dump data after 7 days and only track useful
 # information (ie. don't care about light/switch stuff)
 
 exclude:
   domains:
-    - light
     - switch
     - input_boolean
     - group
     - media_player
   entities:
     - sun.sun
+    - sensor.date

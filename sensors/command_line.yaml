@@ -1,5 +1,36 @@
-platform: command_line
-name: ssl_cert_expiry
-unit_of_measurement: days
-scan_interval: 10800
-command: !secret cert_expiry_command
+- platform: command_line
+  name: ssl_cert_expiry
+  unit_of_measurement: days
+  scan_interval: 10800
+  command: !secret cert_expiry_command
+
+- platform: command_line
+  name: last_boot
+  scan_interval: 480
+  command: uptime | sed 's/.*up \([^,]*\), .*/\1/'
+
+# From: https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/sensor/hass_stats.yaml
+- platform: command_line
+  name: hass_uptime
+  command: echo "$(($(date +%s) - $(date -d "$(head -n1 /home/hass/.homeassistant/home-assistant.log | cut -d' ' -f-2)" +%s)))"
+  scan_interval: 480
+  value_template: >-
+    {% set uptime = value | int %}
+    {% set seconds = uptime % 60 %}
+    {% set minutes = ((uptime % 3600) / 60) | int %}
+    {% set hours = ((uptime % 86400) / 3600) | int %}
+    {% set days = (uptime / 86400) | int %}
+    {%- if days > 0 -%}
+      {%- if days == 1 -%}
+        1 day
+      {%- else -%}
+        {{ days }} days
+      {%- endif -%}
+      {{ ', ' }}
+    {%- endif -%}
+    {{ '%02d' % hours }}:{{ '%02d' % minutes }}
+
+- platform: command_line
+  name: hass_version
+  command: cat /home/hass/.homeassistant/.HA_VERSION
+  scan_interval: 86400

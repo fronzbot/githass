@@ -54,3 +54,15 @@ sensor.glances_thread:
 sensor.glances_sleeping:
   friendly_name: CPU Sleeping Threads
   icon: mdi:sleep
+
+sensor.last_boot:
+  friendly_name: Last Boot
+  icon: mdi:restart
+
+sensor.hass_uptime:
+  friendly_name: Home Assistant Uptime
+  icon: mdi:clock
+
+sensor.hass_version:
+  friendly_name: Home Assistant Version
+  icon: mdi:home-assistant

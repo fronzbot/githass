@@ -34,17 +34,7 @@ light.Porch:
   icon: mdi:gate
   emulated_hue: true
   emulated_hue_name: "Porch"
-  
-light.Driveway1:
-  friendly_name: Driveway 1
-  icon: mdi:car
-  emulated_hue: false
 
-light.Driveway2:
-  friendly_name: Driveway 2
-  icon: mdi:car
-  emulated_hue: false
-  
 # light.basement_ceiling_1:
   # friendly_name: Basement Ceiling 1
   # emulated_hue: false

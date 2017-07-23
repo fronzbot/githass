@@ -1,11 +1,18 @@
-switch.outdoor_1_switch_5_0:
+switch.outdoor_1_switch:
   friendly_name: Outside Porch Outlet
   icon: mdi:power-plug
   
-switch.outdoor_1_switch_4_0:
+switch.outdoor_2_switch:
   friendly_name: Outside Driveway Outlet
   icon: mdi:power-plug
   
 switch.power_mon_switch_3_0:
   friendly_name: Washing Machine Power
   icon: mdi:power
+
+switch.driveway_switch:
+  friendly_name: Driveway
+  icon: mdi:car
+  emulated_hue: true
+  emulated_hue_name: "Driveway"
+  

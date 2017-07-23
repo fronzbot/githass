@@ -11,11 +11,10 @@ all_media:
     - media_player.shield_android_tv
     - media_player.plex_web_chrome
     - media_player.asshai
-    
+
 blink_controls:
   name: Blink Controls
   entities:
-    - sensor.blink_living_room_notifications
     - binary_sensor.blink_armed_status
     - script.blink_snap_picture
 
