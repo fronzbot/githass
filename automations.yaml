@@ -1,6 +1,6 @@
 # -------------------------------------------
 # FILE GENERATED USING gen_automations SCRIPT
-# GENERATED ON 2017-Jul-23 11:48:04
+# GENERATED ON 2017-Aug-01 08:07:41
 # -------------------------------------------
 
 - id: thermostat_disable
@@ -286,12 +286,12 @@
   alias: Lights Wakeup
   trigger:
     - platform: time
-      at: '6:30:00'
+      at: '6:30:37'
   action:
     - service: light.turn_on
-      entity_id: light.couch_left
-    - service: light.turn_on
-      entity_id: light.kitchen_table
+      entity_id:
+        - light.couch_left
+        - light.kitchen_table
 # Turn inside lights off around midnight (before exterior)
   
 - id: lights_inside_off

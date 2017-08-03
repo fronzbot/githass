@@ -45,7 +45,9 @@ TEMP_OUTDOORS = {
 INTERNET_DOWN = {
     "Download": "sensor.speedtest_download"
 }
-
+INTERNET_DOWN_FAST = {
+    "Download_fastcom": "sensor.fastcom_download"
+}
 INTERNET_UPLOAD = {
     "Upload": "sensor.speedtest_upload"
 }
@@ -61,8 +63,7 @@ UNPLOTTED = {
     "PMON1 Current": "sensor.power_mon_current",
     "PMON1 Voltage": "sensor.power_mon_voltage",
     "PMON1 Power": "sensor.power_mon_power",
-    "Pressure": "sensor.pws_pressure_mb",
-    "Download_fastcom": "sensor.fastcom_download"
+    "Pressure": "sensor.pws_pressure_mb"
 }
 
 
@@ -72,6 +73,7 @@ ALL_LISTS = [
     TEMP_BEDROOM,
     TEMP_OUTDOORS,
     INTERNET_DOWN,
+    INTERNET_DOWN_FAST,
     INTERNET_UPLOAD,
     HUMIDITY_LIVING_ROOM,
     HUMIDITY_OUTDOORS,
@@ -84,8 +86,8 @@ class HassLog(object):
         self.now = '{:%Y-%b-%d %H:%M:%S}'.format(datetime.now())
         if not os.path.isfile(self.log_file):
             init_text = 'GENERATED ON {}\n'.format(self.now)
-            self.log(init_text, type='w') 
-    
+            self.log(init_text, type='w')
+
     def log(self, text, type='a'):
         with open(self.log_file, type) as f:
             if isinstance(text, str):
@@ -94,8 +96,8 @@ class HassLog(object):
                 f.write('{}\n'.format(self.now))
                 for line in text:
                     f.write(line)
-                
-        
+
+
 
 class HassPlot(object):
     def __init__(self, plot_name, plot_axis, plot_lines, dual_axis=False,
@@ -128,7 +130,7 @@ class HassPlot(object):
         self.plot_lines = plot_lines
         self.dual_axis = dual_axis
         self.line_axis = line_axis
-        
+
         if custom_colors is None:
             self.colors = COLORS
             self.backcolors = COLORS
@@ -404,11 +406,11 @@ def main():
         if sys.argv[1] == 'just_plot':
             just_plot = True
             LOGGER.log('just plotting')
-    
+
     # Get credentials
     with open(CREDFILE) as json_data:
         d = json.load(json_data)
-    
+
     h = HassData(d['dbname'], d['dbhost'], d['dbuid'], d['dbpass'])
 
     # Connect
@@ -443,13 +445,13 @@ def main():
              plot_axis=['Speed [Mb/s]', 'Speed [Mb/s]'],
              plot_lines=[
                  HassLine('Download (Speedtest)', h.get_data(INTERNET_DOWN)),
-                 #HassLine('Download (Fast.com)', h.get_data(INTERNET_DOWN)),
+                 HassLine('Download (Fast.com)', h.get_data(INTERNET_DOWN_FAST)),
                  HassLine('Upload', h.get_data(INTERNET_UPLOAD))
              ],
              dual_axis=True,
-             #line_axis=[0, 0, 1])
-             line_axis=[0, 1])
-    
+             line_axis=[0, 0, 1],
+             custom_colors=[COLORMAP['blue'], COLORMAP['green'], COLORMAP['red']])
+
     # HassPlot(plot_name='Humidity',
              # plot_axis='RH [%]',
              # plot_lines=[
@@ -458,7 +460,7 @@ def main():
              # ])
 
     LOGGER.log('Complete!')
-    
+
 if __name__ == '__main__':
     LOGGER = HassLog(LOGFILE)
     try:
