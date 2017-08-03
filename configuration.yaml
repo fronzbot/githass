@@ -48,6 +48,6 @@ updater:
 ecobee:
   api_key: !secret ecobee_api
 
-blink:
-  username: !secret blink_username
-  password: !secret blink_password
+#blink:
+#  username: !secret blink_username
+#  password: !secret blink_password
