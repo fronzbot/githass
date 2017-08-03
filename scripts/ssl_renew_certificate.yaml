@@ -1,0 +1,6 @@
+ssl_renew_certificate:
+  alias: SSL Renew Certificate
+  sequence:
+    - service: notify.notify_kevin_phone
+      data:
+        message: "SSL Renew Instructions - 1) Open Port 80 2) Restart router 3) Run ./ssl_renew from pi's home directory 4) Close Port 80 5) Restart router"
