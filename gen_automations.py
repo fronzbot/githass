@@ -13,6 +13,7 @@ to maintain than the new single-file style.
 from os import listdir, getcwd
 from os.path import isfile, join
 from datetime import datetime
+import sys
 
 DEFPATH = getcwd()
 AUTOPATH = DEFPATH + '/automation'
@@ -22,20 +23,23 @@ AUTOPATH = DEFPATH + '/automation'
 FORCE_OVERWRITE = True
 
 # Need to get all the files first
-files = [f for f in listdir(AUTOPATH) if isfile(join(AUTOPATH, f))]
+files = list()
+for file in listdir(AUTOPATH):
+    if file.endswith('.yaml'):
+        files.append(file)
 
 # Now we can iterate over each file
 all_lines = list()
 all_lines.append('# -------------------------------------------\n')
 all_lines.append('# FILE GENERATED USING gen_automations SCRIPT\n')
 all_lines.append('# GENERATED ON {:%Y-%b-%d %H:%M:%S}\n'.format(datetime.now()))
-all_lines.append('# -------------------------------------------\n\n')
-
+all_lines.append('# -------------------------------------------\n')
 
 for filename in files:
-    with open(AUTOPATH + '/' + filename) as f:
+    full_file = '{}/{}'.format(AUTOPATH, filename)
+    with open(full_file) as f:
         content = f.readlines()
-    
+    all_lines.append('\n# %s\n' % full_file)
     for line in content:
         # Add newline if missing
         if not line.endswith('\n'):
