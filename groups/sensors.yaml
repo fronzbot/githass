@@ -25,9 +25,9 @@ weather_all:
     - sensor.pws_pressure_mb
     - sensor.pws_uv
     - sensor.dark_sky_visibility
-    - sensor.dark_sky_ozone  
-    - camera.home_radar  
-  
+    - sensor.dark_sky_ozone
+    - camera.home_radar
+
 rasp_pi_monitor:
   name: Raspberry Pi Monitor
   entities:
@@ -53,8 +53,10 @@ network_monitor:
     - sensor.pihole_ads_blocked_today
     - sensor.pihole_ads_percentage_blocked_today
     - sensor.wifi_current_version
+    - sensor.ssh_bans
+    - sensor.hass_bans
     - updater.updater
-    
+
 appliances:
   name: Alarms and Appliances
   entities:

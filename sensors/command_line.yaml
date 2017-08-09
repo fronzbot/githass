@@ -34,3 +34,8 @@
   name: hass_version
   command: cat /home/hass/.homeassistant/.HA_VERSION
   scan_interval: 86400
+
+- platform: command_line
+  name: ip_ban
+  command: bash /home/hass/.homeassistant/bin/gen_ban_list.sh
+  scan_interval: 120

@@ -16,6 +16,15 @@ notify_kevin_engine:
           {%- macro ssl_cert_expiry() -%}
             Warning - SSL Certificate expires in {{states.sensor.ssl_cert_expiry.state}} days and has not been renewed!
           {%- endmacro -%}
+          {%- macro failed_login() -%}
+            Failed Login! {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+            {% if states.sensor.ssh_bans.state != "None" %}
+              SSH Attempt(s) from {{states.sensor.ssh_bans.state}}
+            {% endif %}
+            {% if states.sensor.hass_bans.state != "None" %}
+              Web Attempt(s) from {{states.sensor.hass_bans.state}}
+            {% endif %}
+          {%- endmacro -%}
           {##################}
           {# BEGIN ROUTINES #}
           {##################}
@@ -27,4 +36,7 @@ notify_kevin_engine:
           {% endif %}
           {% if call_ssl_cert_expiry == 1 %}
             {{ ssl_cert_expiry() }}
+          {% endif %}
+          {% if call_failed_login == 1 %}
+            {{ failed_login() }}
           {% endif %}

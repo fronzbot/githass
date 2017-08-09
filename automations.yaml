@@ -1,6 +1,6 @@
 # -------------------------------------------
 # FILE GENERATED USING gen_automations SCRIPT
-# GENERATED ON 2017-Aug-01 08:07:41
+# GENERATED ON 2017-Aug-08 12:30:30
 # -------------------------------------------
 
 - id: thermostat_disable
@@ -38,7 +38,7 @@
     - platform: time
       at: '22:30:00'
     - platform: time
-      at: '06:30:00'
+      at: '07:00:00'
     - platform: state
       entity_id: input_boolean.thermostat_enable
       to: 'on'
@@ -286,12 +286,30 @@
   alias: Lights Wakeup
   trigger:
     - platform: time
-      at: '6:30:37'
+      at: '6:30:33'
   action:
     - service: light.turn_on
       entity_id:
         - light.couch_left
         - light.kitchen_table
+- id: notify_on_failed_login
+  alias: Notify on Failed Login
+  trigger:
+    - platform: state
+      entity_id: sensor.ssh_bans
+    - platform: state
+      entity_id: sensor.hass_bans
+  condition:
+    condition: or
+    conditions:
+      - condition: template
+        value_template: '{{ states.sensor.ssh_bans.state != "None" }}'
+      - condition: template
+        value_template: '{{ states.sensor.hass_bans.state != "None" }}'
+  action:
+    - service: script.notify_kevin_engine
+      data:
+        call_failed_login: 1
 # Turn inside lights off around midnight (before exterior)
   
 - id: lights_inside_off

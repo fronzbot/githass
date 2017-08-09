@@ -1,0 +1,17 @@
+alias: Notify on Failed Login
+trigger:
+  - platform: state
+    entity_id: sensor.ssh_bans
+  - platform: state
+    entity_id: sensor.hass_bans
+condition:
+  condition: or
+  conditions:
+    - condition: template
+      value_template: '{{ states.sensor.ssh_bans.state != "None" }}'
+    - condition: template
+      value_template: '{{ states.sensor.hass_bans.state != "None" }}'
+action:
+  - service: script.notify_kevin_engine
+    data:
+      call_failed_login: 1

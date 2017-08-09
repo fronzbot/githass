@@ -1,0 +1,7 @@
+# Get thermostat reading
+GetIndoorTemperature:
+  speech:
+    text: |
+      Currently it is {{ states.climate.living_room.attributes.current_temperature | int }} degrees in the Living Room
+      with a relative humidity of {{ states.sensor.living_room_humidity.state | int }} percent.
+      The bedroom is reading {{ states.sensor.bedroom_temperature.state | int }} degrees.

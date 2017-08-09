@@ -1,6 +1,6 @@
 ##################
 # Sensors
-################## 
+##################
 sensor.speedtest_download:
   friendly_name: Download (Speedtest)
   icon: mdi:download
@@ -8,7 +8,7 @@ sensor.speedtest_download:
 sensor.speedtest_upload:
   friendly_name: Upload
   icon: mdi:upload
-  
+
 sensor.speedtest_ping:
   friendly_name: Ping
   icon: mdi:message-alert
@@ -38,32 +38,41 @@ sensor.wifi_uptime:
 sensor.pihole_dns_queries_today:
   friendly_name: DNS Queries
   icon: mdi:help-network
-  
+
 sensor.pihole_ads_blocked_today:
   friendly_name: Ads Blocked
   icon: mdi:security-network
-  
+
 sensor.pihole_ads_percentage_blocked_today:
   friendly_name: Percentage of Ads Blocked
   icon: mdi:security-network
-  
+
+# ip_ban_list
+sensor.ssh_bans:
+  friendly_name: SSH Bans
+  icon: mdi:do-not-disturb
+
+sensor.hass_bans:
+  friendly_name: Hass Bans
+  icon: mdi:do-not-disturb
+
 # Zwave sensors
 sensor.power_mon_current:
   friendly_name: Washing Machine Current
   icon: mdi:music-note-whole
-  
+
 sensor.power_mon_voltage:
   friendly_name: Washing Machine Voltage
   icon: mdi:car-battery
-  
+
 sensor.power_mon_power:
   friendly_name: Washing Machine Power
   icon: mdi:power
-  
+
 sensor.power_mon_energy:
   friendly_name: Washing Machine Energy
   icon: mdi:flash
-  
+
 sensor.washer:
   friendly_name: Washing Machine
   icon: mdi:washing-machine
@@ -78,7 +87,7 @@ sensor.smoke_alarm_living_room:
 
 sensor.smoke_alarm_nursery:
   friendly_name: Smoke Alarm - Nursery
-  icon: mdi:fire  
+  icon: mdi:fire
 
 sensor.blink_living_room_notifications:
   friendly_name: Logged Motion Events
@@ -87,29 +96,28 @@ sensor.blink_living_room_notifications:
 binary_sensor.blink_armed_status:
   friendly_name: System Armed
   icon: mdi:security
-  
+
 # Zwave Devices
 zwave.aeotec_zw090_zstick_gen5:
   icon: mdi:router-wireless
 
 zwave.driveway:
   icon: mdi:spotlight-beam
-  
+
 zwave.outdoor_1:
   icon: mdi:power-plug
-  
+
 zwave.outdoor_2:
   icon: mdi:power-plug
-  
+
 zwave.power_mon:
   icon: mdi:power
 
 zwave.smoke_kitchen:
   icon: mdi:nest-protect
-  
+
 zwave.smoke_living_room:
   icon: mdi:nest-protect
 
 zwave.smoke_nursery:
   icon: mdi:nest-protect
-
