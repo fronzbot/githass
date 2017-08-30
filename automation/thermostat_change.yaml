@@ -41,9 +41,9 @@ trigger:
   - platform: template
     value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.pws_feelslike_f.state | float) > 2.0 }}'
   - platform: template
-    value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") > 21) }}'
+    value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") | int > 21) }}'
   - platform: template
-    value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") > 21) or (now().strftime("%H") < 5)) }}'
+    value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") | int > 21) or (now().strftime("%H") | int < 5)) }}'
   - platform: homeassistant
     event: start
 action:

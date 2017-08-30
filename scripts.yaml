@@ -1,0 +1,314 @@
+#---------------- SMASH.PY ------------------
+# Generated: 2017-Aug-30 14:23:29 
+#--------------------------------------------
+
+#--- scripts/notify_kevin_engine.yaml ---
+  notify_kevin_engine:
+    sequence:
+      - service: notify.notify_kevin_phone
+        data_template:
+          message: >
+            {%- macro on_restart() -%}
+              Home Assistant restarted {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+            {%- endmacro -%}
+            {%- macro system_use() -%}
+              {% if states.sensor.glances_ram_use.state | float <= 100.0 %}
+                RAM Usage at {{states.sensor.glances_ram_use.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
+              {% elif states.sensor.glances_ram_use_2.state | float <= 100.0 %}
+                RAM Usage at {{states.sensor.glances_ram_use_2.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
+              {% endif %}
+            {%- endmacro -%}
+            {%- macro ssl_cert_expiry() -%}
+              Warning - SSL Certificate expires in {{states.sensor.ssl_cert_expiry.state}} days and has not been renewed!
+            {%- endmacro -%}
+            {%- macro failed_login() -%}
+              Failed Login! {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+              {% if states.sensor.ssh_bans.state != "None" %}
+                SSH Attempt(s) from {{states.sensor.ssh_bans.state}}
+              {% endif %}
+              {% if states.sensor.hass_bans.state != "None" %}
+                Web Attempt(s) from {{states.sensor.hass_bans.state}}
+              {% endif %}
+            {%- endmacro -%}
+            {##################}
+            {# BEGIN ROUTINES #}
+            {##################}
+            {% if call_on_restart == 1 %}
+              {{ on_restart() }}
+            {% endif %}
+            {% if call_system_use == 1 %}
+              {{ system_use() }}
+            {% endif %}
+            {% if call_ssl_cert_expiry == 1 %}
+              {{ ssl_cert_expiry() }}
+            {% endif %}
+            {% if call_failed_login == 1 %}
+              {{ failed_login() }}
+            {% endif %}
+
+#--- scripts/hass_upgrade.yaml ---
+  hass_upgrade:
+    alias: Upgrade Homeassistant
+    sequence:
+      - service: shell_command.hass_upgrade
+      - service: homeassistant.restart
+
+#--- scripts/notify_all_engine.yaml ---
+  notify_all_engine:
+    sequence:
+      - service: notify.notify
+        data_template:
+          message: >
+            {%- macro fire_co2() -%}
+              ALERT! {{ now().strftime("%h %d, %Y at %H:%M:%S") }} Kitchen: {{ states.sensor.smoke_alarm_kitchen.state }}, Living Room: {{ states.sensor.smoke_alarm_living_room.state }}, Nursery: {{ states.sensor.smoke_alarm_nursery.state }}
+            {%- endmacro -%}
+            {%- macro washer_status() -%}
+              {% if states.sensor.washer.state == 'Running' %}
+                Washer cycle started {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+              {% elif states.sensor.washer.state == 'Not Running' %}
+                Washer cycle complete {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+              {% endif %}
+            {%- endmacro -%}
+            {%- macro on_way_home() -%}
+              Home Assistant: I turned the thermostat on, so the house will be nice and comfortable when you get home!
+            {%- endmacro -%}
+            {##################}
+            {# BEGIN ROUTINES #}
+            {##################}
+            {% if call_fire_co2 == 1 %}
+              {{ fire_co2() }}
+            {% endif %}
+            {% if call_washer_status == 1 %}
+              {{ washer_status() }}
+            {% endif %}
+            {% if call_on_way_home == 1 %}
+              {{ on_way_home() }}
+            {% endif %}
+            
+
+#--- scripts/ssl_renew_certificate.yaml ---
+  ssl_renew_certificate:
+    alias: SSL Renew Certificate
+    sequence:
+      - service: notify.notify_kevin_phone
+        data:
+          message: "SSL Renew Instructions - 1) Open Port 80 2) Restart router 3) Run ./ssl_renew from pi's home directory 4) Close Port 80 5) Restart router"
+
+#--- scripts/thermostat_engine.yaml ---
+#######################################
+# This script allows for thermostat
+# changes based on outside temperature 
+# as well as time and presence
+#
+# Thresholds:
+# T > 77 --> turn on AC
+# T < 55 --> turn on heat
+# If outside is warmer than 74
+#    And inside humidity is > 59% or warmer than outside by at least 2 deg
+#       --> turn on AC (set point is two degrees less than current internal temp)
+#
+# Set points:
+# AC HOME:  75
+# AC AWAY:  82
+# AC SLEEP: 78
+#
+# HEAT HOME:  67
+# HEAT AWAY:  57
+# HEAT SLEEP: 62
+####################################
+  
+  thermostat_engine:
+    sequence:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_boolean.thermostat_enable
+            state: 'on'
+      # Need to set mode first, we do not use the settings, they are just temporary
+      # If we do not do this, the script will still work but it throws an error in the log
+      # so this is a kludgy way around it
+      - service: climate.set_operation_mode
+        data:
+          entity_id: climate.living_room
+          operation_mode: auto
+      
+      # Now determine temperature set points
+      - service: climate.set_temperature
+        data_template:
+          entity_id: climate.living_room 
+          target_temp_high: >
+            {% if (states.sensor.pws_feelslike_f.state | float) > 77.0 %}
+              {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') or (states.input_boolean.on_the_way_home.state == 'on') %}
+                {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
+                  {% if (states.sensor.living_room_humidity.state | int > 55) %}
+                    {{ 74 | int }}
+                  {% else %}
+                    {{ 75 | int }}
+                  {% endif %}
+                {% else %}
+                  {% if (states.sensor.bedroom_temperature.state | int > 78) %}
+                    {{ (states.climate.living_room.attributes.current_temperature | int) - 1 }}
+                  {% else %}
+                    {{ 78 | int }}
+                  {% endif %}
+                {% endif %}
+              {% else %}
+                {{ 82 | int }}
+              {% endif %}
+            {% elif (states.sensor.pws_feelslike_f.state | float > 74.0) %}
+              {% if ((states.climate.living_room.attributes.current_temperature | float) - (states.sensor.pws_feelslike_f.state | float)) >= 1.0 %}
+                {{ (states.climate.living_room.attributes.current_temperature | int) - 2 }}
+              {% else %}
+                {{ 80 | int }}
+              {% endif %}
+            {% else %}
+              {{ 80 | int }}
+            {% endif %}
+          target_temp_low: >
+            {% if (states.sensor.pws_feelslike_f.state | float) < 55.0 %}
+              {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') or (states.input_boolean.on_the_way_home.state == 'on') %}
+                {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
+                  {{ 67 | int }}
+                {% else %}
+                  {{ 62 | int }}
+                {% endif %}
+              {% else %}
+                {{ 57 | int }}
+              {% endif %}
+            {% else %}
+              {{ 55 | int }}
+            {% endif %}
+      
+      # Determine operating mode (auto or off)
+      - service: climate.set_operation_mode
+        data_template:
+          entity_id: climate.living_room
+          operation_mode: >
+            {% if (states.sensor.pws_feelslike_f.state | float) > 77.0 %}
+              auto
+            {% elif (states.sensor.pws_feelslike_f.state | float) < 55.0 %}
+              auto
+            {% elif (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') %}
+              {% if (states.sensor.pws_feelslike_f.state | float > 74) and (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
+                {% if ((states.climate.living_room.attributes.current_temperature | float) - (states.sensor.pws_feelslike_f.state | float)) >= 1.0 or ((states.sensor.living_room_humidity.state | int) > 59)%}
+                  auto
+                {% else %}
+                  off
+                {% endif %}
+              {% else %}
+                off
+              {% endif %}
+            {% else %}
+              off
+            {% endif %}
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.on_the_way_home
+
+#--- scripts/blink_snap_picture.yaml ---
+  blink_snap_picture:
+    alias: Blink Take New Picture
+    sequence:
+      - service: blink.snap_picture
+        data:
+          friendly_name: "Living Room"
+        
+
+#--- scripts/speech_processing.yaml ---
+  speech_processing:
+    sequence:
+      - service: media_player.volume_set
+        entity_id: media_player.google_home
+        data:
+          volume_level: 0.5
+      - service: tts.google_say
+        entity_id: media_player.google_home
+        data_template:
+          message: >
+            {{ speech_message }}
+
+#--- scripts/github_pull.yaml ---
+  github_pull:
+    alias: Pull Config from Github
+    sequence:
+      - service: shell_command.github_pull
+      - service: homeassistant.restart
+
+#--- scripts/speech_engine.yaml ---
+# For all TTS processing
+# Inspired by @CCOSTAN https://github.com/CCOSTAN/Home-AssistantConfig
+  
+  speech_engine:
+    sequence:
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: sensor.occupancy
+            state: 'home'
+          - condition: state
+            entity_id: input_boolean.guest_mode
+            state: 'on'
+    
+    # Speak to all google home devices
+      - service: script.speech_processing
+        data_template:
+          speech_message: >
+            {%- macro dark_outside() -%}
+              {{ [
+              "It's getting late, I will turn on the outside lights.",
+              "The sun has set, time to turn the lights on outside.  I'm on it.",
+              "I'll go ahead and turn the outside lights on, it's getting dark.",
+              "Looks like it's time to turn the lights on outside.  I got it."
+              ] | random }}
+            {%- endmacro -%}
+            {%- macro garbage_night() -%}
+              {%if now().strftime("%a") == 'Mon' %}
+                {{ [
+                "Just a reminder to take the garbage out. Pickup is tomorrow.",
+                "Beep beep. I don't mean to interrupt, but I wanted to make sure to remind you that it's garbage night.",
+                "It's starting to smell in here.  I think someone should take the trash out considering pick up is tomorrow.",
+                "Garbage pickup is tomorrow morning.  Just a friendly reminder!"
+                ] | random }}
+              {% endif %}
+            {%- endmacro -%}
+            {%- macro washer_status() -%}
+              {% if states.sensor.washer.state == 'Not Running' %}
+                {{ [
+                "Washer cycle is complete, time to throw the clothes into the dryer.",
+                "Looks like the wash just finished.  Figured I should let you know.",
+                "Just popping in to let you know the wash is done.",
+                ] | random }}
+              {% endif %}
+            {%- endmacro -%}
+            {%- macro fire_co2() -%}
+              {% if states.sensor.smoke_alarm_kitchen.state == 'Fire' %}
+                {{ [
+                "Are you cooking? Because there seems to be a fire in the kitchen.",
+                "There's a fire... sale.  OH MY GOD THE BURNING.  Seriously though, you should probably check the Kitchen because a fire has been detected.",
+                "Warning, fire detected in Kitchen.",
+                ] | random }}
+              {% elif (states.sensor.smoke_alarm_living_room.state == 'Fire') or (states.sensor.smoke_alarm_nursery.state == 'Fire') %}
+                {{ [
+                "Fire detected in the house.  Please find a safe exit.",
+                "Warning, there seems to be a fire in the house!",
+                "Fire!  Please leave the house immediately.  I repeat: Fire!",
+                ] | random }}
+              {% elif (states.sensor.smoke_alarm_living_room.state == 'CO2') or (states.sensor.smoke_alarm_nursery.state == 'CO2') or (states.sensor.smoke_alarm_kitchen.state == 'CO2') %}
+                {{ [
+                "Alert! Carbon Monoxide detected, please exit the house and call nine one one",
+                "Warning! Carbon Monoxide detected in house.  I repeat: Warning! Carbon Monoxide has been detected in the house.",
+                ] | random }}
+              {% endif %}
+            {%- endmacro -%}
+            
+            {% if call_dark_outside == 1 %}
+              {{ dark_outside() }}
+            {% endif %}
+            {% if call_garbage_night == 1 %}
+              {{ garbage_night() }}
+            {% endif %}
+            {% if call_washer_status == 1 %}
+              {{ washer_status() }}
+            {% endif %}
+            {% if call_fire_co2 == 1 %}
+              {{ fire_co2() }}
+            {% endif %}

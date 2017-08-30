@@ -1,5 +1,4 @@
 usb_path: /dev/ttyACM0
 new_entity_ids: true
 polling_interval: 30000
-autoheal: False
     

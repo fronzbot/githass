@@ -16,7 +16,7 @@ sensor.bedroom_temperature:
   
 sensor.living_room_humidity:
   friendly_name: Living Room Humidity
-  icon: mdi:oil-temperature
+  icon: mdi:water
   
 sensor.thermo_hvac:
   friendly_name: HVAC Mode
@@ -33,3 +33,7 @@ sensor.thermo_current_operation:
 sensor.thermo_fan:
   friendly_name: Fan
   icon: mdi:fan
+
+sensor.thermo_dew_point:
+  friendly_name: Indoor Dew Point
+  icon: mdi:oil-temperature

@@ -52,10 +52,10 @@ INTERNET_UPLOAD = {
     "Upload": "sensor.speedtest_upload"
 }
 HUMIDITY_LIVING_ROOM = {
-    "Living Room Humidity": "sensor.living_room_humidity"
+    "Living Room Dew Point": "sensor.thermo_dew_point"
 }
 HUMIDITY_OUTDOORS = {
-    "Outdoor Humidity": "sensor.pws_relative_humidity"
+    "Outdoor Dew Point": "sensor.pws_dewpoint_f"
 }
 
 # Stuff to track but not plot for now
@@ -63,7 +63,9 @@ UNPLOTTED = {
     "PMON1 Current": "sensor.power_mon_current",
     "PMON1 Voltage": "sensor.power_mon_voltage",
     "PMON1 Power": "sensor.power_mon_power",
-    "Pressure": "sensor.pws_pressure_mb"
+    "Pressure": "sensor.pws_pressure_mb",
+    "Living Room Humidity": "sensor.living_room_humidity",
+    "Outdoor Humidity": "sensor.pws_relative_humidity"
 }
 
 

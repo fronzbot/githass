@@ -59,8 +59,8 @@ thermostat_engine:
               {{ 82 | int }}
             {% endif %}
           {% elif (states.sensor.pws_feelslike_f.state | float > 74.0) %}
-            {% if ((states.climate.living_room.attributes.current_temperature | float) - (states.sensor.pws_feelslike_f.state | float)) >= 1.0 or ((states.sensor.living_room_humidity.state | int) > 59)%}
-              {{ (states.climate.living_room.attributes.current_temperature - 2.0) | int }}
+            {% if ((states.climate.living_room.attributes.current_temperature | float) - (states.sensor.pws_feelslike_f.state | float)) >= 1.0 %}
+              {{ (states.climate.living_room.attributes.current_temperature | int) - 2 }}
             {% else %}
               {{ 80 | int }}
             {% endif %}

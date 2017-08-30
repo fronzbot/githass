@@ -4,7 +4,7 @@
 #    . ~hass/.homeassistant/bin/.hass_aliases
 # fi
 
-alias ha_restart='cd ~hass/.homeassistant; sudo python3 gen_automations.py; sudo chown hass automations.yaml; sudo chgrp hass automations.yaml; cd ~; sudo systemctl restart home-assistant.service'
+alias ha_restart='cd ~hass/.homeassistant; sudo bash ~hass/.homeassistant/bin/smash.sh; sudo chown hass automations.yaml; sudo chgrp hass automations.yaml; cd ~; sudo systemctl restart home-assistant.service'
 alias ha_status='sudo systemctl status home-assistant.service -l'
 alias ha_upgrade='cd ~/fabric-home-assistant; fab upgrade_homeassistant'
 alias ha_stop='sudo systemctl stop home-assistant.service'

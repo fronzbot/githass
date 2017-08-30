@@ -1,9 +1,8 @@
-# -------------------------------------------
-# FILE GENERATED USING gen_automations SCRIPT
-# GENERATED ON 2017-Aug-09 10:51:53
-# -------------------------------------------
+#---------------- SMASH.PY ------------------
+# Generated: 2017-Aug-30 14:23:28 
+#--------------------------------------------
 
-# /home/hass/.homeassistant/automation/thermostat_disable.yaml
+#--- automation/thermostat_disable.yaml ---
 - id: thermostat_disable
   alias: Thermostat Disable
   trigger:
@@ -16,7 +15,7 @@
       data:
         operation_mode: 'off'
 
-# /home/hass/.homeassistant/automation/notify_washer_status.yaml
+#--- automation/notify_washer_status.yaml ---
 - id: notify_on_washer_status
   alias: Notify on Washer Status
   trigger:
@@ -36,7 +35,7 @@
       data:
         call_washer_status: 1
 
-# /home/hass/.homeassistant/automation/thermostat_change.yaml
+#--- automation/thermostat_change.yaml ---
 - id: thermostat_change_on_weather
   alias: Thermostat Change on Weather
   trigger:
@@ -81,15 +80,15 @@
     - platform: template
       value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.pws_feelslike_f.state | float) > 2.0 }}'
     - platform: template
-      value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") > 21) }}'
+      value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") | int > 21) }}'
     - platform: template
-      value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") > 21) or (now().strftime("%H") < 5)) }}'
+      value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") | int > 21) or (now().strftime("%H") | int < 5)) }}'
     - platform: homeassistant
       event: start
   action:
     - service: script.thermostat_engine
 
-# /home/hass/.homeassistant/automation/lights_rainy.yaml
+#--- automation/lights_rainy.yaml ---
 #Turn on couch lights if it's raining, someone
 # is home, and it's after 11am.
 - id: lights_rainy
@@ -111,7 +110,7 @@
     service: light.turn_on
     entity_id: group.couch
 
-# /home/hass/.homeassistant/automation/notify_on_restart.yaml
+#--- automation/notify_on_restart.yaml ---
 - id: notify_on_restart
   alias: Notify on Restart
   trigger:
@@ -122,7 +121,7 @@
       data:
         call_on_restart: 1
 
-# /home/hass/.homeassistant/automation/notify_on_fire_co2.yaml
+#--- automation/notify_on_fire_co2.yaml ---
 - id: notify_on_fire_co2
   alias: Notify on Fire/CO2
   trigger:
@@ -152,7 +151,7 @@
       data:
         call_fire_co2: 1
 
-# /home/hass/.homeassistant/automation/lights_sunset.yaml
+#--- automation/lights_sunset.yaml ---
 # Turn on outside lights 15 minutes after sunset
   
 - id: lights_sunset
@@ -173,7 +172,7 @@
       data:
         call_dark_outside: 1
 
-# /home/hass/.homeassistant/automation/notify_on_way_home.yaml
+#--- automation/notify_on_way_home.yaml ---
 - id: notify_on_way_home
   alias: Notify on Way Home
   trigger:
@@ -185,7 +184,7 @@
       data:
         call_on_way_home: 1
 
-# /home/hass/.homeassistant/automation/lights_not_home.yaml
+#--- automation/lights_not_home.yaml ---
 # Turn on lights if we're not home and it's dark out
 - id: lights_not_home
   alias: Lights Not Home
@@ -210,7 +209,7 @@
     entity_id: group.couch
   
 
-# /home/hass/.homeassistant/automation/notify_system_use.yaml
+#--- automation/notify_system_use.yaml ---
 - id: notify_on_system_use
   alias: Notify on System Use
   trigger:
@@ -230,7 +229,7 @@
       data:
         call_system_use: 1
 
-# /home/hass/.homeassistant/automation/lights_outside_off.yaml
+#--- automation/lights_outside_off.yaml ---
 # Turn on outside lights off at 12:40 am
   
 - id: lights_outdoor_off
@@ -246,7 +245,7 @@
     - service: switch.turn_off    
       entity_id: switch.driveway_switch
 
-# /home/hass/.homeassistant/automation/lights_holiday_lights.yaml
+#--- automation/lights_holiday_lights.yaml ---
 # Turn on holiday lights at sunset
 - id: lights_holiday_lights
   alias: Lights Holiday Lights
@@ -271,7 +270,7 @@
         brightness: 150
         xy_color: [0.1972,0.6781]
 
-# /home/hass/.homeassistant/automation/tts_garbage_night.yaml
+#--- automation/tts_garbage_night.yaml ---
 - id: tts_garbage_night
   alias: TTS Garbage Night
   trigger:
@@ -282,7 +281,7 @@
     data:
       call_garbage_night: 1
 
-# /home/hass/.homeassistant/automation/lights_away.yaml
+#--- automation/lights_away.yaml ---
 # Turn lights off when everyone leaves for work
 # group.all_devices is 'not_home' if ALL devices are not home
 # Only do this between 7:30am to 10:00am
@@ -309,7 +308,7 @@
     entity_id: group.all_lights
       
 
-# /home/hass/.homeassistant/automation/lights_wake.yaml
+#--- automation/lights_wake.yaml ---
 # Turn lights on in the morning 
 - id: lights_wakeup
   alias: Lights Wakeup
@@ -322,7 +321,7 @@
         - light.couch_left
         - light.kitchen_table
 
-# /home/hass/.homeassistant/automation/notify_on_failed_login.yaml
+#--- automation/notify_on_failed_login.yaml ---
 - id: notify_on_failed_login
   alias: Notify on Failed Login
   trigger:
@@ -342,7 +341,7 @@
       data:
         call_failed_login: 1
 
-# /home/hass/.homeassistant/automation/lights_inside_off.yaml
+#--- automation/lights_inside_off.yaml ---
 # Turn inside lights off around midnight (before exterior)
   
 - id: lights_inside_off
@@ -354,7 +353,7 @@
     - service: light.turn_off
       entity_id: group.interior
 
-# /home/hass/.homeassistant/automation/notify_on_cert_expiry.yaml
+#--- automation/notify_on_cert_expiry.yaml ---
 - id: notify_on_ssl_expiry
   alias: Notify on SSL Expiry
   trigger:
@@ -366,7 +365,7 @@
       data:
         call_ssl_cert_expiry: 1
 
-# /home/hass/.homeassistant/automation/lights_home.yaml
+#--- automation/lights_home.yaml ---
 # Turn lights on when someone comes home from work
 # group.all_devices is 'home' if ANY device is home
 # Do this between 5pm and 7pm

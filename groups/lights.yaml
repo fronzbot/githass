@@ -4,7 +4,7 @@
 flux_switch:
   name: Flux
   icon: mdi:theme-light-dark
-  entities: 
+  entities:
     - input_boolean.flux
 
 scenes:
@@ -16,7 +16,7 @@ scenes:
     - scene.night
     - scene.sabres
     - scene.on_the_way_home
- 
+
 couch:
   name: Couch
   icon: mdi:sofa
@@ -30,7 +30,7 @@ den_couch:
   entities:
     - light.Corner_Den
     - light.Back_Den
-    
+
 lights_living_room:
   name: Living Room Lights
   icon: mdi:sofa
@@ -44,7 +44,7 @@ lights_kitchen:
   icon: mdi:food-variant
   entities:
     - light.kitchen_table
-  
+
 lights_den:
   name: Den Lights
   icon: mdi:desktop-tower
@@ -60,7 +60,7 @@ lights_basement:
     #- group.basement_ceiling
     - light.fireplace_1
     - light.fireplace_2
-  
+
 interior:
   name: Indoor Lights
   icon: mdi:home
@@ -69,7 +69,7 @@ interior:
     - group.lights_den
     - group.lights_basement
     - group.lights_kitchen
-    
+
 exterior:
   name: Outdoor Lights
   icon: mdi:white-balance-sunny
@@ -94,14 +94,14 @@ home_lights:
     # - light.basement_ceiling_1
     # - light.basement_ceiling_2
     # - light.basement_ceiling_3
-    
+
 basement_fireplace:
   name: Basement Fireplace
   icon: mdi:fire
   entities:
     - light.fireplace1
     - light.fireplace2
-    
+
 outdoor_switches:
   name: Outside Plugs
   icon: mdi:power-plug

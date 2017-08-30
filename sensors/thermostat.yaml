@@ -16,4 +16,12 @@
     thermo_current_operation:
       value_template: '{{ states.climate.living_room.attributes.operation }}'   
       entity_id: climate.living_room
-    
+
+    # TD = Dew point in [F]
+    # RH = Relative Humidity[%]
+    # T  = Temperature [F]
+    # TD ~ T - 0.4*(100 - RH)
+    thermo_dew_point:
+      value_template: >
+        {{ (states.sensor.living_room_temperature.state | float - 0.4*(100 - states.sensor.living_room_humidity.state | float )) | round(2) }}
+      unit_of_measurement: '°F'   
