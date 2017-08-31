@@ -71,3 +71,11 @@ shell:
     - script.github_pull
     - script.hass_upgrade
     - script.ssl_renew_certificate
+
+mail:
+  name: Mail
+  entities:
+    - sensor.usps_mail
+    - sensor.usps_packages
+    - sensor.ups
+    - sensor.out_for_delivery

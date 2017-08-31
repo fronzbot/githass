@@ -20,8 +20,10 @@ sensor.fastcom_download:
 sensor.ssl_cert_expiry:
   friendly_name: SSL Cert Expiry
   icon: mdi:lock
-
+  
+#-------------------------------
 # Google Wifi
+#-------------------------------
 sensor.wifi_status:
   friendly_name: Network Status
   icon: mdi:google
@@ -33,8 +35,10 @@ sensor.wifi_current_version:
 sensor.wifi_uptime:
   friendly_name: Network Uptime
   icon: mdi:update
-
+  
+#-------------------------------
 # Pi-hole
+#-------------------------------
 sensor.pihole_dns_queries_today:
   friendly_name: DNS Queries
   icon: mdi:help-network
@@ -47,7 +51,9 @@ sensor.pihole_ads_percentage_blocked_today:
   friendly_name: Percentage of Ads Blocked
   icon: mdi:security-network
 
+#-------------------------------
 # ip_ban_list
+#-------------------------------
 sensor.ssh_bans:
   friendly_name: SSH Bans
   icon: mdi:do-not-disturb
@@ -56,7 +62,28 @@ sensor.hass_bans:
   friendly_name: Hass Bans
   icon: mdi:do-not-disturb
 
+#-------------------------------
+# Mail Sensors
+#-------------------------------
+sensor.usps_mail:
+  friendly_name: Mail
+  icon: mdi:email
+    
+sensor.usps_packages:
+  friendly_name: Packages - USPS
+  icon: mdi:package-variant
+    
+sensor.ups:
+  friendly_name: Packages - UPS
+  icon: mdi:package-variant
+
+sensor.out_for_delivery:
+  friendly_name: Packages - Out For Delivery
+  icon: mdi:truck-fast
+
+#-------------------------------  
 # Zwave sensors
+#-------------------------------
 sensor.power_mon_current:
   friendly_name: Washing Machine Current
   icon: mdi:music-note-whole
@@ -97,7 +124,9 @@ binary_sensor.blink_armed_status:
   friendly_name: System Armed
   icon: mdi:security
 
+#-------------------------------
 # Zwave Devices
+#-------------------------------
 zwave.aeotec_zw090_zstick_gen5:
   icon: mdi:router-wireless
 

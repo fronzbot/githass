@@ -17,3 +17,6 @@
 - platform: local_file
   file_path: /home/hass/images/Climate.png
   name: Climate
+
+- platform: usps
+  scan_interval: 5
