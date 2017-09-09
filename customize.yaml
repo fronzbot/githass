@@ -1,0 +1,649 @@
+#---------------- SMASH.PY ------------------
+# Generated: 2017-Sep-09 17:07:34 
+#--------------------------------------------
+
+#--- customize/customize_climate.yaml ---
+  
+##################
+# Thermostat
+################## 
+  climate.living_room:
+    friendly_name: Ecobee
+    icon: mdi:nest-thermostat
+    
+  sensor.living_room_temperature:
+    friendly_name: Living Room Temperature
+    icon: mdi:thermometer
+    
+  sensor.bedroom_temperature:
+    friendly_name: Bedroom Temperature
+    icon: mdi:thermometer
+    
+  sensor.living_room_humidity:
+    friendly_name: Living Room Humidity
+    icon: mdi:water
+    
+  sensor.thermo_hvac:
+    friendly_name: HVAC Mode
+    icon: mdi:air-conditioner
+    
+  sensor.thermo_temp:
+    friendly_name: Current Temperature
+    icon: mdi:nest-thermostat
+    
+  sensor.thermo_current_operation:
+    friendly_name: Current Status
+    icon: mdi:waves
+    
+  sensor.thermo_fan:
+    friendly_name: Fan
+    icon: mdi:fan
+  
+  sensor.thermo_dew_point:
+    friendly_name: Indoor Dew Point
+    icon: mdi:oil-temperature
+
+#--- customize/customize_scripts.yaml ---
+  script.thermostat_control:
+    icon: mdi:air-conditioner
+    emulated_hue: true
+    emulated_hue_name: "Thermostat"
+  
+  script.github_pull:
+    icon: mdi:github-circle
+  
+  script.hass_upgrade:
+    icon: mdi:home-assistant
+  
+  script.blink_snap_picture:
+    icon: mdi:camera
+  
+  script.ssl_renew_certificate:
+    icon: mdi:lock
+
+#--- customize/customize_scenes.yaml ---
+##################
+# Scenes
+##################
+  scene.christmas:
+    icon: mdi:gift
+    emulated_hue: true
+    emulated_hue_name: "Christmas"
+  
+  scene.movie_mode:
+    icon: mdi:movie
+    emulated_hue: true
+    emulated_hue_name: "Movie Mode"
+    
+  scene.daylight:
+    icon: mdi:weather-sunny
+    emulated_hue: true
+    emulated_hue_name: "Day Time"
+    
+  scene.night:
+    icon: mdi:weather-night
+    emulated_hue: true
+    emulated_hue_name: "Night Time"
+  
+  scene.sabres:
+    icon: mdi:sword
+    emulated_hue: true
+    emulated_hue_name: "Sabres"
+  
+  scene.on_the_way_home:
+    icon: mdi:map-marker
+    emulated_hue: false
+
+#--- customize/customize_presence.yaml ---
+##################
+# Entities
+################## 
+  device_tracker.kevin:
+    friendly_name: Kevin
+    icon: mdi:cellphone-android
+   
+  device_tracker.allegra:
+    friendly_name: Allegra
+    icon: mdi:cellphone-android
+  
+# Ecobee sensors
+  binary_sensor.living_room_occupancy:
+    friendly_name: In Living Room
+    icon: mdi:account-multiple
+    
+  binary_sensor.bedroom_occupancy:
+    friendly_name: In Bedroom
+    icon: mdi:account-multiple
+
+#--- customize/customize_input_boolean.yaml ---
+##################
+# Input Boolean
+##################
+  input_boolean.flux:
+    icon: mdi:theme-light-dark
+    emulated_hue: true
+    emulated_hue_name: "Flux"
+    
+  input_boolean.christmas_lights:
+    icon: mdi:gift
+    
+  input_boolean.on_the_way_home:
+    icon: mdi:map-marker
+  
+  input_boolean.guest_mode:
+    icon: mdi:account
+    emulated_hue: true
+    emulated_hue_name: "Guest Mode"
+  
+  input_boolean.thermostat_enable:
+    icon: mdi:nest-thermostat
+    emulated_hue: true
+    emulated_hue_name: "Thermostat"
+
+#--- customize/customize_misc_sensors.yaml ---
+##################
+# Sensors
+##################
+  sensor.speedtest_download:
+    friendly_name: Download (Speedtest)
+    icon: mdi:download
+  
+  sensor.speedtest_upload:
+    friendly_name: Upload
+    icon: mdi:upload
+  
+  sensor.speedtest_ping:
+    friendly_name: Ping
+    icon: mdi:message-alert
+  
+  sensor.fastcom_download:
+    friendly_name: Download (Fast.com)
+    icon: mdi:download
+  
+  sensor.ssl_cert_expiry:
+    friendly_name: SSL Cert Expiry
+    icon: mdi:lock
+    
+#-------------------------------
+# Google Wifi
+#-------------------------------
+  sensor.wifi_status:
+    friendly_name: Network Status
+    icon: mdi:google
+  
+  sensor.wifi_current_version:
+    friendly_name: Router Firmware Version
+    icon: mdi:checkbox-marked-circle-outline
+  
+  sensor.wifi_uptime:
+    friendly_name: Network Uptime
+    icon: mdi:update
+    
+#-------------------------------
+# Pi-hole
+#-------------------------------
+  sensor.pihole_dns_queries_today:
+    friendly_name: DNS Queries
+    icon: mdi:help-network
+  
+  sensor.pihole_ads_blocked_today:
+    friendly_name: Ads Blocked
+    icon: mdi:security-network
+  
+  sensor.pihole_ads_percentage_blocked_today:
+    friendly_name: Percentage of Ads Blocked
+    icon: mdi:security-network
+  
+#-------------------------------
+# ip_ban_list
+#-------------------------------
+  sensor.ssh_bans:
+    friendly_name: SSH Bans
+    icon: mdi:do-not-disturb
+  
+  sensor.hass_bans:
+    friendly_name: Hass Bans
+    icon: mdi:do-not-disturb
+  
+#-------------------------------
+# Mail Sensors
+#-------------------------------
+  sensor.usps_mail:
+    friendly_name: Mail
+    icon: mdi:email
+      
+  sensor.usps_packages:
+    friendly_name: Packages - USPS
+    icon: mdi:package-variant
+      
+  sensor.ups:
+    friendly_name: Packages - UPS
+    icon: mdi:package-variant
+  
+  sensor.out_for_delivery:
+    friendly_name: Packages - Out For Delivery
+    icon: mdi:truck-fast
+  
+#-------------------------------  
+# Zwave sensors
+#-------------------------------
+  sensor.power_mon_current:
+    friendly_name: Washing Machine Current
+    icon: mdi:music-note-whole
+  
+  sensor.power_mon_voltage:
+    friendly_name: Washing Machine Voltage
+    icon: mdi:car-battery
+  
+  sensor.power_mon_power:
+    friendly_name: Washing Machine Power
+    icon: mdi:power
+  
+  sensor.power_mon_energy:
+    friendly_name: Washing Machine Energy
+    icon: mdi:flash
+  
+  sensor.washer:
+    friendly_name: Washing Machine
+    icon: mdi:washing-machine
+  
+  sensor.smoke_alarm_kitchen:
+    friendly_name: Smoke Alarm - Kitchen
+    icon: mdi:fire
+  
+  sensor.smoke_alarm_living_room:
+    friendly_name: Smoke Alarm - Living Room
+    icon: mdi:fire
+  
+  sensor.smoke_alarm_nursery:
+    friendly_name: Smoke Alarm - Nursery
+    icon: mdi:fire
+  
+  sensor.blink_living_room_notifications:
+    friendly_name: Logged Motion Events
+    icon: mdi:run-fast
+  
+  binary_sensor.blink_armed_status:
+    friendly_name: System Armed
+    icon: mdi:security
+  
+#-------------------------------
+# Zwave Devices
+#-------------------------------
+  zwave.aeotec_zw090_zstick_gen5:
+    icon: mdi:router-wireless
+  
+  zwave.driveway:
+    icon: mdi:spotlight-beam
+  
+  zwave.outdoor_1:
+    icon: mdi:power-plug
+  
+  zwave.outdoor_2:
+    icon: mdi:power-plug
+  
+  zwave.power_mon:
+    icon: mdi:power
+  
+  zwave.smoke_kitchen:
+    icon: mdi:nest-protect
+  
+  zwave.smoke_living_room:
+    icon: mdi:nest-protect
+  
+  zwave.smoke_nursery:
+    icon: mdi:nest-protect
+
+#--- customize/customize_lights.yaml ---
+##################
+# Lights
+##################
+  light.Couch_Left:
+    friendly_name: Couch Left
+    emulated_hue: true
+    emulated_hue_name: "Couch Left"
+  
+  light.Couch_Right:
+    friendly_name: Couch Right
+    emulated_hue: true
+    emulated_hue_name: "Couch Right"
+    
+  light.Corner:
+    friendly_name: Corner
+    emulated_hue: true
+    emulated_hue_name: "Corner"
+  
+  light.Corner_Den:
+    friendly_name: Corner Den
+    emulated_hue: false
+    
+  light.Back_Den:
+    friendly_name: Back Den
+    emulated_hue: false
+    
+  light.Desk:
+    friendly_name: Computer Desk
+    emulated_hue: true
+    emulated_hue_name: "Desk"
+    
+  light.Porch:
+    friendly_name: Porch
+    icon: mdi:gate
+    emulated_hue: true
+    emulated_hue_name: "Porch"
+  
+# light.basement_ceiling_1:
+    # friendly_name: Basement Ceiling 1
+    # emulated_hue: false
+    
+# light.basement_ceiling_2:
+    # friendly_name: Basement Ceiling 2
+    # emulated_hue: false
+  
+# light.basement_ceiling_3:
+    # friendly_name: Basement Ceiling 3
+    # emulated_hue: false
+  
+  light.fireplace1:
+    friendly_name: Basement Fireplace 1
+    emulated_hue: false
+    
+  light.fireplace2:
+    friendly_name: Basement Fireplace 2
+    emulated_hue: false
+    
+  light.kitchen_table:
+    friendly_name: Kitchen Table
+    icon: mdi:food-variant
+    emulated_hue: true
+    emulated_hue_name: "Kitchen"
+    
+
+#--- customize/customize_groups.yaml ---
+#===================================================
+# Sets the emulated_hue exposure for all groups
+# Note, order is used to manually force location
+# of panels on frontend
+#===================================================
+  
+#============================  
+# from groups/lights.yaml
+#============================
+  group.scenes:
+    order: 1
+    emulated_hue: false
+    
+  group.couch:
+    emulated_hue: true
+    emulated_hue_name: "Couch"
+    
+# group.basement_ceiling:
+    # order: 5
+    # emulated_hue: false
+    
+  group.basement_fireplace:
+    order: 6
+    emulated_hue: false
+    
+  group.lights_living_room:
+    order: 1
+    emulated_hue: true
+    emulated_hue_name: "Living Room"
+    
+  group.flux_switch:
+    order: 2
+    emulated_hue: false
+    
+  group.lights_kitchen:
+    order: 3
+    emulated_hue: false
+    
+  group.lights_den:
+    order: 4
+    emulated_hue: true
+    emulated_hue_name: "Den"
+  
+  group.lights_basement:
+    order: 5
+    emulated_hue: true
+    emualted_hue_name: "Basement"
+    
+  group.interior:
+    emulated_hue: false
+      
+  group.exterior:
+    emulated_hue: true
+    emulated_hue_name: "Outside Lights"
+    
+  group.home_lights:
+    order: 1
+    emulated_hue: false
+    
+  group.outdoor_switches:
+    emulated_hue: true
+    emulated_hue_name: "Outside Switches"
+  
+#============================  
+# from groups/devices.yaml
+#============================  
+  
+    
+#============================  
+# from groups/climate.yaml
+#============================  
+  
+  
+#============================  
+# from groups/sensors.yaml
+#============================  
+  
+  
+#============================  
+# from groups/automations.yaml
+#============================ 
+  
+    
+#============================  
+# 'ALL' GROUPS  
+#============================
+  group.all_automations:
+    emulated_hue: false
+    
+  group.all_locks:
+    emulated_hue: false
+    
+  group.all_switches:
+    emulated_hue: false
+    
+  group.all_scripts:
+    emulated_hue: false
+  
+  group.all_devices:
+    emulated_hue: false
+  
+  group.all_lights:
+    emulated_hue: true
+    emulated_hue_name: "All Lights"
+    
+  group.all_covers:
+    emulated_hue: false
+
+#--- customize/customize_weather.yaml ---
+# Wunderground and dark_sky customization
+  sensor.pws_alerts:
+    friendly_name: Weather Alerts
+    icon: mdi:alert
+  
+  sensor.pws_weather:
+    friendly_name: Summary
+    icon: mdi:library-books
+  
+  sensor.pws_weather_1d:
+    friendly_name: Daily Forecast
+    icon: mdi:binoculars
+  
+  sensor.pws_temp_high_1d_f:
+    friendly_name: Forecast High
+    icon: mdi:arrow-up-bold
+  
+  sensor.pws_temp_low_1d_f:
+    friendly_name: Forecast Low
+    icon: mdi:arrow-down-bold
+  
+  sensor.pws_feelslike_f:
+    friendly_name: Feelslike
+    icon: mdi:thermometer
+    
+  sensor.pws_temp_f:
+    friendly_name: Outside Temperature
+    icon: mdi:thermometer
+  
+  sensor.pws_dewpoint_f:
+    friendly_name: Dew Point
+    icon: mdi:oil-temperature
+    
+  sensor.pws_relative_humidity:
+    friendly_name: Humidity
+    icon: mdi:water-percent
+   
+  sensor.pws_precip_today_in:
+    friendly_name: Precipitation Intensity
+    icon: mdi:weather-pouring
+  
+  sensor.pws_precip_1d_in:
+    friendly_name: Forecast Precipitation
+    icon: mdi:weather-pouring
+    
+  sensor.pws_pressure_mb:
+    friendly_name: Pressure
+    icon: mdi:chart-bar
+  
+  sensor.dark_sky_visibility:
+    friendly_name: Visibility
+    icon: mdi:weather-fog
+    
+  sensor.pws_wind_mph:
+    friendly_name: Wind Speed
+    icon: mdi:weather-windy
+  
+  sensor.pws_wind_dir:
+    friendly_name: Wind Bearing
+    icon: mdi:weather-windy  
+      
+  sensor.dark_sky_ozone:
+    friendly_name: Ozone
+    icon: mdi:earth
+    
+  sensor.pws_uv:
+    friendly_name: UV Index
+    icon: mdi:weather-sunny
+
+#--- customize/customize_glances.yaml ---
+# Glances
+  sensor.glances_disk_use:
+    friendly_name: Disk Usage
+    icon: mdi:sd
+  
+  sensor.glances_disk_use_2:
+    friendly_name: Disk Space Used
+    icon: mdi:sd
+    
+  sensor.glances_disk_free:
+    friendly_name: Free Space
+    icon: mdi:sd
+    
+  sensor.glances_ram_use:
+    friendly_name: RAM Usage
+    icon: mdi:chip
+    
+  sensor.glances_ram_use_2:
+    friendly_name: RAM Used
+    icon: mdi:chip
+    
+  sensor.glances_ram_free:
+    friendly_name: RAM Free
+    icon: mdi:chip
+    
+  sensor.glances_swap_use:
+    friendly_name: Swap Usage
+    icon: mdi:swap-horizontal
+    
+  sensor.glances_swap_use_2:
+    friendly_name: Swap Used
+    icon: mdi:swap-horizontal
+    
+  sensor.glances_swap_free:
+    friendly_name: Swap Free
+    icon: mdi:swap-horizontal
+    
+  sensor.glances_cpu_load:
+    friendly_name: CPU Load
+    icon: mdi:memory
+    
+  sensor.glances_running:
+    friendly_Name: CPU Running Processes
+    icon: mdi:memory
+    
+  sensor.glances_total:
+    friendly_name: CPU Total Processes
+    icon: mdi:memory
+    
+  sensor.glances_thread:
+    friendly_name: CPU Threads
+    icon: mdi:memory
+    
+  sensor.glances_sleeping:
+    friendly_name: CPU Sleeping Threads
+    icon: mdi:sleep
+  
+  sensor.last_boot:
+    friendly_name: Last Boot
+    icon: mdi:restart
+  
+  sensor.hass_uptime:
+    friendly_name: Home Assistant Uptime
+    icon: mdi:clock
+  
+  sensor.hass_version:
+    friendly_name: Home Assistant Version
+    icon: mdi:home-assistant
+
+#--- customize/customize_media.yaml ---
+##################
+# Media Players
+##################
+  media_player.my_shield_android_tv:
+    friendly_name: Plex-Storm's End on Mantarys
+    icon: /local/plex.png
+    
+  media_player.plex_web_chrome:
+    friendly_name: Plex-Storm's End on Chrome
+    icon: /local/plex.png
+  
+  media_player.asshai:
+    friendly_name: Asshai
+    icon: /local/firetv.jpg
+    
+  media_player.mantarys:
+    friendly_name: Mantarys
+    icon: /local/nvidia.jpg
+
+#--- customize/customize_switches.yaml ---
+  switch.outdoor_1_switch:
+    friendly_name: Outside Porch Outlet
+    icon: mdi:power-plug
+    
+  switch.outdoor_2_switch:
+    friendly_name: Outside Driveway Outlet
+    icon: mdi:power-plug
+    
+  switch.power_mon_switch_3_0:
+    friendly_name: Washing Machine Power
+    icon: mdi:power
+  
+  switch.driveway_switch:
+    friendly_name: Driveway
+    icon: mdi:car
+    emulated_hue: true
+    emulated_hue_name: "Driveway"
+    

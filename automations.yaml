@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2017-Aug-31 11:09:26 
+# Generated: 2017-Sep-09 17:07:34 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -352,18 +352,6 @@
   action:
     - service: light.turn_off
       entity_id: group.interior
-
-#--- automation/notify_on_cert_expiry.yaml ---
-- id: notify_on_ssl_expiry
-  alias: Notify on SSL Expiry
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.ssl_cert_expiry
-      below: 21
-  action:
-    - service: script.notify_kevin_engine
-      data:
-        call_ssl_cert_expiry: 1
 
 #--- automation/lights_home.yaml ---
 # Turn lights on when someone comes home from work

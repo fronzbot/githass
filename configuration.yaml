@@ -5,14 +5,14 @@ homeassistant:
   elevation: 154
   temperature_unit: F
   time_zone: America/New_York
-  customize: !include_dir_merge_named customize
+  customize: !include customize.yaml
   unit_system: imperial
 
 http:
   api_password: !secret password
-  ssl_certificate: !secret cert_location
-  ssl_key: !secret key_location
-  base_url: !secret ha_url
+  #ssl_certificate: !secret cert_location
+  #ssl_key: !secret key_location
+  #base_url: !secret ha_url
 
 # Includes
 automation: !include automations.yaml
@@ -29,7 +29,7 @@ media_player: !include includes/media.yaml
 notify: !include includes/notify.yaml
 recorder: !include includes/recorder.yaml
 scene: !include_dir_list scenes
-script: !include_dir_merge_named scripts
+script: !include scripts.yaml
 sensor: !include_dir_merge_list sensors
 shell_command: !include includes/shell_command.yaml
 tts: !include includes/tts.yaml
@@ -37,6 +37,7 @@ zwave: !include includes/zwave.yaml
 
 # Enables
 frontend:
+config:
 # discovery:
 logbook:
 sun:

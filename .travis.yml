@@ -3,6 +3,7 @@ python:
     - "3.4.2" 
 before_install:
     - mv travis_secrets.yaml secrets.yaml
+    - pip3 install colorama
 install:
     - pip3 install homeassistant
 script:
