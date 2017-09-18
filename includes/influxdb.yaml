@@ -1,0 +1,6 @@
+host: !secret influxdb_url
+port: 8086
+username: !secret influxdb_user
+password: !secret influxdb_pass
+database: hass_db
+default_measurement: state

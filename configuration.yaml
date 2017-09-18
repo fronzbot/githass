@@ -22,6 +22,7 @@ emulated_hue: !include includes/emulated_hue.yaml
 group: !include_dir_merge_named groups
 history: !include includes/history.yaml
 input_boolean: !include includes/input_boolean.yaml
+influxdb: !include includes/influxdb.yaml
 #intent_script: !include_dir_merge_named includes/intents
 light: !include includes/light.yaml
 logger: !include includes/logger.yaml
