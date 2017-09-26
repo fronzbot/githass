@@ -14,3 +14,8 @@ script.blink_snap_picture:
 
 script.ssl_renew_certificate:
   icon: mdi:lock
+  
+script.flux:
+  icon: mdi:theme-light-dark
+  emulated_hue: true
+  emulated_hue_name: "Flux"

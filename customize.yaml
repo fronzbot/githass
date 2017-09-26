@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2017-Sep-18 14:21:51 
+# Generated: 2017-Sep-26 10:41:17 
 #--------------------------------------------
 
 #--- customize/customize_climate.yaml ---
@@ -60,6 +60,11 @@
   
   script.ssl_renew_certificate:
     icon: mdi:lock
+    
+  script.flux:
+    icon: mdi:theme-light-dark
+    emulated_hue: true
+    emulated_hue_name: "Flux"
 
 #--- customize/customize_scenes.yaml ---
 ##################
@@ -74,6 +79,11 @@
     icon: mdi:movie
     emulated_hue: true
     emulated_hue_name: "Movie Mode"
+  
+  scene.movie_mode_basement:
+    icon: mdi:movie
+    emulated_hue: true
+    emulated_hue_name: "Movie Mode Basement"
     
   scene.daylight:
     icon: mdi:weather-sunny
@@ -119,10 +129,11 @@
 ##################
 # Input Boolean
 ##################
-  input_boolean.flux:
+  input_boolean.flux_living_room:
     icon: mdi:theme-light-dark
-    emulated_hue: true
-    emulated_hue_name: "Flux"
+  
+  input_boolean.flux_basement:
+    icon: mdi:theme-light-dark
     
   input_boolean.christmas_lights:
     icon: mdi:gift
@@ -325,6 +336,14 @@
     friendly_name: Computer Desk
     emulated_hue: true
     emulated_hue_name: "Desk"
+  
+  light.basement_corner:
+    friendly_name: Basement Corner
+    emulated_hue: false
+  
+  light.basement_computer:
+    friendly_name: Computer
+    emulated_hue: false
     
   light.Porch:
     friendly_name: Porch
@@ -344,11 +363,11 @@
     # friendly_name: Basement Ceiling 3
     # emulated_hue: false
   
-  light.fireplace1:
+  light.fireplace_1:
     friendly_name: Basement Fireplace 1
     emulated_hue: false
     
-  light.fireplace2:
+  light.fireplace_2:
     friendly_name: Basement Fireplace 2
     emulated_hue: false
     
@@ -357,6 +376,18 @@
     icon: mdi:food-variant
     emulated_hue: true
     emulated_hue_name: "Kitchen"
+  
+  light.bedroom_corner:
+    friendly_name: Corner Lamp
+    icon: mdi:hotel
+    emulated_hue: true
+    emulated_hue_name: "Corner Lamp"
+  
+  light.bedroom_door:
+    friendly_name: Nightstand
+    icon: mdi:hotel
+    emulated_hue: true
+    emulated_hue_name: "Nightstand"
     
 
 #--- customize/customize_groups.yaml ---
@@ -380,10 +411,14 @@
 # group.basement_ceiling:
     # order: 5
     # emulated_hue: false
+  
+  group.computer:
+    emulated_hue: true
+    emualted_hue_name: "Computer"
     
   group.basement_fireplace:
-    order: 6
-    emulated_hue: false
+    emulated_hue: true
+    emualted_hue_name: "Fireplace"
     
   group.lights_living_room:
     order: 1
@@ -393,16 +428,21 @@
   group.flux_switch:
     order: 2
     emulated_hue: false
-    
+  
   group.lights_kitchen:
-    order: 3
+    order: 2
     emulated_hue: false
     
   group.lights_den:
-    order: 4
+    order: 3
     emulated_hue: true
     emulated_hue_name: "Den"
   
+  group.lights_bedroom:
+    order: 4
+    emulated_hue: true
+    emulated_hue_name: "Bedroom"
+    
   group.lights_basement:
     order: 5
     emulated_hue: true

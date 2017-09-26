@@ -10,6 +10,11 @@ scene.movie_mode:
   icon: mdi:movie
   emulated_hue: true
   emulated_hue_name: "Movie Mode"
+
+scene.movie_mode_basement:
+  icon: mdi:movie
+  emulated_hue: true
+  emulated_hue_name: "Movie Mode Basement"
   
 scene.daylight:
   icon: mdi:weather-sunny

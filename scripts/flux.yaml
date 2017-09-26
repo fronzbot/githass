@@ -1,0 +1,8 @@
+flux:
+  alias: Flux - Global
+  sequence:
+    - service: input_boolean.turn_on
+      entity_id:
+        - input_boolean.flux_living_room
+        - input_boolean.flux_basement
+      

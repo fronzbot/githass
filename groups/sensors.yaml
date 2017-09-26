@@ -75,7 +75,7 @@ shell:
 mail:
   name: Mail
   entities:
-    - sensor.usps_mail
-    - sensor.usps_packages
+#    - sensor.usps_mail
+#    - sensor.usps_packages
     - sensor.ups
     - sensor.out_for_delivery
