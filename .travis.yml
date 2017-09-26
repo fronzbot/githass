@@ -5,8 +5,7 @@ before_install:
     - mv travis_secrets.yaml secrets.yaml
 install:
     - pip3 install homeassistant && pip3 install colorama
-sudo: required
 script:
     - hass -c . --script check_config
-    - /bin/bash ./bin/smash.sh && hass -c . --script check_config
+    - /bin/bash ./bin/smash.sh --travis && hass -c . --script check_config
     
