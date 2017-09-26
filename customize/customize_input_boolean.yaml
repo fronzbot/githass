@@ -4,7 +4,7 @@
 input_boolean.flux_living_room:
   icon: mdi:theme-light-dark
 
-input_boolean.flux_living_room:
+input_boolean.flux_basement:
   icon: mdi:theme-light-dark
   
 input_boolean.christmas_lights:
