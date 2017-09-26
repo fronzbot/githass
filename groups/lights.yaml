@@ -1,17 +1,13 @@
 #===================================================
 # Lights, scenes, and switches that control lights
 #===================================================
-flux_switch:
-  name: Flux
-  icon: mdi:theme-light-dark
-  entities:
-    - input_boolean.flux
-
 scenes:
   name: Scenes
   entities:
+    - script.flux
     - scene.christmas
     - scene.movie_mode
+    - scene.movie_mode_basement
     - scene.daylight
     - scene.night
     - scene.sabres
@@ -24,12 +20,12 @@ couch:
     - light.Couch_Left
     - light.Couch_Right
 
-den_couch:
-  name: Den Couch
-  icon: mdi:sofa
+computer:
+  name: Computer
+  icon: mdi:desktop-tower
   entities:
-    - light.Corner_Den
-    - light.Back_Den
+    - light.basement_computer
+    - light.desk
 
 lights_living_room:
   name: Living Room Lights
@@ -47,19 +43,27 @@ lights_kitchen:
 
 lights_den:
   name: Den Lights
-  icon: mdi:desktop-tower
+  icon: mdi:castle
   entities:
     - light.Back_Den
     - light.Corner_Den
-    - light.Desk
 
 lights_basement:
   name: Basement
   icon: mdi:stairs
   entities:
-    #- group.basement_ceiling
+    - light.desk
     - light.fireplace_1
     - light.fireplace_2
+    - light.basement_corner
+    - light.basement_computer
+
+lights_bedroom:
+  name: Bedroom
+  icon: mdi:hotel
+  entities:
+    - light.bedroom_corner
+    - light.bedroom_door
 
 interior:
   name: Indoor Lights
@@ -82,6 +86,7 @@ home_lights:
     - group.lights_living_room
     - group.lights_kitchen
     - group.lights_den
+    - group.lights_bedroom
     - group.lights_basement
     - light.porch
     - switch.driveway_switch
@@ -99,8 +104,8 @@ basement_fireplace:
   name: Basement Fireplace
   icon: mdi:fire
   entities:
-    - light.fireplace1
-    - light.fireplace2
+    - light.fireplace_1
+    - light.fireplace_2
 
 outdoor_switches:
   name: Outside Plugs

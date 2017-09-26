@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2017-Sep-18 14:21:51 
+# Generated: 2017-Sep-25 19:29:05 
 #--------------------------------------------
 
 #--- scripts/notify_kevin_engine.yaml ---
@@ -45,6 +45,16 @@
             {% if call_failed_login == 1 %}
               {{ failed_login() }}
             {% endif %}
+
+#--- scripts/flux.yaml ---
+  flux:
+    alias: Flux - Global
+    sequence:
+      - service: input_boolean.turn_on
+        entity_id:
+          - input_boolean.flux_living_room
+          - input_boolean.flux_basement
+        
 
 #--- scripts/hass_upgrade.yaml ---
   hass_upgrade:

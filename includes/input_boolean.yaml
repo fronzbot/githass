@@ -2,8 +2,12 @@ on_the_way_home:
   name: On the Way Home
   initial: off
 
-flux:
-  name: Flux
+flux_living_room:
+  name: Flux Living Room
+  initial: on
+
+flux_basement:
+  name: Flux Basement
   initial: on
   
 christmas_lights:

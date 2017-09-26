@@ -60,7 +60,8 @@ tab_automation:
   entities:
     - group.scenes
     - group.shell
-    - input_boolean.flux
+    - input_boolean.flux_living_room
+    - input_boolean.flux_basement
     - input_boolean.christmas_lights
     - input_boolean.on_the_way_home
     - input_boolean.guest_mode

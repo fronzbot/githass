@@ -28,6 +28,14 @@ light.Desk:
   friendly_name: Computer Desk
   emulated_hue: true
   emulated_hue_name: "Desk"
+
+light.basement_corner:
+  friendly_name: Basement Corner
+  emulated_hue: false
+
+light.basement_computer:
+  friendly_name: Computer
+  emulated_hue: false
   
 light.Porch:
   friendly_name: Porch
@@ -47,11 +55,11 @@ light.Porch:
   # friendly_name: Basement Ceiling 3
   # emulated_hue: false
 
-light.fireplace1:
+light.fireplace_1:
   friendly_name: Basement Fireplace 1
   emulated_hue: false
   
-light.fireplace2:
+light.fireplace_2:
   friendly_name: Basement Fireplace 2
   emulated_hue: false
   
@@ -60,4 +68,16 @@ light.kitchen_table:
   icon: mdi:food-variant
   emulated_hue: true
   emulated_hue_name: "Kitchen"
+
+light.bedroom_corner:
+  friendly_name: Corner Lamp
+  icon: mdi:hotel
+  emulated_hue: true
+  emulated_hue_name: "Corner Lamp"
+
+light.bedroom_door:
+  friendly_name: Nightstand
+  icon: mdi:hotel
+  emulated_hue: true
+  emulated_hue_name: "Nightstand"
   
