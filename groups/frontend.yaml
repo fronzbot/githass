@@ -47,11 +47,9 @@ tab_system:
   entities:
     - group.network_monitor
     - group.rasp_pi_monitor
+    - group.server_monitor
     - group.energy
     - group.zwave_devices
-    - camera.climate
-    - camera.internet
-    
     
 tab_automation:
   name: Automations

@@ -57,6 +57,17 @@ network_monitor:
     - sensor.hass_bans
     - updater.updater
 
+server_monitor:
+  name: Server Monitor
+  entities:
+    - sensor.netdata_disk_free
+    - sensor.netdata_system_io_in
+    - sensor.netdata_system_io_out
+    - sensor.netdata_memory_used
+    - sensor.netdata_system_load
+    - sensor.netdata_ipv4_in
+    - sensor.netdata_ipv4_out
+
 appliances:
   name: Alarms and Appliances
   entities:
