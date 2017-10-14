@@ -15,10 +15,10 @@ input_boolean.on_the_way_home:
 
 input_boolean.guest_mode:
   icon: mdi:account
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Guest Mode"
 
 input_boolean.thermostat_enable:
   icon: mdi:nest-thermostat
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Thermostat"

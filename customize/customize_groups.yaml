@@ -9,65 +9,60 @@
 #============================
 group.scenes:
   order: 1
-  emulated_hue: false
   
 group.couch:
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Couch"
   
 # group.basement_ceiling:
   # order: 5
-  # emulated_hue: false
 
 group.computer:
-  emulated_hue: true
+  emulated_hue_hidden: false
   emualted_hue_name: "Computer"
   
 group.basement_fireplace:
-  emulated_hue: true
+  emulated_hue_hidden: false
   emualted_hue_name: "Fireplace"
   
 group.lights_living_room:
   order: 1
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Living Room"
   
 group.flux_switch:
   order: 2
-  emulated_hue: false
 
 group.lights_kitchen:
   order: 2
-  emulated_hue: false
   
 group.lights_den:
   order: 3
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Den"
 
 group.lights_bedroom:
   order: 4
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Bedroom"
   
 group.lights_basement:
   order: 5
-  emulated_hue: true
+  emulated_hue_hidden: false
   emualted_hue_name: "Basement"
   
 group.interior:
-  emulated_hue: false
+  emulated_hue_hidden: true
     
 group.exterior:
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Outside Lights"
   
 group.home_lights:
   order: 1
-  emulated_hue: false
   
 group.outdoor_switches:
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Outside Switches"
 
 #============================  
@@ -94,23 +89,23 @@ group.outdoor_switches:
 # 'ALL' GROUPS  
 #============================
 group.all_automations:
-  emulated_hue: false
+  emulated_hue_hidden: true
   
 group.all_locks:
-  emulated_hue: false
+  emulated_hue_hidden: true
   
 group.all_switches:
-  emulated_hue: false
+  emulated_hue_hidden: true
   
 group.all_scripts:
-  emulated_hue: false
+  emulated_hue_hidden: true
 
 group.all_devices:
-  emulated_hue: false
+  emulated_hue_hidden: true
 
 group.all_lights:
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "All Lights"
   
 group.all_covers:
-  emulated_hue: false
+  emulated_hue_hidden: true

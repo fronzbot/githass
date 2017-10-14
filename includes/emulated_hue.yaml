@@ -1,4 +1,4 @@
-host_ip: !secret ha_ip_addr
+host_ip: !secret server_url
 type: google_home
 listen_port: 80
 expose_by_default: false

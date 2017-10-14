@@ -3,81 +3,72 @@
 ##################
 light.Couch_Left:
   friendly_name: Couch Left
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Couch Left"
 
 light.Couch_Right:
   friendly_name: Couch Right
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Couch Right"
   
 light.Corner:
   friendly_name: Corner
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Corner"
 
 light.Corner_Den:
   friendly_name: Corner Den
-  emulated_hue: false
   
 light.Back_Den:
   friendly_name: Back Den
-  emulated_hue: false
   
 light.Desk:
   friendly_name: Computer Desk
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Desk"
 
 light.basement_corner:
   friendly_name: Basement Corner
-  emulated_hue: false
 
 light.basement_computer:
   friendly_name: Computer
-  emulated_hue: false
   
 light.Porch:
   friendly_name: Porch
   icon: mdi:gate
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Porch"
 
 # light.basement_ceiling_1:
   # friendly_name: Basement Ceiling 1
-  # emulated_hue: false
   
 # light.basement_ceiling_2:
   # friendly_name: Basement Ceiling 2
-  # emulated_hue: false
 
 # light.basement_ceiling_3:
   # friendly_name: Basement Ceiling 3
-  # emulated_hue: false
 
 light.fireplace_1:
   friendly_name: Basement Fireplace 1
-  emulated_hue: false
   
 light.fireplace_2:
   friendly_name: Basement Fireplace 2
-  emulated_hue: false
   
 light.kitchen_table:
   friendly_name: Kitchen Table
   icon: mdi:food-variant
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Kitchen"
 
 light.bedroom_corner:
   friendly_name: Corner Lamp
   icon: mdi:hotel
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Corner Lamp"
 
 light.bedroom_door:
   friendly_name: Nightstand
   icon: mdi:hotel
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Nightstand"
   

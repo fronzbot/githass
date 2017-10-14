@@ -13,6 +13,6 @@ switch.power_mon_switch_3_0:
 switch.driveway_switch:
   friendly_name: Driveway
   icon: mdi:car
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Driveway"
   

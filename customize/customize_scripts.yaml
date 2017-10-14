@@ -1,6 +1,6 @@
 script.thermostat_control:
   icon: mdi:air-conditioner
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Thermostat"
 
 script.github_pull:
@@ -17,5 +17,5 @@ script.ssl_renew_certificate:
   
 script.flux:
   icon: mdi:theme-light-dark
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Flux"
