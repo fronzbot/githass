@@ -1,9 +1,0 @@
-- platform: file
-  file_path: /home/hass/.homeassistant/ip_ban_list.json
-  name: SSH Bans
-  value_template: '{{ value_json.ssh }}'
-
-- platform: file
-  file_path: /home/hass/.homeassistant/ip_ban_list.json
-  name: Hass Bans
-  value_template: '{{ value_json.hassiptables }}'

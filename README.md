@@ -1,6 +1,6 @@
 # githass [![Build Status](https://travis-ci.org/fronzbot/githass.svg?branch=master)](https://travis-ci.org/fronzbot/githass)
 ## Home Assistant Configuration
-Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
+Currently running on a home media server using [unRAID](https://lime-technology.com/) (Home Assistant runs in a docker)
 
 ### Components Used:
 - Weather:
@@ -13,7 +13,7 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
 - Lights:
   - [Phillips Hue](https://home-assistant.io/components/light.hue/)
       - 5x 2nd Gen Color Ambience Bulbs
-      - 5x White Ambience Bulbs
+      - 8x White Ambience Bulbs
 - [Zwave](https://home-assistant.io/docs/z-wave/):
   - Aeotec Z-wave Stick
       -  2x GE Z-wave Switches
@@ -22,12 +22,11 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
       -  3x First Alert ZCOMBO Smoke/CO2 detectors
 - Media Players:
   - [Plex](https://home-assistant.io/components/media_player.plex/)
-      - NVIDIA Shield TV
-      - Amazon Fire TV
-      - Chrome Web Browser
+  - [Emby](https://home-assistant.io/components/media_player.emby/)
   - [Google Cast](https://home-assistant.io/components/media_player.cast/)
       - NVIDIA Shield TV
-      - 2x Google Home
+      - 2x Google 
+      - 1x Chromecast
 - [Emulated Hue](https://home-assistant.io/components/emulated_hue/)
   - 1x Amazon Echo
   - 2x Amazon Echo Dot
@@ -38,9 +37,12 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
   - [Blink Camera](https://home-assistant.io/components/blink/)
   - [Google Wifi](https://home-assistant.io/components/sensor.google_wifi/)
   - [PiHole](https://home-assistant.io/components/sensor.pi_hole/)
-  - [Glances](https://home-assistant.io/components/sensor.glances/)
+  - [Netdata](https://home-assistant.io/components/sensor.netdata/)
   - [Speedtest](https://home-assistant.io/components/sensor.speedtest/)
   - [Fast.com](https://home-assistant.io/components/sensor.fastdotcom/)
+- Databases:
+  - MySQL for default recorder
+  - [Influx and Grafana](https://home-assistant.io/blog/2015/12/07/influxdb-and-grafana/) for more long-term trend plotting
 
 ### Automations:
 - Light control based on device presence and sun status
@@ -72,7 +74,6 @@ Currently running on 3rd gen RaspberryPi (OS: Raspbian Jessie)
   - ~~Washer status~~
   - Dishwasher status (custom sensor, probably)
   
-Current setup cost estimate: $1300
 
 (Images last updated July 23, 2017, may not reflect current configuration)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_home_page.png)

@@ -3,29 +3,34 @@
 ##################
 scene.christmas:
   icon: mdi:gift
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Christmas"
 
 scene.movie_mode:
   icon: mdi:movie
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Movie Mode"
+
+scene.movie_mode_basement:
+  icon: mdi:movie
+  emulated_hue_hidden: false
+  emulated_hue_name: "Movie Mode Basement"
   
 scene.daylight:
   icon: mdi:weather-sunny
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Day Time"
   
 scene.night:
   icon: mdi:weather-night
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Night Time"
 
 scene.sabres:
   icon: mdi:sword
-  emulated_hue: true
+  emulated_hue_hidden: false
   emulated_hue_name: "Sabres"
 
 scene.on_the_way_home:
   icon: mdi:map-marker
-  emulated_hue: false
+  emulated_hue_hidden: false

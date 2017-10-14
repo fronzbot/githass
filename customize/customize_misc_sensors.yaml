@@ -52,6 +52,37 @@ sensor.pihole_ads_percentage_blocked_today:
   icon: mdi:security-network
 
 #-------------------------------
+# Netdata
+#-------------------------------  
+sensor.netdata_disk_free:
+  friendly_name: Disk Free
+  icon: mdi:harddisk
+  
+sensor.netdata_system_io_in:
+  friendly_name: System I/O In
+  icon: mdi:database
+
+sensor.netdata_system_io_out:
+  friendly_name: System I/O Out
+  icon: mdi:database
+
+sensor.netdata_memory_used:
+  friendly_name: RAM in Use
+  icon: mdi:memory
+  
+sensor.netdata_system_load:
+  friendly_name: System Load
+  icon: mdi:timelapse
+
+sensor.netdata_ipv4_in:
+  friendly_name: IPv4 In
+  icon: mdi:download-network
+
+sensor.netdata_ipv4_out:
+  friendly_name: IPv4 Out
+  icon: mdi:upload-network
+
+#-------------------------------
 # ip_ban_list
 #-------------------------------
 sensor.ssh_bans:

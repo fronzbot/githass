@@ -3,7 +3,7 @@
 # http://www.developers.meethue.com/documentation/hue-xy-values
 name: Christmas
 entities:
-  input_boolean.flux:
+  input_boolean.flux_living_room:
     state: off
   light.couch_left:
     state: on

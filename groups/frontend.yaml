@@ -47,11 +47,9 @@ tab_system:
   entities:
     - group.network_monitor
     - group.rasp_pi_monitor
+    - group.server_monitor
     - group.energy
     - group.zwave_devices
-    - camera.climate
-    - camera.internet
-    
     
 tab_automation:
   name: Automations
@@ -60,7 +58,8 @@ tab_automation:
   entities:
     - group.scenes
     - group.shell
-    - input_boolean.flux
+    - input_boolean.flux_living_room
+    - input_boolean.flux_basement
     - input_boolean.christmas_lights
     - input_boolean.on_the_way_home
     - input_boolean.guest_mode

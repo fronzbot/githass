@@ -1,0 +1,16 @@
+- platform: netdata
+  name: netdata
+  host: !secret server_url
+  port: 19999
+  resources:
+    - memory_free
+    - memory_used
+    - memory_cached
+    - processes_running
+    - processes_blocked
+    - system_load
+    - system_io_in
+    - system_io_out
+    - ipv4_in
+    - ipv4_out
+    - disk_free
