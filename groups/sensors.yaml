@@ -29,17 +29,11 @@ weather_all:
     - camera.home_radar
 
 rasp_pi_monitor:
-  name: Raspberry Pi Monitor
+  name: HA Monitor
   entities:
     - sensor.hass_version
     - sensor.hass_uptime
     - sensor.last_boot
-    - sensor.glances_cpu_load
-    - sensor.glances_total
-    - sensor.glances_ram_use
-    - sensor.glances_swap_use
-    - sensor.glances_disk_use
-    - sensor.ssl_cert_expiry
 
 network_monitor:
   name: Network Monitor
@@ -53,8 +47,6 @@ network_monitor:
     - sensor.pihole_ads_blocked_today
     - sensor.pihole_ads_percentage_blocked_today
     - sensor.wifi_current_version
-    - sensor.ssh_bans
-    - sensor.hass_bans
     - updater.updater
 
 server_monitor:
@@ -75,13 +67,6 @@ appliances:
     - sensor.smoke_alarm_kitchen
     - sensor.smoke_alarm_living_room
     - sensor.smoke_alarm_nursery
-
-shell:
-  name: Shell Scripts
-  entities:
-    - script.github_pull
-    - script.hass_upgrade
-    - script.ssl_renew_certificate
 
 mail:
   name: Mail

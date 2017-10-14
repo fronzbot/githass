@@ -1,4 +1,4 @@
-host: !secret influxdb_url
+host: !secret server_url
 port: 8086
 username: !secret influxdb_user
 password: !secret influxdb_pass

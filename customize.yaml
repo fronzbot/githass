@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2017-Oct-06 13:59:04 
+# Generated: 2017-Oct-14 10:40:17 
 #--------------------------------------------
 
 #--- customize/customize_climate.yaml ---
@@ -46,7 +46,7 @@
 #--- customize/customize_scripts.yaml ---
   script.thermostat_control:
     icon: mdi:air-conditioner
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Thermostat"
   
   script.github_pull:
@@ -63,7 +63,7 @@
     
   script.flux:
     icon: mdi:theme-light-dark
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Flux"
 
 #--- customize/customize_scenes.yaml ---
@@ -72,37 +72,37 @@
 ##################
   scene.christmas:
     icon: mdi:gift
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Christmas"
   
   scene.movie_mode:
     icon: mdi:movie
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Movie Mode"
   
   scene.movie_mode_basement:
     icon: mdi:movie
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Movie Mode Basement"
     
   scene.daylight:
     icon: mdi:weather-sunny
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Day Time"
     
   scene.night:
     icon: mdi:weather-night
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Night Time"
   
   scene.sabres:
     icon: mdi:sword
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Sabres"
   
   scene.on_the_way_home:
     icon: mdi:map-marker
-    emulated_hue: false
+    emulated_hue_hidden: false
 
 #--- customize/customize_presence.yaml ---
 ##################
@@ -143,12 +143,12 @@
   
   input_boolean.guest_mode:
     icon: mdi:account
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Guest Mode"
   
   input_boolean.thermostat_enable:
     icon: mdi:nest-thermostat
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Thermostat"
 
 #--- customize/customize_misc_sensors.yaml ---
@@ -342,82 +342,73 @@
 ##################
   light.Couch_Left:
     friendly_name: Couch Left
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Couch Left"
   
   light.Couch_Right:
     friendly_name: Couch Right
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Couch Right"
     
   light.Corner:
     friendly_name: Corner
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Corner"
   
   light.Corner_Den:
     friendly_name: Corner Den
-    emulated_hue: false
     
   light.Back_Den:
     friendly_name: Back Den
-    emulated_hue: false
     
   light.Desk:
     friendly_name: Computer Desk
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Desk"
   
   light.basement_corner:
     friendly_name: Basement Corner
-    emulated_hue: false
-  
+ 
   light.basement_computer:
     friendly_name: Computer
-    emulated_hue: false
     
   light.Porch:
     friendly_name: Porch
     icon: mdi:gate
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Porch"
   
 # light.basement_ceiling_1:
     # friendly_name: Basement Ceiling 1
-    # emulated_hue: false
     
 # light.basement_ceiling_2:
     # friendly_name: Basement Ceiling 2
-    # emulated_hue: false
   
 # light.basement_ceiling_3:
     # friendly_name: Basement Ceiling 3
-    # emulated_hue: false
   
   light.fireplace_1:
     friendly_name: Basement Fireplace 1
-    emulated_hue: false
     
   light.fireplace_2:
     friendly_name: Basement Fireplace 2
-    emulated_hue: false
     
   light.kitchen_table:
     friendly_name: Kitchen Table
     icon: mdi:food-variant
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Kitchen"
   
   light.bedroom_corner:
     friendly_name: Corner Lamp
     icon: mdi:hotel
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Corner Lamp"
   
   light.bedroom_door:
     friendly_name: Nightstand
     icon: mdi:hotel
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Nightstand"
     
 
@@ -433,65 +424,60 @@
 #============================
   group.scenes:
     order: 1
-    emulated_hue: false
     
   group.couch:
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Couch"
     
 # group.basement_ceiling:
     # order: 5
-    # emulated_hue: false
   
   group.computer:
-    emulated_hue: true
+    emulated_hue_hidden: false
     emualted_hue_name: "Computer"
     
   group.basement_fireplace:
-    emulated_hue: true
+    emulated_hue_hidden: false
     emualted_hue_name: "Fireplace"
     
   group.lights_living_room:
     order: 1
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Living Room"
     
   group.flux_switch:
     order: 2
-    emulated_hue: false
   
   group.lights_kitchen:
     order: 2
-    emulated_hue: false
     
   group.lights_den:
     order: 3
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Den"
   
   group.lights_bedroom:
     order: 4
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Bedroom"
     
   group.lights_basement:
     order: 5
-    emulated_hue: true
+    emulated_hue_hidden: false
     emualted_hue_name: "Basement"
     
   group.interior:
-    emulated_hue: false
+    emulated_hue_hidden: true
       
   group.exterior:
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Outside Lights"
     
   group.home_lights:
     order: 1
-    emulated_hue: false
     
   group.outdoor_switches:
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Outside Switches"
   
 #============================  
@@ -518,26 +504,26 @@
 # 'ALL' GROUPS  
 #============================
   group.all_automations:
-    emulated_hue: false
+    emulated_hue_hidden: true
     
   group.all_locks:
-    emulated_hue: false
+    emulated_hue_hidden: true
     
   group.all_switches:
-    emulated_hue: false
+    emulated_hue_hidden: true
     
   group.all_scripts:
-    emulated_hue: false
+    emulated_hue_hidden: true
   
   group.all_devices:
-    emulated_hue: false
+    emulated_hue_hidden: true
   
   group.all_lights:
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "All Lights"
     
   group.all_covers:
-    emulated_hue: false
+    emulated_hue_hidden: true
 
 #--- customize/customize_weather.yaml ---
 # Wunderground and dark_sky customization
@@ -683,21 +669,11 @@
 ##################
 # Media Players
 ##################
-  media_player.my_shield_android_tv:
-    friendly_name: Plex-Storm's End on Mantarys
-    icon: /local/plex.png
-    
-  media_player.plex_web_chrome:
-    friendly_name: Plex-Storm's End on Chrome
-    icon: /local/plex.png
+  media_player.emby__emby_for_android_mobile__oneplus_a5000:
+    friendly_name: Emby Mobile
   
-  media_player.asshai:
-    friendly_name: Asshai
-    icon: /local/firetv.jpg
-    
-  media_player.mantarys:
-    friendly_name: Mantarys
-    icon: /local/nvidia.jpg
+  media_player.emby__emby_mobile__chrom:
+    friendly_name: Emby Mobile Chrome
 
 #--- customize/customize_switches.yaml ---
   switch.outdoor_1_switch:
@@ -715,6 +691,6 @@
   switch.driveway_switch:
     friendly_name: Driveway
     icon: mdi:car
-    emulated_hue: true
+    emulated_hue_hidden: false
     emulated_hue_name: "Driveway"
     

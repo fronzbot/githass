@@ -1,18 +1,8 @@
 ##################
 # Media Players
 ##################
-media_player.my_shield_android_tv:
-  friendly_name: Plex-Storm's End on Mantarys
-  icon: /local/plex.png
-  
-media_player.plex_web_chrome:
-  friendly_name: Plex-Storm's End on Chrome
-  icon: /local/plex.png
+media_player.emby__emby_for_android_mobile__oneplus_a5000:
+  friendly_name: Emby Mobile
 
-media_player.asshai:
-  friendly_name: Asshai
-  icon: /local/firetv.jpg
-  
-media_player.mantarys:
-  friendly_name: Mantarys
-  icon: /local/nvidia.jpg
+media_player.emby__emby_mobile__chrom:
+  friendly_name: Emby Mobile Chrome
