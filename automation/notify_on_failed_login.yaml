@@ -1,16 +1,20 @@
 alias: Notify on Failed Login
 trigger:
   - platform: state
-    entity_id: sensor.ssh_bans
+    entity_id: sensor.fail2ban_nginxhttpauth
   - platform: state
-    entity_id: sensor.hass_bans
+    entity_id: sensor.fail2ban_hassiptables
+  - platform: state
+    entity_id: sensor.fail2ban_organizrauth
 condition:
   condition: or
   conditions:
     - condition: template
-      value_template: '{{ states.sensor.ssh_bans.state != "None" }}'
+      value_template: '{{ states.sensor.fail2ban_hassiptables.state != "None" }}'
     - condition: template
-      value_template: '{{ states.sensor.hass_bans.state != "None" }}'
+      value_template: '{{ states.sensor.fail2ban_organizrauth.state != "None" }}'
+    - condition: template
+      value_template: '{{ states.sensor.fail2ban_nginxhttpauth.state != "None" }}'
 action:
   - service: script.notify_kevin_engine
     data:

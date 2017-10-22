@@ -34,6 +34,9 @@ rasp_pi_monitor:
     - sensor.hass_version
     - sensor.hass_uptime
     - sensor.last_boot
+    - sensor.fail2ban_hassiptables
+    - sensor.fail2ban_nginxhttpauth
+    - sensor.fail2ban_organizrauth
 
 network_monitor:
   name: Network Monitor
@@ -52,11 +55,8 @@ network_monitor:
 server_monitor:
   name: Server Monitor
   entities:
-    - sensor.netdata_disk_free
-    - sensor.netdata_system_io_in
-    - sensor.netdata_system_io_out
-    - sensor.netdata_memory_used
-    - sensor.netdata_system_load
+    - sensor.netdata_cpu_total
+    - sensor.netdata_ram_used
     - sensor.netdata_ipv4_in
     - sensor.netdata_ipv4_out
 

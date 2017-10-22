@@ -10,6 +10,7 @@ homeassistant:
 
 http:
   api_password: !secret password
+  use_x_forwarded_for: True
   #ssl_certificate: !secret cert_location
   #ssl_key: !secret key_location
   #base_url: !secret ha_url

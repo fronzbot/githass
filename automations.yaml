@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2017-Oct-14 10:40:16 
+# Generated: 2017-Oct-22 19:26:38 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -209,26 +209,6 @@
     entity_id: group.couch
   
 
-#--- automation/notify_system_use.yaml ---
-- id: notify_on_system_use
-  alias: Notify on System Use
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.glances_ram_use
-      above: 75.0
-      below: 100.0
-    - platform: numeric_state
-      entity_id: sensor.glances_ram_use_2
-      above: 75.0
-      below: 100.0
-    - platform: numeric_state
-      entity_id: sensor.glances_swap_use
-      above: 50.0
-  action:
-    - service: script.notify_kevin_engine
-      data:
-        call_system_use: 1
-
 #--- automation/lights_outside_off.yaml ---
 # Turn on outside lights off at 12:40 am
   
@@ -326,16 +306,20 @@
   alias: Notify on Failed Login
   trigger:
     - platform: state
-      entity_id: sensor.ssh_bans
+      entity_id: sensor.fail2ban_nginxhttpauth
     - platform: state
-      entity_id: sensor.hass_bans
+      entity_id: sensor.fail2ban_hassiptables
+    - platform: state
+      entity_id: sensor.fail2ban_organizrauth
   condition:
     condition: or
     conditions:
       - condition: template
-        value_template: '{{ states.sensor.ssh_bans.state != "None" }}'
+        value_template: '{{ states.sensor.fail2ban_hassiptables.state != "None" }}'
       - condition: template
-        value_template: '{{ states.sensor.hass_bans.state != "None" }}'
+        value_template: '{{ states.sensor.fail2ban_organizrauth.state != "None" }}'
+      - condition: template
+        value_template: '{{ states.sensor.fail2ban_nginxhttpauth.state != "None" }}'
   action:
     - service: script.notify_kevin_engine
       data:

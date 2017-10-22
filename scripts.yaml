@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2017-Oct-14 10:40:17 
+# Generated: 2017-Oct-22 19:26:38 
 #--------------------------------------------
 
 #--- scripts/notify_kevin_engine.yaml ---
@@ -23,11 +23,10 @@
             {%- endmacro -%}
             {%- macro failed_login() -%}
               Failed Login! {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
-              {% if states.sensor.ssh_bans.state != "None" %}
-                SSH Attempt(s) from {{states.sensor.ssh_bans.state}}
-              {% endif %}
-              {% if states.sensor.hass_bans.state != "None" %}
-                Web Attempt(s) from {{states.sensor.hass_bans.state}}
+              {% if states.sensor.fail2ban_hassiptables.state != "None" %}
+              HASS Attempt(s) from {{states.sensor.fail2ban_hassiptables.state}} {% endif %} {% if states.sensor.fail2ban_nginxhttpauth.state != "None" %}
+              NGINX Attempt(s) from {{states.sensor.fail2ban_nginxhttpauth.state}}{% endif %}{% if states.sensor.fail2ban_nginxhttpauth.state != "None" %}
+              Organizr Attempt(s) from {{states.sensor.fail2ban_organizrauth.state}}
               {% endif %}
             {%- endmacro -%}
             {##################}
@@ -45,16 +44,6 @@
             {% if call_failed_login == 1 %}
               {{ failed_login() }}
             {% endif %}
-
-#--- scripts/flux.yaml ---
-  flux:
-    alias: Flux - Global
-    sequence:
-      - service: input_boolean.turn_on
-        entity_id:
-          - input_boolean.flux_living_room
-          - input_boolean.flux_basement
-        
 
 #--- scripts/hass_upgrade.yaml ---
   hass_upgrade:
@@ -322,3 +311,13 @@
             {% if call_fire_co2 == 1 %}
               {{ fire_co2() }}
             {% endif %}
+
+#--- scripts/flux.yaml ---
+  flux:
+    alias: Flux - Global
+    sequence:
+      - service: input_boolean.turn_on
+        entity_id:
+          - input_boolean.flux_living_room
+          - input_boolean.flux_basement
+        
