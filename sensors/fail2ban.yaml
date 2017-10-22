@@ -1,0 +1,7 @@
+- platform: fail2ban
+  file_path: /fail2ban/fail2ban.log
+  scan_interval: 120
+  jails:
+    - hass-iptables
+    - nginx-http-auth
+    - organizr-auth

@@ -1,13 +1,8 @@
 # Trackers
-
-# Scan devices every one minutes (Android 7.0+ tends to 
-# not be found if this is longer)
-# Consider a device 'home' for 10 minutes before
-# allowing a state change
 - platform: nmap_tracker
   hosts: !secret nmap_hosts
-  home_interval: 2
-  interval_seconds: 45
+  home_interval: 5
+  interval_seconds: 60
   track_new_devices: no
-  consider_home: 630
-  scan_options: ' --privileged -sS --host-timeout 5s '
+  consider_home: 180
+  scan_options: ' --privileged -sP --host-timeout 10s'
