@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2017-Oct-22 19:26:38 
+# Generated: 2017-Oct-25 20:38:35 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -301,30 +301,6 @@
         - light.couch_left
         - light.kitchen_table
 
-#--- automation/notify_on_failed_login.yaml ---
-- id: notify_on_failed_login
-  alias: Notify on Failed Login
-  trigger:
-    - platform: state
-      entity_id: sensor.fail2ban_nginxhttpauth
-    - platform: state
-      entity_id: sensor.fail2ban_hassiptables
-    - platform: state
-      entity_id: sensor.fail2ban_organizrauth
-  condition:
-    condition: or
-    conditions:
-      - condition: template
-        value_template: '{{ states.sensor.fail2ban_hassiptables.state != "None" }}'
-      - condition: template
-        value_template: '{{ states.sensor.fail2ban_organizrauth.state != "None" }}'
-      - condition: template
-        value_template: '{{ states.sensor.fail2ban_nginxhttpauth.state != "None" }}'
-  action:
-    - service: script.notify_kevin_engine
-      data:
-        call_failed_login: 1
-
 #--- automation/lights_inside_off.yaml ---
 # Turn inside lights off around midnight (before exterior)
   
@@ -365,3 +341,27 @@
       entity_id: group.couch
     - service: light.turn_on
       entity_id: light.kitchen_table
+
+#--- automation/notify_on_failed_login.yaml ---
+- id: notify_on_failed_login
+  alias: Notify on Failed Login
+  trigger:
+    - platform: state
+      entity_id: sensor.fail2ban_nginxhttpauth
+    - platform: state
+      entity_id: sensor.fail2ban_hassiptables
+    - platform: state
+      entity_id: sensor.fail2ban_organizrauth
+  condition:
+    condition: or
+    conditions:
+      - condition: template
+        value_template: '{{ states.sensor.fail2ban_hassiptables.state != "None" }}'
+      - condition: template
+        value_template: '{{ states.sensor.fail2ban_organizrauth.state != "None" }}'
+      - condition: template
+        value_template: '{{ states.sensor.fail2ban_nginxhttpauth.state != "None" }}'
+  action:
+    - service: script.notify_kevin_engine
+      data:
+        call_failed_login: 1

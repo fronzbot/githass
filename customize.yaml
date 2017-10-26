@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2017-Oct-22 19:26:38 
+# Generated: 2017-Oct-25 20:38:36 
 #--------------------------------------------
 
 #--- customize/customize_climate.yaml ---
@@ -53,6 +53,14 @@
    
   device_tracker.allegra:
     friendly_name: Allegra
+    icon: mdi:cellphone-android
+  
+  device_tracker.kevin_ping:
+    friendly_name: Kevin - Ping
+    icon: mdi:cellphone-android
+  
+  device_tracker.allegra_ping:
+    friendly_name: Allegra - Ping
     icon: mdi:cellphone-android
   
 # Ecobee sensors
@@ -204,187 +212,91 @@
     friendly_name: Home Assistant Version
     icon: mdi:home-assistant
 
-#--- customize/customize_misc_sensors.yaml ---
+#--- customize/customize_scenes.yaml ---
 ##################
-# Sensors
+# Scenes
 ##################
-  sensor.speedtest_download:
-    friendly_name: Download (Speedtest)
-    icon: mdi:download
+  scene.christmas:
+    icon: mdi:gift
+    emulated_hue_hidden: false
+    emulated_hue_name: "Christmas"
   
-  sensor.speedtest_upload:
-    friendly_name: Upload
-    icon: mdi:upload
+  scene.movie_mode:
+    icon: mdi:movie
+    emulated_hue_hidden: false
+    emulated_hue_name: "Movie Mode"
   
-  sensor.speedtest_ping:
-    friendly_name: Ping
-    icon: mdi:message-alert
+  scene.movie_mode_basement:
+    icon: mdi:movie
+    emulated_hue_hidden: false
+    emulated_hue_name: "Movie Mode Basement"
+    
+  scene.daylight:
+    icon: mdi:weather-sunny
+    emulated_hue_hidden: false
+    emulated_hue_name: "Day Time"
+    
+  scene.night:
+    icon: mdi:weather-night
+    emulated_hue_hidden: false
+    emulated_hue_name: "Night Time"
   
-  sensor.fastcom_download:
-    friendly_name: Download (Fast.com)
-    icon: mdi:download
+  scene.sabres:
+    icon: mdi:sword
+    emulated_hue_hidden: false
+    emulated_hue_name: "Sabres"
   
-  sensor.ssl_cert_expiry:
-    friendly_name: SSL Cert Expiry
+  scene.on_the_way_home:
+    icon: mdi:map-marker
+    emulated_hue_hidden: false
+
+#--- customize/customize_scripts.yaml ---
+  script.thermostat_control:
+    icon: mdi:air-conditioner
+    emulated_hue_hidden: false
+    emulated_hue_name: "Thermostat"
+  
+  script.github_pull:
+    icon: mdi:github-circle
+  
+  script.hass_upgrade:
+    icon: mdi:home-assistant
+  
+  script.blink_snap_picture:
+    icon: mdi:camera
+  
+  script.ssl_renew_certificate:
     icon: mdi:lock
     
-#-------------------------------
-# Google Wifi
-#-------------------------------
-  sensor.wifi_status:
-    friendly_name: Network Status
-    icon: mdi:google
+  script.flux:
+    icon: mdi:theme-light-dark
+    emulated_hue_hidden: false
+    emulated_hue_name: "Flux"
   
-  sensor.wifi_current_version:
-    friendly_name: Router Firmware Version
-    icon: mdi:checkbox-marked-circle-outline
-  
-  sensor.wifi_uptime:
-    friendly_name: Network Uptime
-    icon: mdi:update
+  script.wake_computer:
+    icon: mdi:windows
+    emulated_hue_hidden: false
+    emulated_hue_name: "Desktop"
+
+#--- customize/customize_switches.yaml ---
+  switch.outdoor_1_switch:
+    friendly_name: Outside Porch Outlet
+    icon: mdi:power-plug
     
-#-------------------------------
-# Pi-hole
-#-------------------------------
-  sensor.pihole_dns_queries_today:
-    friendly_name: DNS Queries
-    icon: mdi:help-network
-  
-  sensor.pihole_ads_blocked_today:
-    friendly_name: Ads Blocked
-    icon: mdi:security-network
-  
-  sensor.pihole_ads_percentage_blocked_today:
-    friendly_name: Percentage of Ads Blocked
-    icon: mdi:security-network
-  
-#-------------------------------
-# Netdata
-#-------------------------------  
-  
-  sensor.netdata_ram_used:
-    friendly_name: RAM in Use
-    icon: mdi:chip
+  switch.outdoor_2_switch:
+    friendly_name: Outside Driveway Outlet
+    icon: mdi:power-plug
     
-  sensor.netdata_system_load:
-    friendly_name: System Load
-    icon: mdi:timelapse
-  
-  sensor.netdata_ipv4_in:
-    friendly_name: IPv4 In
-    icon: mdi:download-network
-  
-  sensor.netdata_ipv4_out:
-    friendly_name: IPv4 Out
-    icon: mdi:upload-network
-  
-  sensor.netdata_cpu_total:
-    friendly_name: CPU
-    icon: mdi:memory
-  
-#-------------------------------
-# ip_ban_list
-#-------------------------------
-  sensor.fail2ban_hassiptables:
-    friendly_name: Hass Bans
-    icon: mdi:do-not-disturb
-  
-  sensor.fail2ban_nginxhttpauth:
-    friendly_name: Nginx Bans
-    icon: mdi:do-not-disturb
-    
-  sensor.fail2ban_organizrauth:
-    friendly_name: Organizr Bans
-    icon: mdi:do-not-disturb
-  
-#-------------------------------
-# Mail Sensors
-#-------------------------------
-  sensor.usps_mail:
-    friendly_name: Mail
-    icon: mdi:email
-      
-  sensor.usps_packages:
-    friendly_name: Packages - USPS
-    icon: mdi:package-variant
-      
-  sensor.ups:
-    friendly_name: Packages - UPS
-    icon: mdi:package-variant
-  
-  sensor.out_for_delivery:
-    friendly_name: Packages - Out For Delivery
-    icon: mdi:truck-fast
-  
-#-------------------------------  
-# Zwave sensors
-#-------------------------------
-  sensor.power_mon_current:
-    friendly_name: Washing Machine Current
-    icon: mdi:music-note-whole
-  
-  sensor.power_mon_voltage:
-    friendly_name: Washing Machine Voltage
-    icon: mdi:car-battery
-  
-  sensor.power_mon_power:
+  switch.power_mon_switch_3_0:
     friendly_name: Washing Machine Power
     icon: mdi:power
   
-  sensor.power_mon_energy:
-    friendly_name: Washing Machine Energy
-    icon: mdi:flash
-  
-  sensor.washer:
-    friendly_name: Washing Machine
-    icon: mdi:washing-machine
-  
-  sensor.smoke_alarm_kitchen:
-    friendly_name: Smoke Alarm - Kitchen
-    icon: mdi:fire
-  
-  sensor.smoke_alarm_living_room:
-    friendly_name: Smoke Alarm - Living Room
-    icon: mdi:fire
-  
-  sensor.smoke_alarm_nursery:
-    friendly_name: Smoke Alarm - Nursery
-    icon: mdi:fire
-  
-  sensor.blink_living_room_notifications:
-    friendly_name: Logged Motion Events
-    icon: mdi:run-fast
-  
-  binary_sensor.blink_armed_status:
-    friendly_name: System Armed
-    icon: mdi:security
-  
-#-------------------------------
-# Zwave Devices
-#-------------------------------
-  zwave.aeotec_zw090_zstick_gen5:
-    icon: mdi:router-wireless
-  
-  zwave.driveway:
-    icon: mdi:spotlight-beam
-  
-  zwave.outdoor_1:
-    icon: mdi:power-plug
-  
-  zwave.outdoor_2:
-    icon: mdi:power-plug
-  
-  zwave.power_mon:
-    icon: mdi:power
-  
-  zwave.smoke_kitchen:
-    icon: mdi:nest-protect
-  
-  zwave.smoke_living_room:
-    icon: mdi:nest-protect
-  
-  zwave.smoke_nursery:
-    icon: mdi:nest-protect
+  switch.driveway_switch:
+    friendly_name: Driveway
+    icon: mdi:car
+    emulated_hue_hidden: false
+    emulated_hue_name: "Driveway"
+    
 
 #--- customize/customize_groups.yaml ---
 #===================================================
@@ -611,83 +523,184 @@
   media_player.emby__emby_mobile__chrom:
     friendly_name: Emby Mobile Chrome
 
-#--- customize/customize_scenes.yaml ---
+#--- customize/customize_misc_sensors.yaml ---
 ##################
-# Scenes
+# Sensors
 ##################
-  scene.christmas:
-    icon: mdi:gift
-    emulated_hue_hidden: false
-    emulated_hue_name: "Christmas"
+  sensor.speedtest_download:
+    friendly_name: Download (Speedtest)
+    icon: mdi:download
   
-  scene.movie_mode:
-    icon: mdi:movie
-    emulated_hue_hidden: false
-    emulated_hue_name: "Movie Mode"
+  sensor.speedtest_upload:
+    friendly_name: Upload
+    icon: mdi:upload
   
-  scene.movie_mode_basement:
-    icon: mdi:movie
-    emulated_hue_hidden: false
-    emulated_hue_name: "Movie Mode Basement"
-    
-  scene.daylight:
-    icon: mdi:weather-sunny
-    emulated_hue_hidden: false
-    emulated_hue_name: "Day Time"
-    
-  scene.night:
-    icon: mdi:weather-night
-    emulated_hue_hidden: false
-    emulated_hue_name: "Night Time"
+  sensor.speedtest_ping:
+    friendly_name: Ping
+    icon: mdi:message-alert
   
-  scene.sabres:
-    icon: mdi:sword
-    emulated_hue_hidden: false
-    emulated_hue_name: "Sabres"
+  sensor.fastcom_download:
+    friendly_name: Download (Fast.com)
+    icon: mdi:download
   
-  scene.on_the_way_home:
-    icon: mdi:map-marker
-    emulated_hue_hidden: false
-
-#--- customize/customize_scripts.yaml ---
-  script.thermostat_control:
-    icon: mdi:air-conditioner
-    emulated_hue_hidden: false
-    emulated_hue_name: "Thermostat"
-  
-  script.github_pull:
-    icon: mdi:github-circle
-  
-  script.hass_upgrade:
-    icon: mdi:home-assistant
-  
-  script.blink_snap_picture:
-    icon: mdi:camera
-  
-  script.ssl_renew_certificate:
+  sensor.ssl_cert_expiry:
+    friendly_name: SSL Cert Expiry
     icon: mdi:lock
     
-  script.flux:
-    icon: mdi:theme-light-dark
-    emulated_hue_hidden: false
-    emulated_hue_name: "Flux"
-
-#--- customize/customize_switches.yaml ---
-  switch.outdoor_1_switch:
-    friendly_name: Outside Porch Outlet
-    icon: mdi:power-plug
+#-------------------------------
+# Google Wifi
+#-------------------------------
+  sensor.wifi_status:
+    friendly_name: Network Status
+    icon: mdi:google
+  
+  sensor.wifi_current_version:
+    friendly_name: Router Firmware Version
+    icon: mdi:checkbox-marked-circle-outline
+  
+  sensor.wifi_uptime:
+    friendly_name: Network Uptime
+    icon: mdi:update
     
-  switch.outdoor_2_switch:
-    friendly_name: Outside Driveway Outlet
-    icon: mdi:power-plug
+#-------------------------------
+# Pi-hole
+#-------------------------------
+  sensor.pihole_dns_queries_today:
+    friendly_name: DNS Queries
+    icon: mdi:help-network
+  
+  sensor.pihole_ads_blocked_today:
+    friendly_name: Ads Blocked
+    icon: mdi:security-network
+  
+  sensor.pihole_ads_percentage_blocked_today:
+    friendly_name: Percentage of Ads Blocked
+    icon: mdi:security-network
+  
+#-------------------------------
+# Netdata
+#-------------------------------  
+  
+  sensor.netdata_ram_used:
+    friendly_name: RAM in Use
+    icon: mdi:chip
     
-  switch.power_mon_switch_3_0:
+  sensor.netdata_system_load:
+    friendly_name: System Load
+    icon: mdi:timelapse
+  
+  sensor.netdata_ipv4_in:
+    friendly_name: IPv4 In
+    icon: mdi:download-network
+  
+  sensor.netdata_ipv4_out:
+    friendly_name: IPv4 Out
+    icon: mdi:upload-network
+  
+  sensor.netdata_cpu_total:
+    friendly_name: CPU
+    icon: mdi:memory
+  
+#-------------------------------
+# ip_ban_list
+#-------------------------------
+  sensor.fail2ban_hassiptables:
+    friendly_name: Hass Bans
+    icon: mdi:do-not-disturb
+  
+  sensor.fail2ban_nginxhttpauth:
+    friendly_name: Nginx Bans
+    icon: mdi:do-not-disturb
+    
+  sensor.fail2ban_organizrauth:
+    friendly_name: Organizr Bans
+    icon: mdi:do-not-disturb
+  
+#-------------------------------
+# Mail Sensors
+#-------------------------------
+  sensor.usps_mail:
+    friendly_name: Mail
+    icon: mdi:email
+      
+  sensor.usps_packages:
+    friendly_name: Packages - USPS
+    icon: mdi:package-variant
+      
+  sensor.ups:
+    friendly_name: Packages - UPS
+    icon: mdi:package-variant
+  
+  sensor.out_for_delivery:
+    friendly_name: Packages - Out For Delivery
+    icon: mdi:truck-fast
+  
+#-------------------------------  
+# Zwave sensors
+#-------------------------------
+  sensor.power_mon_current:
+    friendly_name: Washing Machine Current
+    icon: mdi:music-note-whole
+  
+  sensor.power_mon_voltage:
+    friendly_name: Washing Machine Voltage
+    icon: mdi:car-battery
+  
+  sensor.power_mon_power:
     friendly_name: Washing Machine Power
     icon: mdi:power
   
-  switch.driveway_switch:
-    friendly_name: Driveway
-    icon: mdi:car
-    emulated_hue_hidden: false
-    emulated_hue_name: "Driveway"
-    
+  sensor.power_mon_energy:
+    friendly_name: Washing Machine Energy
+    icon: mdi:flash
+  
+  sensor.washer:
+    friendly_name: Washing Machine
+    icon: mdi:washing-machine
+  
+  sensor.smoke_alarm_kitchen:
+    friendly_name: Smoke Alarm - Kitchen
+    icon: mdi:fire
+  
+  sensor.smoke_alarm_living_room:
+    friendly_name: Smoke Alarm - Living Room
+    icon: mdi:fire
+  
+  sensor.smoke_alarm_nursery:
+    friendly_name: Smoke Alarm - Nursery
+    icon: mdi:fire
+  
+  sensor.blink_living_room_notifications:
+    friendly_name: Logged Motion Events
+    icon: mdi:run-fast
+  
+  binary_sensor.blink_armed_status:
+    friendly_name: System Armed
+    icon: mdi:security
+  
+#-------------------------------
+# Zwave Devices
+#-------------------------------
+  zwave.aeotec_zw090_zstick_gen5:
+    icon: mdi:router-wireless
+  
+  zwave.driveway:
+    icon: mdi:spotlight-beam
+  
+  zwave.outdoor_1:
+    icon: mdi:power-plug
+  
+  zwave.outdoor_2:
+    icon: mdi:power-plug
+  
+  zwave.power_mon:
+    icon: mdi:power
+  
+  zwave.smoke_kitchen:
+    icon: mdi:nest-protect
+  
+  zwave.smoke_living_room:
+    icon: mdi:nest-protect
+  
+  zwave.smoke_nursery:
+    icon: mdi:nest-protect

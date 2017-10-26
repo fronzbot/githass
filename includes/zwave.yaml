@@ -1,4 +1,3 @@
 usb_path: /zwave
 new_entity_ids: true
 polling_interval: 30000
-    

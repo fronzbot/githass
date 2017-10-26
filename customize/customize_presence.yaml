@@ -9,6 +9,14 @@ device_tracker.allegra:
   friendly_name: Allegra
   icon: mdi:cellphone-android
 
+device_tracker.kevin_ping:
+  friendly_name: Kevin - Ping
+  icon: mdi:cellphone-android
+
+device_tracker.allegra_ping:
+  friendly_name: Allegra - Ping
+  icon: mdi:cellphone-android
+
 # Ecobee sensors
 binary_sensor.living_room_occupancy:
   friendly_name: In Living Room
