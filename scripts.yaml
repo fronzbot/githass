@@ -1,49 +1,6 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2017-Oct-22 19:26:38 
+# Generated: 2017-Oct-25 20:38:36 
 #--------------------------------------------
-
-#--- scripts/notify_kevin_engine.yaml ---
-  notify_kevin_engine:
-    sequence:
-      - service: notify.notify_kevin_phone
-        data_template:
-          message: >
-            {%- macro on_restart() -%}
-              Home Assistant restarted {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
-            {%- endmacro -%}
-            {%- macro system_use() -%}
-              {% if states.sensor.glances_ram_use.state | float <= 100.0 %}
-                RAM Usage at {{states.sensor.glances_ram_use.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
-              {% elif states.sensor.glances_ram_use_2.state | float <= 100.0 %}
-                RAM Usage at {{states.sensor.glances_ram_use_2.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
-              {% endif %}
-            {%- endmacro -%}
-            {%- macro ssl_cert_expiry() -%}
-              Warning - SSL Certificate expires in {{states.sensor.ssl_cert_expiry.state}} days and has not been renewed!
-            {%- endmacro -%}
-            {%- macro failed_login() -%}
-              Failed Login! {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
-              {% if states.sensor.fail2ban_hassiptables.state != "None" %}
-              HASS Attempt(s) from {{states.sensor.fail2ban_hassiptables.state}} {% endif %} {% if states.sensor.fail2ban_nginxhttpauth.state != "None" %}
-              NGINX Attempt(s) from {{states.sensor.fail2ban_nginxhttpauth.state}}{% endif %}{% if states.sensor.fail2ban_nginxhttpauth.state != "None" %}
-              Organizr Attempt(s) from {{states.sensor.fail2ban_organizrauth.state}}
-              {% endif %}
-            {%- endmacro -%}
-            {##################}
-            {# BEGIN ROUTINES #}
-            {##################}
-            {% if call_on_restart == 1 %}
-              {{ on_restart() }}
-            {% endif %}
-            {% if call_system_use == 1 %}
-              {{ system_use() }}
-            {% endif %}
-            {% if call_ssl_cert_expiry == 1 %}
-              {{ ssl_cert_expiry() }}
-            {% endif %}
-            {% if call_failed_login == 1 %}
-              {{ failed_login() }}
-            {% endif %}
 
 #--- scripts/hass_upgrade.yaml ---
   hass_upgrade:
@@ -321,3 +278,62 @@
           - input_boolean.flux_living_room
           - input_boolean.flux_basement
         
+
+#--- scripts/notify_kevin_engine.yaml ---
+  notify_kevin_engine:
+    sequence:
+      - service: notify.notify_kevin_phone
+        data_template:
+          message: >
+            {%- macro on_restart() -%}
+              Home Assistant restarted {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+            {%- endmacro -%}
+            {%- macro system_use() -%}
+              {% if states.sensor.glances_ram_use.state | float <= 100.0 %}
+                RAM Usage at {{states.sensor.glances_ram_use.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
+              {% elif states.sensor.glances_ram_use_2.state | float <= 100.0 %}
+                RAM Usage at {{states.sensor.glances_ram_use_2.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
+              {% endif %}
+            {%- endmacro -%}
+            {%- macro ssl_cert_expiry() -%}
+              Warning - SSL Certificate expires in {{states.sensor.ssl_cert_expiry.state}} days and has not been renewed!
+            {%- endmacro -%}
+            {%- macro failed_login() -%}
+              Failed Login! {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+              {% if states.sensor.fail2ban_hassiptables.state != "None" %}
+              HASS Attempt(s) from {{states.sensor.fail2ban_hassiptables.state}} {% endif %} {% if states.sensor.fail2ban_nginxhttpauth.state != "None" %}
+              NGINX Attempt(s) from {{states.sensor.fail2ban_nginxhttpauth.state}}{% endif %}{% if states.sensor.fail2ban_nginxhttpauth.state != "None" %}
+              Organizr Attempt(s) from {{states.sensor.fail2ban_organizrauth.state}}
+              {% endif %}
+            {%- endmacro -%}
+            {##################}
+            {# BEGIN ROUTINES #}
+            {##################}
+            {% if call_on_restart == 1 %}
+              {{ on_restart() }}
+            {% endif %}
+            {% if call_system_use == 1 %}
+              {{ system_use() }}
+            {% endif %}
+            {% if call_ssl_cert_expiry == 1 %}
+              {{ ssl_cert_expiry() }}
+            {% endif %}
+            {% if call_failed_login == 1 %}
+              {{ failed_login() }}
+            {% endif %}
+
+#--- scripts/wake_computer.yaml ---
+# Wake computer and turn on lights
+  wake_computer:
+    alias: Wake Computer
+    sequence:
+      - service: light.turn_on
+        entity_id:
+          - light.basement_corner
+          - light.basement_computer
+          - light.desk
+      - service: shell_command.turn_off_linux_vm
+      - delay: 00:01:30
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: !secret wake_mac_address

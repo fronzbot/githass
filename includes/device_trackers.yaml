@@ -1,8 +1,16 @@
 # Trackers
 - platform: nmap_tracker
   hosts: !secret nmap_hosts
-  home_interval: 5
-  interval_seconds: 60
+  home_interval: 2
+  interval_seconds: 45
   track_new_devices: no
+  consider_home: 630
+  scan_options: ' --privileged -sS --host-timeout 5s '
+
+- platform: ping
+  hosts:
+    kevin_ping: 192.168.86.254
+    allegra_ping: 192.168.86.248
+  count: 2
   consider_home: 180
-  scan_options: ' --privileged -sP --host-timeout 10s'
+  interval_seconds: 30

@@ -5,6 +5,7 @@ scenes:
   name: Scenes
   entities:
     - script.flux
+    - script.wake_computer
     - scene.christmas
     - scene.movie_mode
     - scene.movie_mode_basement

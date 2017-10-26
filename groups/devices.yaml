@@ -19,7 +19,9 @@ all_media:
 presence_gist:
   name: Presence
   entities:
+    - device_tracker.kevin_ping
     - device_tracker.kevin
+    - device_tracker.allegra_ping
     - device_tracker.allegra
     - scene.on_the_way_home
 

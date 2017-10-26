@@ -1,0 +1,14 @@
+# Wake computer and turn on lights
+wake_computer:
+  alias: Wake Computer
+  sequence:
+    - service: light.turn_on
+      entity_id:
+        - light.basement_corner
+        - light.basement_computer
+        - light.desk
+    - service: shell_command.turn_off_linux_vm
+    - delay: 00:01:30
+    - service: wake_on_lan.send_magic_packet
+      data:
+        mac: !secret wake_mac_address

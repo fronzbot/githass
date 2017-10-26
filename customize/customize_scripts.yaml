@@ -19,3 +19,8 @@ script.flux:
   icon: mdi:theme-light-dark
   emulated_hue_hidden: false
   emulated_hue_name: "Flux"
+
+script.wake_computer:
+  icon: mdi:windows
+  emulated_hue_hidden: false
+  emulated_hue_name: "Desktop"
