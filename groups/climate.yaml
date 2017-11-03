@@ -17,7 +17,7 @@ thermostat_info:
     - sensor.thermo_current_operation
     - sensor.thermo_fan
     - input_boolean.thermostat_enable
-
+    - input_boolean.warmer_night_mode
 temp_gist:
   name: Climate Summary
   entities:

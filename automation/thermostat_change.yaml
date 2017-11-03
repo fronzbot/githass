@@ -17,6 +17,8 @@ trigger:
     entity_id: input_boolean.on_the_way_home
     to: 'on'
   - platform: state
+    entity_id: input_boolean.warmer_night_mode
+  - platform: state
     entity_id: sensor.occupancy
     to: 'home'
   - platform: state
