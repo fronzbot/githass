@@ -19,6 +19,7 @@ all_media:
 presence_gist:
   name: Presence
   entities:
+    - sensor.occupancy
     - device_tracker.kevin_ping
     - device_tracker.kevin
     - device_tracker.allegra_ping

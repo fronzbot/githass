@@ -1,7 +1,8 @@
 # Trackers
 - platform: nmap_tracker
-  hosts: !secret nmap_hosts
-  home_interval: 2
+  hosts:
+    - 192.168.86.254
+    - 192.168.86.248
   interval_seconds: 45
   track_new_devices: no
   consider_home: 630
@@ -11,6 +12,6 @@
   hosts:
     kevin_ping: 192.168.86.254
     allegra_ping: 192.168.86.248
-  count: 2
-  consider_home: 180
-  interval_seconds: 30
+  count: 8
+  consider_home: 630
+  interval_seconds: 45

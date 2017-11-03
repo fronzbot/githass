@@ -21,3 +21,7 @@ guest_mode:
 thermostat_enable:
   name: Thermostat Enable
   initial: on
+
+warmer_night_mode:
+  name: Warmer Night Mode
+  initial: off

@@ -73,7 +73,11 @@ thermostat_engine:
               {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
                 {{ 67 | int }}
               {% else %}
-                {{ 62 | int }}
+                {% if (states.input_boolean.warmer_night_mode.state == 'on') %}
+                  {{ 65 | int }}
+                {% else %}
+                  {{ 62 | int }}
+                {% endif %}
               {% endif %}
             {% else %}
               {{ 57 | int }}
