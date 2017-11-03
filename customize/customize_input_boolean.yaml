@@ -22,3 +22,6 @@ input_boolean.thermostat_enable:
   icon: mdi:nest-thermostat
   emulated_hue_hidden: false
   emulated_hue_name: "Thermostat"
+
+input_boolean.warmer_night_mode:
+  icon: mdi:fire
