@@ -1,5 +1,7 @@
+# Note, filepath --> /fail2ban/fail2ban.log
+# Using secret so that travis builds don't fail
 - platform: fail2ban
-  file_path: /fail2ban/fail2ban.log
+  file_path: !secret fail2ban_log
   scan_interval: 120
   jails:
     - hass-iptables
