@@ -90,7 +90,7 @@ home_lights:
     - group.lights_bedroom
     - group.lights_basement
     - light.porch
-    - switch.driveway_switch
+    - group.driveway
     - group.outdoor_switches
 
 # basement_ceiling:
@@ -114,3 +114,9 @@ outdoor_switches:
   entities:
     - switch.outdoor_1_switch
     - switch.outdoor_2_switch
+
+driveway:
+  name: Driveway
+  icon: mdi:car
+  entities:
+    - switch.driveway_switch
