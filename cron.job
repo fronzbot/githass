@@ -1,1 +1,0 @@
-0 0 * * * cd /home/hass/ && /usr/bin/python3 /home/hass/.homeassistant/hass_custom_plots.py 2>&1 /home/hass/cron.log

@@ -32,14 +32,6 @@ tab_weather:
   entities:
     - group.weather_all
 
-tab_mailbox:
-  name: Mail Box
-  view: yes
-  icon: mdi:email
-  entities:
-    - group.mail
-    - camera.usps_mail
-
 tab_system:
   name: System
   view: yes
