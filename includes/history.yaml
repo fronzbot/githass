@@ -3,10 +3,6 @@
 # information (ie. don't care about light/switch stuff)
 
 exclude:
-  domains:
-    - input_boolean
-    - group
-    - media_player
   entities:
     - sun.sun
     - sensor.date
