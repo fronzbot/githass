@@ -27,7 +27,6 @@ if media_type == 'Movies' and media_status == 'playing':
         hass.services.call('scene', 'turn_on', {'entity_id': 'scene.movie_mode'})
 elif media_type == 'Movies' and media_status == 'paused':
     hass.services.call('input_boolean', 'turn_on', {'entity_id': 'input_boolean.flux_living_room'})
-    hass.services.call('light', 'turn_off', {'entity_id': 'light.corner'})
-    hass.services.call('light', 'turn_on', {'entity_id': 'light.corner'})
+    hass.services.call('scene', 'turn_on', {'entity_id': 'scene.night'})
 elif media_status == 'idle':
     hass.services.call('input_boolean', 'turn_on', {'entity_id': 'input_boolean.flux_living_room'})
