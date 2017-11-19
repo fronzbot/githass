@@ -25,3 +25,7 @@ thermostat_enable:
 warmer_night_mode:
   name: Warmer Night Mode
   initial: off
+
+movie_colors:
+  name: Movie Colors
+  initial: on

@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2017-Nov-05 09:19:41 
+# Generated: 2017-Nov-18 23:15:24 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -370,3 +370,24 @@
     service: light.turn_off
     entity_id: group.all_lights
       
+
+#--- automation/media_movies.yaml ---
+- id: movie_colors
+  alias: Movie Colors
+  trigger:
+    - platform: state
+      entity_id: sensor.media_state
+    - platform: state
+      entity_id: media_player.shield_android_tv
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.occupancy
+        state: 'home'
+      - condition: state
+        entity_id: input_boolean.movie_colors
+        state: 'on'
+  action:
+    - service: python_script.media_engine
+  

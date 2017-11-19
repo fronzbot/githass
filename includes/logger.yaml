@@ -7,3 +7,4 @@ logs:
   homeassistant.helpers.entity: error
   requests.packages.urllib3.connectionpool: error
   urllib3.connectionpool: error
+  plexapi: error

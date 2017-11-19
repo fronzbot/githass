@@ -17,6 +17,7 @@ automations_presence:
     - automation.lights_home
     - automation.lights_not_home
     - automation.lights_rainy
+    - automation.movie_colors
   
 automations_hvac:
   name: Thermostat Automations

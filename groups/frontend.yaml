@@ -53,6 +53,7 @@ tab_automation:
     - input_boolean.flux_living_room
     - input_boolean.flux_basement
     - input_boolean.christmas_lights
+    - input_boolean.movie_colors
     - input_boolean.on_the_way_home
     - input_boolean.guest_mode
     - input_boolean.thermostat_enable

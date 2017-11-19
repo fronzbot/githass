@@ -2,8 +2,8 @@
   sensors:
     occupancy:
       value_template: >
-        {% if states.device_tracker.kevin.state  %}
-        {% if states.device_tracker.kevin.state == 'home' or states.device_tracker.allegra.state == 'home' or states.device_tracker.kevin_ping.state == 'home' or states.device_tracker.allegra_ping.state == 'home' %}
+        {% if states.device_tracker.kevin_gps.state  %}
+        {% if states.device_tracker.kevin_gps.state == 'home' or states.device_tracker.allegra.state == 'home' or states.device_tracker.kevin.state == 'home' or states.device_tracker.allegra_gps.state == 'home' %}
             home
           {% else %}
             not_home

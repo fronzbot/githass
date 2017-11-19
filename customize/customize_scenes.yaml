@@ -34,3 +34,39 @@ scene.sabres:
 scene.on_the_way_home:
   icon: mdi:map-marker
   emulated_hue_hidden: false
+
+scene.orange:
+  icon: mdi:palette
+  emulated_hue_hidden: false
+  emulated_hue_name: "Orange"
+
+scene.yellow:
+  icon: mdi:palette
+  emulated_hue_hidden: false
+  emulated_hue_name: "Yellow"
+
+scene.green:
+  icon: mdi:palette
+  emulated_hue_hidden: false
+  emulated_hue_name: "Green"
+
+scene.cyan:
+  icon: mdi:palette
+  emulated_hue_hidden: false
+  emulated_hue_name: "Ice"
+
+scene.blue:
+  icon: mdi:palette
+  emulated_hue_hidden: false
+  emulated_hue_name: "Blue"
+
+scene.purple:
+  icon: mdi:palette
+  emulated_hue_hidden: false
+  emulated_hue_name: "Purple"
+
+scene.pink:
+  icon: mdi:palette
+  emulated_hue_hidden: false
+  emulated_hue_name: "Pink"
+

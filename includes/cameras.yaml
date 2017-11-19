@@ -18,5 +18,14 @@
   file_path: /home/hass/images/Climate.png
   name: Climate
 
+- platform: generic
+  name: Kevin GPS
+  still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{states.device_tracker.kevin_gps.attributes.latitude }},{{states.device_tracker.kevin_gps.attributes.longitude}}&zoom=13&size=500x300&maptype=roadmap&markers=color:red%7Clabel:K%7C{{states.device_tracker.kevin_gps.attributes.latitude}},{{states.device_tracker.kevin_gps.attributes.longitude}}
+  limit_refetch_to_url_change: true
+
+- platform: generic
+  name: Allegra GPS
+  still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{states.device_tracker.allegra_gps.attributes.latitude }},{{states.device_tracker.allegra_gps.attributes.longitude}}&zoom=13&size=500x300&maptype=roadmap&markers=color:red%7Clabel:A%7C{{states.device_tracker.allegra_gps.attributes.latitude}},{{states.device_tracker.allegra_gps.attributes.longitude}}
+  limit_refetch_to_url_change: true
 #- platform: usps
 #  scan_interval: 5

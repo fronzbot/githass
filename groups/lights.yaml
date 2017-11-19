@@ -13,6 +13,13 @@ scenes:
     - scene.night
     - scene.sabres
     - scene.on_the_way_home
+    - scene.orange
+    - scene.yellow
+    - scene.green
+    - scene.cyan
+    - scene.blue
+    - scene.purple
+    - scene.pink
 
 couch:
   name: Couch

@@ -19,11 +19,15 @@ all_media:
 presence_gist:
   name: Presence
   entities:
-    - sensor.occupancy
-    - device_tracker.kevin_ping
-    - device_tracker.kevin
-    - device_tracker.allegra_ping
-    - device_tracker.allegra
+#    - sensor.occupancy
+    - device_tracker.kevin_gps
+#    - device_tracker.kevin_ping
+#    - device_tracker.kevin
+#    - device_tracker.allegra_ping
+#    - device_tracker.allegra
+    - device_tracker.allegra_gps
+    - camera.kevin_gps
+    - camera.allegra_gps
     - scene.on_the_way_home
 
 zwave_devices:

@@ -1,0 +1,16 @@
+name: Blue 
+entities:
+  input_boolean.flux_living_room:
+    state: off
+  light.couch_left:
+    state: on
+    xy_color: [0.2156,0.1355]
+    brightness: 278
+  light.couch_right:
+    state: on
+    xy_color: [0.2156,0.1355]
+    brightness: 278
+  light.corner:
+    state: on
+    xy_color: [0.2156,0.1355]
+    brightness: 278
