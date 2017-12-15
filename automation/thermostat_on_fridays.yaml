@@ -1,0 +1,11 @@
+- alias: 'Heat on Fridays'
+  trigger:
+    platform: time
+    after: '07:00:00'
+  condition:
+  - condition: time
+    weekday:
+      - fri
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.guest_mode

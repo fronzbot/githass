@@ -24,3 +24,5 @@ action:
     entity_id: group.couch
   - service: light.turn_on
     entity_id: light.kitchen_table
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.guest_mode
