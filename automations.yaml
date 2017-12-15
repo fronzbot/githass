@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2017-Nov-18 23:15:24 
+# Generated: 2017-Dec-15 16:13:25 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -112,17 +112,6 @@
     service: light.turn_on
     entity_id: group.couch
 
-#--- automation/notify_on_restart.yaml ---
-- id: notify_on_restart
-  alias: Notify on Restart
-  trigger:
-    - platform: homeassistant
-      event: start
-  action:
-    - service: script.notify_kevin_engine
-      data:
-        call_on_restart: 1
-
 #--- automation/notify_on_fire_co2.yaml ---
 - id: notify_on_fire_co2
   alias: Notify on Fire/CO2
@@ -227,31 +216,6 @@
     - service: switch.turn_off    
       entity_id: switch.driveway_switch
 
-#--- automation/lights_holiday_lights.yaml ---
-# Turn on holiday lights at sunset
-- id: lights_holiday_lights
-  alias: Lights Holiday Lights
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '+00:16:00'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: 'input_boolean.christmas_lights'
-        state: 'on'
-  action:
-    - service: switch.turn_on
-      entity_id: group.outdoor_switches
-    - service: switch.turn_off
-      entity_id: switch.driveway_switch
-    - service: light.turn_on
-      entity_id: light.porch
-      data:
-        brightness: 150
-        xy_color: [0.1972,0.6781]
-
 #--- automation/tts_garbage_night.yaml ---
 - id: tts_garbage_night
   alias: TTS Garbage Night
@@ -287,35 +251,6 @@
   action:
     - service: light.turn_off
       entity_id: group.interior
-
-#--- automation/lights_home.yaml ---
-# Turn lights on when someone comes home from work
-# group.all_devices is 'home' if ANY device is home
-# Do this between 5pm and 7pm
-  
-- id: lights_home
-  alias: Lights Home
-  trigger:
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'home'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '16:00:00'
-        before: '19:00:00'
-        weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-  action:
-    - service: light.turn_on
-      entity_id: group.couch
-    - service: light.turn_on
-      entity_id: light.kitchen_table
 
 #--- automation/notify_on_failed_login.yaml ---
 - id: notify_on_failed_login
@@ -391,3 +326,92 @@
   action:
     - service: python_script.media_engine
   
+
+#--- automation/notify_on_restart.yaml ---
+- id: notify_on_restart
+  alias: Notify on Restart
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: script.notify_kevin_engine
+      data:
+        call_on_restart: 1
+    - service_template: >
+        {% if now().month == 12 %}
+          input_boolean.turn_on
+        {% else %}
+          input_boolean.turn_off
+        {% endif %}
+      entity_id: input_boolean.christmas_lights
+
+#--- automation/lights_holiday_lights.yaml ---
+# Turn on holiday lights at sunset
+- id: lights_holiday_lights
+  alias: Lights Holiday Lights
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '+00:16:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'input_boolean.christmas_lights'
+        state: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id: group.outdoor_switches
+    - service: light.turn_on
+      entity_id: light.porch
+      data:
+        brightness: 174
+        xy_color: [0.1903,0.6795]
+
+#--- automation/lights_home.yaml ---
+# Turn lights on when someone comes home from work
+# group.all_devices is 'home' if ANY device is home
+# Do this between 5pm and 7pm
+  
+- id: lights_home
+  alias: Lights Home
+  trigger:
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'home'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '16:00:00'
+        before: '19:00:00'
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: light.turn_on
+      entity_id: group.couch
+    - service: light.turn_on
+      entity_id: light.kitchen_table
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.guest_mode
+
+#--- automation/thermostat_on_fridays.yaml ---
+- id: 'heat_on_fridays'
+  alias: 'Heat on Fridays'
+  trigger:
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'not_home'
+  condition:
+    - condition: time
+      after: '06:00:00'
+      before: '10:00:00'
+      weekday:
+      - fri
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.guest_mode

@@ -13,10 +13,8 @@ condition:
 action:
   - service: switch.turn_on
     entity_id: group.outdoor_switches
-  - service: switch.turn_off
-    entity_id: switch.driveway_switch
   - service: light.turn_on
     entity_id: light.porch
     data:
-      brightness: 150
-      xy_color: [0.1972,0.6781]
+      brightness: 174
+      xy_color: [0.1903,0.6795]
