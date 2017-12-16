@@ -70,7 +70,7 @@ thermostat_engine:
         target_temp_low: >
           {% if (states.sensor.pws_feelslike_f.state | float) < 55.0 %}
             {% if (states.sensor.occupancy.state == 'home') or (states.input_boolean.guest_mode.state == 'on') or (states.input_boolean.on_the_way_home.state == 'on') %}
-              {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 20) %}
+              {% if (now().strftime("%H") | int > 5) and (now().strftime("%H") | int < 22) %}
                 {{ 67 | int }}
               {% else %}
                 {% if (states.input_boolean.warmer_night_mode.state == 'on') %}
