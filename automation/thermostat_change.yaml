@@ -49,4 +49,4 @@ trigger:
   - platform: homeassistant
     event: start
 action:
-  - service: script.thermostat_engine
+  - service: python_script.thermostat_engine
