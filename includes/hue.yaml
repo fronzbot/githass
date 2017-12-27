@@ -1,0 +1,5 @@
+bridges:
+  - host: !secret hue_ip_addr
+  - allow_unreachable: true
+  - allow_in_emulated_hue: true
+  - allow_hue_groups: false

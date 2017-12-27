@@ -21,11 +21,12 @@ camera: !include includes/cameras.yaml
 device_tracker: !include includes/device_trackers.yaml
 emulated_hue: !include includes/emulated_hue.yaml
 group: !include_dir_merge_named groups
+hue: !include includes/hue.yaml
 history: !include includes/history.yaml
 input_boolean: !include includes/input_boolean.yaml
 influxdb: !include includes/influxdb.yaml
 #intent_script: !include_dir_merge_named includes/intents
-light: !include includes/light.yaml
+#light: !include includes/light.yaml
 logger: !include includes/logger.yaml
 media_player: !include includes/media.yaml
 notify: !include includes/notify.yaml
