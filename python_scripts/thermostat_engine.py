@@ -34,7 +34,6 @@ else:
 # Only fire if thermostat is enabled
 if thermostat_enable:
     # Set thermostat to auto before changing temperatures
-    hass.services.call('climate', 'set_operation_mode', data)
     target_high = 82
     target_low  = 58
     mode = 'off' 
