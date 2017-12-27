@@ -10,7 +10,9 @@ movie_color_mapping = {
     'The Martian (2015)': 'orange',
     'Monsters, Inc. (2001)': 'purple',
     'Tangled (2010)': 'green',
-    'Up (2009)': 'pink'
+    'Up (2009)': 'pink',
+    'Moana (2016)': 'cyan',
+    'WALL-E (2008)': 'orange'
 }
 
 media_title = hass.states.get('sensor.media_title').state 
