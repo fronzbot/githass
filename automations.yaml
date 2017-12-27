@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2017-Dec-15 21:20:48 
+# Generated: 2017-Dec-27 17:17:05 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -34,61 +34,6 @@
     - service: script.speech_engine
       data:
         call_washer_status: 1
-
-#--- automation/thermostat_change.yaml ---
-- id: thermostat_change_on_weather
-  alias: Thermostat Change on Weather
-  trigger:
-    - platform: time
-      at: '22:30:00'
-    - platform: time
-      at: '07:00:00'
-    - platform: state
-      entity_id: input_boolean.thermostat_enable
-      to: 'on'
-    - platform: state
-      entity_id: input_boolean.guest_mode
-      to: 'on'
-    - platform: state
-      entity_id: input_boolean.guest_mode
-      to: 'off'
-    - platform: state
-      entity_id: input_boolean.on_the_way_home
-      to: 'on'
-    - platform: state
-      entity_id: input_boolean.warmer_night_mode
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'home'
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'  
-    - platform: numeric_state
-      entity_id: sensor.pws_feelslike_f
-      above: 77
-    - platform: numeric_state
-      entity_id: sensor.pws_feelslike_f
-      below: 55
-    - platform: numeric_state
-      entity_id: sensor.pws_feelslike_f
-      above: 58
-      below: 74
-    - platform: numeric_state
-      entity_id: sensor.living_room_humidity
-      above: 58
-    - platform: numeric_state
-      entity_id: sensor.living_room_humidity
-      below: 55
-    - platform: template
-      value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.pws_feelslike_f.state | float) > 2.0 }}'
-    - platform: template
-      value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") | int > 21) }}'
-    - platform: template
-      value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") | int > 21) or (now().strftime("%H") | int < 5)) }}'
-    - platform: homeassistant
-      event: start
-  action:
-    - service: script.thermostat_engine
 
 #--- automation/lights_rainy.yaml ---
 #Turn on couch lights if it's raining, someone
@@ -415,3 +360,58 @@
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.guest_mode
+
+#--- automation/thermostat_change.yaml ---
+- id: thermostat_change_on_weather
+  alias: Thermostat Change on Weather
+  trigger:
+    - platform: time
+      at: '22:30:00'
+    - platform: time
+      at: '07:00:00'
+    - platform: state
+      entity_id: input_boolean.thermostat_enable
+      to: 'on'
+    - platform: state
+      entity_id: input_boolean.guest_mode
+      to: 'on'
+    - platform: state
+      entity_id: input_boolean.guest_mode
+      to: 'off'
+    - platform: state
+      entity_id: input_boolean.on_the_way_home
+      to: 'on'
+    - platform: state
+      entity_id: input_boolean.warmer_night_mode
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'home'
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'not_home'  
+    - platform: numeric_state
+      entity_id: sensor.pws_feelslike_f
+      above: 77
+    - platform: numeric_state
+      entity_id: sensor.pws_feelslike_f
+      below: 55
+    - platform: numeric_state
+      entity_id: sensor.pws_feelslike_f
+      above: 58
+      below: 74
+    - platform: numeric_state
+      entity_id: sensor.living_room_humidity
+      above: 58
+    - platform: numeric_state
+      entity_id: sensor.living_room_humidity
+      below: 55
+    - platform: template
+      value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.pws_feelslike_f.state | float) > 2.0 }}'
+    - platform: template
+      value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") | int > 21) }}'
+    - platform: template
+      value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") | int > 21) or (now().strftime("%H") | int < 5)) }}'
+    - platform: homeassistant
+      event: start
+  action:
+    - service: python_script.thermostat_engine
