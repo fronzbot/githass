@@ -3,4 +3,12 @@
   monitored_conditions:
     - visibility
     - ozone
+    - temperature
+    - apparent_temperature
+    - precip_intensity
+    - precip_probability
+    - dew_point
+    - temperature_max
+    - temperature_min
+    - precip_intensity_max
   units: us

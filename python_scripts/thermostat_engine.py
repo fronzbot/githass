@@ -11,7 +11,13 @@ HEAT = {'home': 68, 'away': 58, 'sleep': 64}
 SLEEP_TIME = [5, 21]
 
 # Get current temperatures
-outside_temp = float(hass.states.get('sensor.pws_feelslike_f').state)
+temp1 = hass.states.get('sensor.pws_feelslike_f').state
+temp2 = hass.states.get('sensor.dark_sky_temperature').state
+
+if temp1 is None:
+    outside_temp = float(temp2)
+else:
+    outside_temp = float(temp1)
 living_room_temp = float(hass.states.get('sensor.living_room_temperature').state)
 bedroom_temp = float(hass.states.get('sensor.bedroom_temperature').state)
 living_room_humidity = float(hass.states.get('sensor.living_room_humidity').state)
@@ -26,7 +32,7 @@ current_hour = current_time.hour
 # Determine home, away, or sleep
 if someone_home or on_the_way_home:
     state_key = 'home'
-    if current_hour < SLEEP_TIME[0] and current_hour > SLEEP_TIME[1]:
+    if current_hour <= SLEEP_TIME[0] or current_hour >= SLEEP_TIME[1]:
         state_key = 'sleep'
 else:
     state_key = 'away'
