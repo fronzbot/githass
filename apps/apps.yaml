@@ -1,0 +1,16 @@
+flux_living_room:
+  module: flux
+  class: Flux
+  constrain_input_boolean: input_boolean.flux_living_room
+  light: light.couch_left,light.couch_right,light.corner,light.kitchen_table
+
+flux_basement:
+  module: flux
+  class: Flux
+  constrain_input_boolean: input_boolean.flux_basement
+  light: light.desk,light.fireplace_1,light.fireplace_2,light.basement_corner,light.basement_computer
+
+flux_continuous:
+  module: flux
+  class: Flux
+  light: light.corner_den,light.back_den,light.bedroom_door,light.bedroom_corner
