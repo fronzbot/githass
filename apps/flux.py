@@ -78,12 +78,11 @@ class Flux(hass.Hass):
                 elif (self.segment == 'twlight_night' or self.segment == 'twlight_day') and self.perc_complete > 0.99:
                     new_color = self.twilight_color
 
-            mired = int(1e6/new_color)
-            
-            self.turn_on(light, color_temp=mired, brightness=self.brightness)
+                mired = int(1e6/new_color)
+                self.turn_on(light, color_temp=mired, brightness=self.brightness)
  
-            if DEBUG:
-                self.log("Current Time is {} in {} cycle and it is {}% Complete --> {} ({})".format(self.current_time, self.segment, self.perc_complete*100, mired, light))
+                if DEBUG:
+                    self.log("Current Time is {} in {} cycle and it is {}% Complete --> {} ({})".format(self.current_time, self.segment, self.perc_complete*100, mired, light))
             
     def get_start_time(self):
         self.current_time = self.datetime()
