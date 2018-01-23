@@ -25,7 +25,7 @@ living_room_humidity = float(hass.states.get('sensor.living_room_humidity').stat
 # Get various system stats
 thermostat_enable = (hass.states.get('input_boolean.thermostat_enable').state == 'on')
 someone_home = (hass.states.get('sensor.occupancy').state == 'home' or hass.states.get('input_boolean.guest_mode').state == 'on')
-on_the_way_home = (hass.states.get('input_boolean').state == 'on')
+on_the_way_home = (hass.states.get('input_boolean.on_the_way_home').state == 'on')
 current_time = datetime.datetime.now()
 current_hour = current_time.hour
 
