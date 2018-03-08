@@ -13,7 +13,7 @@ light.Couch_Right:
   
 light.Corner:
   friendly_name: Corner
-  emulated_hue_hidden: false
+  emulated_hue_hidden: false 
   emulated_hue_name: "Corner"
 
 light.Corner_Den:

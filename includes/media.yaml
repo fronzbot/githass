@@ -3,6 +3,3 @@
 - platform: plex
   ip_address: !secret server_url
   port: 32400
-- platform: emby
-  host: !secret server_url
-  api_key: !secret emby_api_key

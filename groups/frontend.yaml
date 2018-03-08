@@ -50,6 +50,7 @@ tab_automation:
   entities:
     - group.scenes
     - group.shell
+    - script.zwave_fix_dead_node
     - input_boolean.flux_living_room
     - input_boolean.flux_basement
     - input_boolean.christmas_lights

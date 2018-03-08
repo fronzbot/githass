@@ -1,7 +1,7 @@
 usb_path: /zwave
 new_entity_ids: true
 polling_interval: 60000
-device_config:
-    zwave.driveway:
-        polling_intensity: 1
+#device_config:
+#    switch.driveway_switch:
+#        polling_intensity: 1
 

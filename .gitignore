@@ -28,3 +28,4 @@
 /*.pickle
 /custom_components
 bin/vm_shutdown.sh
+/entity_registry.yaml

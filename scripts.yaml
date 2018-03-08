@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Jan-23 16:32:22 
+# Generated: 2018-Mar-08 10:52:55 
 #--------------------------------------------
 
 #--- scripts/hass_upgrade.yaml ---
@@ -341,3 +341,20 @@
             {% endif %}
       - service: homeassistant.turn_off
         entity_id: input_boolean.on_the_way_home
+
+#--- scripts/zwave_fix_dead_node.yaml ---
+  zwave_fix_dead_node:
+      alias: Script - Fix Dead ZWave Node
+      sequence:
+          - condition: or
+            conditions:
+                - condition: template
+                  value_template: '{{ states.zwave.driveway.attributes.is_failed }}'
+                - condition: template
+                  value_template: '{{ 1 > 0 }}'
+          - service: zwave.test_node
+            data_template:
+              node_id: '{{states.zwave.driveway.attributes.node_id}}'
+          - service: notify.notify_kevin_phone
+            data_template:
+              message: 'Driveway switch dead, trying to fix. {{now().strftime("h %d, %Y at %H:%M:%S")}}'

@@ -1,0 +1,92 @@
+project_id: hass-control
+client_id: !secret google_assistant_client_id
+access_token: !secret google_assistant_access_token
+agent_user_id: !secret google_assistant_user_id 
+api_key: !secret google_assistant_api_key
+exposed_domains:
+  - scene
+  - light
+  - script
+expose_by_default: false
+entity_config:
+  # -----------
+  # SCENES
+  # -----------
+  scene.movie_mode:
+    name: Movie Mode
+    expose: True
+  scene.movie_mode_basement:
+    name: Basement Movie Mode
+    expose: True
+  scene.christmas:
+    name: Christmas
+    expose: True
+  # ----------
+  # SCRIPTS
+  # ----------
+  script.flux:
+    name: Flux
+    expose: True
+  script.wake_computer:
+    name: Wake Computer
+    expose: True
+  # ----------
+  # LIGHTS
+  # ----------
+  light.Couch_Left:
+    name: Couch Left
+    expose: True
+    type: light
+  light.Couch_Right:
+    name: Couch Right
+    expose: True
+    type: light
+  light.Corner:
+    name: Corner Living Room
+    expose: True
+    type: light
+  light.Back_Den:
+    name: Back Den
+    expose: True
+    type: light
+  light.Corner_Den:
+    name: Corner Den
+    expose: True
+    type: light
+  light.desk:
+    name: Desk
+    expose: True
+    type: light
+  light.fireplace_1:
+    name: Fireplace Left
+    expose: True
+    type: light
+  light.fireplace_2:
+    name: Fireplace Right
+    expose: True
+    type: light
+  light.basement_corner:
+    name: Basement Corner
+    expose: True
+    type: light
+  light.basement_computer:
+    name: Basement Computer
+    expose: True
+    type: light
+  light.bedroom_corner:
+    name: Bedroom Corner
+    expose: True
+    type: light
+  light.bedroom_door:
+    name: Nightstand
+    expose: True
+    type: light
+  light.porch:
+    name: Porch
+    expose: True
+    type: light
+  light.kitchen_table:
+    name: Kitchen
+    expose: True
+    type: light 
+

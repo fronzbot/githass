@@ -1,6 +1,5 @@
 host_ip: !secret server_url
-type: google_home
-listen_port: 80
+listen_port: 8387
 expose_by_default: false
 exposed_domains:
   - light

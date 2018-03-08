@@ -20,6 +20,7 @@ automation: !include automations.yaml
 camera: !include includes/cameras.yaml
 device_tracker: !include includes/device_trackers.yaml
 emulated_hue: !include includes/emulated_hue.yaml
+google_assistant: !include includes/google_assistant.yaml
 group: !include_dir_merge_named groups
 hue: !include includes/hue.yaml
 history: !include includes/history.yaml

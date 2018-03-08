@@ -97,7 +97,7 @@ home_lights:
     - group.lights_bedroom
     - group.lights_basement
     - light.porch
-    - group.driveway
+    - switch.driveway_switch
     - group.outdoor_switches
 
 # basement_ceiling:

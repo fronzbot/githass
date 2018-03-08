@@ -37,3 +37,4 @@ automations_notify:
     - automation.notify_on_way_home
     - automation.notify_on_failed_login
     - automation.tts_garbage_night
+    - automation.zwave_fix_dead_node
