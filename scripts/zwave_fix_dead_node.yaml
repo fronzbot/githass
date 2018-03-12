@@ -6,7 +6,7 @@ zwave_fix_dead_node:
               - condition: template
                 value_template: '{{ states.zwave.driveway.attributes.is_failed }}'
               - condition: template
-                value_template: '{{ 1 > 0 }}'
+                value_template: '{{ 1 < 0 }}'
         - service: zwave.test_node
           data_template:
             node_id: '{{states.zwave.driveway.attributes.node_id}}'
