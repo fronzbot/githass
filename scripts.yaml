@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Mar-08 10:52:55 
+# Generated: 2018-Mar-12 16:53:23 
 #--------------------------------------------
 
 #--- scripts/hass_upgrade.yaml ---
@@ -351,7 +351,7 @@
                 - condition: template
                   value_template: '{{ states.zwave.driveway.attributes.is_failed }}'
                 - condition: template
-                  value_template: '{{ 1 > 0 }}'
+                  value_template: '{{ 1 < 0 }}'
           - service: zwave.test_node
             data_template:
               node_id: '{{states.zwave.driveway.attributes.node_id}}'
