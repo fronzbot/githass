@@ -2,7 +2,6 @@ default: warning
 logs:
   homeassistant.components.media_player: critical
   homeassistant.components.camera: error
-  homeassistant.components.binary_sensor.blink_living_room_motion: critical
   homeassistant.components.sensor.pws_visibility_mi: critical
   homeassistant.helpers.entity: error
   requests.packages.urllib3.connectionpool: error

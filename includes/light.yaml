@@ -1,3 +1,0 @@
-platform: hue
-host: !secret hue_ip_addr
-allow_unreachable: true
