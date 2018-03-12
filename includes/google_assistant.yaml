@@ -36,57 +36,43 @@ entity_config:
   light.Couch_Left:
     name: Couch Left
     expose: True
-    type: light
   light.Couch_Right:
     name: Couch Right
     expose: True
-    type: light
   light.Corner:
     name: Corner Living Room
     expose: True
-    type: light
   light.Back_Den:
     name: Back Den
     expose: True
-    type: light
   light.Corner_Den:
     name: Corner Den
     expose: True
-    type: light
   light.desk:
     name: Desk
     expose: True
-    type: light
   light.fireplace_1:
     name: Fireplace Left
     expose: True
-    type: light
   light.fireplace_2:
     name: Fireplace Right
     expose: True
-    type: light
   light.basement_corner:
     name: Basement Corner
     expose: True
-    type: light
   light.basement_computer:
     name: Basement Computer
     expose: True
-    type: light
   light.bedroom_corner:
     name: Bedroom Corner
     expose: True
-    type: light
   light.bedroom_door:
     name: Nightstand
     expose: True
-    type: light
   light.porch:
     name: Porch
     expose: True
-    type: light
   light.kitchen_table:
     name: Kitchen
     expose: True
-    type: light 
 
