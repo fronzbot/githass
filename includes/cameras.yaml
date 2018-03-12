@@ -2,22 +2,6 @@
   still_image_url: !secret radar_link
   name: Home Radar
 
-  #- platform: local_file
-  #  file_path: /home/hass/images/Temperature.png
-  #  name: Temperature
-
-  #- platform: local_file
-  #  file_path: /home/hass/images/Internet.png
-  #  name: Internet
-
-  #- platform: local_file
-  #  file_path: /home/hass/images/Humidity.png
-  #  name: Relative Humidity
-
-  #- platform: local_file
-  #  file_path: /home/hass/images/Climate.png
-  #  name: Climate
-
 - platform: generic
   name: Kevin GPS
   still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{states.device_tracker.kevin_gps.attributes.latitude }},{{states.device_tracker.kevin_gps.attributes.longitude}}&zoom=13&size=500x300&maptype=roadmap&markers=color:red%7Clabel:K%7C{{states.device_tracker.kevin_gps.attributes.latitude}},{{states.device_tracker.kevin_gps.attributes.longitude}}
@@ -27,5 +11,3 @@
   name: Allegra GPS
   still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{states.device_tracker.allegra_gps.attributes.latitude }},{{states.device_tracker.allegra_gps.attributes.longitude}}&zoom=13&size=500x300&maptype=roadmap&markers=color:red%7Clabel:A%7C{{states.device_tracker.allegra_gps.attributes.latitude}},{{states.device_tracker.allegra_gps.attributes.longitude}}
   limit_refetch_to_url_change: true
-#- platform: usps
-#  scan_interval: 5

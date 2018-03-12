@@ -1,19 +1,2 @@
 # Trackers
-- platform: nmap_tracker
-  hosts:
-    - 192.168.86.254
-    - 192.168.86.248
-  interval_seconds: 35
-  track_new_devices: no
-  consider_home: 630
-  scan_options: ' --privileged -sS --host-timeout 5s '
-
-- platform: ping
-  hosts:
-    kevin_ping: 192.168.86.254
-    allegra_ping: 192.168.86.248
-  count: 8
-  consider_home: 900
-  interval_seconds: 45
-
 - platform: gpslogger

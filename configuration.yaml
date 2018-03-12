@@ -11,9 +11,6 @@ homeassistant:
 http:
   api_password: !secret password
   use_x_forwarded_for: True
-  #ssl_certificate: !secret cert_location
-  #ssl_key: !secret key_location
-  #base_url: !secret ha_url
 
 # Includes
 automation: !include automations.yaml
@@ -26,8 +23,6 @@ hue: !include includes/hue.yaml
 history: !include includes/history.yaml
 input_boolean: !include includes/input_boolean.yaml
 influxdb: !include includes/influxdb.yaml
-#intent_script: !include_dir_merge_named includes/intents
-#light: !include includes/light.yaml
 logger: !include includes/logger.yaml
 media_player: !include includes/media.yaml
 notify: !include includes/notify.yaml
@@ -43,7 +38,6 @@ zwave: !include includes/zwave.yaml
 # Enables
 frontend:
 config:
-# discovery:
 logbook:
 sun:
 updater:
@@ -57,9 +51,3 @@ wake_on_lan:
 ecobee:
   api_key: !secret ecobee_api
 
-#usps:
-#  username: !secret usps_username
-#  password: !secret usps_password
-#blink:
-#  username: !secret blink_username
-#  password: !secret blink_password
