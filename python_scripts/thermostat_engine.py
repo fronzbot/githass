@@ -11,7 +11,7 @@ HEAT = {'home': 67, 'away': 59, 'sleep': 64}
 SLEEP_TIME = [5, 21]
 
 # Get current temperatures
-temp1 = hass.states.get('sensor.pws_feelslike_f').state
+temp1 = hass.states.get('sensor.pws_temp_f').state
 temp2 = hass.states.get('sensor.dark_sky_temperature').state
 
 if temp1 is None:
@@ -19,7 +19,10 @@ if temp1 is None:
 else:
     outside_temp = float(temp1)
 living_room_temp = float(hass.states.get('sensor.living_room_temperature').state)
-bedroom_temp = float(hass.states.get('sensor.bedroom_temperature').state)
+try:
+    bedroom_temp = float(hass.states.get('sensor.bedroom_temperature').state)
+except ValueError:
+    bedroom_temp = living_room_temp
 living_room_humidity = float(hass.states.get('sensor.living_room_humidity').state)
 
 # Get various system stats
