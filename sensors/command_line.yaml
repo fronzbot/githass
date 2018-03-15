@@ -8,3 +8,8 @@
 
 - platform: version
   name: hass_version
+
+- platform: command_line
+  name: pihole_version
+  scan_interval: 20000
+  command: ssh pi@192.168.86.89 "pihole -v" | grep "Pi-hole version" | awk -F'( )+' '{print $5" "$6" "$7}'

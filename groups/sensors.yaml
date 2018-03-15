@@ -50,6 +50,7 @@ network_monitor:
     - sensor.pihole_ads_blocked_today
     - sensor.pihole_ads_percentage_blocked_today
     - sensor.wifi_current_version
+    - sensor.pihole_version
     - updater.updater
 
 server_monitor:

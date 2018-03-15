@@ -109,6 +109,10 @@ sensor.out_for_delivery:
   friendly_name: Packages - Out For Delivery
   icon: mdi:truck-fast
 
+sensor.pihole_version:
+  friendly_name: Pihole Version
+  icon: mdi:verified
+
 #-------------------------------  
 # Zwave sensors
 #-------------------------------

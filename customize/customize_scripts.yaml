@@ -24,3 +24,7 @@ script.wake_computer:
   icon: mdi:windows
   emulated_hue_hidden: false
   emulated_hue_name: "Desktop"
+
+script.upgrade_pihole:
+  icon: mdi:arrow-up-bold-circle-outline
+  friendly_name: "Upgrade Pihole"

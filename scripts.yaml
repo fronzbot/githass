@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Mar-12 16:53:23 
+# Generated: 2018-Mar-15 18:44:54 
 #--------------------------------------------
 
 #--- scripts/hass_upgrade.yaml ---
@@ -212,22 +212,6 @@
               {{ failed_login() }}
             {% endif %}
 
-#--- scripts/wake_computer.yaml ---
-# Wake computer and turn on lights
-  wake_computer:
-    alias: Wake Computer
-    sequence:
-      - service: light.turn_on
-        entity_id:
-          - light.basement_corner
-          - light.basement_computer
-          - light.desk
-      - service: shell_command.turn_off_linux_vm
-      - delay: 00:01:30
-      - service: wake_on_lan.send_magic_packet
-        data:
-          mac: !secret wake_mac_address
-
 #--- scripts/thermostat_engine.yaml ---
 #######################################
 # This script allows for thermostat
@@ -358,3 +342,23 @@
           - service: notify.notify_kevin_phone
             data_template:
               message: 'Driveway switch dead, trying to fix. {{now().strftime("h %d, %Y at %H:%M:%S")}}'
+
+#--- scripts/wake_computer.yaml ---
+# Wake computer and turn on lights
+  wake_computer:
+    alias: Wake Computer
+    sequence:
+      - service: light.turn_on
+        entity_id:
+          - light.basement_corner
+          - light.basement_computer
+          - light.desk
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: !secret wake_mac_address
+
+#--- scripts/upgrade_pihole.yaml ---
+  ssl_renew_certificate:
+    alias: SSL Renew Certificate
+    sequence:
+      -service: shell_command.pihole_upgrade

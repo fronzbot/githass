@@ -6,6 +6,7 @@ scenes:
   entities:
     - script.flux
     - script.wake_computer
+    - script.upgrade_pihole 
     - scene.christmas
     - scene.movie_mode
     - scene.movie_mode_basement
