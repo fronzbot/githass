@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Mar-15 18:44:54 
+# Generated: 2018-Mar-15 21:07:53 
 #--------------------------------------------
 
 #--- scripts/hass_upgrade.yaml ---
@@ -358,7 +358,7 @@
           mac: !secret wake_mac_address
 
 #--- scripts/upgrade_pihole.yaml ---
-  ssl_renew_certificate:
-    alias: SSL Renew Certificate
+  upgrade_pihole:
+    alias: Upgrade PiHole 
     sequence:
-      -service: shell_command.pihole_upgrade
+      - service: shell_command.pihole_upgrade

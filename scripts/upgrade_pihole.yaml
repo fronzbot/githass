@@ -1,4 +1,4 @@
-ssl_renew_certificate:
-  alias: SSL Renew Certificate
+upgrade_pihole:
+  alias: Upgrade PiHole 
   sequence:
-    -service: shell_command.pihole_upgrade
+    - service: shell_command.pihole_upgrade
