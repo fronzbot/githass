@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Mar-15 21:07:53 
+# Generated: 2018-Mar-16 10:09:09 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -344,23 +344,6 @@
         {% endif %}
       entity_id: input_boolean.christmas_lights
 
-#--- automation/thermostat_on_fridays.yaml ---
-- id: 'heat_on_fridays'
-  alias: 'Heat on Fridays'
-  trigger:
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'
-  condition:
-    - condition: time
-      after: '06:00:00'
-      before: '10:00:00'
-      weekday:
-      - fri
-  action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.guest_mode
-
 #--- automation/thermostat_change.yaml ---
 - id: thermostat_change_on_weather
   alias: Thermostat Change on Weather
@@ -426,3 +409,17 @@
         at: '00:10:00'
   action:
       - service: script.zwave_fix_dead_node
+
+#--- automation/thermostat_on_fridays.yaml ---
+- id: 'heat_on_fridays'
+  alias: 'Heat on Fridays'
+  trigger:
+    - platform: time
+      at: '8:00:00'
+  condition:
+    - condition: time
+      weekday:
+      - fri
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.guest_mode
