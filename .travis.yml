@@ -1,12 +1,13 @@
-language: python
-python:
-    - "3.5.3" 
+python: 3.6
+
+env:
+    - HASS='homeassistant'
+    - HASS='--pre homeassistant'
+
 before_install:
-    - mv travis_secrets.yaml secrets.yaml
-install:
-    - pip3 install homeassistant && pip3 install colorama
+    - mv travis_secrets.yaml secrets.yaml; touch /tmp/test.txt
+
 script:
-    - touch /tmp/test.txt
+    - pip3 install $HASS && pip3 install colorama
     - hass -c . --script check_config
     - /bin/bash ./bin/smash.sh --travis && hass -c . --script check_config
-    
