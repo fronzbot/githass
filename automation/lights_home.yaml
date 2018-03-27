@@ -5,7 +5,7 @@
 alias: Lights Home
 trigger:
   - platform: state
-    entity_id: sensor.occupancy
+    entity_id: sensor.occupancy_no_guest
     to: 'home'
 condition:
   condition: and

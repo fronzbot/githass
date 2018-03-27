@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Mar-16 10:09:09 
+# Generated: 2018-Mar-27 12:20:36 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -295,37 +295,6 @@
         brightness: 174
         xy_color: [0.1903,0.6795]
 
-#--- automation/lights_home.yaml ---
-# Turn lights on when someone comes home from work
-# group.all_devices is 'home' if ANY device is home
-# Do this between 5pm and 7pm
-  
-- id: lights_home
-  alias: Lights Home
-  trigger:
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'home'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '16:00:00'
-        before: '19:00:00'
-        weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-  action:
-    - service: light.turn_on
-      entity_id: group.couch
-    - service: light.turn_on
-      entity_id: light.kitchen_table
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.guest_mode
-
 #--- automation/notify_on_restart.yaml ---
 - id: notify_on_restart
   alias: Notify on Restart
@@ -422,4 +391,35 @@
       - fri
   action:
     - service: input_boolean.turn_on
+      entity_id: input_boolean.guest_mode
+
+#--- automation/lights_home.yaml ---
+# Turn lights on when someone comes home from work
+# group.all_devices is 'home' if ANY device is home
+# Do this between 5pm and 7pm
+  
+- id: lights_home
+  alias: Lights Home
+  trigger:
+    - platform: state
+      entity_id: sensor.occupancy_no_guest
+      to: 'home'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '16:00:00'
+        before: '19:00:00'
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: light.turn_on
+      entity_id: group.couch
+    - service: light.turn_on
+      entity_id: light.kitchen_table
+    - service: input_boolean.turn_off
       entity_id: input_boolean.guest_mode

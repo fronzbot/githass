@@ -10,5 +10,13 @@
           {% endif %}
         {% else %}
         {% endif %}
-
+    occupancy_no_guest: >
+        {% if states.device_tracker.kevin_gps.state %}
+            {% if states.device_tracker.kevin_gps.state == 'home' or states.device_tracker.allegra_gps.state == 'not_home' %}
+                home
+            {% else %}
+                not_home
+            {% endif %}
+        {% else %}
+        {% endif %}
 
