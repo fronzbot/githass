@@ -14,7 +14,7 @@ action:
   - service: switch.turn_on
     entity_id: group.outdoor_switches
   - service: light.turn_on
-    entity_id: light.porch
+    entity_id: light.porch_2
     data:
       brightness: 174
       xy_color: [0.1903,0.6795]

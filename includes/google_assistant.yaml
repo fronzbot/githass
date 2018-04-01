@@ -69,7 +69,7 @@ entity_config:
   light.bedroom_door:
     name: Nightstand
     expose: True
-  light.porch:
+  light.porch_2:
     name: Porch
     expose: True
   light.kitchen_table:
