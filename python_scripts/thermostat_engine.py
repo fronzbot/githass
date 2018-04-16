@@ -11,8 +11,8 @@ HEAT = {'home': 67, 'away': 59, 'sleep': 64}
 SLEEP_TIME = [5, 21]
 
 # Get current temperatures
-temp1 = hass.states.get('sensor.pws_temp_f').state
-temp2 = hass.states.get('sensor.dark_sky_temperature').state
+temp2 = hass.states.get('sensor.pws_temp_f_2').state
+temp1 = hass.states.get('sensor.dark_sky_temperature').state
 
 if temp1 is None:
     outside_temp = float(temp2)

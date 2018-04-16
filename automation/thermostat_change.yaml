@@ -3,7 +3,7 @@ trigger:
   - platform: time
     at: '22:30:00'
   - platform: time
-    at: '06:00:00'
+   at: '06:00:00'
   - platform: state
     entity_id: input_boolean.thermostat_enable
     to: 'on'
@@ -25,13 +25,13 @@ trigger:
     entity_id: sensor.occupancy
     to: 'not_home'  
   - platform: numeric_state
-    entity_id: sensor.pws_feelslike_f
+    entity_id: sensor.dark_sky_temperature
     above: 77
   - platform: numeric_state
-    entity_id: sensor.pws_feelslike_f
+    entity_id: sensor.dark_sky_temperature
     below: 55
   - platform: numeric_state
-    entity_id: sensor.pws_feelslike_f
+    entity_id: sensor.dark_sky_temperature
     above: 58
     below: 74
   - platform: numeric_state
@@ -41,7 +41,7 @@ trigger:
     entity_id: sensor.living_room_humidity
     below: 55
   - platform: template
-    value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.pws_feelslike_f.state | float) > 2.0 }}'
+    value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.dark_sky_temperature.state | float) > 2.0 }}'
   - platform: template
     value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") | int > 21) }}'
   - platform: template
