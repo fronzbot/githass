@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Apr-16 17:12:34 
+# Generated: 2018-Apr-16 17:17:47 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -376,7 +376,7 @@
     - platform: time
       at: '22:30:00'
     - platform: time
-     at: '06:00:00'
+      at: '06:00:00'
     - platform: state
       entity_id: input_boolean.thermostat_enable
       to: 'on'

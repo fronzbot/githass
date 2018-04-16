@@ -3,7 +3,7 @@ trigger:
   - platform: time
     at: '22:30:00'
   - platform: time
-   at: '06:00:00'
+    at: '06:00:00'
   - platform: state
     entity_id: input_boolean.thermostat_enable
     to: 'on'
