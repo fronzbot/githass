@@ -7,12 +7,12 @@ thermostat_info:
   entities:
     - climate.living_room
     - sensor.thermo_current_operation  
-    - sensor.pws_feelslike_f_2    
+    - sensor.pws_feelslike_f    
     - sensor.living_room_temperature
     - sensor.bedroom_temperature
     - sensor.thermo_dew_point
     - sensor.living_room_humidity
-    - sensor.pws_relative_humidity_2
+    - sensor.pws_relative_humidity
     - sensor.thermo_hvac
     - sensor.thermo_current_operation
     - sensor.thermo_fan
@@ -26,5 +26,5 @@ temp_gist:
     - sensor.living_room_temperature
     - sensor.bedroom_temperature
     - sensor.thermo_dew_point
-    - sensor.pws_feelslike_f_2
+    - sensor.pws_feelslike_f
    
