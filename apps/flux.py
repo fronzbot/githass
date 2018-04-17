@@ -52,7 +52,6 @@ class Flux(hass.Hass):
         for light in self.split_device_list(self.args["light"]):
             self.listen_state(self.update_on_change, light)
 
-
     def update_on_change(self, entity, attribute, old, new, kwargs):
         if self.get_state(entity) == "on" and old == "off":
             #self.log(entity + " just turned on")
@@ -66,8 +65,6 @@ class Flux(hass.Hass):
             if DEBUG:
                 self.log("Light {} state: {}".format(light, self.get_state(entity=light, attribute='color_temp')))
             if self.get_state(light) == "on":
-                # I feel like we should be using the current color for smooth transitions, but don't feel like thinking about it
-                self.current_color = 1e6/self.get_state(entity=light, attribute='color_temp')
                 new_color = self.color_dict[self.segment] + self.perc_complete*self.offset
 
                 # Clamp color
@@ -77,9 +74,10 @@ class Flux(hass.Hass):
                     new_color = self.nighttime_color
                 elif (self.segment == 'twlight_night' or self.segment == 'twlight_day') and self.perc_complete > 0.99:
                     new_color = self.twilight_color
-
+                
                 mired = int(1e6/new_color)
                 self.turn_on(light, color_temp=mired, brightness=self.brightness)
+                self.log("Setting Light {} to {}".format(light, mired))
  
                 if DEBUG:
                     self.log("Current Time is {} in {} cycle and it is {}% Complete --> {} ({})".format(self.current_time, self.segment, self.perc_complete*100, mired, light))
