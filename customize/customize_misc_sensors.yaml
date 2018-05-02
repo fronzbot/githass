@@ -175,10 +175,10 @@ zwave.power_mon:
   icon: mdi:power
 
 zwave.smoke_kitchen:
-  icon: mdi:nest-protect
+  icon: mdi:smoke-detector
 
 zwave.smoke_living_room:
-  icon: mdi:nest-protect
+  icon: mdi:smoke-detector
 
 zwave.smoke_nursery:
-  icon: mdi:nest-protect
+  icon: mdi:smoke-detector

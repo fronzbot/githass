@@ -4,7 +4,7 @@
 ################## 
 climate.living_room:
   friendly_name: Ecobee
-  icon: mdi:nest-thermostat
+  icon: mdi:thermostat
   
 sensor.living_room_temperature:
   friendly_name: Living Room Temperature
@@ -24,7 +24,7 @@ sensor.thermo_hvac:
   
 sensor.thermo_temp:
   friendly_name: Current Temperature
-  icon: mdi:nest-thermostat
+  icon: mdi:thermostat
   
 sensor.thermo_current_operation:
   friendly_name: Current Status

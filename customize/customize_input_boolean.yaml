@@ -19,7 +19,7 @@ input_boolean.guest_mode:
   emulated_hue_name: "Guest Mode"
 
 input_boolean.thermostat_enable:
-  icon: mdi:nest-thermostat
+  icon: mdi:thermostat
   emulated_hue_hidden: false
   emulated_hue_name: "Thermostat"
 
