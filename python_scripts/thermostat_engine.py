@@ -57,7 +57,7 @@ if thermostat_enable:
         mode = 'auto'
         target_low = HEAT[state_key]
     elif state_key != 'sleep' and outside_temp > 74:
-        if (current_temp - outside_temp) >= 1 or living_room_humidity > 59:
+        if (living_room_temp - outside_temp) >= 1 or living_room_humidity > 59:
             mode = 'auto'
     # Now make service call
     data_mode = {'entity_id': 'climate.living_room', 'operation_mode': mode}

@@ -7,7 +7,7 @@ thermostat_info:
   entities:
     - climate.living_room
     - sensor.thermo_current_operation  
-    - sensor.pws_feelslike_f    
+    - sensor.dark_sky_temperature    
     - sensor.living_room_temperature
     - sensor.bedroom_temperature
     - sensor.thermo_dew_point
@@ -26,5 +26,5 @@ temp_gist:
     - sensor.living_room_temperature
     - sensor.bedroom_temperature
     - sensor.thermo_dew_point
-    - sensor.pws_feelslike_f
+    - sensor.dark_sky_temperature
    

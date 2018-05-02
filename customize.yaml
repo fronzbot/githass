@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Apr-16 17:17:47 
+# Generated: 2018-May-02 17:08:00 
 #--------------------------------------------
 
 #--- customize/customize_climate.yaml ---
@@ -71,76 +71,6 @@
   binary_sensor.bedroom_occupancy:
     friendly_name: In Bedroom
     icon: mdi:account-multiple
-
-#--- customize/customize_weather.yaml ---
-# Wunderground and dark_sky customization
-  sensor.pws_alerts:
-    friendly_name: Weather Alerts
-    icon: mdi:alert
-  
-  sensor.pws_weather:
-    friendly_name: Summary
-    icon: mdi:library-books
-  
-  sensor.pws_weather_1d:
-    friendly_name: Daily Forecast
-    icon: mdi:binoculars
-  
-  sensor.pws_temp_high_1d_f:
-    friendly_name: Forecast High
-    icon: mdi:arrow-up-bold
-  
-  sensor.pws_temp_low_1d_f:
-    friendly_name: Forecast Low
-    icon: mdi:arrow-down-bold
-  
-  sensor.pws_feelslike_f:
-    friendly_name: Feelslike
-    icon: mdi:thermometer
-    
-  sensor.pws_temp_f:
-    friendly_name: Outside Temperature
-    icon: mdi:thermometer
-  
-  sensor.pws_dewpoint_f:
-    friendly_name: Dew Point
-    icon: mdi:oil-temperature
-    
-  sensor.pws_relative_humidity:
-    friendly_name: Humidity
-    icon: mdi:water-percent
-   
-  sensor.pws_precip_today_in:
-    friendly_name: Precipitation Intensity
-    icon: mdi:weather-pouring
-  
-  sensor.pws_precip_1d_in:
-    friendly_name: Forecast Precipitation
-    icon: mdi:weather-pouring
-    
-  sensor.pws_pressure_mb:
-    friendly_name: Pressure
-    icon: mdi:chart-bar
-  
-  sensor.dark_sky_visibility:
-    friendly_name: Visibility
-    icon: mdi:weather-fog
-    
-  sensor.pws_wind_mph:
-    friendly_name: Wind Speed
-    icon: mdi:weather-windy
-  
-  sensor.pws_wind_dir:
-    friendly_name: Wind Bearing
-    icon: mdi:weather-windy  
-      
-  sensor.dark_sky_ozone:
-    friendly_name: Ozone
-    icon: mdi:earth
-    
-  sensor.pws_uv:
-    friendly_name: UV Index
-    icon: mdi:weather-sunny
 
 #--- customize/customize_glances.yaml ---
 # Glances
@@ -751,3 +681,77 @@
   script.upgrade_pihole:
     icon: mdi:arrow-up-bold-circle-outline
     friendly_name: "Upgrade Pihole"
+
+#--- customize/customize_weather.yaml ---
+# Wunderground and dark_sky customization
+  sensor.dark_sky_temperature:
+    friendly_name: Outside Temperature
+    icon: mdi:thermometer
+  
+  sensor.pws_alerts:
+    friendly_name: Weather Alerts
+    icon: mdi:alert
+  
+  sensor.pws_weather:
+    friendly_name: Summary
+    icon: mdi:library-books
+  
+  sensor.pws_weather_1d:
+    friendly_name: Daily Forecast
+    icon: mdi:binoculars
+  
+  sensor.pws_temp_high_1d_f:
+    friendly_name: Forecast High
+    icon: mdi:arrow-up-bold
+  
+  sensor.pws_temp_low_1d_f:
+    friendly_name: Forecast Low
+    icon: mdi:arrow-down-bold
+  
+  sensor.pws_feelslike_f:
+    friendly_name: Feelslike
+    icon: mdi:thermometer
+    
+  sensor.pws_temp_f:
+    friendly_name: Outside Temperature
+    icon: mdi:thermometer
+  
+  sensor.pws_dewpoint_f:
+    friendly_name: Dew Point
+    icon: mdi:oil-temperature
+    
+  sensor.pws_relative_humidity:
+    friendly_name: Humidity
+    icon: mdi:water-percent
+   
+  sensor.pws_precip_today_in:
+    friendly_name: Precipitation Intensity
+    icon: mdi:weather-pouring
+  
+  sensor.pws_precip_1d_in:
+    friendly_name: Forecast Precipitation
+    icon: mdi:weather-pouring
+    
+  sensor.pws_pressure_mb:
+    friendly_name: Pressure
+    icon: mdi:chart-bar
+  
+  sensor.dark_sky_visibility:
+    friendly_name: Visibility
+    icon: mdi:weather-fog
+    
+  sensor.pws_wind_mph:
+    friendly_name: Wind Speed
+    icon: mdi:weather-windy
+  
+  sensor.pws_wind_dir:
+    friendly_name: Wind Bearing
+    icon: mdi:weather-windy  
+      
+  sensor.dark_sky_ozone:
+    friendly_name: Ozone
+    icon: mdi:earth
+    
+  sensor.pws_uv:
+    friendly_name: UV Index
+    icon: mdi:weather-sunny
