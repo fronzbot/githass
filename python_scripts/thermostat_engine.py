@@ -46,22 +46,26 @@ if thermostat_enable:
     hass.services.call('climate', 'set_operation_mode', {'entity_id': 'climate.living_room', 'operation_mode': 'auto'})
     target_high = 82
     target_low  = 58
+    nominal_temp = 70
     mode = 'off' 
     if outside_temp > THRESHOLD_FOR_AC:
         mode = 'auto'
         if living_room_humidity > 55:
             target_high = AC[state_key] - 1
+            nominal_temp = AC[state_key] - 1
         else:
             target_high = AC[state_key]
+            nominal_temp = AC[state_key]
     elif outside_temp < THRESHOLD_FOR_HEAT:
         mode = 'auto'
         target_low = HEAT[state_key]
+        nominal_temp = HEAT[state_key]
     elif state_key != 'sleep' and outside_temp > 74:
         if (living_room_temp - outside_temp) >= 1 or living_room_humidity > 59:
             mode = 'auto'
     # Now make service call
     data_mode = {'entity_id': 'climate.living_room', 'operation_mode': mode}
-    data_temps = {'entity_id': 'climate.living_room', 'target_temp_high': target_high, 'target_temp_low': target_low}
+    data_temps = {'entity_id': 'climate.living_room', 'temperature': nominal_temp, 'target_temp_high': target_high, 'target_temp_low': target_low}
     hass.services.call('climate', 'set_operation_mode', data_mode)
     if mode != 'off':
         hass.services.call('climate', 'set_temperature', data_temps)
