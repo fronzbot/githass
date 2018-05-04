@@ -40,29 +40,28 @@ if someone_home or on_the_way_home:
 else:
     state_key = 'away'
 
+# Some logic for high humidity or high indoor temp
+too_humid = living_room_humidity > 59
+too_hot_inside = (outside_temp > 74 and (living_room_temp >= (outside_temp + 1)))
+
 # Only fire if thermostat is enabled
 if thermostat_enable:
-    # Set thermostat to auto before changing temperatures
-    hass.services.call('climate', 'set_operation_mode', {'entity_id': 'climate.living_room', 'operation_mode': 'auto'})
     target_high = 82
     target_low  = 58
     nominal_temp = 70
-    mode = 'off' 
+    mode = 'off'
     if outside_temp > THRESHOLD_FOR_AC:
         mode = 'auto'
-        if living_room_humidity > 55:
-            target_high = AC[state_key] - 1
-            nominal_temp = AC[state_key] - 1
-        else:
-            target_high = AC[state_key]
-            nominal_temp = AC[state_key]
+        target_high = AC[state_key]
+        nominal_temp = AC[state_key]
     elif outside_temp < THRESHOLD_FOR_HEAT:
         mode = 'auto'
         target_low = HEAT[state_key]
         nominal_temp = HEAT[state_key]
-    elif state_key != 'sleep' and outside_temp > 74:
-        if (living_room_temp - outside_temp) >= 1 or living_room_humidity > 59:
-            mode = 'auto'
+    elif state_key != 'sleep' and (too_hot_inside or too_humid):
+        mode = 'auto'
+        target_high = living_room_temp - 1
+        nominal_temp = living_room_temp - 1
     # Now make service call
     data_mode = {'entity_id': 'climate.living_room', 'operation_mode': mode}
     data_temps = {'entity_id': 'climate.living_room', 'temperature': nominal_temp, 'target_temp_high': target_high, 'target_temp_low': target_low}
@@ -71,4 +70,3 @@ if thermostat_enable:
         hass.services.call('climate', 'set_temperature', data_temps)
 
     hass.services.call('input_boolean', 'turn_off', {'entity_id': 'input_boolean.on_the_way_home'})
-
