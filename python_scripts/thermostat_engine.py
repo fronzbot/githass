@@ -45,6 +45,7 @@ too_humid = living_room_humidity > 59
 too_hot_inside = (outside_temp > 74 and (living_room_temp >= (outside_temp + 1)))
 
 # Only fire if thermostat is enabled
+
 if thermostat_enable:
     target_high = 82
     target_low = 58
@@ -63,7 +64,6 @@ if thermostat_enable:
 #        nominal_temp = living_room_temp - 1
     # Now make service call
 
-    logger.info('Mode: {}, Outside: {}, Target High: {}, Target Low: {}'.format(mode, outside_temp, target_high, target_low))
     data_mode = {'entity_id': 'climate.living_room', 'operation_mode': mode}
     hass.services.call('climate', 'set_operation_mode', data_mode)
     if mode != 'off':
@@ -71,3 +71,6 @@ if thermostat_enable:
         hass.services.call('climate', 'set_temperature', data_temps)
 
     hass.services.call('input_boolean', 'turn_off', {'entity_id': 'input_boolean.on_the_way_home'})
+    logger.info('Hour: {}, Mode: {}, Outside: {}, Target High: {}, Target Low: {}'.format(current_hour, mode, outside_temp, target_high, target_low))
+
+
