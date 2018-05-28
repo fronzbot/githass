@@ -1,0 +1,14 @@
+alias: Lights During Day
+trigger:
+    - platform: sun
+      event: sunrise
+      offset: '+00:30:00'
+    - platform: time
+      at: '08:00:00'
+condition:
+    platform: sun
+    after: sunrise
+
+action:
+    - service: light.turn_off
+      entity_id: light.kitchen_table

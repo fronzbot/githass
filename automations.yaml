@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-May-02 18:58:46 
+# Generated: 2018-May-28 17:39:02 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -423,3 +423,20 @@
       event: start
   action:
     - service: python_script.thermostat_engine
+
+#--- automation/lights_daytime.yaml ---
+- id: lights_during_day
+  alias: Lights During Day
+  trigger:
+      - platform: sun
+        event: sunrise
+        offset: '+00:30:00'
+      - platform: time
+        at: '08:00:00'
+  condition:
+      platform: sun
+      after: sunrise
+  
+  action:
+      - service: light.turn_off
+        entity_id: light.kitchen_table
