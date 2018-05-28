@@ -6,5 +6,4 @@ logs:
   homeassistant.components.sensor.pws_visibility_mi: critical
   homeassistant.helpers.entity: error
   requests.packages.urllib3.connectionpool: error
-  urllib3.connectionpool: error
-  plexapi: error
+  homeassistant.components.python_script: info

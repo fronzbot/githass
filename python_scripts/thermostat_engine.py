@@ -50,6 +50,7 @@ too_hot_inside = (outside_temp > 74 and (living_room_temp >= (outside_temp + 1))
 logger.warning("Outside: {}, Living Room: {}, Home: {}, Time: {}, State: {}".format(outside_temp, living_room_temp, someone_home, current_time, state_key))
 
 # Only fire if thermostat is enabled
+
 if thermostat_enable:
     target_high = 82
     target_low = 58
