@@ -4,11 +4,10 @@
     - visibility
     - ozone
     - temperature
-    - apparent_temperature
     - precip_intensity
     - precip_probability
     - dew_point
-    - temperature_max
-    - temperature_min
+    - temperature_high
+    - temperature_low
     - precip_intensity_max
   units: us

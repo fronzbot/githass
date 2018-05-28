@@ -8,8 +8,10 @@ default_view:
   entities:
     - group.home_lights
     - group.temp_gist
+    - weather.living_room
     - group.presence_gist
     - group.appliances
+    - configurator.ecobee
 
 tab_media:
   name: Media
@@ -24,6 +26,7 @@ tab_thermo:
   icon: mdi:fan
   entities:
     - group.thermostat_info
+    - weather.living_room
     
 tab_weather:
   name: Weather

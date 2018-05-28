@@ -46,7 +46,7 @@ updater:
 #==========================================
 # Other components
 #==========================================
-wake_on_lan:
+#wake_on_lan:
 
 ecobee:
   api_key: !secret ecobee_api
