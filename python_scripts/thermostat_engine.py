@@ -69,7 +69,6 @@ if thermostat_enable:
 #        target_high = living_room_temp - 1
 #        nominal_temp = living_room_temp - 1
     # Now make service call
-
     logger.warning('Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
     data_mode = {'entity_id': 'climate.living_room', 'operation_mode': mode}
     hass.services.call('climate', 'set_operation_mode', data_mode)
@@ -77,6 +76,8 @@ if thermostat_enable:
         time.sleep(0.5)
         data_temps = {'entity_id': 'climate.living_room', 'temperature': nominal_temp}
         hass.services.call('climate', 'set_temperature', data_temps)
+else:
+    hass.services.call({'entity_id': 'climate.living_room', 'operation_mode': 'off'})
 
-    if on_the_way_home:
-        hass.services.call('input_boolean', 'turn_off', {'entity_id': 'input_boolean.on_the_way_home'})
+if on_the_way_home:
+    hass.services.call('input_boolean', 'turn_off', {'entity_id': 'input_boolean.on_the_way_home'})
