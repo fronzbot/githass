@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-May-28 17:39:02 
+# Generated: 2018-May-28 20:03:42 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -434,8 +434,9 @@
       - platform: time
         at: '08:00:00'
   condition:
-      platform: sun
-      after: sunrise
+      - condition: sun
+        after: sunrise
+        after_offset: '+00:15:00'
   
   action:
       - service: light.turn_off

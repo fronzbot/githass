@@ -6,8 +6,9 @@ trigger:
     - platform: time
       at: '08:00:00'
 condition:
-    platform: sun
-    after: sunrise
+    - condition: sun
+      after: sunrise
+      after_offset: '+00:15:00'
 
 action:
     - service: light.turn_off
