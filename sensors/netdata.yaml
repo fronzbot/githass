@@ -3,16 +3,33 @@
   host: !secret server_url
   port: 19999
   resources:
-    - memory_free
-    - memory_used
-    - memory_cached
-    - ipv4_in
-    - ipv4_out
-    - cpu_iowait
-    - cpu_user
-    - cpu_system
-    - cpu_softirq
-    - cpu_guest
+    system.cpu:
+        element: system
+        name: cpu_system
+    system.cpu:
+        element: user
+        name: cpu_user
+    system.cpu:
+        element: iowait
+        name: cpu_iowait
+    system.cpu:
+        element: softirq
+        name: cpu_softirq
+    system.ram:
+        element: free
+        name: memory_free
+    system.ram:
+        element: used
+        name: memory_used
+    system.ram:
+        element: cached
+        name: memory_cached
+    system.ipv4:
+        element: received
+        name: ipv4_in
+    system.ipv4:
+        element: sent
+        name: ipv4_out
 
 - platform: template
   sensors:
