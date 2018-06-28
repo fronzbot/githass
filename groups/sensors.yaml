@@ -53,14 +53,6 @@ network_monitor:
     - sensor.pihole_version
     - updater.updater
 
-server_monitor:
-  name: Server Monitor
-  entities:
-    - sensor.netdata_cpu_total
-    - sensor.netdata_ram_used
-    - sensor.netdata_ipv4_in
-    - sensor.netdata_ipv4_out
-
 appliances:
   name: Alarms and Appliances
   entities:
@@ -69,10 +61,3 @@ appliances:
     - sensor.smoke_alarm_living_room
     - sensor.smoke_alarm_nursery
 
-mail:
-  name: Mail
-  entities:
-#    - sensor.usps_mail
-#    - sensor.usps_packages
-    - sensor.ups
-    - sensor.out_for_delivery
