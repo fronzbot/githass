@@ -1,5 +1,4 @@
 # Media players
-- platform: cast
 - platform: plex
   ip_address: !secret server_url
   port: 32400
