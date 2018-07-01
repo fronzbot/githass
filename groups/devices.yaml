@@ -29,6 +29,7 @@ presence_gist:
     - camera.kevin_gps
     - camera.allegra_gps
     - scene.on_the_way_home
+    - input_boolean.guest_mode
 
 zwave_devices:
   name: Z-Wave Devices

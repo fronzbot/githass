@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-May-28 20:03:42 
+# Generated: 2018-Jun-30 22:38:29 
 #--------------------------------------------
 
 #--- customize/customize_presence.yaml ---
@@ -500,6 +500,76 @@
     friendly_name: UV Index
     icon: mdi:weather-sunny
 
+#--- customize/customize_climate.yaml ---
+  
+##################
+# Thermostat
+################## 
+  climate.living_room:
+    friendly_name: Ecobee
+    icon: mdi:thermostat
+    
+  sensor.living_room_temperature:
+    friendly_name: Living Room Temperature
+    icon: mdi:thermometer
+    
+  sensor.bedroom_temperature:
+    friendly_name: Bedroom Temperature
+    icon: mdi:thermometer
+    
+  sensor.living_room_humidity:
+    friendly_name: Living Room Humidity
+    icon: mdi:water
+    
+  sensor.thermo_hvac:
+    friendly_name: HVAC Mode
+    icon: mdi:air-conditioner
+    
+  sensor.thermo_temp:
+    friendly_name: Current Temperature
+    icon: mdi:thermostat
+    
+  sensor.thermo_current_operation:
+    friendly_name: Current Status
+    icon: mdi:waves
+    
+  sensor.thermo_fan:
+    friendly_name: Fan
+    icon: mdi:fan
+  
+  sensor.thermo_dew_point:
+    friendly_name: Indoor Dew Point
+    icon: mdi:oil-temperature
+
+#--- customize/customize_input_boolean.yaml ---
+##################
+# Input Boolean
+##################
+  input_boolean.flux_living_room:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_basement:
+    icon: mdi:theme-light-dark
+    
+  input_boolean.christmas_lights:
+    icon: mdi:gift
+    
+  input_boolean.on_the_way_home:
+    icon: mdi:map-marker
+  
+  input_boolean.guest_mode:
+    icon: mdi:account
+    emulated_hue_hidden: false
+    emulated_hue_name: "Guest Mode"
+  
+  input_boolean.thermostat_enable:
+    icon: mdi:thermostat
+    emulated_hue_hidden: false
+    emulated_hue_name: "Thermostat"
+  
+  input_boolean.warmer_night_mode:
+    icon: mdi:fire
+
 #--- customize/customize_misc_sensors.yaml ---
 ##################
 # Sensors
@@ -555,30 +625,6 @@
     icon: mdi:security-network
   
 #-------------------------------
-# Netdata
-#-------------------------------  
-  
-  sensor.netdata_ram_used:
-    friendly_name: RAM in Use
-    icon: mdi:chip
-    
-  sensor.netdata_system_load:
-    friendly_name: System Load
-    icon: mdi:timelapse
-  
-  sensor.netdata_ipv4_in:
-    friendly_name: IPv4 In
-    icon: mdi:download-network
-  
-  sensor.netdata_ipv4_out:
-    friendly_name: IPv4 Out
-    icon: mdi:upload-network
-  
-  sensor.netdata_cpu_total:
-    friendly_name: CPU
-    icon: mdi:memory
-  
-#-------------------------------
 # ip_ban_list
 #-------------------------------
   sensor.fail2ban_hassiptables:
@@ -593,24 +639,6 @@
     friendly_name: Organizr Bans
     icon: mdi:do-not-disturb
   
-#-------------------------------
-# Mail Sensors
-#-------------------------------
-  sensor.usps_mail:
-    friendly_name: Mail
-    icon: mdi:email
-      
-  sensor.usps_packages:
-    friendly_name: Packages - USPS
-    icon: mdi:package-variant
-      
-  sensor.ups:
-    friendly_name: Packages - UPS
-    icon: mdi:package-variant
-  
-  sensor.out_for_delivery:
-    friendly_name: Packages - Out For Delivery
-    icon: mdi:truck-fast
   
   sensor.pihole_version:
     friendly_name: Pihole Version
@@ -685,73 +713,3 @@
   
   zwave.smoke_nursery:
     icon: mdi:smoke-detector
-
-#--- customize/customize_climate.yaml ---
-  
-##################
-# Thermostat
-################## 
-  climate.living_room:
-    friendly_name: Ecobee
-    icon: mdi:thermostat
-    
-  sensor.living_room_temperature:
-    friendly_name: Living Room Temperature
-    icon: mdi:thermometer
-    
-  sensor.bedroom_temperature:
-    friendly_name: Bedroom Temperature
-    icon: mdi:thermometer
-    
-  sensor.living_room_humidity:
-    friendly_name: Living Room Humidity
-    icon: mdi:water
-    
-  sensor.thermo_hvac:
-    friendly_name: HVAC Mode
-    icon: mdi:air-conditioner
-    
-  sensor.thermo_temp:
-    friendly_name: Current Temperature
-    icon: mdi:thermostat
-    
-  sensor.thermo_current_operation:
-    friendly_name: Current Status
-    icon: mdi:waves
-    
-  sensor.thermo_fan:
-    friendly_name: Fan
-    icon: mdi:fan
-  
-  sensor.thermo_dew_point:
-    friendly_name: Indoor Dew Point
-    icon: mdi:oil-temperature
-
-#--- customize/customize_input_boolean.yaml ---
-##################
-# Input Boolean
-##################
-  input_boolean.flux_living_room:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_basement:
-    icon: mdi:theme-light-dark
-    
-  input_boolean.christmas_lights:
-    icon: mdi:gift
-    
-  input_boolean.on_the_way_home:
-    icon: mdi:map-marker
-  
-  input_boolean.guest_mode:
-    icon: mdi:account
-    emulated_hue_hidden: false
-    emulated_hue_name: "Guest Mode"
-  
-  input_boolean.thermostat_enable:
-    icon: mdi:thermostat
-    emulated_hue_hidden: false
-    emulated_hue_name: "Thermostat"
-  
-  input_boolean.warmer_night_mode:
-    icon: mdi:fire
