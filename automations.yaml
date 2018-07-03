@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Jun-30 22:38:29 
+# Generated: 2018-Jul-03 13:41:37 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -369,6 +369,24 @@
         brightness: 174
         xy_color: [0.1903,0.6795]
 
+#--- automation/lights_daytime.yaml ---
+- id: lights_during_day
+  alias: Lights During Day
+  trigger:
+      - platform: sun
+        event: sunrise
+        offset: '+00:30:00'
+      - platform: time
+        at: '08:00:00'
+  condition:
+      - condition: sun
+        after: sunrise
+        after_offset: '+00:15:00'
+  
+  action:
+      - service: light.turn_off
+        entity_id: light.kitchen_table
+
 #--- automation/thermostat_change.yaml ---
 - id: thermostat_change_on_weather
   alias: Thermostat Change on Weather
@@ -421,23 +439,11 @@
       value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") | int > 21) or (now().strftime("%H") | int < 5)) }}'
     - platform: homeassistant
       event: start
-  action:
-    - service: python_script.thermostat_engine
-
-#--- automation/lights_daytime.yaml ---
-- id: lights_during_day
-  alias: Lights During Day
-  trigger:
-      - platform: sun
-        event: sunrise
-        offset: '+00:30:00'
-      - platform: time
-        at: '08:00:00'
-  condition:
-      - condition: sun
-        after: sunrise
-        after_offset: '+00:15:00'
+    - platform: state
+      entity_id:
+        - input_number.ac_home
+        - input_number.ac_away
+        - input_number.ac_sleep
   
   action:
-      - service: light.turn_off
-        entity_id: light.kitchen_table
+    - service: python_script.thermostat_engine

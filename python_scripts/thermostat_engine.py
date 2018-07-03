@@ -14,6 +14,10 @@ SLEEP_TIME = [5, 21]
 temp2 = hass.states.get('sensor.pws_temp_f').state
 temp1 = hass.states.get('sensor.dark_sky_temperature').state
 
+AC['home'] = hass.states.get('input_number.ac_home').state
+AC['away'] = hass.states.get('input_number.ac_away').state
+AC['sleep'] = hass.states.get('input_number.ac_sleep').state
+
 try:
     outside_temp = float(temp1)
 except TypeError:

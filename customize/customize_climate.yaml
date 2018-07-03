@@ -37,3 +37,12 @@ sensor.thermo_fan:
 sensor.thermo_dew_point:
   friendly_name: Indoor Dew Point
   icon: mdi:oil-temperature
+
+input_number.ac_home:
+  icon: mdi:air-conditioner
+
+input_number.ac_sleep:
+  icon: mdi:sleep
+
+input_number.ac_away:
+  icon: mdi:car

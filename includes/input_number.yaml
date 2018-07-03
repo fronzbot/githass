@@ -1,0 +1,20 @@
+ac_home:
+  name: AC Home
+  initial: 75
+  min: 70
+  max: 85
+  step: 1
+
+ac_sleep:
+  name: AC Sleep
+  initial: 77
+  min: 70
+  max: 85
+  step: 1
+
+ac_away:
+  name: AC Away
+  initial: 78
+  min: 70
+  max: 85
+  step: 1
