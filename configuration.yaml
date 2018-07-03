@@ -22,6 +22,7 @@ group: !include_dir_merge_named groups
 hue: !include includes/hue.yaml
 history: !include includes/history.yaml
 input_boolean: !include includes/input_boolean.yaml
+input_number: !include includes/input_number.yaml
 influxdb: !include includes/influxdb.yaml
 logger: !include includes/logger.yaml
 media_player: !include includes/media.yaml

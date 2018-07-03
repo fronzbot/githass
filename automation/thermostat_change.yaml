@@ -48,5 +48,11 @@ trigger:
     value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") | int > 21) or (now().strftime("%H") | int < 5)) }}'
   - platform: homeassistant
     event: start
+  - platform: state
+    entity_id:
+      - input_number.ac_home
+      - input_number.ac_away
+      - input_number.ac_sleep
+
 action:
   - service: python_script.thermostat_engine
