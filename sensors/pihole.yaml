@@ -1,2 +1,6 @@
 - platform: pi_hole
   host: !secret pi_hole_addr
+  monitored_conditions:
+    - ads_blocked_today
+    - ads_percentage_today
+    - dns_queries_today
