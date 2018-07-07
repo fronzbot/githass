@@ -7,9 +7,13 @@ homeassistant:
   time_zone: America/New_York
   customize: !include customize.yaml
   unit_system: imperial
+  auth_providers:
+    - type: homeassistant
+
+auth:
 
 http:
-  api_password: !secret password
+  #api_password: !secret password
   use_x_forwarded_for: True
 
 # Includes
