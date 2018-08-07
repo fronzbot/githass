@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Jul-03 13:41:37 
+# Generated: 2018-Aug-07 08:05:30 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -280,20 +280,6 @@
   action:
       - service: script.zwave_fix_dead_node
 
-#--- automation/thermostat_on_fridays.yaml ---
-- id: 'heat_on_fridays'
-  alias: 'Heat on Fridays'
-  trigger:
-    - platform: time
-      at: '8:00:00'
-  condition:
-    - condition: time
-      weekday:
-      - fri
-  action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.guest_mode
-
 #--- automation/lights_home.yaml ---
 # Turn lights on when someone comes home from work
 # group.all_devices is 'home' if ANY device is home
@@ -447,3 +433,17 @@
   
   action:
     - service: python_script.thermostat_engine
+
+#--- automation/thermostat_on_tuesdays.yaml ---
+- id: 'heat_on_tuesday'
+  alias: 'Heat on Tuesday'
+  trigger:
+    - platform: time
+      at: '8:00:00'
+  condition:
+    - condition: time
+      weekday:
+      - tue
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.guest_mode
