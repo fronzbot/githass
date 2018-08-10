@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Aug-07 08:05:30 
+# Generated: 2018-Aug-10 17:47:36 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -373,6 +373,20 @@
       - service: light.turn_off
         entity_id: light.kitchen_table
 
+#--- automation/thermostat_on_tuesdays.yaml ---
+- id: 'heat_on_tuesday'
+  alias: 'Heat on Tuesday'
+  trigger:
+    - platform: time
+      at: '8:00:00'
+  condition:
+    - condition: time
+      weekday:
+      - tue
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.guest_mode
+
 #--- automation/thermostat_change.yaml ---
 - id: thermostat_change_on_weather
   alias: Thermostat Change on Weather
@@ -433,17 +447,6 @@
   
   action:
     - service: python_script.thermostat_engine
-
-#--- automation/thermostat_on_tuesdays.yaml ---
-- id: 'heat_on_tuesday'
-  alias: 'Heat on Tuesday'
-  trigger:
-    - platform: time
-      at: '8:00:00'
-  condition:
-    - condition: time
-      weekday:
-      - tue
-  action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.guest_mode
+    - delay:
+        seconds: 5
+    - service: python_script.thermostat_engine
