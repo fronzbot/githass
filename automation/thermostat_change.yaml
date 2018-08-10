@@ -56,3 +56,6 @@ trigger:
 
 action:
   - service: python_script.thermostat_engine
+  - delay:
+      seconds: 5
+  - service: python_script.thermostat_engine

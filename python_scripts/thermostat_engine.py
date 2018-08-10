@@ -39,6 +39,8 @@ on_the_way_home = (hass.states.get('input_boolean.on_the_way_home').state == 'on
 current_time = datetime.datetime.now()
 current_hour = current_time.hour
 
+current_mode = hass.states.get('climate.living_room').state
+
 # Determine home, away, or sleep
 if someone_home or on_the_way_home:
     state_key = 'home'
@@ -74,10 +76,10 @@ if thermostat_enable:
 #        nominal_temp = living_room_temp - 1
     # Now make service call
     logger.warning('Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
-    data_mode = {'entity_id': 'climate.living_room', 'operation_mode': mode}
-    hass.services.call('climate', 'set_operation_mode', data_mode)
+    if current_mode != mode:
+        data_mode = {'entity_id': 'climate.living_room', 'operation_mode': mode}
+        hass.services.call('climate', 'set_operation_mode', data_mode)
     if mode != 'off':
-        time.sleep(0.5)
         data_temps = {'entity_id': 'climate.living_room', 'temperature': nominal_temp}
         hass.services.call('climate', 'set_temperature', data_temps)
 else:
