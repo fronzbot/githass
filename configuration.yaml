@@ -11,6 +11,8 @@ homeassistant:
 http:
   api_password: !secret password
   use_x_forwarded_for: True
+  trusted_proxies:
+    - 172.17.0.0/22
 
 # Includes
 automation: !include automations.yaml
