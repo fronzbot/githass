@@ -83,7 +83,7 @@ if thermostat_enable:
         data_temps = {'entity_id': 'climate.living_room', 'temperature': nominal_temp}
         hass.services.call('climate', 'set_temperature', data_temps)
 else:
-    hass.services.call({'entity_id': 'climate.living_room', 'operation_mode': 'off'})
+    hass.services.call('climate', 'set_operation_mode', {'entity_id': 'climate.living_room', 'operation_mode': 'off'})
 
 if on_the_way_home:
     hass.services.call('input_boolean', 'turn_off', {'entity_id': 'input_boolean.on_the_way_home'})
