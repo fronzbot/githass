@@ -5,20 +5,14 @@
 alias: Lights Home
 trigger:
   - platform: state
-    entity_id: sensor.occupancy_no_guest
+    entity_id: sensor.occupancy
     to: 'home'
 condition:
   condition: and
   conditions:
     - condition: time
-      after: '16:00:00'
-      before: '19:00:00'
-      weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+      after: '15:30:00'
+      before: '19:30:00'
 action:
   - service: light.turn_on
     entity_id: group.couch
