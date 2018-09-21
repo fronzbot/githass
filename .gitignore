@@ -9,7 +9,7 @@ known_devices.yaml
 deps/
 */secrets.yaml
 *.txt
-.xml
+*.xml
 *.sqlite
 tts/
 jupyter
@@ -29,4 +29,4 @@ www/allegra.jpg
 custom_components
 bin/vm_shutdown.sh
 entity_registry.yaml
-.storage
+.storage/
