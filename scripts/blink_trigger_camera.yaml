@@ -1,0 +1,9 @@
+blink_trigger_camera:
+  alias: Script - Blink Trigger Camera 
+  sequence:
+    - service: blink.trigger_camera
+      data:
+          name: "Living Room"
+    - delay: 00:00:05
+    - service: blink.blink_update
+      

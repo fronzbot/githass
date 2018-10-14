@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Sep-01 10:09:07 
+# Generated: 2018-Oct-12 17:46:42 
 #--------------------------------------------
 
 #--- scripts/hass_upgrade.yaml ---
@@ -49,15 +49,6 @@
       - service: notify.notify_kevin_phone
         data:
           message: "SSL Renew Instructions - 1) Open Port 80 2) Restart router 3) Run ./ssl_renew from pi's home directory 4) Close Port 80 5) Restart router"
-
-#--- scripts/blink_snap_picture.yaml ---
-  blink_snap_picture:
-    alias: Blink Take New Picture
-    sequence:
-      - service: blink.snap_picture
-        data:
-          friendly_name: "Living Room"
-        
 
 #--- scripts/speech_processing.yaml ---
   speech_processing:
@@ -362,3 +353,14 @@
     alias: Upgrade PiHole 
     sequence:
       - service: shell_command.pihole_upgrade
+
+#--- scripts/blink_trigger_camera.yaml ---
+  blink_trigger_camera:
+    alias: Script - Blink Trigger Camera 
+    sequence:
+      - service: blink.trigger_camera
+        data:
+            name: "Living Room"
+      - delay: 00:00:05
+      - service: blink.blink_update
+        

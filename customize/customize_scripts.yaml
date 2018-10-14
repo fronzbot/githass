@@ -9,8 +9,9 @@ script.github_pull:
 script.hass_upgrade:
   icon: mdi:home-assistant
 
-script.blink_snap_picture:
+script.blink_trigger_camera:
   icon: mdi:camera
+  can_cancel: false
 
 script.ssl_renew_certificate:
   icon: mdi:lock

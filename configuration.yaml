@@ -16,6 +16,7 @@ http:
 
 # Includes
 automation: !include automations.yaml
+blink: !include includes/blink.yaml
 camera: !include includes/cameras.yaml
 device_tracker: !include includes/device_trackers.yaml
 emulated_hue: !include includes/emulated_hue.yaml

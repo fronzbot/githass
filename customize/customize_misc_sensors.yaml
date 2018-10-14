@@ -106,13 +106,26 @@ sensor.smoke_alarm_nursery:
   friendly_name: Smoke Alarm - Nursery
   icon: mdi:fire
 
-sensor.blink_living_room_notifications:
-  friendly_name: Logged Motion Events
-  icon: mdi:run-fast
+binary_sensor.blink_living_room_motion_detected:
+  friendly_name: Blink Motion Detected
 
-binary_sensor.blink_armed_status:
-  friendly_name: System Armed
-  icon: mdi:security
+binary_sensor.blink_living_room_camera_armed:
+  friendly_name: Blink Camera Armed
+
+sensor.blink_living_room_status:
+  friendly_name: Blink Camera Status
+
+sensor.blink_living_room_battery:
+  friendly_name: Blink Camera Battery
+
+sensor.blink_living_room_temperature:
+  friendly_name: Blink Camera Temperature
+
+sensor.blink_living_room_wifi_strength:
+  friendly_name: Blink Wifi Strength
+
+camera.blink_living_room:
+  friendly_name: Blink Camera
 
 #-------------------------------
 # Zwave Devices

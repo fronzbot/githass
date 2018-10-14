@@ -13,13 +13,6 @@ default_view:
     - group.appliances
     - configurator.ecobee
 
-tab_media:
-  name: Media
-  view: yes
-  icon: mdi:filmstrip
-  entities:
-    - group.all_media
-    
 tab_thermo:
   name: Thermostat
   view: yes
@@ -34,6 +27,16 @@ tab_weather:
   icon: mdi:weather-sunset
   entities:
     - group.weather_all
+
+tab_security:
+  name: Security
+  view: yes
+  icon: mdi:security
+  entities: 
+    - camera.blink_living_room
+    - group.blink_alarm_panel
+    - group.blink_sensors
+    - script.blink_trigger_camera
 
 tab_system:
   name: System
