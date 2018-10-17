@@ -5,7 +5,10 @@
 alias: Lights Home
 trigger:
   - platform: state
-    entity_id: sensor.occupancy
+    entity_id: device_tracker.kevin_gps
+    to: 'home'
+  - platform: state
+    entity_id: device_tracker.allegra_gps
     to: 'home'
 condition:
   condition: and
@@ -15,8 +18,9 @@ condition:
       before: '19:30:00'
 action:
   - service: light.turn_on
-    entity_id: group.couch
-  - service: light.turn_on
-    entity_id: light.kitchen_table
+    entity_id:
+        - light.couch_left
+        - light.couch_right
+        - light.kitchen_table
   - service: input_boolean.turn_off
     entity_id: input_boolean.guest_mode
