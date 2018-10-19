@@ -1,29 +1,5 @@
 alias: Thermostat Change on Weather
 trigger:
-  - platform: time
-    at: '22:30:00'
-  - platform: time
-    at: '06:00:00'
-  - platform: state
-    entity_id: input_boolean.thermostat_enable
-    to: 'on'
-  - platform: state
-    entity_id: input_boolean.guest_mode
-    to: 'on'
-  - platform: state
-    entity_id: input_boolean.guest_mode
-    to: 'off'
-  - platform: state
-    entity_id: input_boolean.on_the_way_home
-    to: 'on'
-  - platform: state
-    entity_id: input_boolean.warmer_night_mode
-  - platform: state
-    entity_id: sensor.occupancy
-    to: 'home'
-  - platform: state
-    entity_id: sensor.occupancy
-    to: 'not_home'  
   - platform: numeric_state
     entity_id: sensor.dark_sky_temperature
     above: 77
@@ -46,16 +22,6 @@ trigger:
     value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") | int > 21) }}'
   - platform: template
     value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") | int > 21) or (now().strftime("%H") | int < 5)) }}'
-  - platform: homeassistant
-    event: start
-  - platform: state
-    entity_id:
-      - input_number.ac_home
-      - input_number.ac_away
-      - input_number.ac_sleep
 
 action:
-  - service: python_script.thermostat_engine
-  - delay:
-      seconds: 5
   - service: python_script.thermostat_engine

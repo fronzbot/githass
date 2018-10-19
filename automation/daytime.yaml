@@ -1,4 +1,4 @@
-alias: Lights During Day
+alias: Daytime Routine
 trigger:
     - platform: sun
       event: sunrise
@@ -13,3 +13,4 @@ condition:
 action:
     - service: light.turn_off
       entity_id: light.kitchen_table
+    - service: python_script.thermostat_engine

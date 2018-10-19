@@ -1,0 +1,17 @@
+alias: Thermostat Controls
+trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: input_boolean.thermostat_enable
+    to: 'on'
+  - platform: state
+    entity_id:
+      - input_number.ac_home
+      - input_number.ac_away
+      - input_number.ac_sleep
+      - input_number.heat_home
+      - input_number.heat_away
+      - input_number.heat_sleep
+action:
+  - service: python_script.thermostat_engine

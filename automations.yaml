@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Oct-18 19:59:25 
+# Generated: 2018-Oct-19 11:21:04 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -35,28 +35,6 @@
       data:
         call_washer_status: 1
 
-#--- automation/lights_rainy.yaml ---
-#Turn on couch lights if it's raining, someone
-# is home, and it's after 11am.
-- id: lights_rainy
-  alias: Lights Rainy
-  trigger:
-    - platform: state
-      entity_id: sensor.pws_weather
-      to: 'Rain'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '07:00'
-        before: '18:00'
-      - condition: state
-        entity_id: sensor.occupancy
-        state: 'home'
-  action:
-    service: light.turn_on
-    entity_id: group.couch
-
 #--- automation/notify_on_fire_co2.yaml ---
 - id: notify_on_fire_co2
   alias: Notify on Fire/CO2
@@ -87,43 +65,6 @@
       data:
         call_fire_co2: 1
 
-#--- automation/notify_on_way_home.yaml ---
-- id: notify_on_way_home
-  alias: Notify on Way Home
-  trigger:
-    - platform: state
-      entity_id: input_boolean.on_the_way_home
-      to: 'on'
-  action:
-    - service: script.notify_all_engine
-      data:
-        call_on_way_home: 1
-
-#--- automation/lights_not_home.yaml ---
-# Turn on lights if we're not home and it's dark out
-- id: lights_not_home
-  alias: Lights Not Home
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '-00:15:00'
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '16:00:00'
-        before: '22:00:00'
-      - condition: state
-        entity_id: sensor.occupancy
-        state: 'not_home'
-  action:
-    service: light.turn_on
-    entity_id: group.couch
-  
-
 #--- automation/lights_outside_off.yaml ---
 # Turn on outside lights off at 12:40 am
   
@@ -139,30 +80,6 @@
       entity_id: group.outdoor_switches
     - service: switch.turn_off    
       entity_id: switch.driveway_switch
-
-#--- automation/tts_garbage_night.yaml ---
-- id: tts_garbage_night
-  alias: TTS Garbage Night
-  trigger:
-    platform: time
-    at: '20:00:00'
-  action:
-    service: script.speech_engine
-    data:
-      call_garbage_night: 1
-
-#--- automation/lights_wake.yaml ---
-# Turn lights on in the morning 
-- id: lights_wakeup
-  alias: Lights Wakeup
-  trigger:
-    - platform: time
-      at: '6:30:33'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.couch_left
-        - light.kitchen_table
 
 #--- automation/lights_inside_off.yaml ---
 # Turn inside lights off around midnight (before exterior)
@@ -199,36 +116,6 @@
     - service: script.notify_kevin_engine
       data:
         call_failed_login: 1
-
-#--- automation/lights_away.yaml ---
-# Turn lights off when everyone leaves for work
-# group.all_devices is 'not_home' if ALL devices are not home
-# Only do this between 7:30am to 10:00am
-  
-- id: lights_away
-  alias: Lights Away
-  trigger:
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'
-    - platform: time
-      at: '9:00:00'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: sensor.occupancy
-        state: 'not_home'
-      - condition: time
-        after: '7:30:00'
-        before: '10:00:00'
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: 'off'
-  action:
-    service: light.turn_off
-    entity_id: group.all_lights
-      
 
 #--- automation/media_movies.yaml ---
 - id: movie_colors
@@ -280,27 +167,6 @@
   action:
       - service: script.zwave_fix_dead_node
 
-#--- automation/lights_sunset.yaml ---
-# Turn on outside lights 15 minutes after sunset
-  
-- id: lights_sunset
-  alias: Lights Sunset
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '+00:15:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.porch_2
-      data:
-        brightness: 278
-        color_temp: 330
-    - service: switch.turn_on
-      entity_id: switch.driveway_switch
-    - service: script.speech_engine
-      data:
-        call_dark_outside: 1
-
 #--- automation/lights_holiday_lights.yaml ---
 # Turn on holiday lights at sunset
 - id: lights_holiday_lights
@@ -324,24 +190,6 @@
         brightness: 174
         xy_color: [0.1903,0.6795]
 
-#--- automation/lights_daytime.yaml ---
-- id: lights_during_day
-  alias: Lights During Day
-  trigger:
-      - platform: sun
-        event: sunrise
-        offset: '+00:30:00'
-      - platform: time
-        at: '08:00:00'
-  condition:
-      - condition: sun
-        after: sunrise
-        after_offset: '+00:15:00'
-  
-  action:
-      - service: light.turn_off
-        entity_id: light.kitchen_table
-
 #--- automation/thermostat_on_tuesdays.yaml ---
 - id: 'heat_on_tuesday'
   alias: 'Heat on Tuesday'
@@ -356,34 +204,145 @@
     - service: input_boolean.turn_on
       entity_id: input_boolean.guest_mode
 
-#--- automation/thermostat_change.yaml ---
-- id: thermostat_change_on_weather
-  alias: Thermostat Change on Weather
+#--- automation/away_from_home.yaml ---
+- id: away_from_home
+  alias: Away From Home
+  trigger:
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'not_home'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '16:00:00'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+  action:
+      - service: light.turn_off
+        entity_id: group.all_lights
+      - service: python_script.thermostat_engine 
+
+#--- automation/arriving_home.yaml ---
+- id: arriving_home
+  alias: Arriving Home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.kevin_gps
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.allegra_gps
+      to: 'home'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '15:30:00'
+        before: '19:30:00'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.couch_left
+        - light.couch_right
+        - light.kitchen_table
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.guest_mode
+    - service: python_script.thermostat_engine
+
+#--- automation/away_from_home_night.yaml ---
+- id: away_from_home_at_night
+  alias: Away From Home at Night
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-00:15:00'
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'not_home'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '16:00:00'
+        before: '22:00:00'
+      - condition: state
+        entity_id: sensor.occupancy
+        state: 'not_home'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.couch_left
+        - light.couch_right
+
+#--- automation/wakeup.yaml ---
+- id: wakeup_routine
+  alias: Wakeup Routine
+  trigger:
+    - platform: time
+      at: '06:30:30'
+  action:
+    - service: light.turn_ok
+      entity_id:
+        - light.couch_left
+        - light.kitchen_table
+    - service: python_script.thermostat_engine
+
+#--- automation/nighttime.yaml ---
+- id: nighttime_routine
+  alias: Nighttime Routine
   trigger:
     - platform: time
       at: '22:30:00'
-    - platform: time
-      at: '06:00:00'
-    - platform: state
-      entity_id: input_boolean.thermostat_enable
-      to: 'on'
-    - platform: state
-      entity_id: input_boolean.guest_mode
-      to: 'on'
-    - platform: state
-      entity_id: input_boolean.guest_mode
-      to: 'off'
-    - platform: state
-      entity_id: input_boolean.on_the_way_home
-      to: 'on'
-    - platform: state
-      entity_id: input_boolean.warmer_night_mode
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'home'
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'  
+  action:
+    - service: light.turn_off
+      entity_id: light.kitchen_table
+    - service: python_script.thermostat_engine
+
+#--- automation/daytime.yaml ---
+- id: daytime_routine
+  alias: Daytime Routine
+  trigger:
+      - platform: sun
+        event: sunrise
+        offset: '+00:30:00'
+      - platform: time
+        at: '08:00:00'
+  condition:
+      - condition: sun
+        after: sunrise
+        after_offset: '+00:15:00'
+  
+  action:
+      - service: light.turn_off
+        entity_id: light.kitchen_table
+      - service: python_script.thermostat_engine
+
+#--- automation/sunset.yaml ---
+# Turn on outside lights 15 minutes after sunset
+  
+- id: lights_sunset
+  alias: Lights Sunset
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '+00:15:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.porch_2
+      data:
+        brightness: 278
+        color_temp: 330
+    - service: switch.turn_on
+      entity_id: switch.driveway_switch
+    - service: script.speech_engine
+      data:
+        call_dark_outside: 1
+
+#--- automation/thermostat_weather.yaml ---
+- id: thermostat_change_on_weather
+  alias: Thermostat Change on Weather
+  trigger:
     - platform: numeric_state
       entity_id: sensor.dark_sky_temperature
       above: 77
@@ -406,45 +365,44 @@
       value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") | int > 21) }}'
     - platform: template
       value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") | int > 21) or (now().strftime("%H") | int < 5)) }}'
+  
+  action:
+    - service: python_script.thermostat_engine
+
+#--- automation/thermostat_control.yaml ---
+- id: thermostat_controls
+  alias: Thermostat Controls
+  trigger:
     - platform: homeassistant
       event: start
+    - platform: state
+      entity_id: input_boolean.thermostat_enable
+      to: 'on'
     - platform: state
       entity_id:
         - input_number.ac_home
         - input_number.ac_away
         - input_number.ac_sleep
-  
+        - input_number.heat_home
+        - input_number.heat_away
+        - input_number.heat_sleep
   action:
     - service: python_script.thermostat_engine
-    - delay:
-        seconds: 5
-    - service: python_script.thermostat_engine
 
-#--- automation/lights_home.yaml ---
-# Turn lights on when someone comes home from work
-# group.all_devices is 'home' if ANY device is home
-# Do this between 5pm and 7pm
-  
-- id: lights_home
-  alias: Lights Home
+#--- automation/on_the_way_home.yaml ---
+- id: on_the_way_home
+  alias: On The Way Home
   trigger:
     - platform: state
-      entity_id: device_tracker.kevin_gps
-      to: 'home'
-    - platform: state
-      entity_id: device_tracker.allegra_gps
-      to: 'home'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '15:30:00'
-        before: '19:30:00'
+      entity_id: input_boolean.on_the_way_home
+      to: 'on'
   action:
     - service: light.turn_on
       entity_id:
-          - light.couch_left
-          - light.couch_right
-          - light.kitchen_table
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.guest_mode
+        - light.couch_left
+        - light.couch_right
+        - light.kitchen_table
+    - service: python_script.thermostat_engine
+    - service: script.notify_all_engine
+      data:
+        call_on_way_home: 1
