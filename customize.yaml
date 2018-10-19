@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Oct-17 16:26:14 
+# Generated: 2018-Oct-18 19:59:25 
 #--------------------------------------------
 
 #--- customize/customize_presence.yaml ---
@@ -497,56 +497,6 @@
   input_boolean.warmer_night_mode:
     icon: mdi:fire
 
-#--- customize/customize_climate.yaml ---
-  
-##################
-# Thermostat
-################## 
-  climate.living_room:
-    friendly_name: Ecobee
-    icon: mdi:thermostat
-    
-  sensor.living_room_temperature:
-    friendly_name: Living Room Temperature
-    icon: mdi:thermometer
-    
-  sensor.bedroom_temperature:
-    friendly_name: Bedroom Temperature
-    icon: mdi:thermometer
-    
-  sensor.living_room_humidity:
-    friendly_name: Living Room Humidity
-    icon: mdi:water
-    
-  sensor.thermo_hvac:
-    friendly_name: HVAC Mode
-    icon: mdi:air-conditioner
-    
-  sensor.thermo_temp:
-    friendly_name: Current Temperature
-    icon: mdi:thermostat
-    
-  sensor.thermo_current_operation:
-    friendly_name: Current Status
-    icon: mdi:waves
-    
-  sensor.thermo_fan:
-    friendly_name: Fan
-    icon: mdi:fan
-  
-  sensor.thermo_dew_point:
-    friendly_name: Indoor Dew Point
-    icon: mdi:oil-temperature
-  
-  input_number.ac_home:
-    icon: mdi:air-conditioner
-  
-  input_number.ac_sleep:
-    icon: mdi:sleep
-  
-  input_number.ac_away:
-    icon: mdi:car
-
 #--- customize/customize_misc_sensors.yaml ---
 ##################
 # Sensors
@@ -736,3 +686,62 @@
   script.upgrade_pihole:
     icon: mdi:arrow-up-bold-circle-outline
     friendly_name: "Upgrade Pihole"
+
+#--- customize/customize_climate.yaml ---
+  
+##################
+# Thermostat
+################## 
+  climate.living_room:
+    friendly_name: Ecobee
+    icon: mdi:thermostat
+    
+  sensor.living_room_temperature:
+    friendly_name: Living Room Temperature
+    icon: mdi:thermometer
+    
+  sensor.bedroom_temperature:
+    friendly_name: Bedroom Temperature
+    icon: mdi:thermometer
+    
+  sensor.living_room_humidity:
+    friendly_name: Living Room Humidity
+    icon: mdi:water
+    
+  sensor.thermo_hvac:
+    friendly_name: HVAC Mode
+    icon: mdi:air-conditioner
+    
+  sensor.thermo_temp:
+    friendly_name: Current Temperature
+    icon: mdi:thermostat
+    
+  sensor.thermo_current_operation:
+    friendly_name: Current Status
+    icon: mdi:waves
+    
+  sensor.thermo_fan:
+    friendly_name: Fan
+    icon: mdi:fan
+  
+  sensor.thermo_dew_point:
+    friendly_name: Indoor Dew Point
+    icon: mdi:oil-temperature
+  
+  input_number.ac_home:
+    icon: mdi:air-conditioner
+  
+  input_number.ac_sleep:
+    icon: mdi:sleep
+  
+  input_number.ac_away:
+    icon: mdi:car
+  
+  input_number.heat_home:
+    icon: mdi:radiator
+  
+  input_number.heat_sleep:
+    icon: mdi:sleep
+  
+  input_number.heat_away:
+    icon: mdi:car

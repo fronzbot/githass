@@ -18,6 +18,10 @@ AC['home'] = hass.states.get('input_number.ac_home').state
 AC['away'] = hass.states.get('input_number.ac_away').state
 AC['sleep'] = hass.states.get('input_number.ac_sleep').state
 
+HEAT['home'] = hass.states.get('input_number.heat_home').state
+HEAT['away'] = hass.states.get('input_number.heat_away').state
+HEAT['sleep'] = hass.states.get('input_number.heat_sleep').state
+
 try:
     outside_temp = float(temp1)
 except TypeError:

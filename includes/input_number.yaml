@@ -18,3 +18,25 @@ ac_away:
   min: 70
   max: 85
   step: 1
+
+heat_home:
+  name: Heat Home
+  initial: 68
+  min: 55
+  max: 72
+  step: 1
+
+heat_sleep:
+  name: Heat Sleep
+  initial: 66
+  min: 55
+  max: 72
+  step: 1
+
+heat_away:
+  name: Heat Away
+  initial: 60
+  min: 55
+  max: 72
+  step: 1
+
