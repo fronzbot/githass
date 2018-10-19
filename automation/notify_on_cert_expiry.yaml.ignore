@@ -1,9 +1,0 @@
-alias: Notify on SSL Expiry
-trigger:
-  - platform: numeric_state
-    entity_id: sensor.ssl_cert_expiry
-    below: 21
-action:
-  - service: script.notify_kevin_engine
-    data:
-      call_ssl_cert_expiry: 1

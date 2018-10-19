@@ -1,5 +1,4 @@
-# Turn on lights if we're not home and it's dark out
-alias: Lights Not Home
+alias: Away From Home at Night
 trigger:
   - platform: sun
     event: sunset
@@ -17,6 +16,7 @@ condition:
       entity_id: sensor.occupancy
       state: 'not_home'
 action:
-  service: light.turn_on
-  entity_id: group.couch
-
+  - service: light.turn_on
+    entity_id:
+      - light.couch_left
+      - light.couch_right

@@ -1,0 +1,8 @@
+alias: Nighttime Routine
+trigger:
+  - platform: time
+    at: '22:30:00'
+action:
+  - service: light.turn_off
+    entity_id: light.kitchen_table
+  - service: python_script.thermostat_engine

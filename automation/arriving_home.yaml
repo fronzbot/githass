@@ -1,8 +1,4 @@
-# Turn lights on when someone comes home from work
-# group.all_devices is 'home' if ANY device is home
-# Do this between 5pm and 7pm
-
-alias: Lights Home
+alias: Arriving Home
 trigger:
   - platform: state
     entity_id: device_tracker.kevin_gps
@@ -19,8 +15,9 @@ condition:
 action:
   - service: light.turn_on
     entity_id:
-        - light.couch_left
-        - light.couch_right
-        - light.kitchen_table
+      - light.couch_left
+      - light.couch_right
+      - light.kitchen_table
   - service: input_boolean.turn_off
     entity_id: input_boolean.guest_mode
+  - service: python_script.thermostat_engine

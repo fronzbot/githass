@@ -1,0 +1,10 @@
+alias: Wakeup Routine
+trigger:
+  - platform: time
+    at: '06:30:30'
+action:
+  - service: light.turn_ok
+    entity_id:
+      - light.couch_left
+      - light.kitchen_table
+  - service: python_script.thermostat_engine
