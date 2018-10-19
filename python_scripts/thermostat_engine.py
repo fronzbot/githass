@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------
 
 # Thermostat thresholds
-THRESHOLD_FOR_HEAT = 55
+THRESHOLD_FOR_HEAT = 57
 THRESHOLD_FOR_AC   = 77
 AC   = {'home': 75, 'away': 79, 'sleep': 77}
 HEAT = {'home': 67, 'away': 59, 'sleep': 64}

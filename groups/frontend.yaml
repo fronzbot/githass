@@ -63,8 +63,4 @@ tab_automation:
     - input_boolean.on_the_way_home
     - input_boolean.guest_mode
     - input_boolean.thermostat_enable
-    - input_boolean.warmer_night_mode
-    - group.automations_sun
-    - group.automations_presence
-    - group.automations_hvac
-    - group.automations_notify
+    - group.all_automations

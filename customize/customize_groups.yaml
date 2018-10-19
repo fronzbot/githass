@@ -89,6 +89,8 @@ group.outdoor_switches:
 # 'ALL' GROUPS  
 #============================
 group.all_automations:
+  friendly_name: "Automations"
+  hidden: false
   emulated_hue_hidden: true
   
 group.all_locks:
