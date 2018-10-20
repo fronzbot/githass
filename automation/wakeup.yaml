@@ -3,7 +3,7 @@ trigger:
   - platform: time
     at: '06:30:30'
 action:
-  - service: light.turn_ok
+  - service: light.turn_on
     entity_id:
       - light.couch_left
       - light.kitchen_table
