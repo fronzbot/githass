@@ -6,12 +6,6 @@ trigger:
   - platform: state
     entity_id: device_tracker.allegra_gps
     to: 'home'
-condition:
-  condition: and
-  conditions:
-    - condition: time
-      after: '15:30:00'
-      before: '19:30:00'
 action:
   - service: light.turn_on
     entity_id:
