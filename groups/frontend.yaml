@@ -33,6 +33,7 @@ tab_security:
   view: yes
   icon: mdi:security
   entities: 
+    - camera.blink_gif
     - camera.blink_living_room
     - group.blink_alarm_panel
     - group.blink_sensors

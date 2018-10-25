@@ -1,0 +1,12 @@
+alias: Blink Automatically Take Picture
+trigger:
+  - platform: time
+    minutes: '/30'
+    seconds: 00
+action:
+  - service: script.blink_trigger_camera
+  - delay: 00:00:10
+  - service: camera.snapshot
+    data:
+      entity_id: camera.blink_living_room
+      filename: /images/raw_images/blink_living_room_{{now().year}}{{now().month}}{{now().day}}_{{now().hour}}{{now().minute}}{{now().second}}.jpg

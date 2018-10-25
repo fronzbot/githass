@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Oct-21 11:40:28 
+# Generated: 2018-Oct-25 11:13:17 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -400,3 +400,18 @@
     - service: input_boolean.turn_off
       entity_id: input_boolean.guest_mode
     - service: python_script.thermostat_engine
+
+#--- automation/blink_auto_pic.yaml ---
+- id: blink_automatically_take_picture
+  alias: Blink Automatically Take Picture
+  trigger:
+    - platform: time
+      minutes: '/30'
+      seconds: 00
+  action:
+    - service: script.blink_trigger_camera
+    - delay: 00:00:10
+    - service: camera.snapshot
+      data:
+        entity_id: camera.blink_living_room
+        filename: /images/raw_images/blink_living_room_{{now().year}}{{now().month}}{{now().day}}_{{now().hour}}{{now().minute}}{{now().second}}.jpg

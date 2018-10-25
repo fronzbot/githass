@@ -11,3 +11,7 @@
   name: Allegra GPS
   still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{states.device_tracker.allegra_gps.attributes.latitude }},{{states.device_tracker.allegra_gps.attributes.longitude}}&zoom=13&size=500x300&maptype=roadmap&markers=color:red%7Clabel:A%7C{{states.device_tracker.allegra_gps.attributes.latitude}},{{states.device_tracker.allegra_gps.attributes.longitude}}
   limit_refetch_to_url_change: true
+
+- platform: local_file
+  name: blink_gif
+  file_path: /images/gifs/output.gif

@@ -7,6 +7,8 @@ homeassistant:
   time_zone: America/New_York
   customize: !include customize.yaml
   unit_system: imperial
+  whitelist_external_dirs:
+    - /images
 
 http:
   api_password: !secret password
