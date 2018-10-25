@@ -7,6 +7,7 @@ env:
 
 before_install:
     - mv travis_secrets.yaml secrets.yaml; touch /tmp/test.txt
+    - mkdir /images
 
 script:
     - pip3 install $HASS && pip3 install colorama
