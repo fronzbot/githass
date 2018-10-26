@@ -15,3 +15,5 @@ action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.guest_mode
   - service: python_script.thermostat_engine
+  - service: alarm_control_panel.disarm
+    entity_id: alarm_control_panel.blink_sync

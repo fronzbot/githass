@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Oct-25 11:13:17 
+# Generated: 2018-Oct-26 08:23:27 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -132,26 +132,6 @@
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.guest_mode
-
-#--- automation/away_from_home.yaml ---
-- id: away_from_home
-  alias: Away From Home
-  trigger:
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        before: '16:00:00'
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: 'off'
-  action:
-      - service: light.turn_off
-        entity_id: group.all_lights
-      - service: python_script.thermostat_engine 
 
 #--- automation/away_from_home_night.yaml ---
 - id: away_from_home_at_night
@@ -381,6 +361,43 @@
         - light.kitchen_table
     - service: python_script.thermostat_engine
 
+#--- automation/blink_auto_pic.yaml ---
+- id: blink_automatically_take_picture
+  alias: Blink Automatically Take Picture
+  trigger:
+    - platform: time
+      minutes: '/30'
+      seconds: 00
+  action:
+    - service: script.blink_trigger_camera
+    - delay: 00:00:10
+    - service: camera.snapshot
+      data:
+        entity_id: camera.blink_living_room
+        filename: /images/raw_images/blink_living_room_{{now().year}}{{now().month}}{{now().day}}_{{now().hour}}{{now().minute}}{{now().second}}.jpg
+
+#--- automation/away_from_home.yaml ---
+- id: away_from_home
+  alias: Away From Home
+  trigger:
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'not_home'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '16:00:00'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+  action:
+      - service: light.turn_off
+        entity_id: group.all_lights
+      - service: python_script.thermostat_engine
+      - service: alarm_control_panel.arm_away
+        entity_id: alarm_control_panel.blink_sync 
+
 #--- automation/arriving_home.yaml ---
 - id: arriving_home
   alias: Arriving Home
@@ -400,18 +417,5 @@
     - service: input_boolean.turn_off
       entity_id: input_boolean.guest_mode
     - service: python_script.thermostat_engine
-
-#--- automation/blink_auto_pic.yaml ---
-- id: blink_automatically_take_picture
-  alias: Blink Automatically Take Picture
-  trigger:
-    - platform: time
-      minutes: '/30'
-      seconds: 00
-  action:
-    - service: script.blink_trigger_camera
-    - delay: 00:00:10
-    - service: camera.snapshot
-      data:
-        entity_id: camera.blink_living_room
-        filename: /images/raw_images/blink_living_room_{{now().year}}{{now().month}}{{now().day}}_{{now().hour}}{{now().minute}}{{now().second}}.jpg
+    - service: alarm_control_panel.disarm
+      entity_id: alarm_control_panel.blink_sync
