@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Oct-26 09:37:05 
+# Generated: 2018-Oct-26 10:28:11 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -348,34 +348,6 @@
   action:
     - service: python_script.thermostat_engine
 
-#--- automation/wakeup.yaml ---
-- id: wakeup_routine
-  alias: Wakeup Routine
-  trigger:
-    - platform: time
-      at: '06:30:30'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.couch_left
-        - light.kitchen_table
-    - service: python_script.thermostat_engine
-
-#--- automation/blink_auto_pic.yaml ---
-- id: blink_automatically_take_picture
-  alias: Blink Automatically Take Picture
-  trigger:
-    - platform: time
-      minutes: '/30'
-      seconds: 00
-  action:
-    - service: script.blink_trigger_camera
-    - delay: 00:00:10
-    - service: camera.snapshot
-      data:
-        entity_id: camera.blink_living_room
-        filename: /images/raw_images/blink_living_room_{{now().year}}{{now().month}}{{now().day}}_{{now().hour}}{{now().minute}}{{now().second}}.jpg
-
 #--- automation/away_from_home.yaml ---
 - id: away_from_home
   alias: Away From Home
@@ -419,3 +391,40 @@
     - service: python_script.thermostat_engine
     - service: alarm_control_panel.alarm_disarm
       entity_id: alarm_control_panel.blink_sync
+
+#--- automation/wakeup.yaml ---
+- id: wakeup_routine
+  alias: Wakeup Routine
+  trigger:
+    - platform: time
+      at: '06:30:30'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.couch_left
+        - light.kitchen_table
+    - service: python_script.thermostat_engine
+
+#--- automation/blink_auto_pic.yaml ---
+- id: blink_automatically_take_picture
+  alias: Blink Automatically Take Picture
+  trigger:
+    - platform: time
+      minutes: '/15'
+      seconds: 00
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '00:10:00'
+        after: '04:10:00'
+      - condition: sun
+        after: sunrise
+        after_offset: '-00:30:00'
+  action:
+    - service: script.blink_trigger_camera
+    - delay: 00:00:10
+    - service: camera.snapshot
+      data:
+        entity_id: camera.blink_living_room
+        filename: /images/raw_images/blink_living_room_{{now().year}}{{now().month}}{{now().day}}_{{now().hour}}{{now().minute}}{{now().second}}.jpg

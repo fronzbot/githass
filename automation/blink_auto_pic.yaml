@@ -1,8 +1,17 @@
 alias: Blink Automatically Take Picture
 trigger:
   - platform: time
-    minutes: '/30'
+    minutes: '/15'
     seconds: 00
+condition:
+  condition: and
+  conditions:
+    - condition: time
+      before: '00:10:00'
+      after: '04:10:00'
+    - condition: sun
+      after: sunrise
+      after_offset: '-00:30:00'
 action:
   - service: script.blink_trigger_camera
   - delay: 00:00:10
