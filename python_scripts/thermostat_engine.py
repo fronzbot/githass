@@ -57,7 +57,7 @@ else:
 too_humid = living_room_humidity > 59
 too_hot_inside = (outside_temp > 74 and (living_room_temp >= (outside_temp + 1)))
 
-logger.warning("Outside: {}, Living Room: {}, Home: {}, Time: {}, State: {}".format(outside_temp, living_room_temp, someone_home, current_time, state_key))
+logger.info("Outside: {}, Living Room: {}, Home: {}, Time: {}, State: {}".format(outside_temp, living_room_temp, someone_home, current_time, state_key))
 
 # Only fire if thermostat is enabled
 
@@ -79,7 +79,7 @@ if thermostat_enable:
 #        target_high = living_room_temp - 1
 #        nominal_temp = living_room_temp - 1
     # Now make service call
-    logger.warning('Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
+    logger.info('Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
     if current_mode != mode:
         data_mode = {'entity_id': 'climate.living_room', 'operation_mode': mode}
         hass.services.call('climate', 'set_operation_mode', data_mode)
