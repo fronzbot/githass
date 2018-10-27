@@ -1,0 +1,47 @@
+#----------------
+# Living Room
+#----------------
+- type: vertical-stack
+  cards:
+    - type: picture-glance
+      title: Living Room
+      entities:
+        - light.couch_left
+        - light.couch_right
+        - light.corner
+        - group.lights_living_room
+        - scene.movie_mode
+        - input_boolean.flux_living_room
+        - climate.living_room
+      state_image:
+        'on': /local/lovelace/living_room.jpg
+        'off': /local/lovelace/living_room_off.jpg
+      entity: group.lights_living_room
+      aspect_ratio: 6:4 
+
+    - type: horizontal-stack
+      cards:
+        - type: sensor
+          entity: sensor.living_room_temperature
+          name: Temperature
+          height: 15
+          graph: none
+        - type: sensor
+          entity: sensor.living_room_humidity
+          name: Humidity
+          height: 15
+          graph: none
+
+#-----------------
+# Kitchen
+#-----------------
+- type: picture-glance
+  title: Kitchen
+  entities:
+    - light.kitchen_table
+    - group.lights_kitchen
+  state_image:
+    'on': /local/lovelace/kitchen.jpg
+    'off': /local/lovelace/kitchen_off.jpg
+  entity: group.lights_kitchen
+  aspect_ratio: 6:4

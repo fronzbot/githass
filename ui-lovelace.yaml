@@ -1,21 +1,6 @@
 title: Home Assistant
 views:
   - icon: mdi:home-assistant
-    title: Summary
-    id: summary
-    cards:
-      - type: entities
-        title: Lights
-        show_header_toggle: true
-        entities:
-          - light.couch_left
-          - light.couch_right
-          - light.corner
-
-      - type: map
-        aspect_ratio: 75%
-        default_zoom: 8
-        entities:
-          - device_tracker.kevin_gps
-          - device_tracker.allegra_gps
-          - zone.home
+    title: Home
+    id: home
+    cards: !include lovelace/main.yaml
