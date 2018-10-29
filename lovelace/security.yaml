@@ -1,0 +1,17 @@
+icon: mdi:security
+title: Security
+id: security
+cards:
+  - type: alarm-panel
+    entity: alarm_control_panel.blink_sync
+    states:
+      - arm_away
+
+  - type: sensor
+    entity: sensor.blink_living_room_temperature
+
+  - type: sensor
+    entity: sensor.blink_living_room_battery
+
+  - type: picture-entity
+    entity: camera.blink_gif

@@ -46,12 +46,34 @@ def merge_config(files):
     return CONFIG
 
 
-def write_to_config(config, config_path='/config'):
+def write_to_config(config, config_path='/config', resources=None):
     """Write the config to main lovelace file."""
     config_file = os.path.join(config_path, LOVELACE_FILE)
     with open(config_file, 'w') as outfile:
         outfile.write(DISCLAIMER)    
+        if resources is not None:
+            yaml.dump(resources, outfile)
         yaml.dump(config, outfile)
+
+
+def add_resources(config_path):
+    """Add javascript resources and increment version number."""
+    config_file = os.path.join(config_path, LOVELACE_FILE)
+    version = 1
+    if os.path.isfile(config_file):
+        with open(config_file, 'r') as openfile:
+            data = yaml.load(openfile)
+        if 'resources' in data:
+            # Get first resource and grab version number
+            url = data['resources'][0]['url']
+            split_url = url.split('=')
+            version = int(split_url[1]) + 1
+
+    resources = ("resources:\n"
+                 "  - url: /local/group-card.js?v={}\n"
+                 "    type: js").format(version)
+    
+    return yaml.load(resources)
 
 
 if __name__ == '__main__':
@@ -60,6 +82,7 @@ if __name__ == '__main__':
         config_path = sys.argv[1]
     lovelace_path = os.path.join(config_path, LOVELACE_DIR)
     files = get_files(lovelace_path)
-    config = merge_config(files)
-    write_to_config(config, config_path=config_path)
+    resources = add_resources(config_path)
+    config = merge_config(sorted(files))
+    write_to_config(config, config_path=config_path, resources=resources)
     print("Done.")

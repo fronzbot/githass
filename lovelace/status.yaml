@@ -1,0 +1,71 @@
+icon: mdi:pulse
+title: Status
+id: status
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: gauge
+        entity: sensor.speedtest_download
+        min: 0
+        max: 120
+        severity:
+          red: 0
+          yellow: 60
+          green: 80
+      - type: gauge
+        entity: sensor.speedtest_upload
+        min: 0
+        max: 15
+        severity:
+          red: 0
+          yellow: 5
+          green: 8
+
+  - type: glance
+    name: Network
+    entities:
+      - sensor.wifi_status
+      - sensor.wifi_uptime
+      - sensor.wifi_current_version
+      - sensor.pihole_ads_percentage_blocked_today
+      - sensor.pihole_version
+
+  - type: glance
+    name: Home-Assistant
+    entities:
+      - sensor.hass_uptime
+      - sensor.hass_version
+      - sensor.fail2ban_hassiptables
+      - sensor.fail2ban_nginxhttpauth
+      - sensor.fail2ban_organizrauth
+
+  - type: glance
+    name: Z-Wave
+    entities:
+      - zwave.aeotec_zw090_zstick_gen5
+      - zwave.power_mon
+      - zwave.driveway
+      - zwave.outdoor_1
+      - zwave.outdoor_2
+      - zwave.smoke_kitchen
+      - zwave.smoke_living_room
+      - zwave.smoke_nursery
+    columns: 4
+
+  - type: custom:group-card
+    card:
+      type: entities
+      title: Scenes
+    group: group.scenes
+
+  - type: custom:group-card
+    card:
+      type: entities
+      title: Automations
+    group: group.all_automations
+
+  - type: custom:group-card
+    card:
+      type: entities
+      title: Script
+    group: group.all_scripts
