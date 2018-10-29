@@ -9,6 +9,7 @@ cards:
     entities:
       - entity: sensor.occupancy
         name: Home
+        icon: mdi:home-map-marker
       - entity: sensor.living_room_temperature
         name: Living Room
       - entity: sensor.dark_sky_temperature

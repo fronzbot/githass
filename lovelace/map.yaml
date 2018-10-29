@@ -1,0 +1,25 @@
+icon: mdi:google-maps
+title: Map
+id: map
+cards:
+  - type: glance
+    entities:
+      - entity: device_tracker.kevin_gps
+        icon: mdi:crosshairs-gps
+      - entity: device_tracker.allegra_gps
+        icon: mdi:crosshairs-gps
+      - entity: sensor.occupancy
+        name: 'Home'
+        icon: mdi:home-map-marker
+      - input_boolean.guest_mode
+      - entity: scene.on_the_way_home
+        icon: mdi:android-auto
+        show_state: false
+
+  - type: map
+    aspect_ratio: 75%
+    default_zoom: 12
+    entities:
+      - zone.home
+      - device_tracker.kevin_gps
+      - device_tracker.allegra_gps
