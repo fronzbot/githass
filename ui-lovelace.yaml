@@ -5,44 +5,6 @@
 title: Home Assistant
 views:
 - cards:
-  - entities: [input_boolean.thermostat_enable]
-    type: entities
-  - {entity: climate.living_room, type: thermostat}
-  - cards:
-    - cards:
-      - {entity: input_number.ac_home, icon: 'mdi:chevron-up', service: input_number.increment,
-        tap_action: call-service, type: entity-button}
-      - {entity: input_number.ac_home, icon: 'mdi:chevron-down', service: input_number.decrement,
-        tap_action: call-service, type: entity-button}
-      - {entity: input_number.heat_home, icon: 'mdi:chevron-up', service: input_number.increment,
-        tap_action: call-service, type: entity-button}
-      - {entity: input_number.heat_home, icon: 'mdi:chevron-down', service: input_number.decrement,
-        tap_action: call-service, type: entity-button}
-      type: horizontal-stack
-    - cards:
-      - {entity: input_number.ac_sleep, icon: 'mdi:chevron-up', service: input_number.increment,
-        tap_action: call-service, type: entity-button}
-      - {entity: input_number.ac_sleep, icon: 'mdi:chevron-down', service: input_number.decrement,
-        tap_action: call-service, type: entity-button}
-      - {entity: input_number.heat_sleep, icon: 'mdi:chevron-up', service: input_number.increment,
-        tap_action: call-service, type: entity-button}
-      - {entity: input_number.heat_sleep, icon: 'mdi:chevron-down', service: input_number.decrement,
-        tap_action: call-service, type: entity-button}
-      type: horizontal-stack
-    type: vertical-stack
-  - columns: 3
-    entities: [input_number.ac_home, input_number.ac_away, input_number.ac_sleep,
-      input_number.heat_home, input_number.heat_away, input_number.heat_sleep]
-    type: glance
-  - {accuracy: 24, entity: sensor.dark_sky_temperature, line_color: '#009933', type: sensor}
-  - {accuracy: 24, entity: sensor.living_room_temperature, line_color: '#0099ff',
-    type: sensor}
-  - {accuracy: 24, entity: sensor.bedroom_temperature, line_color: '#cc3300', type: sensor}
-  - {accuracy: 24, entity: sensor.living_room_humidity, type: sensor}
-  icon: mdi:fan
-  id: climate
-  title: Climate
-- cards:
   - entities:
     - {entity: sensor.occupancy, icon: 'mdi:home-map-marker', name: Home}
     - {entity: sensor.living_room_temperature, name: Living Room}
@@ -93,6 +55,44 @@ views:
   icon: mdi:home-assistant
   id: home
   title: Home
+- cards:
+  - entities: [input_boolean.thermostat_enable]
+    type: entities
+  - {entity: climate.living_room, type: thermostat}
+  - cards:
+    - cards:
+      - {entity: input_number.ac_home, icon: 'mdi:chevron-up', service: input_number.increment,
+        tap_action: call-service, type: entity-button}
+      - {entity: input_number.ac_home, icon: 'mdi:chevron-down', service: input_number.decrement,
+        tap_action: call-service, type: entity-button}
+      - {entity: input_number.heat_home, icon: 'mdi:chevron-up', service: input_number.increment,
+        tap_action: call-service, type: entity-button}
+      - {entity: input_number.heat_home, icon: 'mdi:chevron-down', service: input_number.decrement,
+        tap_action: call-service, type: entity-button}
+      type: horizontal-stack
+    - cards:
+      - {entity: input_number.ac_sleep, icon: 'mdi:chevron-up', service: input_number.increment,
+        tap_action: call-service, type: entity-button}
+      - {entity: input_number.ac_sleep, icon: 'mdi:chevron-down', service: input_number.decrement,
+        tap_action: call-service, type: entity-button}
+      - {entity: input_number.heat_sleep, icon: 'mdi:chevron-up', service: input_number.increment,
+        tap_action: call-service, type: entity-button}
+      - {entity: input_number.heat_sleep, icon: 'mdi:chevron-down', service: input_number.decrement,
+        tap_action: call-service, type: entity-button}
+      type: horizontal-stack
+    type: vertical-stack
+  - columns: 3
+    entities: [input_number.ac_home, input_number.ac_away, input_number.ac_sleep,
+      input_number.heat_home, input_number.heat_away, input_number.heat_sleep]
+    type: glance
+  - {accuracy: 24, entity: sensor.dark_sky_temperature, line_color: '#009933', type: sensor}
+  - {accuracy: 24, entity: sensor.living_room_temperature, line_color: '#0099ff',
+    type: sensor}
+  - {accuracy: 24, entity: sensor.bedroom_temperature, line_color: '#cc3300', type: sensor}
+  - {accuracy: 24, entity: sensor.living_room_humidity, type: sensor}
+  icon: mdi:fan
+  id: climate
+  title: Climate
 - cards:
   - entities:
     - {entity: device_tracker.kevin_gps, icon: 'mdi:crosshairs-gps'}
