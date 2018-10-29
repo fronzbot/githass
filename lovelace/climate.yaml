@@ -1,0 +1,94 @@
+icon: mdi:fan
+title: Climate
+id: climate
+cards:
+  - type: entities
+    entities:
+      - input_boolean.thermostat_enable
+
+  - type: thermostat
+    entity: climate.living_room
+
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: entity-button
+            entity: input_number.ac_home
+            icon: mdi:chevron-up
+            tap_action: call-service
+            service: input_number.increment
+
+          - type: entity-button
+            entity: input_number.ac_home
+            icon: mdi:chevron-down
+            tap_action: call-service
+            service: input_number.decrement
+
+          - type: entity-button
+            entity: input_number.heat_home
+            icon: mdi:chevron-up
+            tap_action: call-service
+            service: input_number.increment
+
+          - type: entity-button
+            entity: input_number.heat_home
+            icon: mdi:chevron-down
+            tap_action: call-service
+            service: input_number.decrement
+
+      - type: horizontal-stack
+        cards:
+          - type: entity-button
+            entity: input_number.ac_sleep
+            icon: mdi:chevron-up
+            tap_action: call-service
+            service: input_number.increment
+
+          - type: entity-button
+            entity: input_number.ac_sleep
+            icon: mdi:chevron-down
+            tap_action: call-service
+            service: input_number.decrement
+
+          - type: entity-button
+            entity: input_number.heat_sleep
+            icon: mdi:chevron-up
+            tap_action: call-service
+            service: input_number.increment
+
+          - type: entity-button
+            entity: input_number.heat_sleep
+            icon: mdi:chevron-down
+            tap_action: call-service
+            service: input_number.decrement
+
+  - type: glance
+    entities:
+      - input_number.ac_home
+      - input_number.ac_away
+      - input_number.ac_sleep
+      - input_number.heat_home
+      - input_number.heat_away
+      - input_number.heat_sleep
+    columns: 3
+
+  - type: sensor
+    entity: sensor.dark_sky_temperature
+    line_color: '#009933'
+    accuracy: 24 
+
+  - type: sensor
+    entity: sensor.living_room_temperature
+    line_color: '#0099ff'
+    accuracy: 24
+
+  - type: sensor
+    entity: sensor.bedroom_temperature
+    line_color: '#cc3300'
+    accuracy: 24
+
+  - type: sensor
+    entity: sensor.living_room_humidity
+    accuracy: 24
+

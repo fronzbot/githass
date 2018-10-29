@@ -1,47 +1,120 @@
-#----------------
-# Living Room
-#----------------
-- type: vertical-stack
-  cards:
-    - type: picture-glance
-      title: Living Room
-      entities:
-        - light.couch_left
-        - light.couch_right
-        - light.corner
-        - group.lights_living_room
-        - scene.movie_mode
-        - input_boolean.flux_living_room
-        - climate.living_room
-      state_image:
-        'on': /local/lovelace/living_room.jpg
-        'off': /local/lovelace/living_room_off.jpg
-      entity: group.lights_living_room
-      aspect_ratio: 6:4 
+icon: mdi:home-assistant
+title: Home
+id: home
+cards:
+  #----------------
+  # Glance Summary
+  #----------------
+  - type: glance
+    entities:
+      - entity: sensor.occupancy
+        name: Home
+      - entity: sensor.living_room_temperature
+        name: Living Room
+      - entity: sensor.dark_sky_temperature
+        name: Outside
+      - entity: sensor.bedroom_temperature
+        name: Bedroom
+      - entity: sensor.thermo_hvac
+        name: Status
 
-    - type: horizontal-stack
-      cards:
-        - type: sensor
-          entity: sensor.living_room_temperature
-          name: Temperature
-          height: 15
-          graph: none
-        - type: sensor
-          entity: sensor.living_room_humidity
-          name: Humidity
-          height: 15
-          graph: none
+  #----------------
+  # Living Room
+  #----------------
+  - type: vertical-stack
+    cards:
+      - type: picture-glance
+        title: Living Room
+        entities:
+          - light.couch_left
+          - light.couch_right
+          - light.corner
+          - group.lights_living_room
+          - scene.movie_mode
+          - input_boolean.flux_living_room
+          - sensor.smoke_alarm_living_room
+        state_image:
+          'on': /local/lovelace/living_room.jpg
+          'off': /local/lovelace/living_room_off.jpg
+        entity: group.lights_living_room
+        aspect_ratio: 6:4 
 
-#-----------------
-# Kitchen
-#-----------------
-- type: picture-glance
-  title: Kitchen
-  entities:
-    - light.kitchen_table
-    - group.lights_kitchen
-  state_image:
-    'on': /local/lovelace/kitchen.jpg
-    'off': /local/lovelace/kitchen_off.jpg
-  entity: group.lights_kitchen
-  aspect_ratio: 6:4
+  #-----------------
+  # Kitchen
+  #-----------------
+  - type: picture-glance
+    title: Kitchen
+    entities:
+      - light.kitchen_table
+      - group.lights_kitchen
+      - sensor.smoke_alarm_kitchen
+    state_image:
+      'on': /local/lovelace/kitchen.jpg
+      'off': /local/lovelace/kitchen_off.jpg
+    entity: group.lights_kitchen
+    aspect_ratio: 6:4
+
+  #-----------------
+  # Den
+  #-----------------
+  - type: picture-glance
+    title: Playroom
+    entities:
+      - light.corner_den
+      - light.back_den
+      - group.lights_den
+    state_image:
+      'on': /local/lovelace/playroom.jpg
+      'off': /local/lovelace/playroom_off.jpg
+    entity: group.lights_den
+    aspect_ratio: 6:4
+
+  #------------------
+  # Bedroom
+  #------------------
+  - type: picture-glance
+    title: Bedroom
+    entities:
+      - light.bedroom_corner
+      - light.bedroom_door
+      - group.lights_bedroom
+      - sensor.smoke_alarm_nursery
+    state_image:
+      'on': /local/lovelace/bedroom.jpg
+      'off': /local/lovelace/bedroom_off.jpg
+    entity: group.lights_bedroom
+    aspect_ratio: 6:4
+
+  #------------------
+  # Basement
+  #------------------
+  - type: picture-glance
+    title: Basement
+    entities:
+      - light.desk
+      - light.basement_computer
+      - light.basement_corner
+      - light.fireplace_1
+      - light.fireplace_2
+      - group.lights_basement
+      - input_boolean.flux_basement
+      - scene.movie_mode_basement
+    state_image:
+      'on': /local/lovelace/theater.jpg
+      'off': /local/lovelace/theater_off.jpg
+    entity: group.lights_basement
+    aspect_ratio: 6:4
+
+  #-------------------
+  # Outside
+  #-------------------
+  - type: picture-glance
+    title: Outside
+    entities:
+      - light.porch_2
+      - switch.driveway_switch
+      - switch.outdoor_1_switch
+      - switch.outdoor_2_switch
+      - alarm_control_panel.blink_sync
+    camera_image: camera.blink_living_room
+    aspect_ratio: 6:4

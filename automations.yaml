@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Oct-26 10:28:11 
+# Generated: 2018-Oct-28 22:03:27 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -410,7 +410,7 @@
   alias: Blink Automatically Take Picture
   trigger:
     - platform: time
-      minutes: '/15'
+      minutes: '/30'
       seconds: 00
   condition:
     condition: and

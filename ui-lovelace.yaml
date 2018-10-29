@@ -1,6 +1,91 @@
 title: Home Assistant
 views:
-  - icon: mdi:home-assistant
-    title: Home
-    id: home
-    cards: !include lovelace/main.yaml
+- cards:
+  - entities:
+    - {entity: sensor.occupancy, name: Home}
+    - {entity: sensor.living_room_temperature, name: Living Room}
+    - {entity: sensor.dark_sky_temperature, name: Outside}
+    - {entity: sensor.bedroom_temperature, name: Bedroom}
+    - {entity: sensor.thermo_hvac, name: Status}
+    type: glance
+  - cards:
+    - aspect_ratio: 364
+      entities: [light.couch_left, light.couch_right, light.corner, group.lights_living_room,
+        scene.movie_mode, input_boolean.flux_living_room, sensor.smoke_alarm_living_room]
+      entity: group.lights_living_room
+      state_image: {'off': /local/lovelace/living_room_off.jpg, 'on': /local/lovelace/living_room.jpg}
+      title: Living Room
+      type: picture-glance
+    type: vertical-stack
+  - aspect_ratio: 364
+    entities: [light.kitchen_table, group.lights_kitchen, sensor.smoke_alarm_kitchen]
+    entity: group.lights_kitchen
+    state_image: {'off': /local/lovelace/kitchen_off.jpg, 'on': /local/lovelace/kitchen.jpg}
+    title: Kitchen
+    type: picture-glance
+  - aspect_ratio: 364
+    entities: [light.corner_den, light.back_den, group.lights_den]
+    entity: group.lights_den
+    state_image: {'off': /local/lovelace/playroom_off.jpg, 'on': /local/lovelace/playroom.jpg}
+    title: Playroom
+    type: picture-glance
+  - aspect_ratio: 364
+    entities: [light.bedroom_corner, light.bedroom_door, group.lights_bedroom, sensor.smoke_alarm_nursery]
+    entity: group.lights_bedroom
+    state_image: {'off': /local/lovelace/bedroom_off.jpg, 'on': /local/lovelace/bedroom.jpg}
+    title: Bedroom
+    type: picture-glance
+  - aspect_ratio: 364
+    entities: [light.desk, light.basement_computer, light.basement_corner, light.fireplace_1,
+      light.fireplace_2, group.lights_basement, input_boolean.flux_basement, scene.movie_mode_basement]
+    entity: group.lights_basement
+    state_image: {'off': /local/lovelace/theater_off.jpg, 'on': /local/lovelace/theater.jpg}
+    title: Basement
+    type: picture-glance
+  - aspect_ratio: 364
+    camera_image: camera.blink_living_room
+    entities: [light.porch_2, switch.driveway_switch, switch.outdoor_1_switch, switch.outdoor_2_switch,
+      alarm_control_panel.blink_sync]
+    title: Outside
+    type: picture-glance
+  icon: mdi:home-assistant
+  id: home
+  title: Home
+- cards:
+  - entities: [input_boolean.thermostat_enable]
+    type: entities
+  - {entity: climate.living_room, type: thermostat}
+  - cards:
+    - cards:
+      - {entity: input_number.ac_home, icon: 'mdi:chevron-up', service: input_number.increment,
+        tap_action: call-service, type: entity-button}
+      - {entity: input_number.ac_home, icon: 'mdi:chevron-down', service: input_number.decrement,
+        tap_action: call-service, type: entity-button}
+      - {entity: input_number.heat_home, icon: 'mdi:chevron-up', service: input_number.increment,
+        tap_action: call-service, type: entity-button}
+      - {entity: input_number.heat_home, icon: 'mdi:chevron-down', service: input_number.decrement,
+        tap_action: call-service, type: entity-button}
+      type: horizontal-stack
+    - cards:
+      - {entity: input_number.ac_sleep, icon: 'mdi:chevron-up', service: input_number.increment,
+        tap_action: call-service, type: entity-button}
+      - {entity: input_number.ac_sleep, icon: 'mdi:chevron-down', service: input_number.decrement,
+        tap_action: call-service, type: entity-button}
+      - {entity: input_number.heat_sleep, icon: 'mdi:chevron-up', service: input_number.increment,
+        tap_action: call-service, type: entity-button}
+      - {entity: input_number.heat_sleep, icon: 'mdi:chevron-down', service: input_number.decrement,
+        tap_action: call-service, type: entity-button}
+      type: horizontal-stack
+    type: vertical-stack
+  - columns: 3
+    entities: [input_number.ac_home, input_number.ac_away, input_number.ac_sleep,
+      input_number.heat_home, input_number.heat_away, input_number.heat_sleep]
+    type: glance
+  - {accuracy: 24, entity: sensor.dark_sky_temperature, line_color: '#009933', type: sensor}
+  - {accuracy: 24, entity: sensor.living_room_temperature, line_color: '#0099ff',
+    type: sensor}
+  - {accuracy: 24, entity: sensor.bedroom_temperature, line_color: '#cc3300', type: sensor}
+  - {accuracy: 24, entity: sensor.living_room_humidity, type: sensor}
+  icon: mdi:fan
+  id: climate
+  title: Climate
