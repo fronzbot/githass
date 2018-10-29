@@ -3,7 +3,7 @@
 #-------------------------------------------------------
 
 resources:
-- {type: js, url: '/local/group-card.js?v=3'}
+- {type: js, url: '/local/group-card.js?v=4'}
 title: Home Assistant
 views:
 - cards:
@@ -51,7 +51,7 @@ views:
   - aspect_ratio: 364
     camera_image: camera.blink_living_room
     entities: [light.porch_2, switch.driveway_switch, switch.outdoor_1_switch, switch.outdoor_2_switch,
-      alarm_control_panel.blink_sync]
+      input_boolean.christmas_lights, alarm_control_panel.blink_sync]
     title: Outside
     type: picture-glance
   icon: mdi:home-assistant

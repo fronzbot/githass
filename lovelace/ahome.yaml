@@ -116,6 +116,7 @@ cards:
       - switch.driveway_switch
       - switch.outdoor_1_switch
       - switch.outdoor_2_switch
+      - input_boolean.christmas_lights
       - alarm_control_panel.blink_sync
     camera_image: camera.blink_living_room
     aspect_ratio: 6:4
