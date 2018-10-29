@@ -1,35 +1,6 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Oct-26 10:28:11 
+# Generated: 2018-Oct-28 22:46:54 
 #--------------------------------------------
-
-#--- customize/customize_presence.yaml ---
-##################
-# Entities
-################## 
-  device_tracker.kevin:
-    friendly_name: Kevin
-    icon: mdi:cellphone-android
-   
-  device_tracker.allegra:
-    friendly_name: Allegra
-    icon: mdi:cellphone-android
-  
-  device_tracker.kevin_ping:
-    friendly_name: Kevin - Ping
-    icon: mdi:cellphone-android
-  
-  device_tracker.allegra_ping:
-    friendly_name: Allegra - Ping
-    icon: mdi:cellphone-android
-  
-# Ecobee sensors
-  binary_sensor.living_room_occupancy:
-    friendly_name: In Living Room
-    icon: mdi:account-multiple
-    
-  binary_sensor.bedroom_occupancy:
-    friendly_name: In Bedroom
-    icon: mdi:account-multiple
 
 #--- customize/customize_glances.yaml ---
 # Glances
@@ -747,3 +718,38 @@
     
   group.all_covers:
     emulated_hue_hidden: true
+
+#--- customize/customize_presence.yaml ---
+##################
+# Entities
+################## 
+  device_tracker.kevin:
+    friendly_name: Kevin
+    icon: mdi:cellphone-android
+   
+  device_tracker.allegra:
+    friendly_name: Allegra
+    icon: mdi:cellphone-android
+  
+  device_tracker.kevin_ping:
+    friendly_name: Kevin - Ping
+    icon: mdi:cellphone-android
+  
+  device_tracker.allegra_ping:
+    friendly_name: Allegra - Ping
+    icon: mdi:cellphone-android
+  
+  device_tracker.kevin_gps:
+    icon: mdi:crosshairs-gps
+  
+  device_tracker.allegra_gps:
+    icon: mdi:crosshairs-gps
+  
+# Ecobee sensors
+  binary_sensor.living_room_occupancy:
+    friendly_name: In Living Room
+    icon: mdi:account-multiple
+    
+  binary_sensor.bedroom_occupancy:
+    friendly_name: In Bedroom
+    icon: mdi:account-multiple
