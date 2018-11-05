@@ -1,7 +1,7 @@
 alias: Blink Automatically Take Picture
 trigger:
   - platform: time
-    minutes: '/30'
+    minutes: '/20'
     seconds: 00
 condition:
   condition: and
