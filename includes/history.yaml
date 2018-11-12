@@ -1,8 +1,11 @@
-# For history, want to keep database to manageable size
-# so dump data after 7 days and only track useful
-# information (ie. don't care about light/switch stuff)
-
 exclude:
+  domains:
+    - group
+    - automation
+    - camera
+    - media_player
+    - scene
+    - script
   entities:
+    - sensor.date_time
     - sun.sun
-    - sensor.date
