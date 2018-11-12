@@ -11,8 +11,7 @@ HEAT = {'home': 67, 'away': 59, 'sleep': 64}
 SLEEP_TIME = [5, 21]
 
 # Get current temperatures
-temp2 = hass.states.get('sensor.pws_temp_f').state
-temp1 = hass.states.get('sensor.dark_sky_temperature').state
+temp = hass.states.get('sensor.dark_sky_temperature').state
 
 AC['home'] = hass.states.get('input_number.ac_home').state
 AC['away'] = hass.states.get('input_number.ac_away').state
@@ -23,9 +22,9 @@ HEAT['away'] = hass.states.get('input_number.heat_away').state
 HEAT['sleep'] = hass.states.get('input_number.heat_sleep').state
 
 try:
-    outside_temp = float(temp1)
+    outside_temp = float(temp)
 except TypeError:
-    outside_temp = float(temp2)
+    logger.error("Could not get temperature from dark sky sensor.")
 
 living_room_temp = float(hass.states.get('sensor.living_room_temperature').state)
 
@@ -74,10 +73,6 @@ if thermostat_enable:
         mode = 'heat'
         target_low = HEAT[state_key]
         nominal_temp = HEAT[state_key]
-#    elif state_key != 'sleep' and (too_hot_inside or too_humid):
-#        mode = 'auto'
-#        target_high = living_room_temp - 1
-#        nominal_temp = living_room_temp - 1
     # Now make service call
     logger.info('Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
     if current_mode != mode:

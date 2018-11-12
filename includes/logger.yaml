@@ -1,9 +1,6 @@
 default: warning
 logs:
-  homeassistant.components.python_script.thermostat_engine.py: info
   homeassistant.components.media_player: critical
   homeassistant.components.camera: error
-  homeassistant.components.sensor.pws_visibility_mi: critical
   homeassistant.helpers.entity: error
   requests.packages.urllib3.connectionpool: error
-  homeassistant.components.python_script: info

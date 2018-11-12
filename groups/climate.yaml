@@ -12,7 +12,7 @@ thermostat_info:
     - sensor.bedroom_temperature
     - sensor.thermo_dew_point
     - sensor.living_room_humidity
-    - sensor.pws_relative_humidity
+    - sensor.dark_sky_humidity
     - sensor.thermo_hvac
     - sensor.thermo_current_operation
     - sensor.thermo_fan

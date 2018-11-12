@@ -1,13 +1,18 @@
 - platform: darksky
   api_key: !secret darksky_api
   monitored_conditions:
-    - visibility
-    - ozone
     - temperature
-    - precip_intensity
-    - precip_probability
+    - daily_summary
+    - apparent_temperature
     - dew_point
-    - temperature_high
-    - temperature_low
+    - humidity
     - precip_intensity_max
+    - precip_accumulation
+    - pressure
+    - visibility
+    - wind_speed
+    - wind_gust
+    - wind_bearing
+    - ozone
+    - uv_index
   units: us
