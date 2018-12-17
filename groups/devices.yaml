@@ -1,33 +1,11 @@
 #===================================================
 # Family devices, etc
 #===================================================
-all_media:
-  name: Media
-  icon: mdi:music-circle
-  entities:
-    - media_player.google_home
-    - media_player.kitchen_home
-    - media_player.living_room_home
-    - media_player.basement_tv
-    - media_player.shield
-    - media_player.shield_android_tv
-    - media_player.plex_web_chrome
-    - media_player.asshai
-    - media_player.emby__emby_for_android_mobile__oneplus_a5000
-    - media_player.emby__emby_for_mobile__chrome
-
 presence_gist:
   name: Presence
   entities:
-#    - sensor.occupancy
     - device_tracker.kevin_gps
-#    - device_tracker.kevin_ping
-#    - device_tracker.kevin
-#    - device_tracker.allegra_ping
-#    - device_tracker.allegra
     - device_tracker.allegra_gps
-    - camera.kevin_gps
-    - camera.allegra_gps
     - scene.on_the_way_home
     - input_boolean.guest_mode
 

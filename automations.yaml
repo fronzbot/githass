@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Dec-16 20:17:32 
+# Generated: 2018-Dec-17 09:22:18 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -68,27 +68,6 @@
     - service: script.notify_kevin_engine
       data:
         call_failed_login: 1
-
-#--- automation/media_movies.yaml ---
-- id: movie_colors
-  alias: Movie Colors
-  trigger:
-    - platform: state
-      entity_id: sensor.media_state
-    - platform: state
-      entity_id: media_player.shield_android_tv
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: sensor.occupancy
-        state: 'home'
-      - condition: state
-        entity_id: input_boolean.movie_colors
-        state: 'on'
-  action:
-    - service: python_script.media_engine
-  
 
 #--- automation/notify_on_restart.yaml ---
 - id: notify_on_restart

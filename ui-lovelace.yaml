@@ -3,7 +3,7 @@
 #-------------------------------------------------------
 
 resources:
-- {type: js, url: '/local/group-card.js?v=14'}
+- {type: js, url: '/local/group-card.js?v=15'}
 title: Home Assistant
 views:
 - cards:
