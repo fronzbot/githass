@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Nov-12 10:12:00 
+# Generated: 2018-Dec-16 20:17:32 
 #--------------------------------------------
 
 #--- customize/customize_glances.yaml ---
@@ -280,163 +280,6 @@
   
   input_boolean.warmer_night_mode:
     icon: mdi:fire
-
-#--- customize/customize_misc_sensors.yaml ---
-##################
-# Sensors
-##################
-  sensor.speedtest_download:
-    friendly_name: Download (Speedtest)
-    icon: mdi:download
-  
-  sensor.speedtest_upload:
-    friendly_name: Upload
-    icon: mdi:upload
-  
-  sensor.speedtest_ping:
-    friendly_name: Ping
-    icon: mdi:message-alert
-  
-  sensor.fastcom_download:
-    friendly_name: Download (Fast.com)
-    icon: mdi:download
-  
-  sensor.ssl_cert_expiry:
-    friendly_name: SSL Cert Expiry
-    icon: mdi:lock
-    
-#-------------------------------
-# Google Wifi
-#-------------------------------
-  sensor.wifi_status:
-    friendly_name: Network Status
-    icon: mdi:google
-  
-  sensor.wifi_current_version:
-    friendly_name: Router Firmware Version
-    icon: mdi:checkbox-marked-circle-outline
-  
-  sensor.wifi_uptime:
-    friendly_name: Network Uptime
-    icon: mdi:update
-    
-#-------------------------------
-# Pi-hole
-#-------------------------------
-  sensor.pihole_dns_queries_today:
-    friendly_name: DNS Queries
-    icon: mdi:help-network
-  
-  sensor.pihole_ads_blocked_today:
-    friendly_name: Ads Blocked
-    icon: mdi:security-network
-  
-  sensor.pihole_ads_percentage_blocked_today:
-    friendly_name: Percentage of Ads Blocked
-    icon: mdi:security-network
-  
-#-------------------------------
-# ip_ban_list
-#-------------------------------
-  sensor.fail2ban_hassiptables:
-    friendly_name: Hass Bans
-    icon: mdi:do-not-disturb
-  
-  sensor.fail2ban_nginxhttpauth:
-    friendly_name: Nginx Bans
-    icon: mdi:do-not-disturb
-    
-  sensor.fail2ban_organizrauth:
-    friendly_name: Organizr Bans
-    icon: mdi:do-not-disturb
-  
-  
-  sensor.pihole_version:
-    friendly_name: Pihole Version
-    icon: mdi:verified
-  
-#-------------------------------  
-# Zwave sensors
-#-------------------------------
-  sensor.power_mon_current:
-    friendly_name: Washing Machine Current
-    icon: mdi:music-note-whole
-  
-  sensor.power_mon_voltage:
-    friendly_name: Washing Machine Voltage
-    icon: mdi:car-battery
-  
-  sensor.power_mon_power:
-    friendly_name: Washing Machine Power
-    icon: mdi:power
-  
-  sensor.power_mon_energy:
-    friendly_name: Washing Machine Energy
-    icon: mdi:flash
-  
-  sensor.washer:
-    friendly_name: Washing Machine
-    icon: mdi:washing-machine
-  
-  sensor.smoke_alarm_kitchen:
-    friendly_name: Smoke Alarm - Kitchen
-    icon: mdi:fire
-  
-  sensor.smoke_alarm_living_room:
-    friendly_name: Smoke Alarm - Living Room
-    icon: mdi:fire
-  
-  sensor.smoke_alarm_nursery:
-    friendly_name: Smoke Alarm - Nursery
-    icon: mdi:fire
-  
-  binary_sensor.blink_living_room_motion_detected:
-    friendly_name: Blink Motion Detected
-  
-  binary_sensor.blink_living_room_camera_armed:
-    friendly_name: Blink Camera Armed
-  
-  sensor.blink_living_room_status:
-    friendly_name: Blink Camera Status
-  
-  sensor.blink_living_room_battery:
-    friendly_name: Blink Camera Battery
-  
-  sensor.blink_living_room_temperature:
-    friendly_name: Blink Camera Temperature
-  
-  sensor.blink_living_room_wifi_strength:
-    friendly_name: Blink Wifi Strength
-  
-  camera.blink_living_room:
-    friendly_name: Blink Camera
-  
-#-------------------------------
-# Zwave Devices
-#-------------------------------
-  zwave.aeotec_zw090_zstick_gen5:
-    icon: mdi:router-wireless
-  
-  zwave.driveway:
-    icon: mdi:spotlight-beam
-  
-  zwave.outdoor_1:
-    icon: mdi:power-plug
-  
-  zwave.outdoor_2:
-    icon: mdi:power-plug
-  
-  zwave.power_mon:
-    icon: mdi:power
-  
-  zwave.smoke_kitchen:
-    icon: mdi:smoke-detector
-  
-  zwave.smoke_living_room:
-    icon: mdi:smoke-detector
-  
-  zwave.smoke_nursery:
-    icon: mdi:smoke-detector
 
 #--- customize/customize_scripts.yaml ---
   script.thermostat_control:
@@ -737,3 +580,181 @@
   sensor.dark_sky_uv_index:
     friendly_name: UV Index
     icon: mdi:weather-sunny
+
+#--- customize/customize_misc_sensors.yaml ---
+##################
+# Sensors
+##################
+  sensor.speedtest_download:
+    friendly_name: Download (Speedtest)
+    icon: mdi:download
+  
+  sensor.speedtest_upload:
+    friendly_name: Upload
+    icon: mdi:upload
+  
+  sensor.speedtest_ping:
+    friendly_name: Ping
+    icon: mdi:message-alert
+  
+  sensor.fastcom_download:
+    friendly_name: Download (Fast.com)
+    icon: mdi:download
+  
+  sensor.ssl_cert_expiry:
+    friendly_name: SSL Cert Expiry
+    icon: mdi:lock
+    
+#-------------------------------
+# Google Wifi
+#-------------------------------
+  sensor.wifi_status:
+    friendly_name: Network Status
+    icon: mdi:google
+  
+  sensor.wifi_current_version:
+    friendly_name: Router Firmware Version
+    icon: mdi:checkbox-marked-circle-outline
+  
+  sensor.wifi_uptime:
+    friendly_name: Network Uptime
+    icon: mdi:update
+    
+#-------------------------------
+# Pi-hole
+#-------------------------------
+  sensor.pihole_dns_queries_today:
+    friendly_name: DNS Queries
+    icon: mdi:help-network
+  
+  sensor.pihole_ads_blocked_today:
+    friendly_name: Ads Blocked
+    icon: mdi:security-network
+  
+  sensor.pihole_ads_percentage_blocked_today:
+    friendly_name: Percentage of Ads Blocked
+    icon: mdi:security-network
+  
+#-------------------------------
+# ip_ban_list
+#-------------------------------
+  sensor.fail2ban_hassiptables:
+    friendly_name: Hass Bans
+    icon: mdi:do-not-disturb
+  
+  sensor.fail2ban_nginxhttpauth:
+    friendly_name: Nginx Bans
+    icon: mdi:do-not-disturb
+    
+  sensor.fail2ban_organizrauth:
+    friendly_name: Organizr Bans
+    icon: mdi:do-not-disturb
+  
+  
+  sensor.pihole_version:
+    friendly_name: Pihole Version
+    icon: mdi:verified
+  
+#-------------------------------  
+# Zwave sensors
+#-------------------------------
+  sensor.power_mon_current:
+    friendly_name: Washing Machine Current
+    icon: mdi:music-note-whole
+  
+  sensor.power_mon_voltage:
+    friendly_name: Washing Machine Voltage
+    icon: mdi:car-battery
+  
+  sensor.power_mon_power:
+    friendly_name: Washing Machine Power
+    icon: mdi:power
+  
+  sensor.power_mon_energy:
+    friendly_name: Washing Machine Energy
+    icon: mdi:flash
+  
+  sensor.washer:
+    friendly_name: Washing Machine
+    icon: mdi:washing-machine
+  
+  sensor.smoke_alarm_kitchen:
+    friendly_name: Smoke Alarm - Kitchen
+    icon: mdi:fire
+  
+  sensor.smoke_alarm_living_room:
+    friendly_name: Smoke Alarm - Living Room
+    icon: mdi:fire
+  
+  sensor.smoke_alarm_nursery:
+    friendly_name: Smoke Alarm - Nursery
+    icon: mdi:fire
+  
+  binary_sensor.blink_cameraks_motion_detected:
+    friendly_name: Motion Detected - Garage
+  
+  binary_sensor.blink_cameraks_camera_armed:
+    friendly_name: Armed - Garage
+  
+  sensor.blink_cameraks_status:
+    friendly_name: Status - Garage
+  
+  sensor.blink_cameraks_battery:
+    friendly_name: Battery - Garage
+  
+  sensor.blink_cameraks_temperature:
+    friendly_name: Temperature - Garage
+  
+  sensor.blink_cameraks_wifi_signal:
+    friendly_name: Wifi - Garage
+  
+  camera.blink_cameraks:
+    friendly_name: Garage Camera
+  
+  binary_sensor.blink_camera1_motion_detected:
+    friendly_name: Motion Detected - Porch
+  
+  binary_sensor.blink_camera1_camera_armed:
+    friendly_name: Armed - Porch
+  
+  sensor.blink_camera1_status:
+    friendly_name: Status - Porch
+  
+  sensor.blink_camera1_battery:
+    friendly_name: Battery - Porch
+  
+  sensor.blink_camera1_temperature:
+    friendly_name: Temperature - Porch
+  
+  sensor.blink_camera1_wifi_signal:
+    friendly_name: Wifi - Porch
+  
+  camera.blink_camera1:
+    friendly_name: Porch Camera
+  
+#-------------------------------
+# Zwave Devices
+#-------------------------------
+  zwave.aeotec_zw090_zstick_gen5:
+    icon: mdi:router-wireless
+  
+  zwave.driveway:
+    icon: mdi:spotlight-beam
+  
+  zwave.outdoor_1:
+    icon: mdi:power-plug
+  
+  zwave.outdoor_2:
+    icon: mdi:power-plug
+  
+  zwave.power_mon:
+    icon: mdi:power
+  
+  zwave.smoke_kitchen:
+    icon: mdi:smoke-detector
+  
+  zwave.smoke_living_room:
+    icon: mdi:smoke-detector
+  
+  zwave.smoke_nursery:
+    icon: mdi:smoke-detector

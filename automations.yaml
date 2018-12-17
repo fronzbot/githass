@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Nov-12 10:11:59 
+# Generated: 2018-Dec-16 20:17:32 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -133,31 +133,6 @@
     - service: input_boolean.turn_on
       entity_id: input_boolean.guest_mode
 
-#--- automation/away_from_home_night.yaml ---
-- id: away_from_home_at_night
-  alias: Away From Home at Night
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '-00:15:00'
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '16:00:00'
-        before: '22:00:00'
-      - condition: state
-        entity_id: sensor.occupancy
-        state: 'not_home'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.couch_left
-        - light.couch_right
-
 #--- automation/daytime.yaml ---
 - id: daytime_routine
   alias: Daytime Routine
@@ -176,29 +151,6 @@
       - service: light.turn_off
         entity_id: light.kitchen_table
       - service: python_script.thermostat_engine
-
-#--- automation/lights_holiday_lights.yaml ---
-# Turn on holiday lights at sunset
-- id: lights_holiday_lights
-  alias: Lights Holiday Lights
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '+00:16:00'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: 'input_boolean.christmas_lights'
-        state: 'on'
-  action:
-    - service: switch.turn_on
-      entity_id: group.outdoor_switches
-    - service: light.turn_on
-      entity_id: light.porch_2
-      data:
-        brightness: 174
-        xy_color: [0.1903,0.6795]
 
 #--- automation/lights_inside_off.yaml ---
 # Turn inside lights off around midnight (before exterior)
@@ -277,27 +229,6 @@
       data:
         call_on_way_home: 1
 
-#--- automation/sunset.yaml ---
-# Turn on outside lights 15 minutes after sunset
-  
-- id: lights_sunset
-  alias: Lights Sunset
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '+00:15:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.porch_2
-      data:
-        brightness: 278
-        color_temp: 330
-    - service: switch.turn_on
-      entity_id: switch.driveway_switch
-    - service: script.speech_engine
-      data:
-        call_dark_outside: 1
-
 #--- automation/thermostat_control.yaml ---
 - id: thermostat_controls
   alias: Thermostat Controls
@@ -348,6 +279,63 @@
   action:
     - service: python_script.thermostat_engine
 
+#--- automation/wakeup.yaml ---
+- id: wakeup_routine
+  alias: Wakeup Routine
+  trigger:
+    - platform: time
+      at: '06:30:30'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.couch_left
+        - light.kitchen_table
+    - service: python_script.thermostat_engine
+
+#--- automation/sunset.yaml ---
+# Turn on outside lights 15 minutes after sunset
+  
+- id: lights_sunset
+  alias: Lights Sunset
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '+00:15:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.porch
+      data:
+        brightness: 278
+        color_temp: 330
+    - service: switch.turn_on
+      entity_id: switch.driveway_switch
+    - service: script.speech_engine
+      data:
+        call_dark_outside: 1
+
+#--- automation/lights_holiday_lights.yaml ---
+# Turn on holiday lights at sunset
+- id: lights_holiday_lights
+  alias: Lights Holiday Lights
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '+00:16:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'input_boolean.christmas_lights'
+        state: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id: group.outdoor_switches
+    - service: light.turn_on
+      entity_id: light.porch
+      data:
+        color_name: 'lime green'
+        brightness: 254
+
 #--- automation/away_from_home.yaml ---
 - id: away_from_home
   alias: Away From Home
@@ -368,7 +356,7 @@
         entity_id: group.all_lights
       - service: python_script.thermostat_engine
       - service: alarm_control_panel.alarm_arm_away
-        entity_id: alarm_control_panel.blink_sync 
+        entity_id: alarm_control_panel.blink_xt_hub 
 
 #--- automation/arriving_home.yaml ---
 - id: arriving_home
@@ -390,41 +378,31 @@
       entity_id: input_boolean.guest_mode
     - service: python_script.thermostat_engine
     - service: alarm_control_panel.alarm_disarm
-      entity_id: alarm_control_panel.blink_sync
+      entity_id: alarm_control_panel.blink_xt_hub
 
-#--- automation/wakeup.yaml ---
-- id: wakeup_routine
-  alias: Wakeup Routine
+#--- automation/away_from_home_night.yaml ---
+- id: away_from_home_at_night
+  alias: Away From Home at Night
   trigger:
-    - platform: time
-      at: '06:30:30'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.couch_left
-        - light.kitchen_table
-    - service: python_script.thermostat_engine
-
-#--- automation/blink_auto_pic.yaml ---
-- id: blink_automatically_take_picture
-  alias: Blink Automatically Take Picture
-  trigger:
-    - platform: time
-      minutes: '/20'
-      seconds: 00
+    - platform: sun
+      event: sunset
+      offset: '-00:15:00'
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'not_home'
   condition:
     condition: and
     conditions:
       - condition: time
-        before: '00:10:00'
-        after: '04:10:00'
-      - condition: sun
-        after: sunrise
-        after_offset: '-00:30:00'
+        after: '16:00:00'
+        before: '22:00:00'
+      - condition: state
+        entity_id: sensor.occupancy
+        state: 'not_home'
   action:
-    - service: script.blink_trigger_camera
-    - delay: 00:00:10
-    - service: camera.snapshot
-      data:
-        entity_id: camera.blink_living_room
-        filename: /images/raw_images/blink_living_room_{{now().year}}{{now().month}}{{now().day}}_{{now().hour}}{{now().minute}}{{now().second}}.jpg
+    - service: light.turn_on
+      entity_id:
+        - light.couch_left
+        - light.couch_right
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.blink_xt_hub

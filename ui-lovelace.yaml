@@ -3,7 +3,7 @@
 #-------------------------------------------------------
 
 resources:
-- {type: js, url: '/local/group-card.js?v=5'}
+- {type: js, url: '/local/group-card.js?v=14'}
 title: Home Assistant
 views:
 - cards:
@@ -49,9 +49,9 @@ views:
     title: Basement
     type: picture-glance
   - aspect_ratio: 364
-    camera_image: camera.blink_living_room
-    entities: [light.porch_2, switch.driveway_switch, switch.outdoor_1_switch, switch.outdoor_2_switch,
-      input_boolean.christmas_lights, alarm_control_panel.blink_sync]
+    camera_image: camera.blink_camera1
+    entities: [light.porch, switch.driveway_switch, switch.outdoor_1_switch, switch.outdoor_2_switch,
+      input_boolean.christmas_lights, alarm_control_panel.blink_xt_hub]
     title: Outside
     type: picture-glance
   icon: mdi:home-assistant
@@ -111,12 +111,22 @@ views:
   id: map
   title: Map
 - cards:
-  - entity: alarm_control_panel.blink_sync
+  - entity: alarm_control_panel.blink_xt_hub
     states: [arm_away]
     type: alarm-panel
-  - {entity: sensor.blink_living_room_temperature, type: sensor}
-  - {entity: sensor.blink_living_room_battery, type: sensor}
+  - cards:
+    - cards:
+      - {entity: sensor.blink_camera1_temperature, type: sensor}
+      - {entity: sensor.blink_cameraks_temperature, type: sensor}
+      type: horizontal-stack
+    - cards:
+      - {entity: sensor.blink_camera1_battery, type: sensor}
+      - {entity: sensor.blink_cameraks_battery, type: sensor}
+      type: horizontal-stack
+    type: vertical-stack
   - {entity: camera.blink_gif, type: picture-entity}
+  - {entity: camera.blink_camera1, type: picture-entity}
+  - {entity: camera.blink_cameraks, type: picture-entity}
   icon: mdi:security
   id: security
   title: Security

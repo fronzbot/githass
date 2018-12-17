@@ -9,6 +9,9 @@ homeassistant:
   unit_system: imperial
   whitelist_external_dirs:
     - /images
+  auth_providers:
+    - type: homeassistant
+    - type: legacy_api_password
 
 http:
   api_password: !secret password

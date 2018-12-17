@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2018-Nov-12 10:11:59 
+# Generated: 2018-Dec-16 20:17:32 
 #--------------------------------------------
 
 #--- scripts/hass_upgrade.yaml ---
@@ -246,7 +246,11 @@
     sequence:
       - service: blink.trigger_camera
         data:
-            name: "Living Room"
+            name: "Camera1"
+      - delay: 00:00:05
+      - service: blink.trigger_camera
+        data:
+            name: "CameraKS"
       - delay: 00:00:05
       - service: blink.blink_update
         

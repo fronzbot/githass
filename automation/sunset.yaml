@@ -7,7 +7,7 @@ trigger:
     offset: '+00:15:00'
 action:
   - service: light.turn_on
-    entity_id: light.porch_2
+    entity_id: light.porch
     data:
       brightness: 278
       color_temp: 330

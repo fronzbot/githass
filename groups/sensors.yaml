@@ -64,14 +64,20 @@ appliances:
 blink_sensors:
   name: Blink Sensors
   entities:
-    - binary_sensor.blink_living_room_motion_detected
-    - binary_sensor.blink_living_room_camera_armed
-    - sensor.blink_living_room_status
-    - sensor.blink_living_room_battery
-    - sensor.blink_living_room_temperature
-    - sensor.blink_living_room_wifi_signal
+    - binary_sensor.blink_camera1_motion_detected
+    - binary_sensor.blink_cameraks_motion_detected
+    - binary_sensor.blink_camera1_camera_armed
+    - binary_sensor.blink_cameraks_camera_armed
+    - sensor.blink_camera1_status
+    - sensor.blink_cameraks_status
+    - sensor.blink_camera1_battery
+    - sensor.blink_cameraks_battery
+    - sensor.blink_camera1_temperature
+    - sensor.blink_cameraks_temperature
+    - sensor.blink_camera1_wifi_signal
+    - sensor.blink_cameraks_wifi_signal
 
 blink_alarm_panel:
   name: Blink Control Panel
   entities:
-    - alarm_control_panel.blink_sync
+    - alarm_control_panel.blink_xt_hub

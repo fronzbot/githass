@@ -3,15 +3,31 @@ title: Security
 id: security
 cards:
   - type: alarm-panel
-    entity: alarm_control_panel.blink_sync
+    entity: alarm_control_panel.blink_xt_hub
     states:
       - arm_away
 
-  - type: sensor
-    entity: sensor.blink_living_room_temperature
+  - type: vertical-stack
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: sensor
+            entity: sensor.blink_camera1_temperature
+          - type: sensor
+            entity: sensor.blink_cameraks_temperature
 
-  - type: sensor
-    entity: sensor.blink_living_room_battery
+      - type: horizontal-stack
+        cards:
+          - type: sensor
+            entity: sensor.blink_camera1_battery
+          - type: sensor
+            entity: sensor.blink_cameraks_battery
 
   - type: picture-entity
     entity: camera.blink_gif
+
+  - type: picture-entity
+    entity: camera.blink_camera1
+
+  - type: picture-entity
+    entity: camera.blink_cameraks

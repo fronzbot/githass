@@ -8,7 +8,7 @@ default_view:
   entities:
     - group.home_lights
     - group.temp_gist
-    - weather.living_room
+#    - weather.living_room
     - group.presence_gist
     - group.appliances
     - configurator.ecobee
@@ -19,7 +19,7 @@ tab_thermo:
   icon: mdi:fan
   entities:
     - group.thermostat_info
-    - weather.living_room
+#    - weather.living_room
     
 tab_weather:
   name: Weather
@@ -34,7 +34,8 @@ tab_security:
   icon: mdi:security
   entities: 
     - camera.blink_gif
-    - camera.blink_living_room
+    - camera.blink_camera1
+    - camera.blink_cameraks
     - group.blink_alarm_panel
     - group.blink_sensors
     - script.blink_trigger_camera
@@ -48,7 +49,7 @@ tab_system:
     - group.rasp_pi_monitor
     - group.energy
     - group.zwave_devices
-    
+   
 tab_automation:
   name: Automations
   view: yes

@@ -87,7 +87,7 @@ exterior:
   name: Outdoor Lights
   icon: mdi:white-balance-sunny
   entities:
-    - light.porch_2
+    - light.porch
   
 home_lights:
   name: Lights
@@ -97,7 +97,7 @@ home_lights:
     - group.lights_den
     - group.lights_bedroom
     - group.lights_basement
-    - light.porch_2
+    - light.porch
     - switch.driveway_switch
     - group.outdoor_switches
 
