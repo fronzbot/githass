@@ -36,7 +36,7 @@ class Flux(hass.Hass):
     def initialize(self):
         # Colors in Kelvin
         self.sun_offset_mins = [-45, 90, -60, 120]
-        self.daytime_color   = 4500
+        self.daytime_color   = 5000
         self.twilight_color  = 3000
         self.nighttime_color = 2700
         self.perc_complete   = 0
@@ -77,7 +77,8 @@ class Flux(hass.Hass):
                 
                 mired = int(1e6/new_color)
                 self.turn_on(light, color_temp=mired, brightness=self.brightness)
-                self.log("Setting Light {} to {}".format(light, mired))
+                if DEBUG:
+                    self.log("Setting Light {} to {}".format(light, mired))
  
                 if DEBUG:
                     self.log("Current Time is {} in {} cycle and it is {}% Complete --> {} ({})".format(self.current_time, self.segment, self.perc_complete*100, mired, light))
