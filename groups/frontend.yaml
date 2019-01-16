@@ -34,7 +34,7 @@ tab_security:
   icon: mdi:security
   entities: 
     - camera.blink_gif
-    - camera.blink_camera1
+    - camera.blink_camera1_2
     - camera.blink_cameraks
     - group.blink_alarm_panel
     - group.blink_sensors

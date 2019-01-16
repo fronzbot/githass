@@ -3,7 +3,7 @@
 #-------------------------------------------------------
 
 resources:
-- {type: js, url: '/local/group-card.js?v=15'}
+- {type: js, url: '/local/group-card.js?v=16'}
 title: Home Assistant
 views:
 - cards:
@@ -49,7 +49,7 @@ views:
     title: Basement
     type: picture-glance
   - aspect_ratio: 364
-    camera_image: camera.blink_camera1
+    camera_image: camera.blink_camera1_2
     entities: [light.porch, switch.driveway_switch, switch.outdoor_1_switch, switch.outdoor_2_switch,
       input_boolean.christmas_lights, alarm_control_panel.blink_xt_hub]
     title: Outside
@@ -116,16 +116,16 @@ views:
     type: alarm-panel
   - cards:
     - cards:
-      - {entity: sensor.blink_camera1_temperature, type: sensor}
+      - {entity: sensor.blink_camera1_temperature_2, type: sensor}
       - {entity: sensor.blink_cameraks_temperature, type: sensor}
       type: horizontal-stack
     - cards:
-      - {entity: sensor.blink_camera1_battery, type: sensor}
+      - {entity: sensor.blink_camera1_battery_2, type: sensor}
       - {entity: sensor.blink_cameraks_battery, type: sensor}
       type: horizontal-stack
     type: vertical-stack
   - {entity: camera.blink_gif, type: picture-entity}
-  - {entity: camera.blink_camera1, type: picture-entity}
+  - {entity: camera.blink_camera1_2, type: picture-entity}
   - {entity: camera.blink_cameraks, type: picture-entity}
   icon: mdi:security
   id: security

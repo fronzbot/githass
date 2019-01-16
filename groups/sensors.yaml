@@ -68,13 +68,13 @@ blink_sensors:
     - binary_sensor.blink_cameraks_motion_detected
     - binary_sensor.blink_camera1_camera_armed
     - binary_sensor.blink_cameraks_camera_armed
-    - sensor.blink_camera1_status
+    - sensor.blink_camera1_status_2
     - sensor.blink_cameraks_status
-    - sensor.blink_camera1_battery
+    - sensor.blink_camera1_battery_2
     - sensor.blink_cameraks_battery
-    - sensor.blink_camera1_temperature
+    - sensor.blink_camera1_temperature_2
     - sensor.blink_cameraks_temperature
-    - sensor.blink_camera1_wifi_signal
+    - sensor.blink_camera1_wifi_signal_2
     - sensor.blink_cameraks_wifi_signal
 
 blink_alarm_panel:

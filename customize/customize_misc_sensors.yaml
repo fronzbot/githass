@@ -133,19 +133,19 @@ binary_sensor.blink_camera1_motion_detected:
 binary_sensor.blink_camera1_camera_armed:
   friendly_name: Armed - Porch
 
-sensor.blink_camera1_status:
+sensor.blink_camera1_status_2:
   friendly_name: Status - Porch
 
-sensor.blink_camera1_battery:
+sensor.blink_camera1_battery_2:
   friendly_name: Battery - Porch
 
-sensor.blink_camera1_temperature:
+sensor.blink_camera1_temperature_2:
   friendly_name: Temperature - Porch
 
-sensor.blink_camera1_wifi_signal:
+sensor.blink_camera1_wifi_signal_2:
   friendly_name: Wifi - Porch
 
-camera.blink_camera1:
+camera.blink_camera1_2:
   friendly_name: Porch Camera
 
 #-------------------------------
