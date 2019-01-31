@@ -18,10 +18,10 @@ notify_kevin_engine:
           {%- endmacro -%}
           {%- macro failed_login() -%}
             Failed Login! {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
-            {% if states.sensor.fail2ban_hassiptables.state != "None" %}
-            HASS Attempt(s) from {{states.sensor.fail2ban_hassiptables.state}} {% endif %} {% if states.sensor.fail2ban_nginxhttpauth.state != "None" %}
-            NGINX Attempt(s) from {{states.sensor.fail2ban_nginxhttpauth.state}}{% endif %}{% if states.sensor.fail2ban_nginxhttpauth.state != "None" %}
-            Organizr Attempt(s) from {{states.sensor.fail2ban_organizrauth.state}}
+            {% if states.sensor.fail2ban_hass_iptables.state != "None" %}
+            HASS Attempt(s) from {{states.sensor.fail2ban_hass_iptables.state}} {% endif %} {% if states.sensor.fail2ban_nginx_http_auth.state != "None" %}
+            NGINX Attempt(s) from {{states.sensor.fail2ban_nginx_http_auth.state}}{% endif %}{% if states.sensor.fail2ban_organizr_auth.state != "None" %}
+            Organizr Attempt(s) from {{states.sensor.fail2ban_organizr_auth.state}}
             {% endif %}
           {%- endmacro -%}
           {##################}

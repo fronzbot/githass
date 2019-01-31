@@ -3,7 +3,7 @@
 #-------------------------------------------------------
 
 resources:
-- {type: js, url: '/local/group-card.js?v=16'}
+- {type: js, url: '/local/group-card.js?v=17'}
 title: Home Assistant
 views:
 - cards:
@@ -49,7 +49,7 @@ views:
     title: Basement
     type: picture-glance
   - aspect_ratio: 364
-    camera_image: camera.blink_camera1_2
+    camera_image: camera.blink_camera1
     entities: [light.porch, switch.driveway_switch, switch.outdoor_1_switch, switch.outdoor_2_switch,
       input_boolean.christmas_lights, alarm_control_panel.blink_xt_hub]
     title: Outside
@@ -147,8 +147,8 @@ views:
       sensor.pihole_ads_percentage_blocked_today, sensor.pihole_version]
     name: Network
     type: glance
-  - entities: [sensor.hass_uptime, sensor.hass_version, sensor.fail2ban_hassiptables,
-      sensor.fail2ban_nginxhttpauth, sensor.fail2ban_organizrauth]
+  - entities: [sensor.hass_uptime, sensor.hass_version, sensor.fail2ban_hass_iptables,
+      sensor.fail2ban_nginx_http_auth, sensor.fail2ban_organizr_auth]
     name: Home-Assistant
     type: glance
   - columns: 4

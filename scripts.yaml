@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-Jan-15 19:07:03 
+# Generated: 2019-Jan-24 07:52:12 
 #--------------------------------------------
 
 #--- scripts/hass_upgrade.yaml ---
@@ -160,49 +160,6 @@
           - input_boolean.flux_basement
         
 
-#--- scripts/notify_kevin_engine.yaml ---
-  notify_kevin_engine:
-    sequence:
-      - service: notify.notify_kevin_phone
-        data_template:
-          message: >
-            {%- macro on_restart() -%}
-              Home Assistant restarted {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
-            {%- endmacro -%}
-            {%- macro system_use() -%}
-              {% if states.sensor.glances_ram_use.state | float <= 100.0 %}
-                RAM Usage at {{states.sensor.glances_ram_use.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
-              {% elif states.sensor.glances_ram_use_2.state | float <= 100.0 %}
-                RAM Usage at {{states.sensor.glances_ram_use_2.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
-              {% endif %}
-            {%- endmacro -%}
-            {%- macro ssl_cert_expiry() -%}
-              Warning - SSL Certificate expires in {{states.sensor.ssl_cert_expiry.state}} days and has not been renewed!
-            {%- endmacro -%}
-            {%- macro failed_login() -%}
-              Failed Login! {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
-              {% if states.sensor.fail2ban_hassiptables.state != "None" %}
-              HASS Attempt(s) from {{states.sensor.fail2ban_hassiptables.state}} {% endif %} {% if states.sensor.fail2ban_nginxhttpauth.state != "None" %}
-              NGINX Attempt(s) from {{states.sensor.fail2ban_nginxhttpauth.state}}{% endif %}{% if states.sensor.fail2ban_nginxhttpauth.state != "None" %}
-              Organizr Attempt(s) from {{states.sensor.fail2ban_organizrauth.state}}
-              {% endif %}
-            {%- endmacro -%}
-            {##################}
-            {# BEGIN ROUTINES #}
-            {##################}
-            {% if call_on_restart == 1 %}
-              {{ on_restart() }}
-            {% endif %}
-            {% if call_system_use == 1 %}
-              {{ system_use() }}
-            {% endif %}
-            {% if call_ssl_cert_expiry == 1 %}
-              {{ ssl_cert_expiry() }}
-            {% endif %}
-            {% if call_failed_login == 1 %}
-              {{ failed_login() }}
-            {% endif %}
-
 #--- scripts/zwave_fix_dead_node.yaml ---
   zwave_fix_dead_node:
       alias: Script - Fix Dead ZWave Node
@@ -254,3 +211,46 @@
       - delay: 00:00:05
       - service: blink.blink_update
         
+
+#--- scripts/notify_kevin_engine.yaml ---
+  notify_kevin_engine:
+    sequence:
+      - service: notify.notify_kevin_phone
+        data_template:
+          message: >
+            {%- macro on_restart() -%}
+              Home Assistant restarted {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+            {%- endmacro -%}
+            {%- macro system_use() -%}
+              {% if states.sensor.glances_ram_use.state | float <= 100.0 %}
+                RAM Usage at {{states.sensor.glances_ram_use.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
+              {% elif states.sensor.glances_ram_use_2.state | float <= 100.0 %}
+                RAM Usage at {{states.sensor.glances_ram_use_2.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
+              {% endif %}
+            {%- endmacro -%}
+            {%- macro ssl_cert_expiry() -%}
+              Warning - SSL Certificate expires in {{states.sensor.ssl_cert_expiry.state}} days and has not been renewed!
+            {%- endmacro -%}
+            {%- macro failed_login() -%}
+              Failed Login! {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+              {% if states.sensor.fail2ban_hass_iptables.state != "None" %}
+              HASS Attempt(s) from {{states.sensor.fail2ban_hass_iptables.state}} {% endif %} {% if states.sensor.fail2ban_nginx_http_auth.state != "None" %}
+              NGINX Attempt(s) from {{states.sensor.fail2ban_nginx_http_auth.state}}{% endif %}{% if states.sensor.fail2ban_organizr_auth.state != "None" %}
+              Organizr Attempt(s) from {{states.sensor.fail2ban_organizr_auth.state}}
+              {% endif %}
+            {%- endmacro -%}
+            {##################}
+            {# BEGIN ROUTINES #}
+            {##################}
+            {% if call_on_restart == 1 %}
+              {{ on_restart() }}
+            {% endif %}
+            {% if call_system_use == 1 %}
+              {{ system_use() }}
+            {% endif %}
+            {% if call_ssl_cert_expiry == 1 %}
+              {{ ssl_cert_expiry() }}
+            {% endif %}
+            {% if call_failed_login == 1 %}
+              {{ failed_login() }}
+            {% endif %}

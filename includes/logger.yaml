@@ -4,3 +4,5 @@ logs:
   homeassistant.components.camera: error
   homeassistant.helpers.entity: error
   requests.packages.urllib3.connectionpool: error
+  blinkpy.sync_module: error
+  homeassistant.components.blink: error

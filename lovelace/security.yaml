@@ -12,14 +12,14 @@ cards:
       - type: horizontal-stack
         cards:
           - type: sensor
-            entity: sensor.blink_camera1_temperature
+            entity: sensor.blink_camera1_temperature_2
           - type: sensor
             entity: sensor.blink_cameraks_temperature
 
       - type: horizontal-stack
         cards:
           - type: sensor
-            entity: sensor.blink_camera1_battery
+            entity: sensor.blink_camera1_battery_2
           - type: sensor
             entity: sensor.blink_cameraks_battery
 
@@ -27,7 +27,7 @@ cards:
     entity: camera.blink_gif
 
   - type: picture-entity
-    entity: camera.blink_camera1
+    entity: camera.blink_camera1_2
 
   - type: picture-entity
     entity: camera.blink_cameraks

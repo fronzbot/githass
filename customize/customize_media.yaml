@@ -1,8 +1,3 @@
 ##################
 # Media Players
 ##################
-media_player.emby__emby_for_android_mobile__oneplus_a5000:
-  friendly_name: Emby Mobile
-
-media_player.emby__emby_mobile__chrom:
-  friendly_name: Emby Mobile Chrome

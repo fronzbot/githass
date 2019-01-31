@@ -35,9 +35,9 @@ cards:
     entities:
       - sensor.hass_uptime
       - sensor.hass_version
-      - sensor.fail2ban_hassiptables
-      - sensor.fail2ban_nginxhttpauth
-      - sensor.fail2ban_organizrauth
+      - sensor.fail2ban_hass_iptables
+      - sensor.fail2ban_nginx_http_auth
+      - sensor.fail2ban_organizr_auth
 
   - type: glance
     name: Z-Wave

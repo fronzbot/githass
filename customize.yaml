@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-Jan-15 19:07:03 
+# Generated: 2019-Jan-24 07:52:12 
 #--------------------------------------------
 
 #--- customize/customize_glances.yaml ---
@@ -165,16 +165,6 @@
     emulated_hue_hidden: false
     emulated_hue_name: "Pink"
   
-
-#--- customize/customize_media.yaml ---
-##################
-# Media Players
-##################
-  media_player.emby__emby_for_android_mobile__oneplus_a5000:
-    friendly_name: Emby Mobile
-  
-  media_player.emby__emby_mobile__chrom:
-    friendly_name: Emby Mobile Chrome
 
 #--- customize/customize_lights.yaml ---
 ##################
@@ -638,15 +628,15 @@
 #-------------------------------
 # ip_ban_list
 #-------------------------------
-  sensor.fail2ban_hassiptables:
+  sensor.fail2ban_hass_iptables:
     friendly_name: Hass Bans
     icon: mdi:do-not-disturb
   
-  sensor.fail2ban_nginxhttpauth:
+  sensor.fail2ban_nginx_http_auth:
     friendly_name: Nginx Bans
     icon: mdi:do-not-disturb
     
-  sensor.fail2ban_organizrauth:
+  sensor.fail2ban_organizr_auth:
     friendly_name: Organizr Bans
     icon: mdi:do-not-disturb
   
@@ -758,3 +748,8 @@
   
   zwave.smoke_nursery:
     icon: mdi:smoke-detector
+
+#--- customize/customize_media.yaml ---
+##################
+# Media Players
+##################
