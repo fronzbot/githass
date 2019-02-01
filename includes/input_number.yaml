@@ -21,21 +21,21 @@ ac_away:
 
 heat_home:
   name: Heat Home
-  initial: 68
+  initial: 69
   min: 55
   max: 72
   step: 1
 
 heat_sleep:
   name: Heat Sleep
-  initial: 65
+  initial: 68
   min: 55
   max: 72
   step: 1
 
 heat_away:
   name: Heat Away
-  initial: 60
+  initial: 65
   min: 55
   max: 72
   step: 1
