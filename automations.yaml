@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-Jan-24 07:52:12 
+# Generated: 2019-Feb-13 10:47:24 
 #--------------------------------------------
 
 #--- automation/thermostat_disable.yaml ---
@@ -44,24 +44,6 @@
     - service: script.speech_engine
       data:
         call_fire_co2: 1
-
-#--- automation/notify_on_restart.yaml ---
-- id: notify_on_restart
-  alias: Notify on Restart
-  trigger:
-    - platform: homeassistant
-      event: start
-  action:
-    - service: script.notify_kevin_engine
-      data:
-        call_on_restart: 1
-    - service_template: >
-        {% if now().month == 12 %}
-          input_boolean.turn_on
-        {% else %}
-          input_boolean.turn_off
-        {% endif %}
-      entity_id: input_boolean.christmas_lights
 
 #--- automation/zwave_fix_dead_node.yaml ---
 - id: fix_dead_zwave_node
@@ -118,22 +100,6 @@
   action:
     - service: light.turn_off
       entity_id: group.interior
-
-#--- automation/lights_outside_off.yaml ---
-# Turn on outside lights off at 12:40 am
-  
-- id: lights_outdoor_off
-  alias: Lights Outdoor Off
-  trigger:
-    - platform: time
-      at: '00:40:07'
-  action:
-    - service: light.turn_off
-      entity_id: group.exterior
-    - service: switch.turn_off
-      entity_id: group.outdoor_switches
-    - service: switch.turn_off    
-      entity_id: switch.driveway_switch
 
 #--- automation/nighttime.yaml ---
 - id: nighttime_routine
@@ -246,27 +212,6 @@
         - light.couch_left
         - light.kitchen_table
     - service: python_script.thermostat_engine
-
-#--- automation/sunset.yaml ---
-# Turn on outside lights 15 minutes after sunset
-  
-- id: lights_sunset
-  alias: Lights Sunset
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '+00:15:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.porch
-      data:
-        brightness: 278
-        color_temp: 330
-    - service: switch.turn_on
-      entity_id: switch.driveway_switch
-    - service: script.speech_engine
-      data:
-        call_dark_outside: 1
 
 #--- automation/lights_holiday_lights.yaml ---
 # Turn on holiday lights at sunset
@@ -385,3 +330,55 @@
     - service: script.notify_kevin_engine
       data:
         call_failed_login: 1
+
+#--- automation/sunset.yaml ---
+# Turn on outside lights 15 minutes after sunset
+  
+- id: lights_sunset
+  alias: Lights Sunset
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '+00:15:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.porch
+      data:
+        brightness: 255
+        color_temp: 330
+    - service: switch.turn_on
+      entity_id: switch.driveway_switch
+
+#--- automation/notify_on_restart.yaml ---
+- id: notify_on_restart
+  alias: Notify on Restart
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: script.notify_kevin_engine
+      data:
+        call_on_restart: 1
+    - service_template: >
+        {% if now().month == 12 %}
+          input_boolean.turn_on
+        {% else %}
+          input_boolean.turn_off
+        {% endif %}
+      entity_id: input_boolean.christmas_lights
+
+#--- automation/lights_outside_off.yaml ---
+# Turn on outside lights off at 12:40 am
+  
+- id: lights_outdoor_off
+  alias: Lights Outdoor Off
+  trigger:
+    - platform: time
+      at: '00:40:07'
+  action:
+    - service: light.turn_off
+      entity_id: light.porch
+    - service: switch.turn_off
+      entity_id: group.outdoor_switches
+    - service: switch.turn_off    
+      entity_id: switch.driveway_switch

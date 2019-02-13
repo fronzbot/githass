@@ -9,10 +9,7 @@ action:
   - service: light.turn_on
     entity_id: light.porch
     data:
-      brightness: 278
+      brightness: 255
       color_temp: 330
   - service: switch.turn_on
     entity_id: switch.driveway_switch
-  - service: script.speech_engine
-    data:
-      call_dark_outside: 1

@@ -42,6 +42,7 @@ scene: !include_dir_list scenes
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensors
 shell_command: !include includes/shell_command.yaml
+system_health:
 tts: !include includes/tts.yaml
 zwave: !include includes/zwave.yaml
 
