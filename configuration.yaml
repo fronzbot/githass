@@ -23,11 +23,10 @@ http:
 automation: !include automations.yaml
 blink: !include includes/blink.yaml
 camera: !include includes/cameras.yaml
-#device_tracker: !include includes/device_trackers.yaml
+ecobee: !include includes/ecobee.yaml
 emulated_hue: !include includes/emulated_hue.yaml
 fastdotcom: !include includes/fastdotcom.yaml
 google_assistant: !include includes/google_assistant.yaml
-#gpslogger:
 group: !include_dir_merge_named groups
 hue: !include includes/hue.yaml
 history: !include includes/history.yaml
@@ -35,7 +34,6 @@ input_boolean: !include includes/input_boolean.yaml
 input_number: !include includes/input_number.yaml
 influxdb: !include includes/influxdb.yaml
 logger: !include includes/logger.yaml
-media_player: !include includes/media.yaml
 notify: !include includes/notify.yaml
 python_script:
 recorder: !include includes/recorder.yaml
@@ -55,12 +53,3 @@ logbook:
 sun:
 updater:
   reporting: False
-
-#==========================================
-# Other components
-#==========================================
-#wake_on_lan:
-
-ecobee:
-  api_key: !secret ecobee_api
-
