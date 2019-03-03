@@ -34,6 +34,12 @@ import pytz
 DEBUG = False
 
 
+def utc_to_est(datetime_obj):
+    """Naive timezone conversion because I'm lazy AF."""
+    tz_offset = dt.timedelta(hours=-5)
+    return datetime_obj + tz_offset
+
+
 class Flux(hass.Hass):
 
     def initialize(self):
@@ -50,20 +56,26 @@ class Flux(hass.Hass):
         for key, value in self.colors.items():
             self.offsets[key] = dt.timedelta(minutes=value['offset'])
 
-        self.current_time = self.time()
+        self.current_time = utc_to_est(dt.datetime.now()).time()
 
         self.run_minutely(self.update_color, self.current_time)
 
         for light in self.split_device_list(self.args['light']):
             self.listen_state(self.update_on_change, light)
 
+    def sunrise_tz(self):
+        return utc_to_est(self.sunrise())
+
+    def sunset_tz(self):
+        return utc_to_est(self.sunset())
+
     def update_on_change(self, entity, attribute, old, new, kwargs):
         if self.get_state(entity) == "on" and old == "off":
             self.update_color(None)
 
     def determine_color_state(self, now):
-        sunrise = self.sunrise() - dt.timedelta(days=1)
-        sunset = self.sunset() - dt.timedelta(days=1)
+        sunrise = self.sunrise_tz() - dt.timedelta(days=1)
+        sunset = self.sunset_tz() - dt.timedelta(days=1)
 
         self.times = {
             'sunrise': sunrise + self.offsets['sunrise'],
@@ -73,6 +85,9 @@ class Flux(hass.Hass):
         }
         
         now_time = now.time()
+
+        if DEBUG:
+            self.log("now: {}, sunset: {}, night: {}".format(now_time, self.times['sunrise'].time(), self.times['night'].time()))
 
         if now_time <= self.times['sunrise'].time():
             return 'night'
@@ -122,7 +137,7 @@ class Flux(hass.Hass):
 
     def update_color(self, kwargs):
         
-        now = dt.datetime.now()
+        now = utc_to_est(dt.datetime.now())
         color_state = self.determine_color_state(now)
         progress = self.calculate_progress(now, color_state)
         new_color = self.calculate_color(color_state, progress)
@@ -131,7 +146,7 @@ class Flux(hass.Hass):
 
         if DEBUG:
             self.log("Now={}: Sunrise={}, Sunset={}, State={}, Progress={}, Color={}".format(
-                now.time(), self.sunrise().time(), self.sunset().time(),  color_state, progress, new_color))
+                now.time(), self.sunrise_tz().time(), self.sunset_tz().time(),  color_state, progress, new_color))
 
         for light in self.split_device_list(self.args["light"]):
             if self.get_state(light) == 'on':
