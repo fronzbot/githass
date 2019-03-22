@@ -1,0 +1,2 @@
+- platform: radiotherm
+  hold_temp: true

@@ -19,7 +19,7 @@ http:
 automation: !include automations.yaml
 blink: !include includes/blink.yaml
 camera: !include includes/cameras.yaml
-ecobee: !include includes/ecobee.yaml
+climate: !include includes/climate.yaml
 emulated_hue: !include includes/emulated_hue.yaml
 fastdotcom: !include includes/fastdotcom.yaml
 google_assistant: !include includes/google_assistant.yaml
