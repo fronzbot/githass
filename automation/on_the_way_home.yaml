@@ -9,7 +9,7 @@ action:
       - light.couch_left
       - light.couch_right
       - light.kitchen_table
-  - service: python_script.thermostat_engine
+#  - service: python_script.thermostat_engine
   - service: script.notify_all_engine
     data:
       call_on_way_home: 1

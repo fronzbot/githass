@@ -1,33 +1,9 @@
 ##################
 # Entities
 ################## 
-device_tracker.kevin:
-  friendly_name: Kevin
-  icon: mdi:cellphone-android
- 
-device_tracker.allegra:
-  friendly_name: Allegra
-  icon: mdi:cellphone-android
-
-device_tracker.kevin_ping:
-  friendly_name: Kevin - Ping
-  icon: mdi:cellphone-android
-
-device_tracker.allegra_ping:
-  friendly_name: Allegra - Ping
-  icon: mdi:cellphone-android
-
 device_tracker.kevin_gps:
   icon: mdi:crosshairs-gps
 
 device_tracker.allegra_gps:
   icon: mdi:crosshairs-gps
 
-# Ecobee sensors
-binary_sensor.living_room_occupancy:
-  friendly_name: In Living Room
-  icon: mdi:account-multiple
-  
-binary_sensor.bedroom_occupancy:
-  friendly_name: In Bedroom
-  icon: mdi:account-multiple

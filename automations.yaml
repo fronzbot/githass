@@ -1,19 +1,6 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-Feb-13 10:47:24 
+# Generated: 2019-Mar-24 14:07:43 
 #--------------------------------------------
-
-#--- automation/thermostat_disable.yaml ---
-- id: thermostat_disable
-  alias: Thermostat Disable
-  trigger:
-    - platform: state
-      entity_id: input_boolean.thermostat_enable
-      to: 'off'
-  action:
-    - service: climate.set_operation_mode
-      entity_id: climate.living_room
-      data:
-        operation_mode: 'off'
 
 #--- automation/notify_on_fire_co2.yaml ---
 - id: notify_on_fire_co2
@@ -70,25 +57,6 @@
     - service: input_boolean.turn_on
       entity_id: input_boolean.guest_mode
 
-#--- automation/daytime.yaml ---
-- id: daytime_routine
-  alias: Daytime Routine
-  trigger:
-      - platform: sun
-        event: sunrise
-        offset: '+00:30:00'
-      - platform: time
-        at: '08:00:00'
-  condition:
-      - condition: sun
-        after: sunrise
-        after_offset: '+00:15:00'
-  
-  action:
-      - service: light.turn_off
-        entity_id: light.kitchen_table
-      - service: python_script.thermostat_engine
-
 #--- automation/lights_inside_off.yaml ---
 # Turn inside lights off around midnight (before exterior)
   
@@ -100,17 +68,6 @@
   action:
     - service: light.turn_off
       entity_id: group.interior
-
-#--- automation/nighttime.yaml ---
-- id: nighttime_routine
-  alias: Nighttime Routine
-  trigger:
-    - platform: time
-      at: '22:30:00'
-  action:
-    - service: light.turn_off
-      entity_id: light.kitchen_table
-    - service: python_script.thermostat_engine
 
 #--- automation/notify_washer_status.yaml ---
 - id: notify_on_washer_status
@@ -131,87 +88,6 @@
     - service: script.speech_engine
       data:
         call_washer_status: 1
-
-#--- automation/on_the_way_home.yaml ---
-- id: on_the_way_home
-  alias: On The Way Home
-  trigger:
-    - platform: state
-      entity_id: input_boolean.on_the_way_home
-      to: 'on'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.couch_left
-        - light.couch_right
-        - light.kitchen_table
-    - service: python_script.thermostat_engine
-    - service: script.notify_all_engine
-      data:
-        call_on_way_home: 1
-
-#--- automation/thermostat_control.yaml ---
-- id: thermostat_controls
-  alias: Thermostat Controls
-  trigger:
-    - platform: homeassistant
-      event: start
-    - platform: state
-      entity_id: input_boolean.thermostat_enable
-      to: 'on'
-    - platform: state
-      entity_id:
-        - input_number.ac_home
-        - input_number.ac_away
-        - input_number.ac_sleep
-        - input_number.heat_home
-        - input_number.heat_away
-        - input_number.heat_sleep
-  action:
-    - service: python_script.thermostat_engine
-
-#--- automation/thermostat_weather.yaml ---
-- id: thermostat_change_on_weather
-  alias: Thermostat Change on Weather
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.dark_sky_temperature
-      above: 77
-    - platform: numeric_state
-      entity_id: sensor.dark_sky_temperature
-      below: 55
-    - platform: numeric_state
-      entity_id: sensor.dark_sky_temperature
-      above: 58
-      below: 74
-    - platform: numeric_state
-      entity_id: sensor.living_room_humidity
-      above: 58
-    - platform: numeric_state
-      entity_id: sensor.living_room_humidity
-      below: 55
-    - platform: template
-      value_template: '{{ (states.climate.living_room.attributes.current_temperature | float - states.sensor.dark_sky_temperature.state | float) > 2.0 }}'
-    - platform: template
-      value_template: '{{ (states.sensor.bedroom_temperature.state | int > 79) and (now().strftime("%H") | int > 21) }}'
-    - platform: template
-      value_template: '{{ (states.sensor.bedroom_temperature.state | int < 78) and ((now().strftime("%H") | int > 21) or (now().strftime("%H") | int < 5)) }}'
-  
-  action:
-    - service: python_script.thermostat_engine
-
-#--- automation/wakeup.yaml ---
-- id: wakeup_routine
-  alias: Wakeup Routine
-  trigger:
-    - platform: time
-      at: '06:30:30'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.couch_left
-        - light.kitchen_table
-    - service: python_script.thermostat_engine
 
 #--- automation/lights_holiday_lights.yaml ---
 # Turn on holiday lights at sunset
@@ -235,50 +111,6 @@
       data:
         color_name: 'lime green'
         brightness: 254
-
-#--- automation/away_from_home.yaml ---
-- id: away_from_home
-  alias: Away From Home
-  trigger:
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        before: '16:00:00'
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: 'off'
-  action:
-      - service: light.turn_off
-        entity_id: group.all_lights
-      - service: python_script.thermostat_engine
-      - service: alarm_control_panel.alarm_arm_away
-        entity_id: alarm_control_panel.blink_xt_hub 
-
-#--- automation/arriving_home.yaml ---
-- id: arriving_home
-  alias: Arriving Home
-  trigger:
-    - platform: state
-      entity_id: device_tracker.kevin_gps
-      to: 'home'
-    - platform: state
-      entity_id: device_tracker.allegra_gps
-      to: 'home'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.couch_left
-        - light.couch_right
-        - light.kitchen_table
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.guest_mode
-    - service: python_script.thermostat_engine
-    - service: alarm_control_panel.alarm_disarm
-      entity_id: alarm_control_panel.blink_xt_hub
 
 #--- automation/away_from_home_night.yaml ---
 - id: away_from_home_at_night
@@ -382,3 +214,108 @@
       entity_id: group.outdoor_switches
     - service: switch.turn_off    
       entity_id: switch.driveway_switch
+
+#--- automation/daytime.yaml ---
+- id: daytime_routine
+  alias: Daytime Routine
+  trigger:
+      - platform: sun
+        event: sunrise
+        offset: '+00:30:00'
+      - platform: time
+        at: '08:00:00'
+  condition:
+      - condition: sun
+        after: sunrise
+        after_offset: '+00:15:00'
+  
+  action:
+      - service: light.turn_off
+        entity_id: light.kitchen_table
+#    - service: python_script.thermostat_engine
+
+#--- automation/nighttime.yaml ---
+- id: nighttime_routine
+  alias: Nighttime Routine
+  trigger:
+    - platform: time
+      at: '22:30:00'
+  action:
+    - service: light.turn_off
+      entity_id: light.kitchen_table
+#  - service: python_script.thermostat_engine
+
+#--- automation/on_the_way_home.yaml ---
+- id: on_the_way_home
+  alias: On The Way Home
+  trigger:
+    - platform: state
+      entity_id: input_boolean.on_the_way_home
+      to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.couch_left
+        - light.couch_right
+        - light.kitchen_table
+#  - service: python_script.thermostat_engine
+    - service: script.notify_all_engine
+      data:
+        call_on_way_home: 1
+
+#--- automation/wakeup.yaml ---
+- id: wakeup_routine
+  alias: Wakeup Routine
+  trigger:
+    - platform: time
+      at: '06:30:30'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.couch_left
+        - light.kitchen_table
+#  - service: python_script.thermostat_engine
+
+#--- automation/away_from_home.yaml ---
+- id: away_from_home
+  alias: Away From Home
+  trigger:
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'not_home'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '16:00:00'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+  action:
+      - service: light.turn_off
+        entity_id: group.all_lights
+#    - service: python_script.thermostat_engine
+      - service: alarm_control_panel.alarm_arm_away
+        entity_id: alarm_control_panel.blink_xt_hub 
+
+#--- automation/arriving_home.yaml ---
+- id: arriving_home
+  alias: Arriving Home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.kevin_gps
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.allegra_gps
+      to: 'home'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.couch_left
+        - light.couch_right
+        - light.kitchen_table
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.guest_mode
+#  - service: python_script.thermostat_engine
+    - service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.blink_xt_hub

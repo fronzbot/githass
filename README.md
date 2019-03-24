@@ -8,7 +8,7 @@ Currently running on a home media server using [unRAID](https://lime-technology.
 - Device Tracking:
   - [gpslogger](https://home-assistant.io/components/device_tracker.gpslogger/)
 - Climate:
-  - [Ecobee](https://home-assistant.io/components/climate.ecobee/) Version 3 with one remote sensor
+  - [Radio Thermostat CT-50 (WiFi)](https://home-assistant.io/components/climate.radiotherm/)
 - Lights:
   - [Phillips Hue](https://home-assistant.io/components/light.hue/)
       - 5x 2nd Gen Color Ambience Bulbs
@@ -43,10 +43,7 @@ Currently running on a home media server using [unRAID](https://lime-technology.
 - HA Reset notifications and memory leak notifications
 - Nightly data storage for daily average/max/min to be displayed as a graph in the front end (to get long-term history)
 
-### Notes:
-1. I use secrets.yaml to hide sensitive information (like API keys)
-2. Currently, Home Assistant has local control over only Hue and Z-wave devices (Ecobee talks to cloud).  My goal is to force everything to be local so if the interenet goes out, my home will still be automated.
- 
+
 (Images last updated March 3, 2019 may not reflect current configuration)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_home_page.png)
 ![](https://github.com/fronzbot/githass/blob/master/images/ha_thermostat.png)

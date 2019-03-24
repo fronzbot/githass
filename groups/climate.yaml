@@ -5,13 +5,10 @@
 thermostat_info:
   name: Thermostat
   entities:
-    - climate.living_room
+    - climate.thermostat_73_5c_83
     - sensor.thermo_current_operation  
     - sensor.dark_sky_temperature    
     - sensor.living_room_temperature
-    - sensor.bedroom_temperature
-    - sensor.thermo_dew_point
-    - sensor.living_room_humidity
     - sensor.dark_sky_humidity
     - sensor.thermo_hvac
     - sensor.thermo_current_operation
@@ -26,10 +23,8 @@ thermostat_info:
 temp_gist:
   name: Climate Summary
   entities:
-    - climate.living_room
+    - climate.thermostat_73_5c_83
     - sensor.thermo_current_operation    
     - sensor.living_room_temperature
-    - sensor.bedroom_temperature
-    - sensor.thermo_dew_point
     - sensor.dark_sky_temperature
    

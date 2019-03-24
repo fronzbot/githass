@@ -14,3 +14,9 @@ flux_continuous:
   module: flux
   class: Flux
   light: light.corner_den,light.back_den,light.bedroom_door,light.bedroom_corner
+
+thermostat:
+  module: thermostat
+  class: Thermostat
+  constrain_input_boolean: input_boolean.thermostat_enable
+  input_number: input_number.ac_home,input_number.ac_away,input_number.ac_sleep,input_number.heat_home,input_number.heat_away,input_number.heat_sleep
