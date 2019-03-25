@@ -1,27 +1,24 @@
 - platform: template
   sensors:
     thermo_hvac:
-      value_template: '{{ states.climate.living_room.attributes.operation_mode }}'     
-      entity_id: climate.living_room
+      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.operation_mode }}'     
+      entity_id: climate.thermostat_73_5c_83
     
-    thermo_temp:
-      value_template: '{{ states.climate.living_room.attributes.current_temperature }}'
+    living_room_temperature:
+      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.current_temperature | float}}'
       unit_of_measurement: '°F'
-      entity_id: climate.living_room
+      entity_id: climate.thermostat_73_5c_83
       
     thermo_fan:
-      value_template: '{{ states.climate.living_room.attributes.fan }}'
-      entity_id: climate.living_room
+      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.fan }}'
+      entity_id: climate.thermostat_73_5c_83
       
     thermo_current_operation:
-      value_template: '{{ states.climate.living_room.attributes.operation }}'   
-      entity_id: climate.living_room
+      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.operation_mode }}'   
+      entity_id: climate.thermostat_73_5c_83
 
-    # TD = Dew point in [F]
-    # RH = Relative Humidity[%]
-    # T  = Temperature [F]
-    # TD ~ T - 0.4*(100 - RH)
-    thermo_dew_point:
-      value_template: >
-        {{ (states.sensor.living_room_temperature.state | float - 0.4*(100 - states.sensor.living_room_humidity.state | float )) | round(2) }}
-      unit_of_measurement: '°F'   
+    thermo_mode:
+      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.mode }}'
+      entity_id: climate.thermostat_73_5c_83
+
+

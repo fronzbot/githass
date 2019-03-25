@@ -14,6 +14,6 @@ action:
       - light.kitchen_table
   - service: input_boolean.turn_off
     entity_id: input_boolean.guest_mode
-  - service: python_script.thermostat_engine
+#  - service: python_script.thermostat_engine
   - service: alarm_control_panel.alarm_disarm
     entity_id: alarm_control_panel.blink_xt_hub

@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-Feb-13 10:47:25 
+# Generated: 2019-Mar-24 14:07:43 
 #--------------------------------------------
 
 #--- customize/customize_glances.yaml ---
@@ -304,65 +304,6 @@
     icon: mdi:arrow-up-bold-circle-outline
     friendly_name: "Upgrade Pihole"
 
-#--- customize/customize_climate.yaml ---
-  
-##################
-# Thermostat
-################## 
-  climate.living_room:
-    friendly_name: Ecobee
-    icon: mdi:thermostat
-    
-  sensor.living_room_temperature:
-    friendly_name: Living Room Temperature
-    icon: mdi:thermometer
-    
-  sensor.bedroom_temperature:
-    friendly_name: Bedroom Temperature
-    icon: mdi:thermometer
-    
-  sensor.living_room_humidity:
-    friendly_name: Living Room Humidity
-    icon: mdi:water
-    
-  sensor.thermo_hvac:
-    friendly_name: HVAC Mode
-    icon: mdi:air-conditioner
-    
-  sensor.thermo_temp:
-    friendly_name: Current Temperature
-    icon: mdi:thermostat
-    
-  sensor.thermo_current_operation:
-    friendly_name: Current Status
-    icon: mdi:waves
-    
-  sensor.thermo_fan:
-    friendly_name: Fan
-    icon: mdi:fan
-  
-  sensor.thermo_dew_point:
-    friendly_name: Indoor Dew Point
-    icon: mdi:oil-temperature
-  
-  input_number.ac_home:
-    icon: mdi:air-conditioner
-  
-  input_number.ac_sleep:
-    icon: mdi:sleep
-  
-  input_number.ac_away:
-    icon: mdi:car
-  
-  input_number.heat_home:
-    icon: mdi:radiator
-  
-  input_number.heat_sleep:
-    icon: mdi:sleep
-  
-  input_number.heat_away:
-    icon: mdi:car
-
 #--- customize/customize_groups.yaml ---
 #===================================================
 # Sets the emulated_hue exposure for all groups
@@ -477,41 +418,6 @@
     
   group.all_covers:
     emulated_hue_hidden: true
-
-#--- customize/customize_presence.yaml ---
-##################
-# Entities
-################## 
-  device_tracker.kevin:
-    friendly_name: Kevin
-    icon: mdi:cellphone-android
-   
-  device_tracker.allegra:
-    friendly_name: Allegra
-    icon: mdi:cellphone-android
-  
-  device_tracker.kevin_ping:
-    friendly_name: Kevin - Ping
-    icon: mdi:cellphone-android
-  
-  device_tracker.allegra_ping:
-    friendly_name: Allegra - Ping
-    icon: mdi:cellphone-android
-  
-  device_tracker.kevin_gps:
-    icon: mdi:crosshairs-gps
-  
-  device_tracker.allegra_gps:
-    icon: mdi:crosshairs-gps
-  
-# Ecobee sensors
-  binary_sensor.living_room_occupancy:
-    friendly_name: In Living Room
-    icon: mdi:account-multiple
-    
-  binary_sensor.bedroom_occupancy:
-    friendly_name: In Bedroom
-    icon: mdi:account-multiple
 
 #--- customize/customize_weather.yaml ---
 # Wunderground and dark_sky customization
@@ -753,3 +659,69 @@
 ##################
 # Media Players
 ##################
+
+#--- customize/customize_presence.yaml ---
+##################
+# Entities
+################## 
+  device_tracker.kevin_gps:
+    icon: mdi:crosshairs-gps
+  
+  device_tracker.allegra_gps:
+    icon: mdi:crosshairs-gps
+  
+
+#--- customize/customize_climate.yaml ---
+  
+##################
+# Thermostat
+################## 
+  climate.thermostat_73_5c_83:
+    friendly_name: Living Room
+    icon: mdi:thermostat
+    
+  sensor.living_room_temperature:
+    friendly_name: Living Room Temperature
+    icon: mdi:thermometer
+    
+  sensor.thermo_hvac:
+    friendly_name: HVAC Mode
+    icon: mdi:air-conditioner
+    
+  sensor.thermo_temp:
+    friendly_name: Current Temperature
+    icon: mdi:thermostat
+    
+  sensor.thermo_current_operation:
+    friendly_name: Current Status
+    icon: mdi:radiator
+  
+  sensor.thermo_mode:
+    friendly_name: Mode
+    icon: mdi:waves
+  
+  sensor.thermo_fan:
+    friendly_name: Fan
+    icon: mdi:fan
+  
+  sensor.thermo_dew_point:
+    friendly_name: Indoor Dew Point
+    icon: mdi:oil-temperature
+  
+  input_number.ac_home:
+    icon: mdi:air-conditioner
+  
+  input_number.ac_sleep:
+    icon: mdi:sleep
+  
+  input_number.ac_away:
+    icon: mdi:car
+  
+  input_number.heat_home:
+    icon: mdi:radiator
+  
+  input_number.heat_sleep:
+    icon: mdi:sleep
+  
+  input_number.heat_away:
+    icon: mdi:car

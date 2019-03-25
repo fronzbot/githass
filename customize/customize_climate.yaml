@@ -2,21 +2,13 @@
 ##################
 # Thermostat
 ################## 
-climate.living_room:
-  friendly_name: Ecobee
+climate.thermostat_73_5c_83:
+  friendly_name: Living Room
   icon: mdi:thermostat
   
 sensor.living_room_temperature:
   friendly_name: Living Room Temperature
   icon: mdi:thermometer
-  
-sensor.bedroom_temperature:
-  friendly_name: Bedroom Temperature
-  icon: mdi:thermometer
-  
-sensor.living_room_humidity:
-  friendly_name: Living Room Humidity
-  icon: mdi:water
   
 sensor.thermo_hvac:
   friendly_name: HVAC Mode
@@ -28,8 +20,12 @@ sensor.thermo_temp:
   
 sensor.thermo_current_operation:
   friendly_name: Current Status
+  icon: mdi:radiator
+
+sensor.thermo_mode:
+  friendly_name: Mode
   icon: mdi:waves
-  
+
 sensor.thermo_fan:
   friendly_name: Fan
   icon: mdi:fan
