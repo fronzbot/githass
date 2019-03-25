@@ -20,7 +20,7 @@ import appdaemon.plugins.hass.hassapi as hass
 import datetime as dt
 import pytz
 
-DEBUG = True
+DEBUG = False
 
 AC_THRESHOLD = 77
 HEAT_THRESHOLD = 57
