@@ -54,9 +54,9 @@ class Thermostat(hass.Hass):
         for value in self.split_device_list(self.args['input_number']):
             self.listen_state(self.update_on_change, value)
 
-    def update_on_change(self, **kwargs):
+    def update_on_change(self, entity, attribute, old, new, kwargs):
         self.get_input_numbers()
-        self.update_thermostat()
+        self.update_thermostat(None)
 
     def get_input_numbers(self):
         self.ac = {
