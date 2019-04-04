@@ -6,4 +6,4 @@ logs:
   requests.packages.urllib3.connectionpool: error
   blinkpy.sync_module: error
   homeassistant.components.blink: error
-  homeassistant.components.climate: error
+  homeassistant.components.radiotherm: error
