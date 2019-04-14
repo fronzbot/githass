@@ -3,7 +3,7 @@
     washer:
       value_template: >
         {% if states.sensor.power_mon_power %}
-          {% if (states.sensor.power_mon_power.state | float) > 1.1 and (states.sensor.power_mon_power.state | float) < 8191.0 %}
+          {% if (states.sensor.power_mon_power.state | float) > 0.7 and (states.sensor.power_mon_power.state | float) < 8191.0 %}
             Running
           {% else %}
             Not Running
