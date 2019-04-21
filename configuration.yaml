@@ -39,7 +39,6 @@ sensor: !include_dir_merge_list sensors
 shell_command: !include includes/shell_command.yaml
 speedtestdotnet: !include includes/speedtest.yaml
 system_health:
-tts: !include includes/tts.yaml
 zwave: !include includes/zwave.yaml
 
 # Enables
