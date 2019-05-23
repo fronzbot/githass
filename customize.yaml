@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-Mar-24 14:07:43 
+# Generated: 2019-May-23 11:09:16 
 #--------------------------------------------
 
 #--- customize/customize_glances.yaml ---
@@ -660,17 +660,6 @@
 # Media Players
 ##################
 
-#--- customize/customize_presence.yaml ---
-##################
-# Entities
-################## 
-  device_tracker.kevin_gps:
-    icon: mdi:crosshairs-gps
-  
-  device_tracker.allegra_gps:
-    icon: mdi:crosshairs-gps
-  
-
 #--- customize/customize_climate.yaml ---
   
 ##################
@@ -725,3 +714,14 @@
   
   input_number.heat_away:
     icon: mdi:car
+
+#--- customize/customize_presence.yaml ---
+##################
+# Entities
+################## 
+  device_tracker.kevin_gps:
+    icon: mdi:crosshairs-gps
+  
+  device_tracker.allegra_gps:
+    icon: mdi:crosshairs-gps
+  

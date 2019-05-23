@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-Mar-24 14:07:43 
+# Generated: 2019-May-23 11:09:16 
 #--------------------------------------------
 
 #--- automation/notify_on_fire_co2.yaml ---
@@ -215,66 +215,27 @@
     - service: switch.turn_off    
       entity_id: switch.driveway_switch
 
-#--- automation/daytime.yaml ---
-- id: daytime_routine
-  alias: Daytime Routine
-  trigger:
-      - platform: sun
-        event: sunrise
-        offset: '+00:30:00'
-      - platform: time
-        at: '08:00:00'
-  condition:
-      - condition: sun
-        after: sunrise
-        after_offset: '+00:15:00'
-  
-  action:
-      - service: light.turn_off
-        entity_id: light.kitchen_table
-#    - service: python_script.thermostat_engine
-
-#--- automation/nighttime.yaml ---
-- id: nighttime_routine
-  alias: Nighttime Routine
-  trigger:
-    - platform: time
-      at: '22:30:00'
-  action:
-    - service: light.turn_off
-      entity_id: light.kitchen_table
-#  - service: python_script.thermostat_engine
-
-#--- automation/on_the_way_home.yaml ---
-- id: on_the_way_home
-  alias: On The Way Home
+#--- automation/arriving_home.yaml ---
+- id: arriving_home
+  alias: Arriving Home
   trigger:
     - platform: state
-      entity_id: input_boolean.on_the_way_home
-      to: 'on'
+      entity_id: device_tracker.kevin_gps
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.allegra_gps
+      to: 'home'
   action:
     - service: light.turn_on
       entity_id:
         - light.couch_left
         - light.couch_right
         - light.kitchen_table
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.guest_mode
 #  - service: python_script.thermostat_engine
-    - service: script.notify_all_engine
-      data:
-        call_on_way_home: 1
-
-#--- automation/wakeup.yaml ---
-- id: wakeup_routine
-  alias: Wakeup Routine
-  trigger:
-    - platform: time
-      at: '06:30:30'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.couch_left
-        - light.kitchen_table
-#  - service: python_script.thermostat_engine
+    - service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.blink_xt_hub
 
 #--- automation/away_from_home.yaml ---
 - id: away_from_home
@@ -298,24 +259,65 @@
       - service: alarm_control_panel.alarm_arm_away
         entity_id: alarm_control_panel.blink_xt_hub 
 
-#--- automation/arriving_home.yaml ---
-- id: arriving_home
-  alias: Arriving Home
+#--- automation/daytime.yaml ---
+- id: daytime_routine
+  alias: Daytime Routine
+  trigger:
+      - platform: sun
+        event: sunrise
+        offset: '+00:30:00'
+      - platform: time
+        at: '08:00:00'
+  condition:
+      - condition: sun
+        after: sunrise
+        after_offset: '+00:15:00'
+  
+  action:
+      - service: light.turn_off
+        entity_id: light.kitchen_table
+#    - service: python_script.thermostat_engine
+
+#--- automation/on_the_way_home.yaml ---
+- id: on_the_way_home
+  alias: On The Way Home
   trigger:
     - platform: state
-      entity_id: device_tracker.kevin_gps
-      to: 'home'
-    - platform: state
-      entity_id: device_tracker.allegra_gps
-      to: 'home'
+      entity_id: input_boolean.on_the_way_home
+      to: 'on'
   action:
     - service: light.turn_on
       entity_id:
         - light.couch_left
         - light.couch_right
         - light.kitchen_table
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.guest_mode
 #  - service: python_script.thermostat_engine
-    - service: alarm_control_panel.alarm_disarm
+    - service: script.notify_all_engine
+      data:
+        call_on_way_home: 1
+
+#--- automation/nighttime.yaml ---
+- id: nighttime_routine
+  alias: Nighttime Routine
+  trigger:
+    - platform: time
+      at: '21:30:00'
+  action:
+    - service: light.turn_off
+      entity_id: light.kitchen_table
+    - service: alarm_control_panel.alarm_arm_away
       entity_id: alarm_control_panel.blink_xt_hub
+
+#--- automation/wakeup.yaml ---
+- id: wakeup_routine
+  alias: Wakeup Routine
+  trigger:
+    - platform: time
+      at: '06:30:30'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.couch_left
+        - light.kitchen_table
+    - service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.blink_xt_hub 
