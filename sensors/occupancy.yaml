@@ -3,7 +3,7 @@
     occupancy:
       value_template: >
         {% if states.device_tracker.kevin_gps.state  %}
-        {% if states.device_tracker.kevin_gps.state == 'home' or states.device_tracker.allegra_gps.state == 'home' or states.input_boolean.guest_mode.state == 'on' %}
+        {% if states.device_tracker.kevin_gps_2.state == 'home' or states.device_tracker.allegra_gps_2.state == 'home' or states.input_boolean.guest_mode.state == 'on' %}
             home
           {% else %}
             not_home
@@ -12,8 +12,8 @@
         {% endif %}
     occupancy_no_guest:
       value_template: >
-        {% if states.device_tracker.kevin_gps.state %}
-            {% if states.device_tracker.kevin_gps.state == 'home' or states.device_tracker.allegra_gps.state == 'not_home' %}
+        {% if states.device_tracker.kevin.state %}
+            {% if states.device_tracker.kevin_gps_2.state == 'home' or states.device_tracker.allegra_gps_2.state == 'not_home' %}
                 home
             {% else %}
                 not_home
