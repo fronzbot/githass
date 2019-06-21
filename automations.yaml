@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-May-23 11:09:16 
+# Generated: 2019-Jun-21 09:49:32 
 #--------------------------------------------
 
 #--- automation/notify_on_fire_co2.yaml ---
@@ -296,18 +296,6 @@
       data:
         call_on_way_home: 1
 
-#--- automation/nighttime.yaml ---
-- id: nighttime_routine
-  alias: Nighttime Routine
-  trigger:
-    - platform: time
-      at: '21:30:00'
-  action:
-    - service: light.turn_off
-      entity_id: light.kitchen_table
-    - service: alarm_control_panel.alarm_arm_away
-      entity_id: alarm_control_panel.blink_xt_hub
-
 #--- automation/wakeup.yaml ---
 - id: wakeup_routine
   alias: Wakeup Routine
@@ -319,5 +307,13 @@
       entity_id:
         - light.couch_left
         - light.kitchen_table
-    - service: alarm_control_panel.alarm_disarm
-      entity_id: alarm_control_panel.blink_xt_hub 
+
+#--- automation/nighttime.yaml ---
+- id: nighttime_routine
+  alias: Nighttime Routine
+  trigger:
+    - platform: time
+      at: '21:30:00'
+  action:
+    - service: light.turn_off
+      entity_id: light.kitchen_table
