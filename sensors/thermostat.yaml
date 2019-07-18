@@ -14,11 +14,11 @@
       entity_id: climate.thermostat_73_5c_83
       
     thermo_current_operation:
-      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.operation_mode }}'   
+      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.hvac_mode }}'   
       entity_id: climate.thermostat_73_5c_83
 
     thermo_mode:
-      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.mode }}'
+      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.hvac_action }}'
       entity_id: climate.thermostat_73_5c_83
 
 

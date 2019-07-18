@@ -68,10 +68,10 @@ if thermostat_enable:
     # Now make service call
     logger.error('Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
     if current_mode != mode:
-        data_mode = {'entity_id': 'climate.thermostat_73_5c_83', 'temperature': nominal_temp, 'operation_mode': mode}
+        data_mode = {'entity_id': 'climate.thermostat_73_5c_83', 'temperature': nominal_temp, 'hvac_mode': mode}
         hass.services.call('climate', 'set_temperature', data_mode)
 else:
-    hass.services.call('climate', 'set_operation_mode', {'entity_id': 'climate.thermostat_73_5c_83', 'operation_mode': 'off'})
+    hass.services.call('climate', 'set_hvac_mode', {'entity_id': 'climate.thermostat_73_5c_83', 'hvac_mode': 'off'})
 
 if on_the_way_home:
     hass.services.call('input_boolean', 'turn_off', {'entity_id': 'input_boolean.on_the_way_home'})
