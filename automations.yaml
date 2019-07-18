@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-Jun-21 09:49:32 
+# Generated: 2019-Jul-17 23:13:21 
 #--------------------------------------------
 
 #--- automation/notify_on_fire_co2.yaml ---
@@ -317,3 +317,34 @@
   action:
     - service: light.turn_off
       entity_id: light.kitchen_table
+
+#--- automation/thermostat_control.yaml ---
+- id: thermostat_controls
+  alias: Thermostat Controls
+  trigger:
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: input_boolean.thermostat_enable
+      to: 'on'
+    - platform: state
+      entity_id:
+        - input_number.ac_home
+        - input_number.ac_away
+        - input_number.ac_sleep
+        - input_number.heat_home
+        - input_number.heat_away
+        - input_number.heat_sleep
+  action:
+    - service: python_script.thermostat_engine
+
+#--- automation/thermostat_disable.yaml ---
+- id: thermostat_disable
+  alias: Thermostat Disable
+  trigger:
+    - platform: state
+      entity_id: input_boolean.thermostat_enable
+      to: 'off'
+  action:
+    - service: climate.turn_off
+      entity_id: climate.thermostat_73_5c_83

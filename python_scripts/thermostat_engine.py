@@ -10,6 +10,8 @@ HEAT = {'home': 68, 'away': 65, 'sleep': 67}
 
 SLEEP_TIME = [5, 21]
 
+ENTITY_ID = 'climate.thermostat_73_5c_83'
+
 # Get current temperatures
 temp = hass.states.get('sensor.dark_sky_temperature').state
 
@@ -35,7 +37,7 @@ on_the_way_home = (hass.states.get('input_boolean.on_the_way_home').state == 'on
 current_time = datetime.datetime.now()
 current_hour = current_time.hour
 
-current_mode = hass.states.get('climate.thermostat_73_5c_83').state
+current_mode = hass.states.get(ENTITY_ID).state
 
 # Determine home, away, or sleep
 if someone_home or on_the_way_home:
@@ -67,11 +69,15 @@ if thermostat_enable:
         nominal_temp = HEAT[state_key]
     # Now make service call
     logger.error('Mode: {}, Outside: {}, Temperature: {}'.format(mode, outside_temp, nominal_temp))
+    
     if current_mode != mode:
-        data_mode = {'entity_id': 'climate.thermostat_73_5c_83', 'temperature': nominal_temp, 'hvac_mode': mode}
-        hass.services.call('climate', 'set_temperature', data_mode)
+        data_mode = {'entity_id': ENTITY_ID, 'temperature': nominal_temp, 'hvac_mode': mode}
+        if mode != 'off'
+            hass.services.call('climate', 'set_temperature', data_mode)
+        else:
+            hass.services.call('climate', 'turn_off', {'entity_id': ENTITY_ID})
 else:
-    hass.services.call('climate', 'set_hvac_mode', {'entity_id': 'climate.thermostat_73_5c_83', 'hvac_mode': 'off'})
+    hass.services.call('climate', 'turn_off', {'entity_id': ENTITY_ID})
 
 if on_the_way_home:
     hass.services.call('input_boolean', 'turn_off', {'entity_id': 'input_boolean.on_the_way_home'})
