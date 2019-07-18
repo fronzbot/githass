@@ -72,7 +72,7 @@ if thermostat_enable:
     
     if current_mode != mode:
         data_mode = {'entity_id': ENTITY_ID, 'temperature': nominal_temp, 'hvac_mode': mode}
-        if mode != 'off'
+        if mode != 'off':
             hass.services.call('climate', 'set_temperature', data_mode)
         else:
             hass.services.call('climate', 'turn_off', {'entity_id': ENTITY_ID})
