@@ -31,7 +31,6 @@ input_number: !include includes/input_number.yaml
 influxdb: !include includes/influxdb.yaml
 logger: !include includes/logger.yaml
 notify: !include includes/notify.yaml
-python_script:
 recorder: !include includes/recorder.yaml
 scene: !include_dir_list scenes
 script: !include scripts.yaml
