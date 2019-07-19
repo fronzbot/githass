@@ -14,7 +14,7 @@ install:
     - pip3 install $HASS && pip3 install colorama && pip3 install colorlog
 
 before_script:
-    - hass -c. --script check_config
+    - hass -c. --script check_config > /dev/null 2>&1
 
 script:
     - hass -c . --script check_config -f 
