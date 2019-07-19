@@ -8,9 +8,12 @@ env:
 before_install:
     - mv travis_secrets.yaml secrets.yaml; touch /tmp/test.txt
     - sed -i -e 's/\/images/\/tmp/g' configuration.yaml
-    - sed -i -e 's/hue\:\s\!include\sincludes\/hue\.yaml//g' configuration.yaml
+    - python3 -m venv .
+    - source /bin/activate
+    - pip3 install colorama
+    - pip3 install colorlog
 
 script:
-    - pip3 install $HASS && pip3 install colorama && pip3 install colorlog
+    - pip3 install --upgrade $HASS
     - hass -c . --script check_config --info all
     - /bin/bash ./bin/smash.sh --travis && hass -c . --script check_config --info all
