@@ -8,8 +8,6 @@ env:
 before_install:
     - mv travis_secrets.yaml secrets.yaml; touch /tmp/test.txt
     - sed -i -e 's/\/images/\/tmp/g' configuration.yaml
-    - python3 -m venv .
-    - source /bin/activate
     - pip3 install colorama
     - pip3 install colorlog
 
