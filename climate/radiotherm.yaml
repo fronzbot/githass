@@ -1,4 +1,0 @@
-- platform: radiotherm
-  hold_temp: true
-  host:
-    - 192.168.86.34
