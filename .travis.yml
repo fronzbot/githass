@@ -12,7 +12,10 @@ before_install:
 
 install:
     - pip3 install $HASS && pip3 install colorama && pip3 install colorlog
-   
+
+before_script:
+    - hass -c. --script check_config
+
 script:
-    - hass -c . --script check_config --info all
-    - /bin/bash ./bin/smash.sh --travis && hass -c . --script check_config --info all
+    - hass -c . --script check_config -f 
+    - /bin/bash ./bin/smash.sh --travis && hass -c . --script check_config -f
