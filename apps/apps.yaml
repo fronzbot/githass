@@ -19,4 +19,6 @@ thermostat:
   module: thermostat
   class: Thermostat
   constrain_input_boolean: input_boolean.thermostat_enable
+  climate: climate.thermostat_73_5c_83
+  sensors: sensor.occupancy,sensor.dark_sky_temperature
   input_number: input_number.ac_home,input_number.ac_away,input_number.ac_sleep,input_number.heat_home,input_number.heat_away,input_number.heat_sleep

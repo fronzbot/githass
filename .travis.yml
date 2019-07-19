@@ -8,8 +8,12 @@ env:
 before_install:
     - mv travis_secrets.yaml secrets.yaml; touch /tmp/test.txt
     - sed -i -e 's/\/images/\/tmp/g' configuration.yaml
+    - sed -i -e 's/climate\:\s\!include\sincludes\/climate\.yaml//g' configuration.yaml
+    - sudo apt-get update && sudo apt-get install -y libudev-dev 
+
+install:
+    - pip3 install $HASS && pip3 install colorama && pip3 install colorlog
 
 script:
-    - pip3 install $HASS && pip3 install colorama && pip3 install colorlog
-    - hass -c . --script check_config
-    - /bin/bash ./bin/smash.sh --travis && hass -c . --script check_config
+    - hass -c . --script check_config -f 
+    - /bin/bash ./bin/smash.sh --travis && hass -c . --script check_config -f

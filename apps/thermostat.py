@@ -26,6 +26,7 @@ AC_THRESHOLD = 77
 HEAT_THRESHOLD = 57
 SLEEP_TIME = [5, 21]
 
+THERMOSTAT = 'climate.thermostat_73_5c_83'
 
 def utc_to_est(datetime_obj):
     """Naive timezone conversion because I'm lazy AF."""
@@ -55,6 +56,8 @@ class Thermostat(hass.Hass):
             self.listen_state(self.update_on_change, value)
 
     def update_on_change(self, entity, attribute, old, new, kwargs):
+        if DEBUG:
+            self.log("Updating thermostat on change")
         self.get_input_numbers()
         self.update_thermostat(None)
 
@@ -98,29 +101,32 @@ class Thermostat(hass.Hass):
         return None
 
     def set_temperature(self, temp, mode):
-        if mode == 'cool':
-            return self.call_service('climate/set_temperature', entity_id='climate.thermostat_73_5c_83', temperature=temp, target_temp_low=temp, target_temp_high=temp+1)
-        elif mode == 'heat':
-            return self.call_service('climate/set_temperature', entity_id='climate.thermostat_73_5c_83', temperature=temp, target_temp_high=temp,target_temp_low=temp-1)
-        return None
+        if mode == 'off':
+            return self.call_service('climate/turn_off', entity_id=THERMOSTAT)
 
+        return self.call_service('climate/set_temperature', entity_id=THERMOSTAT, temperature=temp, hvac_mode=mode)
+        
     def set_mode(self, mode='off', **kwargs):
-        return self.call_service('climate/set_operation_mode', entity_id='climate.thermostat_73_5c_83', operation_mode=mode)
+        if mode == 'off':
+            return self.call_service('climate/turn_off', entity_id=THERMOSTAT)
+
+        return self.call_service('climate/set_hvac_mode', entity_id=THERMOSTAT, hvac_mode=mode)
 
     def update_thermostat(self, time, **kwargs): 
+        self.get_input_numbers()
         mode = self.get_desired_mode()
         state_key = self.get_state_key()
         target_temp = self.get_target_temp(state_key, mode)
 
-        current_mode = self.get_state('climate.thermostat_73_5c_83', attribute='operation_mode')
-        current_temp = self.get_state('climate.thermostat_73_5c_83', attribute='temperature')
+        current_mode = self.get_state(THERMOSTAT)
+        current_temp = self.get_state(THERMOSTAT, attribute='temperature')
         if DEBUG:
             self.log("Current Mode={}, Mode={}, State={}, Target={}, Current Temp={}".format(current_mode, mode, state_key, target_temp, current_temp))
 
         if current_mode != mode or target_temp != current_temp:
             if target_temp is not None:
                 self.set_temperature(target_temp, mode)
-            self.set_mode(mode=mode)  
+            #self.set_mode(mode=mode)  
             if DEBUG:
                 self.log("Called thermostat service.")
 

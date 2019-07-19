@@ -4,7 +4,5 @@ trigger:
     entity_id: input_boolean.thermostat_enable
     to: 'off'
 action:
-  - service: climate.set_operation_mode
+  - service: climate.turn_off
     entity_id: climate.thermostat_73_5c_83
-    data:
-      operation_mode: 'off'

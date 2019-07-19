@@ -1,7 +1,7 @@
 - platform: template
   sensors:
     thermo_hvac:
-      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.operation_mode }}'     
+      value_template: '{{ states.climate.thermostat_73_5c_83.state }}'     
       entity_id: climate.thermostat_73_5c_83
     
     living_room_temperature:
@@ -14,7 +14,7 @@
       entity_id: climate.thermostat_73_5c_83
       
     thermo_current_operation:
-      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.operation_mode }}'   
+      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.mode }}'   
       entity_id: climate.thermostat_73_5c_83
 
     thermo_mode:
