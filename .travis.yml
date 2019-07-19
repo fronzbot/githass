@@ -8,10 +8,11 @@ env:
 before_install:
     - mv travis_secrets.yaml secrets.yaml; touch /tmp/test.txt
     - sed -i -e 's/\/images/\/tmp/g' configuration.yaml
-    - pip3 install colorama
-    - pip3 install colorlog
+    - sudo apt-get update && sudo apt-get install -y libudev-dev 
 
+install:
+    - pip3 install $HASS && pip3 install colorama && pip3 install colorlog
+   
 script:
-    - pip3 install --upgrade $HASS
     - hass -c . --script check_config --info all
     - /bin/bash ./bin/smash.sh --travis && hass -c . --script check_config --info all
