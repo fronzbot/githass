@@ -124,9 +124,9 @@ class Thermostat(hass.Hass):
             self.log("Current Mode={}, Mode={}, State={}, Target={}, Current Temp={}".format(current_mode, mode, state_key, target_temp, current_temp))
 
         if current_mode != mode or target_temp != current_temp:
+            self.set_mode(mode=mode)
             if target_temp is not None:
                 self.set_temperature(target_temp, mode)
-            #self.set_mode(mode=mode)  
             if DEBUG:
                 self.log("Called thermostat service.")
 
