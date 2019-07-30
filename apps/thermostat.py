@@ -22,8 +22,9 @@ import pytz
 
 DEBUG = False
 
-AC_THRESHOLD = 77
+AC_THRESHOLD = 75
 HEAT_THRESHOLD = 57
+MAX_DEWPOINT = 60
 SLEEP_TIME = [5, 21]
 
 THERMOSTAT = 'climate.thermostat_73_5c_83'
@@ -76,7 +77,11 @@ class Thermostat(hass.Hass):
 
     def get_desired_mode(self):
         current_temp = float(self.get_state('sensor.dark_sky_temperature'))
+        current_feel = float(self.get_state('sensor.dark_sky_apparent_temperature'))
+        current_dewpoint = float(self.get_state('sensor.dark_sky_dew_point'))
         if current_temp >= AC_THRESHOLD:
+            return 'cool'
+        elif current_dewpoint >= MAX_DEWPOINT and current_feel >= AC_THRESHOLD:
             return 'cool'
         elif current_temp <= HEAT_THRESHOLD:
             return 'heat'
