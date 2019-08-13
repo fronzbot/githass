@@ -1,36 +1,6 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-Jul-18 18:03:56 
+# Generated: 2019-Aug-13 08:58:16 
 #--------------------------------------------
-
-#--- automation/notify_on_fire_co2.yaml ---
-- id: notify_on_fire_co2
-  alias: Notify on Fire/CO2
-  trigger:
-    - platform: state
-      entity_id: sensor.smoke_alarm_kitchen
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_kitchen
-      to: "CO2"
-    - platform: state
-      entity_id: sensor.smoke_alarm_living_room
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_living_room
-      to: "CO2"
-    - platform: state
-      entity_id: sensor.smoke_alarm_nursery
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_nursery
-      to: "CO2"
-  action:
-    - service: script.notify_all_engine
-      data:
-        call_fire_co2: 1
-    - service: script.speech_engine
-      data:
-        call_fire_co2: 1
 
 #--- automation/zwave_fix_dead_node.yaml ---
 - id: fix_dead_zwave_node
@@ -328,3 +298,33 @@
   action:
     - service: climate.turn_off
       entity_id: climate.thermostat_73_5c_83
+
+#--- automation/notify_on_fire_co2.yaml ---
+- id: notify_on_fire_co
+  alias: Notify on Fire/CO
+  trigger:
+    - platform: state
+      entity_id: sensor.smoke_alarm_kitchen
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_kitchen
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_living_room
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_living_room
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_nursery
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_nursery
+      to: "CO"
+  action:
+    - service: script.notify_all_engine
+      data:
+        call_fire_co2: 1
+    - service: script.speech_engine
+      data:
+        call_fire_co2: 1

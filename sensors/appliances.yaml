@@ -22,7 +22,7 @@
         {% elif is_state("sensor.smoke_kitchen_alarm_type", "1") %}
           Fire
         {% elif is_state("sensor.smoke_kitchen_alarm_type", "2") %}
-          CO2
+          CO
         {% else %}
           Unknown
         {% endif %}
@@ -38,7 +38,7 @@
         {% elif is_state("sensor.smoke_living_room_alarm_type", "1") %}
           Fire
         {% elif is_state("sensor.smoke_living_room_alarm_type", "2") %}
-          CO2
+          CO
         {% else %}
           Unknown
         {% endif %}
@@ -54,7 +54,7 @@
         {% elif is_state("sensor.smoke_nursery_alarm_type", "1") %}
           Fire
         {% elif is_state("sensor.smoke_nursery_alarm_type", "2") %}
-          CO2
+          CO
         {% else %}
           Unknown
         {% endif %}

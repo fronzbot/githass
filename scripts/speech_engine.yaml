@@ -56,7 +56,7 @@ speech_engine:
               "Warning, there seems to be a fire in the house!",
               "Fire!  Please leave the house immediately.  I repeat: Fire!",
               ] | random }}
-            {% elif (states.sensor.smoke_alarm_living_room.state == 'CO2') or (states.sensor.smoke_alarm_nursery.state == 'CO2') or (states.sensor.smoke_alarm_kitchen.state == 'CO2') %}
+            {% elif (states.sensor.smoke_alarm_living_room.state == 'CO') or (states.sensor.smoke_alarm_nursery.state == 'CO') or (states.sensor.smoke_alarm_kitchen.state == 'CO') %}
               {{ [
               "Alert! Carbon Monoxide detected, please exit the house and call nine one one",
               "Warning! Carbon Monoxide detected in house.  I repeat: Warning! Carbon Monoxide has been detected in the house.",

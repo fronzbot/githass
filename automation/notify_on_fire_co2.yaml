@@ -1,23 +1,23 @@
-alias: Notify on Fire/CO2
+alias: Notify on Fire/CO
 trigger:
   - platform: state
     entity_id: sensor.smoke_alarm_kitchen
     to: "Fire"
   - platform: state
     entity_id: sensor.smoke_alarm_kitchen
-    to: "CO2"
+    to: "CO"
   - platform: state
     entity_id: sensor.smoke_alarm_living_room
     to: "Fire"
   - platform: state
     entity_id: sensor.smoke_alarm_living_room
-    to: "CO2"
+    to: "CO"
   - platform: state
     entity_id: sensor.smoke_alarm_nursery
     to: "Fire"
   - platform: state
     entity_id: sensor.smoke_alarm_nursery
-    to: "CO2"
+    to: "CO"
 action:
   - service: script.notify_all_engine
     data:

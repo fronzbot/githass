@@ -18,7 +18,7 @@ Currently running on a home media server using [unRAID](https://lime-technology.
       -  2x GE Z-wave Switches
       -  1x Leviton Z-wave+ Switch
       -  1x Aeotec Smart Switch 
-      -  3x First Alert ZCOMBO Smoke/CO2 detectors
+      -  3x First Alert ZCOMBO Smoke/CO detectors
 - [Emulated Hue](https://home-assistant.io/components/emulated_hue/)
   - 1x Amazon Echo
   - 2x Amazon Echo Dot
