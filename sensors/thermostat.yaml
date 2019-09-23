@@ -10,11 +10,16 @@
       entity_id: climate.thermostat_73_5c_83
       
     thermo_fan:
-      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.fan }}'
+      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.fan_action }}'
       entity_id: climate.thermostat_73_5c_83
       
     thermo_current_operation:
-      value_template: '{{ states.climate.thermostat_73_5c_83.attributes.mode }}'   
+      value_template: >
+          {% if states.climate.thermostat_73_5c_83.attributes.hvac_action %}
+             {{ states.climate.thermostat_73_5c_83.attributes.hvac_action }}
+          {% else %}
+             Off
+          {% endif %}   
       entity_id: climate.thermostat_73_5c_83
 
     thermo_mode:
