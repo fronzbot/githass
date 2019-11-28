@@ -13,7 +13,7 @@ before_install:
   - docker pull homeassistant/home-assistant:$HASS
   - docker run -d -p 127.0.0.1:80:8123 homeassistant/home-assistant -it -v ./:/config /bin/sh -c "hass -c /config --script check_config -f"
   - docker ps -a
-  - docker run homeassistant/home-assistant /bin/sh -c "hass -c /config --script check_config -f"
+  - docker run homeassistant/home-assistant -v ./:/config -it /bin/sh -c "hass -c /config --script check_config -f"
  
 #install:
 #    - pip3 install $HASS && pip3 install colorama && pip3 install colorlog
