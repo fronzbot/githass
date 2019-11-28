@@ -11,12 +11,6 @@ before_install:
   - mv travis_secrets.yaml secrets.yaml; touch /tmp/test.txt
   - sed -i -e 's/\/images/\/tmp/g' configuration.yaml
   - docker pull homeassistant/home-assistant:$HASS
-  - docker run -d -p 127.0.0.1:80:8123 homeassistant/home-assistant -it -v ./:/config /bin/sh -c "hass -c /config --script check_config -f"
-  - docker ps -a
-  - docker run homeassistant/home-assistant -v ./:/config -it /bin/sh -c "hass -c /config --script check_config -f"
  
-#install:
-#    - pip3 install $HASS && pip3 install colorama && pip3 install colorlog
-
 script:
-    - hass -c /config --script check_config -f 
+    - docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v ./:/config --net=host homeassistant/home-assistant:$HASS -/bin/sh -c "hass -c /config --script check_config -f"
