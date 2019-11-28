@@ -13,4 +13,4 @@ before_install:
   - docker pull homeassistant/home-assistant:$HASS
  
 script:
-    - docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v ./:/config --net=host homeassistant/home-assistant:$HASS -/bin/sh -c "hass -c /config --script check_config -f"
+    - docker exec home-assistant python -m homeassistant --script check_config --config /config -f
