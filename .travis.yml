@@ -1,18 +1,22 @@
 language: python
-python: "3.6"
 
 env:
-    - HASS='homeassistant'
-    - HASS='--pre homeassistant'
+    - HASS='latest'
+    - HASS='beta'
+
+services:
+  - docker
 
 before_install:
-    - mv travis_secrets.yaml secrets.yaml; touch /tmp/test.txt
-    - sed -i -e 's/\/images/\/tmp/g' configuration.yaml
-    - sudo apt-get update && sudo apt-get install -y libudev-dev python-dev pkg-config libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev libswscale-dev libavresample-dev libavfilter-dev ffmpeg
-
-install:
-    - pip3 install $HASS && pip3 install colorama && pip3 install colorlog
+  - mv travis_secrets.yaml secrets.yaml; touch /tmp/test.txt
+  - sed -i -e 's/\/images/\/tmp/g' configuration.yaml
+  - docker pull homeassistant/home-assistant:$HASS
+  - docker run -d -p 127.0.0.1:80:8123 homeassistant/home-assistant -it -v ./:/config /bin/sh -c "hass -c /config --script check_config -f"
+  - docker ps -a
+  - docker run homeassistant/home-assistant /bin/sh -c "hass -c /config --script check_config -f"
+ 
+#install:
+#    - pip3 install $HASS && pip3 install colorama && pip3 install colorlog
 
 script:
-    - hass -c . --script check_config -f 
-    - /bin/bash ./bin/smash.sh --travis && hass -c . --script check_config -f
+    - hass -c /config --script check_config -f 
