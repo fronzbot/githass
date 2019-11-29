@@ -11,7 +11,7 @@ before_install:
   - mv travis_secrets.yaml secrets.yaml; touch /tmp/test.txt
   - sed -i -e 's/\/images/\/tmp/g' configuration.yaml
   - docker pull homeassistant/home-assistant:$HASS
-  - docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v ./:/config homeassistant/home-assistant:$HASS
+  - docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v $TRAVIS_BUILD_DIR:/config homeassistant/home-assistant:$HASS
   - docker ps -a
  
 script:
