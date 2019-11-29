@@ -13,6 +13,7 @@ before_install:
   - docker pull homeassistant/home-assistant:$HASS
   - docker run --init -d --name="home-assistant" -e "TZ=America/New_York" -v /tmp:/tmp -v $TRAVIS_BUILD_DIR:/config homeassistant/home-assistant:$HASS
   - docker ps -a
+  - docker exec home-assistant pip install -r /config/requirements.txt
  
 script:
     - docker exec home-assistant python -m homeassistant --script check_config --config /config -f
