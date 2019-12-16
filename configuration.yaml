@@ -16,6 +16,7 @@ http:
     - 172.17.0.0/22
 
 # Includes
+fakefakefake: !include doesnotexist.yaml
 automation: !include automations.yaml
 blink: !include includes/blink.yaml
 camera: !include includes/cameras.yaml
