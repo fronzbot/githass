@@ -1,5 +1,4 @@
 project_id: hass-control
-#api_key: !secret google_assistant_api_key
 exposed_domains:
   - scene
   - light
