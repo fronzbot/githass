@@ -1,8 +1,0 @@
-alias: Fix Dead ZWave Node
-trigger:
-    - platform: template
-      value_template: '{{states.zwave.driveway.attributes.is_failed}}'
-    - platform: time
-      at: '00:10:00'
-action:
-    - service: script.zwave_fix_dead_node

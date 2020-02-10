@@ -12,5 +12,5 @@ condition:
 
 action:
     - service: light.turn_off
-      entity_id: light.kitchen_table
+      entity_id: group.all_lights
 #    - service: python_script.thermostat_engine

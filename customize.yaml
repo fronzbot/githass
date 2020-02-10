@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-Aug-13 08:58:16 
+# Generated: 2020-Feb-10 00:31:01 
 #--------------------------------------------
 
 #--- customize/customize_glances.yaml ---
@@ -241,35 +241,6 @@
     emulated_hue_hidden: false
     emulated_hue_name: "Nightstand"
     
-
-#--- customize/customize_input_boolean.yaml ---
-##################
-# Input Boolean
-##################
-  input_boolean.flux_living_room:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_basement:
-    icon: mdi:theme-light-dark
-    
-  input_boolean.christmas_lights:
-    icon: mdi:gift
-    
-  input_boolean.on_the_way_home:
-    icon: mdi:map-marker
-  
-  input_boolean.guest_mode:
-    icon: mdi:account
-    emulated_hue_hidden: false
-    emulated_hue_name: "Guest Mode"
-  
-  input_boolean.thermostat_enable:
-    icon: mdi:thermostat
-    emulated_hue_hidden: false
-    emulated_hue_name: "Thermostat"
-  
-  input_boolean.warmer_night_mode:
-    icon: mdi:fire
 
 #--- customize/customize_scripts.yaml ---
   script.thermostat_control:
@@ -725,3 +696,38 @@
   device_tracker.allegra_gps:
     icon: mdi:crosshairs-gps
   
+
+#--- customize/customize_input_boolean.yaml ---
+##################
+# Input Boolean
+##################
+  input_boolean.flux_living_room:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_family_room:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_master_bedroom:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_office:
+    icon: mdi:theme-light-dark
+        
+  input_boolean.christmas_lights:
+    icon: mdi:gift
+    
+  input_boolean.on_the_way_home:
+    icon: mdi:map-marker
+  
+  input_boolean.guest_mode:
+    icon: mdi:account
+    emulated_hue_hidden: false
+    emulated_hue_name: "Guest Mode"
+  
+  input_boolean.thermostat_enable:
+    icon: mdi:thermostat
+    emulated_hue_hidden: false
+    emulated_hue_name: "Thermostat"
+  
+  input_boolean.warmer_night_mode:
+    icon: mdi:fire

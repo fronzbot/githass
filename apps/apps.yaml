@@ -1,24 +1,31 @@
+flux_family_room:
+  module: flux
+  class: Flux
+  constrain_input_boolean: input_boolean.flux_family_room
+  light: light.family_room_couch_left,light.family_room_couch_right,light.family_room_fireplace
+
 flux_living_room:
   module: flux
   class: Flux
   constrain_input_boolean: input_boolean.flux_living_room
-  light: light.couch_left,light.couch_right,light.corner,light.kitchen_table
+  light: light.living_room_couch
 
-flux_basement:
+flux_office:
   module: flux
   class: Flux
-  constrain_input_boolean: input_boolean.flux_basement
-  light: light.desk,light.fireplace_1,light.fireplace_2,light.basement_corner,light.basement_computer
+  constrain_input_boolean: input_boolean.flux_office
+  light: light.office_desk,light.office_corner
 
-flux_continuous:
+flux_master_bedroom:
   module: flux
   class: Flux
-  light: light.corner_den,light.back_den,light.bedroom_door,light.bedroom_corner
+  constrain_input_boolean: input_boolean.flux_master_bedroom
+  light: light.master_bedroom_corner,light.master_bedroom_window
 
-thermostat:
-  module: thermostat
-  class: Thermostat
-  constrain_input_boolean: input_boolean.thermostat_enable
-  climate: climate.thermostat_73_5c_83
-  sensors: sensor.occupancy,sensor.dark_sky_temperature
-  input_number: input_number.ac_home,input_number.ac_away,input_number.ac_sleep,input_number.heat_home,input_number.heat_away,input_number.heat_sleep
+#thermostat:
+#  module: thermostat
+#  class: Thermostat
+#  constrain_input_boolean: input_boolean.thermostat_enable
+#  climate: climate.thermostat_73_5c_83
+#  sensors: sensor.occupancy,sensor.dark_sky_temperature
+#  input_number: input_number.ac_home,input_number.ac_away,input_number.ac_sleep,input_number.heat_home,input_number.heat_away,input_number.heat_sleep

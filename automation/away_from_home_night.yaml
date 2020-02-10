@@ -18,7 +18,7 @@ condition:
 action:
   - service: light.turn_on
     entity_id:
-      - light.couch_left
-      - light.couch_right
+      - light.family_room_couch_left
+      - light.family_room_couch_right
   - service: alarm_control_panel.alarm_arm_away
     entity_id: alarm_control_panel.blink_xt_hub

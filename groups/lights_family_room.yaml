@@ -1,0 +1,14 @@
+family_room:
+  name: Family Room
+  icon: mdi:sofa
+  entities:
+    - light.family_room_couch_right
+    - light.family_room_couch_left
+    - light.family_room_fireplace
+
+couch:
+  name: Couch
+  icon: mdi:sofa
+  entities:
+    - light.family_room_couch_right
+    - light.family_room_couch_left

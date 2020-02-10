@@ -1,0 +1,9 @@
+interior:
+  name: Inside Lights
+  entities:
+    - light.living_room_couch
+    - light.family_room_couch_left
+    - light.family_room_couch_right
+    - light.family_room_fireplace
+    - light.office_corner
+    - light.office_desk
