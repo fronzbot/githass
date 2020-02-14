@@ -1,6 +1,0 @@
-office:
-  name: Office
-  icon: mdi:desktop-tower
-  entities:
-    - light.office_desk
-    - light.office_corner

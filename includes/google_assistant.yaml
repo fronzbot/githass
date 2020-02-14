@@ -8,67 +8,48 @@ entity_config:
   # -----------
   # SCENES
   # -----------
-  scene.movie_mode:
-    name: Movie Mode
-    expose: True
-  scene.movie_mode_basement:
-    name: Basement Movie Mode
-    expose: True
-  scene.christmas:
-    name: Christmas
-    expose: True
+  #scene.movie_mode:
+  #  name: Movie Mode
+  #  expose: True
+  #scene.movie_mode_basement:
+  #  name: Basement Movie Mode
+  #  expose: True
+  #scene.christmas:
+  #  name: Christmas
+  #  expose: True
   # ----------
   # SCRIPTS
   # ----------
   script.flux:
     name: Flux
     expose: True
-  script.wake_computer:
-    name: Wake Computer
-    expose: True
+  #script.wake_computer:
+  #  name: Wake Computer
+  #  expose: True
   # ----------
   # LIGHTS
   # ----------
-  light.Couch_Left:
-    name: Couch Left
+  light.family_room_couch_left:
+    name: Family Room Couch Left
     expose: True
-  light.Couch_Right:
-    name: Couch Right
+  light.family_room_couch_right:
+    name: Family Room Couch Right
     expose: True
-  light.Corner:
-    name: Corner Living Room
+  light.family_room_fireplace:
+    name: Family Room Fireplace
     expose: True
-  light.Back_Den:
-    name: Back Den
+  light.living_room_corner:
+    name: Living Room Corner
     expose: True
-  light.Corner_Den:
-    name: Corner Den
+  light.office_desk:
+    name: Office Desk
     expose: True
-  light.desk:
-    name: Desk
+  light.office_corner:
+    name: Office Corner
     expose: True
-  light.fireplace_1:
-    name: Fireplace Left
+  light.master_bedroom_door:
+    name: Bedroom Door
     expose: True
-  light.fireplace_2:
-    name: Fireplace Right
+  light.master_bedroom_window:
+    name: Bedroom Window
     expose: True
-  light.basement_corner:
-    name: Basement Corner
-    expose: True
-  light.basement_computer:
-    name: Basement Computer
-    expose: True
-  light.bedroom_corner:
-    name: Bedroom Corner
-    expose: True
-  light.bedroom_door:
-    name: Nightstand
-    expose: True
-  light.porch:
-    name: Porch
-    expose: True
-  light.kitchen_table:
-    name: Kitchen
-    expose: True
-

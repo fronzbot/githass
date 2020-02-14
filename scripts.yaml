@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Feb-10 00:31:01 
+# Generated: 2020-Feb-13 20:57:02 
 #--------------------------------------------
 
 #--- scripts/hass_upgrade.yaml ---
@@ -69,16 +69,6 @@
     sequence:
       - service: shell_command.github_pull
       - service: homeassistant.restart
-
-#--- scripts/flux.yaml ---
-  flux:
-    alias: Flux - Global
-    sequence:
-      - service: input_boolean.turn_on
-        entity_id:
-          - input_boolean.flux_living_room
-          - input_boolean.flux_basement
-        
 
 #--- scripts/zwave_fix_dead_node.yaml ---
   zwave_fix_dead_node:
@@ -254,3 +244,15 @@
             {% if call_fire_co2 == 1 %}
               {{ fire_co2() }}
             {% endif %}
+
+#--- scripts/flux.yaml ---
+  flux:
+    alias: Flux - Global
+    sequence:
+      - service: input_boolean.turn_on
+        entity_id:
+          - input_boolean.flux_living_room
+          - input_boolean.flux_family_room
+          - input_boolean.flux_master_bedroom
+          - input_boolean.flux_office
+        

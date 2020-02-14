@@ -20,15 +20,14 @@ automation: !include automations.yaml
 blink: !include includes/blink.yaml
 camera: !include includes/cameras.yaml
 #climate: !include includes/climate.yaml
-emulated_hue: !include includes/emulated_hue.yaml
 fastdotcom: !include includes/fastdotcom.yaml
 google_assistant: !include includes/google_assistant.yaml
-group: !include_dir_merge_named groups
 hue: !include includes/hue.yaml
 history: !include includes/history.yaml
 input_boolean: !include includes/input_boolean.yaml
 input_number: !include includes/input_number.yaml
 influxdb: !include includes/influxdb.yaml
+light: !include includes/light.yaml
 logger: !include includes/logger.yaml
 notify: !include includes/notify.yaml
 pi_hole: !include includes/pihole.yaml
@@ -39,7 +38,6 @@ sensor: !include_dir_merge_list sensors
 shell_command: !include includes/shell_command.yaml
 speedtestdotnet: !include includes/speedtest.yaml
 system_health:
-    #zwave: !include includes/zwave.yaml
 
 # Enables
 frontend:

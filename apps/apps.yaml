@@ -4,6 +4,12 @@ flux_family_room:
   constrain_input_boolean: input_boolean.flux_family_room
   light: light.family_room_couch_left,light.family_room_couch_right,light.family_room_fireplace
 
+flux_kitchen:
+  module: flux
+  class: Flux
+  constrain_input_boolean: input_boolean.flux_kitchen
+  light: light.kitchen_island_1,light.kitchen_island_2
+
 flux_living_room:
   module: flux
   class: Flux

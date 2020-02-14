@@ -1,74 +1,21 @@
 ##################
 # Lights
 ##################
-light.Couch_Left:
-  friendly_name: Couch Left
-  emulated_hue_hidden: false
-  emulated_hue_name: "Couch Left"
+light.family_room_lights:
+  icon: mdi:sofa
 
-light.Couch_Right:
-  friendly_name: Couch Right
-  emulated_hue_hidden: false
-  emulated_hue_name: "Couch Right"
-  
-light.Corner:
-  friendly_name: Corner
-  emulated_hue_hidden: false 
-  emulated_hue_name: "Corner"
+light.office_lights:
+  icon: mdi:desktop-tower
 
-light.Corner_Den:
-  friendly_name: Corner Den
-  
-light.Back_Den:
-  friendly_name: Back Den
-  
-light.Desk:
-  friendly_name: Computer Desk
-  emulated_hue_hidden: false
-  emulated_hue_name: "Desk"
+light.master_bedroom_lights:
+  icon: mdi:hotel
 
-light.basement_corner:
-  friendly_name: Basement Corner
+light.living_room_lights:
+  icon: mdi:sofa
 
-light.basement_computer:
-  friendly_name: Computer
-  
-light.Porch:
-  friendly_name: Porch
-  icon: mdi:gate
-  emulated_hue_hidden: false
-  emulated_hue_name: "Porch"
-
-# light.basement_ceiling_1:
-  # friendly_name: Basement Ceiling 1
-  
-# light.basement_ceiling_2:
-  # friendly_name: Basement Ceiling 2
-
-# light.basement_ceiling_3:
-  # friendly_name: Basement Ceiling 3
-
-light.fireplace_1:
-  friendly_name: Basement Fireplace 1
-  
-light.fireplace_2:
-  friendly_name: Basement Fireplace 2
-  
-light.kitchen_table:
-  friendly_name: Kitchen Table
+light.kitchen_lights:
   icon: mdi:food-variant
-  emulated_hue_hidden: false
-  emulated_hue_name: "Kitchen"
 
-light.bedroom_corner:
-  friendly_name: Corner Lamp
-  icon: mdi:hotel
-  emulated_hue_hidden: false
-  emulated_hue_name: "Corner Lamp"
+light.interior_lights:
+  icon: mdi:home
 
-light.bedroom_door:
-  friendly_name: Nightstand
-  icon: mdi:hotel
-  emulated_hue_hidden: false
-  emulated_hue_name: "Nightstand"
-  

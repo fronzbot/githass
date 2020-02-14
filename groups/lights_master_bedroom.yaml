@@ -1,6 +1,0 @@
-master_bedroom:
-  name: Master Bedroom
-  icon: mdi:hotel
-  entities:
-    - light.master_bedroom_door
-    - light.master_bedroom_window
