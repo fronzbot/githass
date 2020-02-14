@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Feb-13 20:57:02 
+# Generated: 2020-Feb-13 21:07:16 
 #--------------------------------------------
 
 #--- customize/customize_glances.yaml ---
@@ -506,6 +506,29 @@
     icon: mdi:crosshairs-gps
   
 
+#--- customize/customize_lights.yaml ---
+##################
+# Lights
+##################
+  light.family_room_lights:
+    icon: mdi:sofa
+  
+  light.office_lights:
+    icon: mdi:desktop-tower
+  
+  light.master_bedroom_lights:
+    icon: mdi:hotel
+  
+  light.living_room_lights:
+    icon: mdi:sofa
+  
+  light.kitchen_lights:
+    icon: mdi:food-variant
+  
+  light.interior_lights:
+    icon: mdi:home
+  
+
 #--- customize/customize_input_boolean.yaml ---
 ##################
 # Input Boolean
@@ -514,6 +537,9 @@
     icon: mdi:theme-light-dark
   
   input_boolean.flux_family_room:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_kitchen:
     icon: mdi:theme-light-dark
   
   input_boolean.flux_master_bedroom:
@@ -540,26 +566,3 @@
   
   input_boolean.warmer_night_mode:
     icon: mdi:fire
-
-#--- customize/customize_lights.yaml ---
-##################
-# Lights
-##################
-  light.family_room_lights:
-    icon: mdi:sofa
-  
-  light.office_lights:
-    icon: mdi:desktop-tower
-  
-  light.master_bedroom_lights:
-    icon: mdi:hotel
-  
-  light.living_room_lights:
-    icon: mdi:sofa
-  
-  light.kitchen_lights:
-    icon: mdi:food-variant
-  
-  light.interior_lights:
-    icon: mdi:home
-  

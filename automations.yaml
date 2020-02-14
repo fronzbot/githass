@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Feb-13 20:57:02 
+# Generated: 2020-Feb-13 21:07:16 
 #--------------------------------------------
 
 #--- automation/thermostat_on_tuesdays.yaml ---
@@ -15,18 +15,6 @@
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.guest_mode
-
-#--- automation/lights_inside_off.yaml ---
-# Turn inside lights off around midnight (before exterior)
-  
-- id: lights_inside_off
-  alias: Lights Inside Off
-  trigger:
-    - platform: time
-      at: '00:12:09'
-  action:
-    - service: light.turn_off
-      entity_id: group.interior
 
 #--- automation/notify_on_failed_login.yaml ---
 - id: notify_on_failed_login
@@ -70,28 +58,6 @@
         {% endif %}
       entity_id: input_boolean.christmas_lights
 
-#--- automation/away_from_home.yaml ---
-- id: away_from_home
-  alias: Away From Home
-  trigger:
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        before: '16:00:00'
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: 'off'
-  action:
-      - service: light.turn_off
-        entity_id: group.all_lights
-#    - service: python_script.thermostat_engine
-      - service: alarm_control_panel.alarm_arm_away
-        entity_id: alarm_control_panel.blink_xt_hub 
-
 #--- automation/thermostat_disable.yaml ---
 - id: thermostat_disable
   alias: Thermostat Disable
@@ -130,25 +96,6 @@
     - service: alarm_control_panel.alarm_arm_away
       entity_id: alarm_control_panel.blink_xt_hub
 
-#--- automation/daytime.yaml ---
-- id: daytime_routine
-  alias: Daytime Routine
-  trigger:
-      - platform: sun
-        event: sunrise
-        offset: '+00:30:00'
-      - platform: time
-        at: '08:00:00'
-  condition:
-      - condition: sun
-        after: sunrise
-        after_offset: '+00:15:00'
-  
-  action:
-      - service: light.turn_off
-        entity_id: group.all_lights
-#    - service: python_script.thermostat_engine
-
 #--- automation/wakeup.yaml ---
 - id: wakeup_routine
   alias: Wakeup Routine
@@ -182,3 +129,56 @@
 #  - service: python_script.thermostat_engine
     - service: alarm_control_panel.alarm_disarm
       entity_id: alarm_control_panel.blink_xt_hub
+
+#--- automation/daytime.yaml ---
+- id: daytime_routine
+  alias: Daytime Routine
+  trigger:
+      - platform: sun
+        event: sunrise
+        offset: '+00:30:00'
+      - platform: time
+        at: '08:00:00'
+  condition:
+      - condition: sun
+        after: sunrise
+        after_offset: '+00:15:00'
+  
+  action:
+      - service: light.turn_off
+        entity_id: light.interior_lights
+#    - service: python_script.thermostat_engine
+
+#--- automation/lights_inside_off.yaml ---
+# Turn inside lights off around midnight (before exterior)
+  
+- id: lights_inside_off
+  alias: Lights Inside Off
+  trigger:
+    - platform: time
+      at: '00:12:09'
+  action:
+    - service: light.turn_off
+      entity_id: light.interior_lights
+
+#--- automation/away_from_home.yaml ---
+- id: away_from_home
+  alias: Away From Home
+  trigger:
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'not_home'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '16:00:00'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+  action:
+      - service: light.turn_off
+        entity_id: light.interior_lights
+#    - service: python_script.thermostat_engine
+      - service: alarm_control_panel.alarm_arm_away
+        entity_id: alarm_control_panel.blink_xt_hub 
