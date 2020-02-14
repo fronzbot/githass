@@ -38,8 +38,8 @@ entity_config:
   light.family_room_fireplace:
     name: Family Room Fireplace
     expose: True
-  light.living_room_corner:
-    name: Living Room Corner
+  light.living_room_couch:
+    name: Living Room Couch
     expose: True
   light.office_desk:
     name: Office Desk
@@ -52,4 +52,7 @@ entity_config:
     expose: True
   light.master_bedroom_window:
     name: Bedroom Window
+    expose: True
+  light.kitchen_island:
+    name: Kitchen Island
     expose: True

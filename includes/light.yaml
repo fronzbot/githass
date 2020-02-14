@@ -23,10 +23,15 @@
     - light.living_room_couch
 
 - platform: group
-  name: Kitchen Lights
+  name: Kitchen Island
   entities:
     - light.kitchen_island_1
     - light.kitchen_island_2
+
+- platform: group
+  name: Kitchen Lights
+  entities:
+    - light.kitchen_island
 
 - platform: group
   name: Interior Lights
