@@ -1,0 +1,9 @@
+sump_counter:
+  initial: 0
+  step: 1
+  restore: false
+
+timer:
+  initial: 0
+  step: 1
+  restore: false

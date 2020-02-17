@@ -1,0 +1,11 @@
+alias: Notify on Leak Detected
+trigger:
+  - platform: state
+    entity_id: sensor.leak_sump
+    from: 'Dry'
+    to: 'Wet'
+action:
+  - service: notify.notify
+    data_template:
+      message: >
+        ALERT! {{ now().strftime("%h %d, %Y at %H:%M:%S") }} Leak Detected with {{trigger.to_state.attributes.friendly_name}}   

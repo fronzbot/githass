@@ -74,36 +74,36 @@ sensor.pihole_version:
 #-------------------------------  
 # Zwave sensors
 #-------------------------------
-sensor.power_mon_current:
-  friendly_name: Washing Machine Current
+sensor.leak_sump:
+  friendly_name: Sump Leak Sensor
+  icon: mdi:pipe-leak
+
+sensor.aeon_labs_zw096_smart_switch_6_current:
+  friendly_name: Sump Current
   icon: mdi:music-note-whole
 
-sensor.power_mon_voltage:
-  friendly_name: Washing Machine Voltage
+sensor.aeon_labs_zw096_smart_switch_6_voltage:
+  friendly_name: Sump Voltage
   icon: mdi:car-battery
 
-sensor.power_mon_power:
-  friendly_name: Washing Machine Power
+sensor.aeon_labs_zw096_smart_switch_6_power:
+  friendly_name: Sump Power
   icon: mdi:power
 
-sensor.power_mon_energy:
-  friendly_name: Washing Machine Energy
-  icon: mdi:flash
-
-sensor.washer:
-  friendly_name: Washing Machine
-  icon: mdi:washing-machine
-
-sensor.smoke_alarm_kitchen:
-  friendly_name: Smoke Alarm - Kitchen
+sensor.smoke_alarm_foyer:
+  friendly_name: Foyer Smoke Alarm
   icon: mdi:fire
 
-sensor.smoke_alarm_living_room:
-  friendly_name: Smoke Alarm - Living Room
+sensor.smoke_alarm_family_room:
+  friendly_name: Family Room Smoke Alarm
   icon: mdi:fire
 
-sensor.smoke_alarm_nursery:
-  friendly_name: Smoke Alarm - Nursery
+sensor.smoke_alarm_Office:
+  friendly_name: Office Smoke Alarm
+  icon: mdi:fire
+
+sensor.smoke_alarm_basement:
+  friendly_name: Basement Smoke Alarm
   icon: mdi:fire
 
 binary_sensor.blink_cameraks_motion_detected:
@@ -174,3 +174,10 @@ zwave.smoke_living_room:
 
 zwave.smoke_nursery:
   icon: mdi:smoke-detector
+
+#-----------------------------
+# Other
+# ----------------------------
+sensor.sump_rate_per_hour:
+  icon: mdi:home-flood
+  friendly_name: Sump Frequency

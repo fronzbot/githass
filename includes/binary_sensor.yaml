@@ -1,0 +1,7 @@
+- platform: template
+  sensors:
+    sump_status:
+      friendly_name: "Sump Status"
+      device_class: 'moisture'
+      value_template: >
+        {{ states.sensor.aeon_labs_zw096_smart_switch_6_current.state | float > 0.1 }}

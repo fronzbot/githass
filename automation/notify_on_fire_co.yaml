@@ -1,0 +1,31 @@
+alias: Notify on Fire/CO
+trigger:
+  - platform: state
+    entity_id: sensor.smoke_alarm_foyer
+    to: "Fire"
+  - platform: state
+    entity_id: sensor.smoke_alarm_foyer
+    to: "CO"
+  - platform: state
+    entity_id: sensor.smoke_alarm_family_room
+    to: "Fire"
+  - platform: state
+    entity_id: sensor.smoke_alarm_family_room
+    to: "CO"
+  - platform: state
+    entity_id: sensor.smoke_alarm_office
+    to: "Fire"
+  - platform: state
+    entity_id: sensor.smoke_alarm_office
+    to: "CO"
+  - platform: state
+    entity_id: sensor.smoke_alarm_basement
+    to: "Fire"
+  - platform: state
+    entity_id: sensor.smoke_alarm_basement
+    to: "CO"
+action:
+  - service: notify.notify
+    data_template:
+      message: >
+          ALERT! {{ now().strftime("%h %d, %Y at %H:%M:S") }} {{trigger.to_state.state}} detected by {{trigger.to_state.attributes.friendly_name}}

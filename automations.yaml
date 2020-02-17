@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Feb-13 21:07:16 
+# Generated: 2020-Feb-16 22:17:56 
 #--------------------------------------------
 
 #--- automation/thermostat_on_tuesdays.yaml ---
@@ -39,24 +39,6 @@
     - service: script.notify_kevin_engine
       data:
         call_failed_login: 1
-
-#--- automation/notify_on_restart.yaml ---
-- id: notify_on_restart
-  alias: Notify on Restart
-  trigger:
-    - platform: homeassistant
-      event: start
-  action:
-    - service: script.notify_kevin_engine
-      data:
-        call_on_restart: 1
-    - service_template: >
-        {% if now().month == 12 %}
-          input_boolean.turn_on
-        {% else %}
-          input_boolean.turn_off
-        {% endif %}
-      entity_id: input_boolean.christmas_lights
 
 #--- automation/thermostat_disable.yaml ---
 - id: thermostat_disable
@@ -182,3 +164,86 @@
 #    - service: python_script.thermostat_engine
       - service: alarm_control_panel.alarm_arm_away
         entity_id: alarm_control_panel.blink_xt_hub 
+
+#--- automation/notify_leak_detected.yaml ---
+- id: notify_on_leak_detected
+  alias: Notify on Leak Detected
+  trigger:
+    - platform: state
+      entity_id: sensor.leak_sump
+      from: 'Dry'
+      to: 'Wet'
+  action:
+    - service: notify.notify
+      data_template:
+        message: >
+          ALERT! {{ now().strftime("%h %d, %Y at %H:%M:%S") }} Leak Detected with {{trigger.to_state.attributes.friendly_name}}   
+
+#--- automation/notify_on_fire_co.yaml ---
+- id: notify_on_fire_co
+  alias: Notify on Fire/CO
+  trigger:
+    - platform: state
+      entity_id: sensor.smoke_alarm_foyer
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_foyer
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_family_room
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_family_room
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_office
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_office
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_basement
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_basement
+      to: "CO"
+  action:
+    - service: notify.notify
+      data_template:
+        message: >
+            ALERT! {{ now().strftime("%h %d, %Y at %H:%M:S") }} {{trigger.to_state.state}} detected by {{trigger.to_state.attributes.friendly_name}}
+
+#--- automation/count_sump.yaml ---
+- id: count_sump_pump
+  alias: Count Sump Pump
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.sump_status
+  action:
+    - service: counter.increment
+      entity_id: counter.sump_counter
+
+#--- automation/count_time.yaml ---
+- id: count_timer
+  alias: Count Timer
+  trigger:
+    - platform: time_pattern
+      minutes: "/5"
+  action:
+    - service: counter.increment
+      entity_id: counter.timer
+
+#--- automation/notify_on_restart.yaml ---
+- id: notify_on_restart
+  alias: Notify on Restart
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: script.notify_kevin_engine
+      data:
+        call_on_restart: 1
+    - service: counter.reset
+      entity_id:
+        - counter.timer
+        - counter.sump_counter

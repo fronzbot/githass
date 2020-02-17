@@ -1,0 +1,7 @@
+alias: Count Timer
+trigger:
+  - platform: time_pattern
+    minutes: "/5"
+action:
+  - service: counter.increment
+    entity_id: counter.timer
