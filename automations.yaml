@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Feb-16 22:17:56 
+# Generated: 2020-Feb-16 23:30:20 
 #--------------------------------------------
 
 #--- automation/thermostat_on_tuesdays.yaml ---
@@ -213,16 +213,6 @@
         message: >
             ALERT! {{ now().strftime("%h %d, %Y at %H:%M:S") }} {{trigger.to_state.state}} detected by {{trigger.to_state.attributes.friendly_name}}
 
-#--- automation/count_sump.yaml ---
-- id: count_sump_pump
-  alias: Count Sump Pump
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.sump_status
-  action:
-    - service: counter.increment
-      entity_id: counter.sump_counter
-
 #--- automation/count_time.yaml ---
 - id: count_timer
   alias: Count Timer
@@ -247,3 +237,15 @@
       entity_id:
         - counter.timer
         - counter.sump_counter
+
+#--- automation/count_sump.yaml ---
+- id: count_sump_pump
+  alias: Count Sump Pump
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.sump_status
+      from: "off"
+      to: "on"
+  action:
+    - service: counter.increment
+      entity_id: counter.sump_counter
