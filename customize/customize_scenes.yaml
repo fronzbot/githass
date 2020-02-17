@@ -6,15 +6,11 @@ scene.christmas:
   emulated_hue_hidden: false
   emulated_hue_name: "Christmas"
 
-scene.movie_mode:
+scene.movie_mode_living_room:
   icon: mdi:movie
-  emulated_hue_hidden: false
-  emulated_hue_name: "Movie Mode"
 
-scene.movie_mode_basement:
+scene.movie_mode_family_room:
   icon: mdi:movie
-  emulated_hue_hidden: false
-  emulated_hue_name: "Movie Mode Basement"
   
 scene.daylight:
   icon: mdi:weather-sunny

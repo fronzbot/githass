@@ -29,9 +29,16 @@
     - light.kitchen_island_2
 
 - platform: group
+  name: Kitchen Table
+  entities:
+    - light.kitchen_table_1
+    - light.kitchen_table_2
+
+- platform: group
   name: Kitchen Lights
   entities:
     - light.kitchen_island
+    - light.kitchen_table
 
 - platform: group
   name: Interior Lights

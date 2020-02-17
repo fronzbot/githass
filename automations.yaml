@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Feb-17 12:26:07 
+# Generated: 2020-Feb-17 17:59:17 
 #--------------------------------------------
 
 #--- automation/thermostat_on_tuesdays.yaml ---
@@ -223,7 +223,3 @@
     - service: script.notify_kevin_engine
       data:
         call_on_restart: 1
-    - service: counter.reset
-      entity_id:
-        - counter.timer
-        - counter.sump_counter

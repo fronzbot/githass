@@ -6,7 +6,3 @@ action:
   - service: script.notify_kevin_engine
     data:
       call_on_restart: 1
-  - service: counter.reset
-    entity_id:
-      - counter.timer
-      - counter.sump_counter

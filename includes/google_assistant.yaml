@@ -56,3 +56,16 @@ entity_config:
   light.kitchen_island:
     name: Kitchen Island
     expose: True
+  light.kitchen_table:
+    name: Kitchen Table
+    expose: True
+
+  # ------------
+  # SCENES
+  # ------------
+  scene.movie_mode_family_room:
+    name: Movie Mode Family Room
+    expose: True
+  scene.movie_mode_living_room:
+    name: Movie Mode Living Room
+    expose: True

@@ -8,7 +8,7 @@ flux_kitchen:
   module: flux
   class: Flux
   constrain_input_boolean: input_boolean.flux_kitchen
-  light: light.kitchen_island_1,light.kitchen_island_2
+  light: light.kitchen_island_1,light.kitchen_island_2,light.kitchen_table_1,light.kitchen_table_2
 
 flux_living_room:
   module: flux
