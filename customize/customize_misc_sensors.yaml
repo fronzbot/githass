@@ -178,6 +178,6 @@ zwave.smoke_nursery:
 #-----------------------------
 # Other
 # ----------------------------
-sensor.sump_rate_per_hour:
+sensor.sump_usage_per_hour:
   icon: mdi:home-flood
   friendly_name: Sump Frequency

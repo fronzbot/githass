@@ -71,11 +71,3 @@
         {% else %}
           Unknown
         {% endif %}
-
-    sump_rate_per_hour:
-      value_template: >
-        {% if (states.counter.timer.state | int) > 0 %}
-          {{ float(((states.counter.sump_counter.state | int)*12 / (states.counter.timer.state | int)) | round(3)) }}
-        {% else %}
-          0.0
-        {% endif %}

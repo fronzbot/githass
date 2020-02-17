@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Feb-16 23:30:20 
+# Generated: 2020-Feb-17 12:26:07 
 #--------------------------------------------
 
 #--- customize/customize_glances.yaml ---
@@ -570,6 +570,6 @@
 #-----------------------------
 # Other
 # ----------------------------
-  sensor.sump_rate_per_hour:
+  sensor.sump_usage_per_hour:
     icon: mdi:home-flood
     friendly_name: Sump Frequency

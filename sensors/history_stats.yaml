@@ -1,0 +1,8 @@
+- platform: history_stats
+  name: Sump Usage Per Hour
+  entity_id: binary_sensor.sump_status
+  state: 'on'
+  type: count
+  end: '{{ now() }}'
+  duration:
+    hours: 1

@@ -21,7 +21,6 @@ binary_sensor: !include includes/binary_sensor.yaml
 blink: !include includes/blink.yaml
 camera: !include includes/cameras.yaml
 #climate: !include includes/climate.yaml
-counter: !include includes/counter.yaml
 fastdotcom: !include includes/fastdotcom.yaml
 google_assistant: !include includes/google_assistant.yaml
 hue: !include includes/hue.yaml
