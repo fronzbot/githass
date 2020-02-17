@@ -2,6 +2,8 @@ alias: Count Sump Pump
 trigger:
   - platform: state
     entity_id: binary_sensor.sump_status
+    from: "Dry"
+    to: "Wet"
 action:
   - service: counter.increment
     entity_id: counter.sump_counter
