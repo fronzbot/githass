@@ -26,7 +26,7 @@ flux_master_bedroom:
   module: flux
   class: Flux
   constrain_input_boolean: input_boolean.flux_master_bedroom
-  light: light.master_bedroom_corner,light.master_bedroom_window
+  light: light.master_bedroom_door,light.master_bedroom_window
 
 #thermostat:
 #  module: thermostat
