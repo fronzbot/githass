@@ -3,5 +3,7 @@
     sump_status:
       friendly_name: "Sump Status"
       device_class: 'moisture'
+      delay_off:
+        seconds: 5
       value_template: >
-        {{ states.sensor.aeon_labs_zw096_smart_switch_6_current.state | float > 0.1 }}
+        {{ states.sensor.aeon_labs_zw096_smart_switch_6_current.state | float > 0.5 }}
