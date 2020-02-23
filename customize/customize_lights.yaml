@@ -19,3 +19,5 @@ light.kitchen_lights:
 light.interior_lights:
   icon: mdi:home
 
+ligh.porch:
+  icon: mdi:gate

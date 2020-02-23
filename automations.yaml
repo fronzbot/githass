@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Feb-17 17:59:17 
+# Generated: 2020-Feb-23 15:59:44 
 #--------------------------------------------
 
 #--- automation/thermostat_on_tuesdays.yaml ---
@@ -223,3 +223,31 @@
     - service: script.notify_kevin_engine
       data:
         call_on_restart: 1
+
+#--- automation/lights_outside_off.yaml ---
+# Turn on outside lights off at 12:40 am
+  
+- id: lights_outdoor_off
+  alias: Lights Outdoor Off
+  trigger:
+    - platform: time
+      at: '00:40:07'
+  action:
+    - service: light.turn_off
+      entity_id: light.porch
+
+#--- automation/sunset.yaml ---
+# Turn on outside lights 15 minutes after sunset
+  
+- id: lights_sunset
+  alias: Lights Sunset
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '+00:15:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.porch
+      data:
+        brightness: 255
+        color_temp: 3300

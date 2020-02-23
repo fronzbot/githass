@@ -1,0 +1,13 @@
+# Turn on outside lights 15 minutes after sunset
+
+alias: Lights Sunset
+trigger:
+  - platform: sun
+    event: sunset
+    offset: '+00:15:00'
+action:
+  - service: light.turn_on
+    entity_id: light.porch
+    data:
+      brightness: 255
+      color_temp: 3300

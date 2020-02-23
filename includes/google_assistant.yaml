@@ -59,7 +59,9 @@ entity_config:
   light.kitchen_table:
     name: Kitchen Table
     expose: True
-
+  light.porch:
+    name: Porch
+    expose: True
   # ------------
   # SCENES
   # ------------
