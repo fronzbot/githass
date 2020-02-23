@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Feb-23 15:59:44 
+# Generated: 2020-Feb-23 16:01:24 
 #--------------------------------------------
 
 #--- customize/customize_glances.yaml ---
@@ -292,29 +292,6 @@
   input_boolean.warmer_night_mode:
     icon: mdi:fire
 
-#--- customize/customize_lights.yaml ---
-##################
-# Lights
-##################
-  light.family_room_lights:
-    icon: mdi:sofa
-  
-  light.office_lights:
-    icon: mdi:desktop-tower
-  
-  light.master_bedroom_lights:
-    icon: mdi:hotel
-  
-  light.living_room_lights:
-    icon: mdi:sofa
-  
-  light.kitchen_lights:
-    icon: mdi:food-variant
-  
-  light.interior_lights:
-    icon: mdi:home
-  
-
 #--- customize/customize_misc_sensors.yaml ---
 ##################
 # Sensors
@@ -569,3 +546,28 @@
     emulated_hue_hidden: false
     emulated_hue_name: "Pink"
   
+
+#--- customize/customize_lights.yaml ---
+##################
+# Lights
+##################
+  light.family_room_lights:
+    icon: mdi:sofa
+  
+  light.office_lights:
+    icon: mdi:desktop-tower
+  
+  light.master_bedroom_lights:
+    icon: mdi:hotel
+  
+  light.living_room_lights:
+    icon: mdi:sofa
+  
+  light.kitchen_lights:
+    icon: mdi:food-variant
+  
+  light.interior_lights:
+    icon: mdi:home
+  
+  ligh.porch:
+    icon: mdi:gate
