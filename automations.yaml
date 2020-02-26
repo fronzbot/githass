@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Feb-23 16:01:24 
+# Generated: 2020-Feb-25 22:04:42 
 #--------------------------------------------
 
 #--- automation/thermostat_on_tuesdays.yaml ---
@@ -248,6 +248,3 @@
   action:
     - service: light.turn_on
       entity_id: light.porch
-      data:
-        brightness: 255
-        color_temp: 3300
