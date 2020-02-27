@@ -41,6 +41,9 @@ entity_config:
   light.living_room_couch:
     name: Living Room Couch
     expose: True
+  light.living_room_corner:
+    name: Living Room Corner
+    expose: True
   light.office_desk:
     name: Office Desk
     expose: True
