@@ -7,3 +7,5 @@ trigger:
 action:
   - service: light.turn_off
     entity_id: light.porch
+  - service: switch.turn_off
+    entity_id: switch.driveway

@@ -8,3 +8,5 @@ trigger:
 action:
   - service: light.turn_on
     entity_id: light.porch
+  - service: switch.turn_on
+    entity_id: switch.driveway

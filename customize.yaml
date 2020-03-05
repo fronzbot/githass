@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Feb-25 22:04:42 
+# Generated: 2020-Mar-04 22:02:21 
 #--------------------------------------------
 
 #--- customize/customize_glances.yaml ---
@@ -71,26 +71,6 @@
   sensor.hass_version:
     friendly_name: Home Assistant Version
     icon: mdi:home-assistant
-
-#--- customize/customize_switches.yaml ---
-  switch.outdoor_1_switch:
-    friendly_name: Outside Porch Outlet
-    icon: mdi:power-plug
-    
-  switch.outdoor_2_switch:
-    friendly_name: Outside Driveway Outlet
-    icon: mdi:power-plug
-    
-  switch.power_mon_switch_3_0:
-    friendly_name: Washing Machine Power
-    icon: mdi:power
-  
-  switch.driveway_switch:
-    friendly_name: Driveway
-    icon: mdi:car
-    emulated_hue_hidden: false
-    emulated_hue_name: "Driveway"
-    
 
 #--- customize/customize_scripts.yaml ---
   script.thermostat_control:
@@ -571,3 +551,23 @@
   
   ligh.porch:
     icon: mdi:gate
+
+#--- customize/customize_switches.yaml ---
+  switch.outdoor_1_switch:
+    friendly_name: Outside Porch Outlet
+    icon: mdi:power-plug
+    
+  switch.outdoor_2_switch:
+    friendly_name: Outside Driveway Outlet
+    icon: mdi:power-plug
+    
+  switch.power_mon_switch_3_0:
+    friendly_name: Washing Machine Power
+    icon: mdi:power
+  
+  switch.driveway:
+    friendly_name: Driveway
+    icon: mdi:car
+    emulated_hue_hidden: false
+    emulated_hue_name: "Driveway"
+    

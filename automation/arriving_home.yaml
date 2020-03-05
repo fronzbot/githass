@@ -12,8 +12,9 @@ action:
       - light.family_room_couch_left
       - light.family_room_couch_right
       - light.living_room_couch
+      - light.kitchen_lights
   - service: input_boolean.turn_off
     entity_id: input_boolean.guest_mode
 #  - service: python_script.thermostat_engine
-  - service: alarm_control_panel.alarm_disarm
-    entity_id: alarm_control_panel.blink_xt_hub
+#  - service: alarm_control_panel.alarm_disarm
+#    entity_id: alarm_control_panel.blink_xt_hub

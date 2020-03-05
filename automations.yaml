@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Feb-25 22:04:42 
+# Generated: 2020-Mar-04 22:02:21 
 #--------------------------------------------
 
 #--- automation/thermostat_on_tuesdays.yaml ---
@@ -51,33 +51,6 @@
     - service: climate.turn_off
       entity_id: climate.thermostat_73_5c_83
 
-#--- automation/away_from_home_night.yaml ---
-- id: away_from_home_at_night
-  alias: Away From Home at Night
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '-00:15:00'
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '16:00:00'
-        before: '22:00:00'
-      - condition: state
-        entity_id: sensor.occupancy
-        state: 'not_home'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-    - service: alarm_control_panel.alarm_arm_away
-      entity_id: alarm_control_panel.blink_xt_hub
-
 #--- automation/wakeup.yaml ---
 - id: wakeup_routine
   alias: Wakeup Routine
@@ -90,47 +63,6 @@
         - light.family_room_couch_left
         - light.family_room_couch_right
 
-#--- automation/arriving_home.yaml ---
-- id: arriving_home
-  alias: Arriving Home
-  trigger:
-    - platform: state
-      entity_id: device_tracker.kevin_gps
-      to: 'home'
-    - platform: state
-      entity_id: device_tracker.allegra_gps
-      to: 'home'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-        - light.living_room_couch
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.guest_mode
-#  - service: python_script.thermostat_engine
-    - service: alarm_control_panel.alarm_disarm
-      entity_id: alarm_control_panel.blink_xt_hub
-
-#--- automation/daytime.yaml ---
-- id: daytime_routine
-  alias: Daytime Routine
-  trigger:
-      - platform: sun
-        event: sunrise
-        offset: '+00:30:00'
-      - platform: time
-        at: '08:00:00'
-  condition:
-      - condition: sun
-        after: sunrise
-        after_offset: '+00:15:00'
-  
-  action:
-      - service: light.turn_off
-        entity_id: light.interior_lights
-#    - service: python_script.thermostat_engine
-
 #--- automation/lights_inside_off.yaml ---
 # Turn inside lights off around midnight (before exterior)
   
@@ -142,28 +74,6 @@
   action:
     - service: light.turn_off
       entity_id: light.interior_lights
-
-#--- automation/away_from_home.yaml ---
-- id: away_from_home
-  alias: Away From Home
-  trigger:
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        before: '16:00:00'
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: 'off'
-  action:
-      - service: light.turn_off
-        entity_id: light.interior_lights
-#    - service: python_script.thermostat_engine
-      - service: alarm_control_panel.alarm_arm_away
-        entity_id: alarm_control_panel.blink_xt_hub 
 
 #--- automation/notify_leak_detected.yaml ---
 - id: notify_on_leak_detected
@@ -224,6 +134,99 @@
       data:
         call_on_restart: 1
 
+#--- automation/arriving_home.yaml ---
+- id: arriving_home
+  alias: Arriving Home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.kevin_gps
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.allegra_gps
+      to: 'home'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.living_room_couch
+        - light.kitchen_lights
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.guest_mode
+#  - service: python_script.thermostat_engine
+#  - service: alarm_control_panel.alarm_disarm
+#    entity_id: alarm_control_panel.blink_xt_hub
+
+#--- automation/away_from_home.yaml ---
+- id: away_from_home
+  alias: Away From Home
+  trigger:
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'not_home'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        before: '16:00:00'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+  action:
+      - service: light.turn_off
+        entity_id: light.interior_lights
+#    - service: python_script.thermostat_engine
+#    - service: alarm_control_panel.alarm_arm_away
+#      entity_id: alarm_control_panel.blink_xt_hub 
+
+#--- automation/away_from_home_night.yaml ---
+- id: away_from_home_at_night
+  alias: Away From Home at Night
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-00:15:00'
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'not_home'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '16:00:00'
+        before: '22:00:00'
+      - condition: state
+        entity_id: sensor.occupancy
+        state: 'not_home'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.living_room_couch
+        - light.kitchen_table
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.blink_xt_hub
+
+#--- automation/daytime.yaml ---
+- id: daytime_routine
+  alias: Daytime Routine
+  trigger:
+      - platform: sun
+        event: sunrise
+        offset: '+00:30:00'
+      - platform: time
+        at: '09:00:00'
+  condition:
+      - condition: sun
+        after: sunrise
+        after_offset: '+00:15:00'
+  
+  action:
+      - service: light.turn_off
+        entity_id: light.interior_lights
+#    - service: python_script.thermostat_engine
+
 #--- automation/lights_outside_off.yaml ---
 # Turn on outside lights off at 12:40 am
   
@@ -235,6 +238,8 @@
   action:
     - service: light.turn_off
       entity_id: light.porch
+    - service: switch.turn_off
+      entity_id: switch.driveway
 
 #--- automation/sunset.yaml ---
 # Turn on outside lights 15 minutes after sunset
@@ -248,3 +253,5 @@
   action:
     - service: light.turn_on
       entity_id: light.porch
+    - service: switch.turn_on
+      entity_id: switch.driveway

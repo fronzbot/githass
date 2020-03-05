@@ -15,5 +15,5 @@ action:
     - service: light.turn_off
       entity_id: light.interior_lights
 #    - service: python_script.thermostat_engine
-    - service: alarm_control_panel.alarm_arm_away
-      entity_id: alarm_control_panel.blink_xt_hub 
+#    - service: alarm_control_panel.alarm_arm_away
+#      entity_id: alarm_control_panel.blink_xt_hub 

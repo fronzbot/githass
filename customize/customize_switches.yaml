@@ -10,7 +10,7 @@ switch.power_mon_switch_3_0:
   friendly_name: Washing Machine Power
   icon: mdi:power
 
-switch.driveway_switch:
+switch.driveway:
   friendly_name: Driveway
   icon: mdi:car
   emulated_hue_hidden: false
