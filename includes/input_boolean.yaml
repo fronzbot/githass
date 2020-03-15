@@ -2,14 +2,26 @@ on_the_way_home:
   name: On the Way Home
   initial: off
 
+flux_family_room:
+  name: Flux Family Room
+  initial: on
+     
 flux_living_room:
   name: Flux Living Room
   initial: on
 
-flux_basement:
-  name: Flux Basement
+flux_kitchen:
+  name: Flux Kitchen
   initial: on
-  
+
+flux_office:
+  name: Flux Office
+  initial: on
+
+flux_master_bedroom:
+  name: Flux Master Bedroom
+  initial: on
+
 christmas_lights:
   name: Christmas Lights
   initial: off

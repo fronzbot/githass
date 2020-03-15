@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-Aug-13 08:58:16 
+# Generated: 2020-Mar-04 22:02:21 
 #--------------------------------------------
 
 #--- scripts/hass_upgrade.yaml ---
@@ -8,39 +8,6 @@
     sequence:
       - service: shell_command.hass_upgrade
       - service: homeassistant.restart
-
-#--- scripts/notify_all_engine.yaml ---
-  notify_all_engine:
-    sequence:
-      - service: notify.notify
-        data_template:
-          message: >
-            {%- macro fire_co2() -%}
-              ALERT! {{ now().strftime("%h %d, %Y at %H:%M:%S") }} Kitchen: {{ states.sensor.smoke_alarm_kitchen.state }}, Living Room: {{ states.sensor.smoke_alarm_living_room.state }}, Nursery: {{ states.sensor.smoke_alarm_nursery.state }}
-            {%- endmacro -%}
-            {%- macro washer_status() -%}
-              {% if states.sensor.washer.state == 'Running' %}
-                Washer cycle started {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
-              {% elif states.sensor.washer.state == 'Not Running' %}
-                Washer cycle complete {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
-              {% endif %}
-            {%- endmacro -%}
-            {%- macro on_way_home() -%}
-              Home Assistant: I turned the thermostat on, so the house will be nice and comfortable when you get home!
-            {%- endmacro -%}
-            {##################}
-            {# BEGIN ROUTINES #}
-            {##################}
-            {% if call_fire_co2 == 1 %}
-              {{ fire_co2() }}
-            {% endif %}
-            {% if call_washer_status == 1 %}
-              {{ washer_status() }}
-            {% endif %}
-            {% if call_on_way_home == 1 %}
-              {{ on_way_home() }}
-            {% endif %}
-            
 
 #--- scripts/ssl_renew_certificate.yaml ---
   ssl_renew_certificate:
@@ -69,16 +36,6 @@
     sequence:
       - service: shell_command.github_pull
       - service: homeassistant.restart
-
-#--- scripts/flux.yaml ---
-  flux:
-    alias: Flux - Global
-    sequence:
-      - service: input_boolean.turn_on
-        entity_id:
-          - input_boolean.flux_living_room
-          - input_boolean.flux_basement
-        
 
 #--- scripts/zwave_fix_dead_node.yaml ---
   zwave_fix_dead_node:
@@ -254,3 +211,38 @@
             {% if call_fire_co2 == 1 %}
               {{ fire_co2() }}
             {% endif %}
+
+#--- scripts/flux.yaml ---
+  flux:
+    alias: Flux - Global
+    sequence:
+      - service: input_boolean.turn_on
+        entity_id:
+          - input_boolean.flux_living_room
+          - input_boolean.flux_family_room
+          - input_boolean.flux_master_bedroom
+          - input_boolean.flux_office
+        
+
+#--- scripts/notify_all_engine.yaml ---
+  notify_all_engine:
+    sequence:
+      - service: notify.notify
+        data_template:
+          message: >
+            {%- macro fire_co2() -%}
+              'ALERT! {{ now().strftime("%h %d, %Y at %H:%M:%S") }} triggered by {{trigger.entity_id}} with staus {{ trigger.to_state.state }}'
+            {%- endmacro -%}
+            {%- macro leak_detected() -%}
+              'ALERT! {{ now().strftime("%h %d, %Y at %H:%M:%S") }} Leak Detected with {{trigger.entity_id}}'
+            {%- endmacro %}
+            {##################}
+            {# BEGIN ROUTINES #}
+            {##################}
+            {% if call_fire_co2 == 1 %}
+              {{ fire_co2() }}
+            {% endif %}
+            {% if call_leak_detected == 1 %}
+              {{ leak_detected() }}
+            {% endif %}
+            

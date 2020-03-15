@@ -5,5 +5,5 @@ trigger:
 action:
   - service: light.turn_on
     entity_id:
-      - light.couch_left
-      - light.kitchen_table
+      - light.family_room_couch_left
+      - light.family_room_couch_right

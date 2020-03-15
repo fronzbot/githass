@@ -4,9 +4,18 @@
 input_boolean.flux_living_room:
   icon: mdi:theme-light-dark
 
-input_boolean.flux_basement:
+input_boolean.flux_family_room:
   icon: mdi:theme-light-dark
-  
+
+input_boolean.flux_kitchen:
+  icon: mdi:theme-light-dark
+
+input_boolean.flux_master_bedroom:
+  icon: mdi:theme-light-dark
+
+input_boolean.flux_office:
+  icon: mdi:theme-light-dark
+      
 input_boolean.christmas_lights:
   icon: mdi:gift
   

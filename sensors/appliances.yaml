@@ -1,59 +1,72 @@
 - platform: template
   sensors: 
-    washer:
+    leak_sump:
       value_template: >
-        {% if states.sensor.power_mon_power %}
-          {% if (states.sensor.power_mon_power.state | float) > 0.25 and (states.sensor.power_mon_power.state | float) < 8191.0 %}
-            Running
-          {% else %}
-            Not Running
-          {% endif %}
+        {% if is_state("sensor.aeon_labs_zw122_water_sensor_6_flood", "2") or is_state("sensor.aeon_labs_zw122_water_sensor_6_flood", "2") %}
+          Wet
         {% else %}
+          Dry
         {% endif %}
-        
-    smoke_alarm_kitchen:
+         
+    smoke_alarm_foyer:
       value_template: >
-        {% if is_state("sensor.smoke_kitchen_alarm_level", "0") %}
+        {% if is_state("sensor.smoke_detector_1_alarm_level", "0") %}
           Idle
-        {% elif is_state("sensor.smoke_kitchen_alarm_type", "13") %}
+        {% elif is_state("sensor.smoke_detector_1_alarm_type", "13") %}
           Idle
-        {% elif is_state("sensor.smoke_kitchen_alarm_type", "12") %}
+        {% elif is_state("sensor.smoke_detector_1_alarm_type", "12") %}
           Testing
-        {% elif is_state("sensor.smoke_kitchen_alarm_type", "1") %}
+        {% elif is_state("sensor.smoke_detector_1_alarm_type", "1") %}
           Fire
-        {% elif is_state("sensor.smoke_kitchen_alarm_type", "2") %}
+        {% elif is_state("sensor.smoke_detector_1_alarm_type", "2") %}
           CO
         {% else %}
           Unknown
         {% endif %}
 
-    smoke_alarm_living_room:
+    smoke_alarm_family_room:
       value_template: >
-        {% if is_state("sensor.smoke_living_room_alarm_level", "0") %}
+        {% if is_state("sensor.smoke_detector_2_alarm_level", "0") %}
           Idle
-        {% elif is_state("sensor.smoke_living_room_alarm_type", "13") %}
+        {% elif is_state("sensor.smoke_detector_2_alarm_type", "13") %}
           Idle
-        {% elif is_state("sensor.smoke_living_room_alarm_type", "12") %}
+        {% elif is_state("sensor.smoke_detector_2_alarm_type", "12") %}
           Testing
-        {% elif is_state("sensor.smoke_living_room_alarm_type", "1") %}
+        {% elif is_state("sensor.smoke_detector_2_alarm_type", "1") %}
           Fire
-        {% elif is_state("sensor.smoke_living_room_alarm_type", "2") %}
+        {% elif is_state("sensor.smoke_detector_2_alarm_type", "2") %}
           CO
         {% else %}
           Unknown
         {% endif %}
         
-    smoke_alarm_nursery:
+    smoke_alarm_office:
       value_template: >
-        {% if is_state("sensor.smoke_nursery_alarm_level", "0") %}
+        {% if is_state("sensor.smoke_detector_3_level", "0") %}
           Idle
-        {% elif is_state("sensor.smoke_nursery_alarm_type", "13") %}
+        {% elif is_state("sensor.smoke_detector_3_alarm_type", "13") %}
           Idle
-        {% elif is_state("sensor.smoke_nursery_alarm_type", "12") %}
+        {% elif is_state("sensor.smoke_detector_3_alarm_type", "12") %}
           Testing
-        {% elif is_state("sensor.smoke_nursery_alarm_type", "1") %}
+        {% elif is_state("sensor.smoke_detector_3_alarm_type", "1") %}
           Fire
-        {% elif is_state("sensor.smoke_nursery_alarm_type", "2") %}
+        {% elif is_state("sensor.smoke_detector_3_alarm_type", "2") %}
+          CO
+        {% else %}
+          Unknown
+        {% endif %}
+
+    smoke_alarm_basement:
+      value_template: >
+        {% if is_state("sensor.smoke_detector_4_level", "0") %}
+          Idle
+        {% elif is_state("sensor.smoke_detector_4_alarm_type", "13") %}
+          Idle
+        {% elif is_state("sensor.smoke_detector_4_alarm_type", "12") %}
+          Testing
+        {% elif is_state("sensor.smoke_detector_4_alarm_type", "1") %}
+          Fire
+        {% elif is_state("sensor.smoke_detector_4_alarm_type", "2") %}
           CO
         {% else %}
           Unknown

@@ -1,7 +1,0 @@
-alias: Nighttime Routine
-trigger:
-  - platform: time
-    at: '21:30:00'
-action:
-  - service: light.turn_off
-    entity_id: light.kitchen_table

@@ -1,0 +1,57 @@
+- platform: group
+  name: Family Room Lights
+  entities:
+    - light.family_room_couch_right
+    - light.family_room_couch_left
+    - light.family_room_fireplace
+
+- platform: group
+  name: Office Lights
+  entities:
+    - light.office_desk
+    - light.office_corner
+
+- platform: group
+  name: Master Bedroom Lights
+  entities:
+    - light.master_bedroom_door
+    - light.master_bedroom_window
+
+- platform: group
+  name: Living Room Lights
+  entities:
+    - light.living_room_couch
+    - light.living_room_corner_1
+    - light.living_room_corner_2
+
+- platform: group
+  name: Living Room Corner
+  entities:
+    - light.living_room_corner_1
+    - light.living_room_corner_2
+
+- platform: group
+  name: Kitchen Island
+  entities:
+    - light.kitchen_island_1
+    - light.kitchen_island_2
+
+- platform: group
+  name: Kitchen Table
+  entities:
+    - light.kitchen_table_1
+    - light.kitchen_table_2
+
+- platform: group
+  name: Kitchen Lights
+  entities:
+    - light.kitchen_island
+    - light.kitchen_table
+
+- platform: group
+  name: Interior Lights
+  entities:
+    - light.family_room_lights
+    - light.office_lights
+    - light.living_room_lights
+    - light.kitchen_lights

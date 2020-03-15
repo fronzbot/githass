@@ -1,17 +1,6 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-Aug-13 08:58:16 
+# Generated: 2020-Mar-04 22:02:21 
 #--------------------------------------------
-
-#--- automation/zwave_fix_dead_node.yaml ---
-- id: fix_dead_zwave_node
-  alias: Fix Dead ZWave Node
-  trigger:
-      - platform: template
-        value_template: '{{states.zwave.driveway.attributes.is_failed}}'
-      - platform: time
-        at: '00:10:00'
-  action:
-      - service: script.zwave_fix_dead_node
 
 #--- automation/thermostat_on_tuesdays.yaml ---
 - id: 'heat_on_tuesday'
@@ -26,88 +15,6 @@
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.guest_mode
-
-#--- automation/lights_inside_off.yaml ---
-# Turn inside lights off around midnight (before exterior)
-  
-- id: lights_inside_off
-  alias: Lights Inside Off
-  trigger:
-    - platform: time
-      at: '00:12:09'
-  action:
-    - service: light.turn_off
-      entity_id: group.interior
-
-#--- automation/notify_washer_status.yaml ---
-- id: notify_on_washer_status
-  alias: Notify on Washer Status
-  trigger:
-    - platform: state
-      entity_id: sensor.washer
-      from: 'Not Running'
-      to: 'Running'
-    - platform: state
-      entity_id: sensor.washer
-      from: 'Running'
-      to: 'Not Running'
-  action:
-    - service: script.notify_all_engine
-      data:
-        call_washer_status: 1
-    - service: script.speech_engine
-      data:
-        call_washer_status: 1
-
-#--- automation/lights_holiday_lights.yaml ---
-# Turn on holiday lights at sunset
-- id: lights_holiday_lights
-  alias: Lights Holiday Lights
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '+00:16:00'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: 'input_boolean.christmas_lights'
-        state: 'on'
-  action:
-    - service: switch.turn_on
-      entity_id: group.outdoor_switches
-    - service: light.turn_on
-      entity_id: light.porch
-      data:
-        color_name: 'lime green'
-        brightness: 254
-
-#--- automation/away_from_home_night.yaml ---
-- id: away_from_home_at_night
-  alias: Away From Home at Night
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '-00:15:00'
-    - platform: state
-      entity_id: sensor.occupancy
-      to: 'not_home'
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '16:00:00'
-        before: '22:00:00'
-      - condition: state
-        entity_id: sensor.occupancy
-        state: 'not_home'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.couch_left
-        - light.couch_right
-    - service: alarm_control_panel.alarm_arm_away
-      entity_id: alarm_control_panel.blink_xt_hub
 
 #--- automation/notify_on_failed_login.yaml ---
 - id: notify_on_failed_login
@@ -133,23 +40,88 @@
       data:
         call_failed_login: 1
 
-#--- automation/sunset.yaml ---
-# Turn on outside lights 15 minutes after sunset
-  
-- id: lights_sunset
-  alias: Lights Sunset
+#--- automation/thermostat_disable.yaml ---
+- id: thermostat_disable
+  alias: Thermostat Disable
   trigger:
-    - platform: sun
-      event: sunset
-      offset: '+00:15:00'
+    - platform: state
+      entity_id: input_boolean.thermostat_enable
+      to: 'off'
+  action:
+    - service: climate.turn_off
+      entity_id: climate.thermostat_73_5c_83
+
+#--- automation/wakeup.yaml ---
+- id: wakeup_routine
+  alias: Wakeup Routine
+  trigger:
+    - platform: time
+      at: '06:30:30'
   action:
     - service: light.turn_on
-      entity_id: light.porch
-      data:
-        brightness: 255
-        color_temp: 330
-    - service: switch.turn_on
-      entity_id: switch.driveway_switch
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+
+#--- automation/lights_inside_off.yaml ---
+# Turn inside lights off around midnight (before exterior)
+  
+- id: lights_inside_off
+  alias: Lights Inside Off
+  trigger:
+    - platform: time
+      at: '00:12:09'
+  action:
+    - service: light.turn_off
+      entity_id: light.interior_lights
+
+#--- automation/notify_leak_detected.yaml ---
+- id: notify_on_leak_detected
+  alias: Notify on Leak Detected
+  trigger:
+    - platform: state
+      entity_id: sensor.leak_sump
+      from: 'Dry'
+      to: 'Wet'
+  action:
+    - service: notify.notify
+      data_template:
+        message: >
+          ALERT! {{ now().strftime("%h %d, %Y at %H:%M:%S") }} Leak Detected with {{trigger.to_state.attributes.friendly_name}}   
+
+#--- automation/notify_on_fire_co.yaml ---
+- id: notify_on_fire_co
+  alias: Notify on Fire/CO
+  trigger:
+    - platform: state
+      entity_id: sensor.smoke_alarm_foyer
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_foyer
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_family_room
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_family_room
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_office
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_office
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_basement
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_basement
+      to: "CO"
+  action:
+    - service: notify.notify
+      data_template:
+        message: >
+            ALERT! {{ now().strftime("%h %d, %Y at %H:%M:S") }} {{trigger.to_state.state}} detected by {{trigger.to_state.attributes.friendly_name}}
 
 #--- automation/notify_on_restart.yaml ---
 - id: notify_on_restart
@@ -161,29 +133,6 @@
     - service: script.notify_kevin_engine
       data:
         call_on_restart: 1
-    - service_template: >
-        {% if now().month == 12 %}
-          input_boolean.turn_on
-        {% else %}
-          input_boolean.turn_off
-        {% endif %}
-      entity_id: input_boolean.christmas_lights
-
-#--- automation/lights_outside_off.yaml ---
-# Turn on outside lights off at 12:40 am
-  
-- id: lights_outdoor_off
-  alias: Lights Outdoor Off
-  trigger:
-    - platform: time
-      at: '00:40:07'
-  action:
-    - service: light.turn_off
-      entity_id: light.porch
-    - service: switch.turn_off
-      entity_id: group.outdoor_switches
-    - service: switch.turn_off    
-      entity_id: switch.driveway_switch
 
 #--- automation/arriving_home.yaml ---
 - id: arriving_home
@@ -198,14 +147,15 @@
   action:
     - service: light.turn_on
       entity_id:
-        - light.couch_left
-        - light.couch_right
-        - light.kitchen_table
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.living_room_couch
+        - light.kitchen_lights
     - service: input_boolean.turn_off
       entity_id: input_boolean.guest_mode
 #  - service: python_script.thermostat_engine
-    - service: alarm_control_panel.alarm_disarm
-      entity_id: alarm_control_panel.blink_xt_hub
+#  - service: alarm_control_panel.alarm_disarm
+#    entity_id: alarm_control_panel.blink_xt_hub
 
 #--- automation/away_from_home.yaml ---
 - id: away_from_home
@@ -224,10 +174,39 @@
         state: 'off'
   action:
       - service: light.turn_off
-        entity_id: group.all_lights
+        entity_id: light.interior_lights
 #    - service: python_script.thermostat_engine
-      - service: alarm_control_panel.alarm_arm_away
-        entity_id: alarm_control_panel.blink_xt_hub 
+#    - service: alarm_control_panel.alarm_arm_away
+#      entity_id: alarm_control_panel.blink_xt_hub 
+
+#--- automation/away_from_home_night.yaml ---
+- id: away_from_home_at_night
+  alias: Away From Home at Night
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-00:15:00'
+    - platform: state
+      entity_id: sensor.occupancy
+      to: 'not_home'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '16:00:00'
+        before: '22:00:00'
+      - condition: state
+        entity_id: sensor.occupancy
+        state: 'not_home'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.living_room_couch
+        - light.kitchen_table
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.blink_xt_hub
 
 #--- automation/daytime.yaml ---
 - id: daytime_routine
@@ -237,7 +216,7 @@
         event: sunrise
         offset: '+00:30:00'
       - platform: time
-        at: '08:00:00'
+        at: '09:00:00'
   condition:
       - condition: sun
         after: sunrise
@@ -245,86 +224,34 @@
   
   action:
       - service: light.turn_off
-        entity_id: light.kitchen_table
+        entity_id: light.interior_lights
 #    - service: python_script.thermostat_engine
 
-#--- automation/on_the_way_home.yaml ---
-- id: on_the_way_home
-  alias: On The Way Home
-  trigger:
-    - platform: state
-      entity_id: input_boolean.on_the_way_home
-      to: 'on'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.couch_left
-        - light.couch_right
-        - light.kitchen_table
-#  - service: python_script.thermostat_engine
-    - service: script.notify_all_engine
-      data:
-        call_on_way_home: 1
-
-#--- automation/wakeup.yaml ---
-- id: wakeup_routine
-  alias: Wakeup Routine
+#--- automation/lights_outside_off.yaml ---
+# Turn on outside lights off at 12:40 am
+  
+- id: lights_outdoor_off
+  alias: Lights Outdoor Off
   trigger:
     - platform: time
-      at: '06:30:30'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.couch_left
-        - light.kitchen_table
-
-#--- automation/nighttime.yaml ---
-- id: nighttime_routine
-  alias: Nighttime Routine
-  trigger:
-    - platform: time
-      at: '21:30:00'
+      at: '00:40:07'
   action:
     - service: light.turn_off
-      entity_id: light.kitchen_table
+      entity_id: light.porch
+    - service: switch.turn_off
+      entity_id: switch.driveway
 
-#--- automation/thermostat_disable.yaml ---
-- id: thermostat_disable
-  alias: Thermostat Disable
+#--- automation/sunset.yaml ---
+# Turn on outside lights 15 minutes after sunset
+  
+- id: lights_sunset
+  alias: Lights Sunset
   trigger:
-    - platform: state
-      entity_id: input_boolean.thermostat_enable
-      to: 'off'
+    - platform: sun
+      event: sunset
+      offset: '+00:15:00'
   action:
-    - service: climate.turn_off
-      entity_id: climate.thermostat_73_5c_83
-
-#--- automation/notify_on_fire_co2.yaml ---
-- id: notify_on_fire_co
-  alias: Notify on Fire/CO
-  trigger:
-    - platform: state
-      entity_id: sensor.smoke_alarm_kitchen
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_kitchen
-      to: "CO"
-    - platform: state
-      entity_id: sensor.smoke_alarm_living_room
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_living_room
-      to: "CO"
-    - platform: state
-      entity_id: sensor.smoke_alarm_nursery
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_nursery
-      to: "CO"
-  action:
-    - service: script.notify_all_engine
-      data:
-        call_fire_co2: 1
-    - service: script.speech_engine
-      data:
-        call_fire_co2: 1
+    - service: light.turn_on
+      entity_id: light.porch
+    - service: switch.turn_on
+      entity_id: switch.driveway

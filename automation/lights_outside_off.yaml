@@ -8,6 +8,4 @@ action:
   - service: light.turn_off
     entity_id: light.porch
   - service: switch.turn_off
-    entity_id: group.outdoor_switches
-  - service: switch.turn_off    
-    entity_id: switch.driveway_switch
+    entity_id: switch.driveway

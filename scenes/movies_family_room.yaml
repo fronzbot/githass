@@ -1,19 +1,21 @@
 # Dim lights for movies
 # Left, Right are spring green, corner is crimson
 # http://www.developers.meethue.com/documentation/hue-xy-values
-name: Movie Mode
+name: Movie Mode Family Room
 entities:
-  input_boolean.flux_living_room:
+  input_boolean.flux_family_room:
     state: off
-  light.couch_left:
+  light.kitchen_table:
+    state: off
+  light.kitchen_island:
+    state: off
+  light.family_room_fireplace:
+    state: off
+  light.family_room_couch_right:
     state: on
     color_temp: 500
     brightness: 50
-  light.couch_right:
-    state: on
-    color_temp: 500
-    brightness: 50
-  light.corner:
+  light.family_room_couch_left:
     state: on
     color_temp: 500
     brightness: 50

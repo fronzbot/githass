@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2019-Aug-13 08:58:16 
+# Generated: 2020-Mar-04 22:02:21 
 #--------------------------------------------
 
 #--- customize/customize_glances.yaml ---
@@ -72,205 +72,6 @@
     friendly_name: Home Assistant Version
     icon: mdi:home-assistant
 
-#--- customize/customize_switches.yaml ---
-  switch.outdoor_1_switch:
-    friendly_name: Outside Porch Outlet
-    icon: mdi:power-plug
-    
-  switch.outdoor_2_switch:
-    friendly_name: Outside Driveway Outlet
-    icon: mdi:power-plug
-    
-  switch.power_mon_switch_3_0:
-    friendly_name: Washing Machine Power
-    icon: mdi:power
-  
-  switch.driveway_switch:
-    friendly_name: Driveway
-    icon: mdi:car
-    emulated_hue_hidden: false
-    emulated_hue_name: "Driveway"
-    
-
-#--- customize/customize_scenes.yaml ---
-##################
-# Scenes
-##################
-  scene.christmas:
-    icon: mdi:gift
-    emulated_hue_hidden: false
-    emulated_hue_name: "Christmas"
-  
-  scene.movie_mode:
-    icon: mdi:movie
-    emulated_hue_hidden: false
-    emulated_hue_name: "Movie Mode"
-  
-  scene.movie_mode_basement:
-    icon: mdi:movie
-    emulated_hue_hidden: false
-    emulated_hue_name: "Movie Mode Basement"
-    
-  scene.daylight:
-    icon: mdi:weather-sunny
-    emulated_hue_hidden: false
-    emulated_hue_name: "Day Time"
-    
-  scene.night:
-    icon: mdi:weather-night
-    emulated_hue_hidden: false
-    emulated_hue_name: "Night Time"
-  
-  scene.sabres:
-    icon: mdi:sword
-    emulated_hue_hidden: false
-    emulated_hue_name: "Sabres"
-  
-  scene.on_the_way_home:
-    icon: mdi:map-marker
-    emulated_hue_hidden: false
-  
-  scene.orange:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Orange"
-  
-  scene.yellow:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Yellow"
-  
-  scene.green:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Green"
-  
-  scene.cyan:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Ice"
-  
-  scene.blue:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Blue"
-  
-  scene.purple:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Purple"
-  
-  scene.pink:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Pink"
-  
-
-#--- customize/customize_lights.yaml ---
-##################
-# Lights
-##################
-  light.Couch_Left:
-    friendly_name: Couch Left
-    emulated_hue_hidden: false
-    emulated_hue_name: "Couch Left"
-  
-  light.Couch_Right:
-    friendly_name: Couch Right
-    emulated_hue_hidden: false
-    emulated_hue_name: "Couch Right"
-    
-  light.Corner:
-    friendly_name: Corner
-    emulated_hue_hidden: false 
-    emulated_hue_name: "Corner"
-  
-  light.Corner_Den:
-    friendly_name: Corner Den
-    
-  light.Back_Den:
-    friendly_name: Back Den
-    
-  light.Desk:
-    friendly_name: Computer Desk
-    emulated_hue_hidden: false
-    emulated_hue_name: "Desk"
-  
-  light.basement_corner:
-    friendly_name: Basement Corner
-  
-  light.basement_computer:
-    friendly_name: Computer
-    
-  light.Porch:
-    friendly_name: Porch
-    icon: mdi:gate
-    emulated_hue_hidden: false
-    emulated_hue_name: "Porch"
-  
-# light.basement_ceiling_1:
-    # friendly_name: Basement Ceiling 1
-    
-# light.basement_ceiling_2:
-    # friendly_name: Basement Ceiling 2
-  
-# light.basement_ceiling_3:
-    # friendly_name: Basement Ceiling 3
-  
-  light.fireplace_1:
-    friendly_name: Basement Fireplace 1
-    
-  light.fireplace_2:
-    friendly_name: Basement Fireplace 2
-    
-  light.kitchen_table:
-    friendly_name: Kitchen Table
-    icon: mdi:food-variant
-    emulated_hue_hidden: false
-    emulated_hue_name: "Kitchen"
-  
-  light.bedroom_corner:
-    friendly_name: Corner Lamp
-    icon: mdi:hotel
-    emulated_hue_hidden: false
-    emulated_hue_name: "Corner Lamp"
-  
-  light.bedroom_door:
-    friendly_name: Nightstand
-    icon: mdi:hotel
-    emulated_hue_hidden: false
-    emulated_hue_name: "Nightstand"
-    
-
-#--- customize/customize_input_boolean.yaml ---
-##################
-# Input Boolean
-##################
-  input_boolean.flux_living_room:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_basement:
-    icon: mdi:theme-light-dark
-    
-  input_boolean.christmas_lights:
-    icon: mdi:gift
-    
-  input_boolean.on_the_way_home:
-    icon: mdi:map-marker
-  
-  input_boolean.guest_mode:
-    icon: mdi:account
-    emulated_hue_hidden: false
-    emulated_hue_name: "Guest Mode"
-  
-  input_boolean.thermostat_enable:
-    icon: mdi:thermostat
-    emulated_hue_hidden: false
-    emulated_hue_name: "Thermostat"
-  
-  input_boolean.warmer_night_mode:
-    icon: mdi:fire
-
 #--- customize/customize_scripts.yaml ---
   script.thermostat_control:
     icon: mdi:air-conditioner
@@ -303,121 +104,6 @@
   script.upgrade_pihole:
     icon: mdi:arrow-up-bold-circle-outline
     friendly_name: "Upgrade Pihole"
-
-#--- customize/customize_groups.yaml ---
-#===================================================
-# Sets the emulated_hue exposure for all groups
-# Note, order is used to manually force location
-# of panels on frontend
-#===================================================
-  
-#============================  
-# from groups/lights.yaml
-#============================
-  group.scenes:
-    order: 1
-    
-  group.couch:
-    emulated_hue_hidden: false
-    emulated_hue_name: "Couch"
-    
-# group.basement_ceiling:
-    # order: 5
-  
-  group.computer:
-    emulated_hue_hidden: false
-    emualted_hue_name: "Computer"
-    
-  group.basement_fireplace:
-    emulated_hue_hidden: false
-    emualted_hue_name: "Fireplace"
-    
-  group.lights_living_room:
-    order: 1
-    emulated_hue_hidden: false
-    emulated_hue_name: "Living Room"
-    
-  group.flux_switch:
-    order: 2
-  
-  group.lights_kitchen:
-    order: 2
-    
-  group.lights_den:
-    order: 3
-    emulated_hue_hidden: false
-    emulated_hue_name: "Den"
-  
-  group.lights_bedroom:
-    order: 4
-    emulated_hue_hidden: false
-    emulated_hue_name: "Bedroom"
-    
-  group.lights_basement:
-    order: 5
-    emulated_hue_hidden: false
-    emualted_hue_name: "Basement"
-    
-  group.interior:
-    emulated_hue_hidden: true
-      
-  group.exterior:
-    emulated_hue_hidden: false
-    emulated_hue_name: "Outside Lights"
-    
-  group.home_lights:
-    order: 1
-    
-  group.outdoor_switches:
-    emulated_hue_hidden: false
-    emulated_hue_name: "Outside Switches"
-  
-#============================  
-# from groups/devices.yaml
-#============================  
-  
-    
-#============================  
-# from groups/climate.yaml
-#============================  
-  
-  
-#============================  
-# from groups/sensors.yaml
-#============================  
-  
-  
-#============================  
-# from groups/automations.yaml
-#============================ 
-  
-    
-#============================  
-# 'ALL' GROUPS  
-#============================
-  group.all_automations:
-    friendly_name: "Automations"
-    hidden: false
-    emulated_hue_hidden: true
-    
-  group.all_locks:
-    emulated_hue_hidden: true
-    
-  group.all_switches:
-    emulated_hue_hidden: true
-    
-  group.all_scripts:
-    emulated_hue_hidden: true
-  
-  group.all_devices:
-    emulated_hue_hidden: true
-  
-  group.all_lights:
-    emulated_hue_hidden: false
-    emulated_hue_name: "All Lights"
-    
-  group.all_covers:
-    emulated_hue_hidden: true
 
 #--- customize/customize_weather.yaml ---
 # Wunderground and dark_sky customization
@@ -476,6 +162,115 @@
   sensor.dark_sky_uv_index:
     friendly_name: UV Index
     icon: mdi:weather-sunny
+
+#--- customize/customize_media.yaml ---
+##################
+# Media Players
+##################
+
+#--- customize/customize_climate.yaml ---
+  
+##################
+# Thermostat
+################## 
+  climate.thermostat_73_5c_83:
+    friendly_name: Living Room
+    icon: mdi:thermostat
+    
+  sensor.living_room_temperature:
+    friendly_name: Living Room Temperature
+    icon: mdi:thermometer
+    
+  sensor.thermo_hvac:
+    friendly_name: HVAC Mode
+    icon: mdi:air-conditioner
+    
+  sensor.thermo_temp:
+    friendly_name: Current Temperature
+    icon: mdi:thermostat
+    
+  sensor.thermo_current_operation:
+    friendly_name: Current Status
+    icon: mdi:radiator
+  
+  sensor.thermo_mode:
+    friendly_name: Mode
+    icon: mdi:waves
+  
+  sensor.thermo_fan:
+    friendly_name: Fan
+    icon: mdi:fan
+  
+  sensor.thermo_dew_point:
+    friendly_name: Indoor Dew Point
+    icon: mdi:oil-temperature
+  
+  input_number.ac_home:
+    icon: mdi:air-conditioner
+  
+  input_number.ac_sleep:
+    icon: mdi:sleep
+  
+  input_number.ac_away:
+    icon: mdi:car
+  
+  input_number.heat_home:
+    icon: mdi:radiator
+  
+  input_number.heat_sleep:
+    icon: mdi:sleep
+  
+  input_number.heat_away:
+    icon: mdi:car
+
+#--- customize/customize_presence.yaml ---
+##################
+# Entities
+################## 
+  device_tracker.kevin_gps:
+    icon: mdi:crosshairs-gps
+  
+  device_tracker.allegra_gps:
+    icon: mdi:crosshairs-gps
+  
+
+#--- customize/customize_input_boolean.yaml ---
+##################
+# Input Boolean
+##################
+  input_boolean.flux_living_room:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_family_room:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_kitchen:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_master_bedroom:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_office:
+    icon: mdi:theme-light-dark
+        
+  input_boolean.christmas_lights:
+    icon: mdi:gift
+    
+  input_boolean.on_the_way_home:
+    icon: mdi:map-marker
+  
+  input_boolean.guest_mode:
+    icon: mdi:account
+    emulated_hue_hidden: false
+    emulated_hue_name: "Guest Mode"
+  
+  input_boolean.thermostat_enable:
+    icon: mdi:thermostat
+    emulated_hue_hidden: false
+    emulated_hue_name: "Thermostat"
+  
+  input_boolean.warmer_night_mode:
+    icon: mdi:fire
 
 #--- customize/customize_misc_sensors.yaml ---
 ##################
@@ -554,36 +349,36 @@
 #-------------------------------  
 # Zwave sensors
 #-------------------------------
-  sensor.power_mon_current:
-    friendly_name: Washing Machine Current
+  sensor.leak_sump:
+    friendly_name: Sump Leak Sensor
+    icon: mdi:pipe-leak
+  
+  sensor.aeon_labs_zw096_smart_switch_6_current:
+    friendly_name: Sump Current
     icon: mdi:music-note-whole
   
-  sensor.power_mon_voltage:
-    friendly_name: Washing Machine Voltage
+  sensor.aeon_labs_zw096_smart_switch_6_voltage:
+    friendly_name: Sump Voltage
     icon: mdi:car-battery
   
-  sensor.power_mon_power:
-    friendly_name: Washing Machine Power
+  sensor.aeon_labs_zw096_smart_switch_6_power:
+    friendly_name: Sump Power
     icon: mdi:power
   
-  sensor.power_mon_energy:
-    friendly_name: Washing Machine Energy
-    icon: mdi:flash
-  
-  sensor.washer:
-    friendly_name: Washing Machine
-    icon: mdi:washing-machine
-  
-  sensor.smoke_alarm_kitchen:
-    friendly_name: Smoke Alarm - Kitchen
+  sensor.smoke_alarm_foyer:
+    friendly_name: Foyer Smoke Alarm
     icon: mdi:fire
   
-  sensor.smoke_alarm_living_room:
-    friendly_name: Smoke Alarm - Living Room
+  sensor.smoke_alarm_family_room:
+    friendly_name: Family Room Smoke Alarm
     icon: mdi:fire
   
-  sensor.smoke_alarm_nursery:
-    friendly_name: Smoke Alarm - Nursery
+  sensor.smoke_alarm_Office:
+    friendly_name: Office Smoke Alarm
+    icon: mdi:fire
+  
+  sensor.smoke_alarm_basement:
+    friendly_name: Basement Smoke Alarm
     icon: mdi:fire
   
   binary_sensor.blink_cameraks_motion_detected:
@@ -654,74 +449,125 @@
   
   zwave.smoke_nursery:
     icon: mdi:smoke-detector
+  
+#-----------------------------
+# Other
+# ----------------------------
+  sensor.sump_usage_per_hour:
+    icon: mdi:home-flood
+    friendly_name: Sump Frequency
 
-#--- customize/customize_media.yaml ---
+#--- customize/customize_scenes.yaml ---
 ##################
-# Media Players
+# Scenes
 ##################
+  scene.christmas:
+    icon: mdi:gift
+    emulated_hue_hidden: false
+    emulated_hue_name: "Christmas"
+  
+  scene.movie_mode_living_room:
+    icon: mdi:movie
+  
+  scene.movie_mode_family_room:
+    icon: mdi:movie
+    
+  scene.daylight:
+    icon: mdi:weather-sunny
+    emulated_hue_hidden: false
+    emulated_hue_name: "Day Time"
+    
+  scene.night:
+    icon: mdi:weather-night
+    emulated_hue_hidden: false
+    emulated_hue_name: "Night Time"
+  
+  scene.sabres:
+    icon: mdi:sword
+    emulated_hue_hidden: false
+    emulated_hue_name: "Sabres"
+  
+  scene.on_the_way_home:
+    icon: mdi:map-marker
+    emulated_hue_hidden: false
+  
+  scene.orange:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Orange"
+  
+  scene.yellow:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Yellow"
+  
+  scene.green:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Green"
+  
+  scene.cyan:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Ice"
+  
+  scene.blue:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Blue"
+  
+  scene.purple:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Purple"
+  
+  scene.pink:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Pink"
+  
 
-#--- customize/customize_climate.yaml ---
-  
+#--- customize/customize_lights.yaml ---
 ##################
-# Thermostat
-################## 
-  climate.thermostat_73_5c_83:
-    friendly_name: Living Room
-    icon: mdi:thermostat
+# Lights
+##################
+  light.family_room_lights:
+    icon: mdi:sofa
+  
+  light.office_lights:
+    icon: mdi:desktop-tower
+  
+  light.master_bedroom_lights:
+    icon: mdi:hotel
+  
+  light.living_room_lights:
+    icon: mdi:sofa
+  
+  light.kitchen_lights:
+    icon: mdi:food-variant
+  
+  light.interior_lights:
+    icon: mdi:home
+  
+  ligh.porch:
+    icon: mdi:gate
+
+#--- customize/customize_switches.yaml ---
+  switch.outdoor_1_switch:
+    friendly_name: Outside Porch Outlet
+    icon: mdi:power-plug
     
-  sensor.living_room_temperature:
-    friendly_name: Living Room Temperature
-    icon: mdi:thermometer
+  switch.outdoor_2_switch:
+    friendly_name: Outside Driveway Outlet
+    icon: mdi:power-plug
     
-  sensor.thermo_hvac:
-    friendly_name: HVAC Mode
-    icon: mdi:air-conditioner
-    
-  sensor.thermo_temp:
-    friendly_name: Current Temperature
-    icon: mdi:thermostat
-    
-  sensor.thermo_current_operation:
-    friendly_name: Current Status
-    icon: mdi:radiator
+  switch.power_mon_switch_3_0:
+    friendly_name: Washing Machine Power
+    icon: mdi:power
   
-  sensor.thermo_mode:
-    friendly_name: Mode
-    icon: mdi:waves
-  
-  sensor.thermo_fan:
-    friendly_name: Fan
-    icon: mdi:fan
-  
-  sensor.thermo_dew_point:
-    friendly_name: Indoor Dew Point
-    icon: mdi:oil-temperature
-  
-  input_number.ac_home:
-    icon: mdi:air-conditioner
-  
-  input_number.ac_sleep:
-    icon: mdi:sleep
-  
-  input_number.ac_away:
+  switch.driveway:
+    friendly_name: Driveway
     icon: mdi:car
-  
-  input_number.heat_home:
-    icon: mdi:radiator
-  
-  input_number.heat_sleep:
-    icon: mdi:sleep
-  
-  input_number.heat_away:
-    icon: mdi:car
-
-#--- customize/customize_presence.yaml ---
-##################
-# Entities
-################## 
-  device_tracker.kevin_gps:
-    icon: mdi:crosshairs-gps
-  
-  device_tracker.allegra_gps:
-    icon: mdi:crosshairs-gps
-  
+    emulated_hue_hidden: false
+    emulated_hue_name: "Driveway"
+    
