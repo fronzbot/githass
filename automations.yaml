@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Mar-04 22:02:21 
+# Generated: 2020-Mar-25 15:51:48 
 #--------------------------------------------
 
 #--- automation/thermostat_on_tuesdays.yaml ---
@@ -50,89 +50,6 @@
   action:
     - service: climate.turn_off
       entity_id: climate.thermostat_73_5c_83
-
-#--- automation/wakeup.yaml ---
-- id: wakeup_routine
-  alias: Wakeup Routine
-  trigger:
-    - platform: time
-      at: '06:30:30'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-
-#--- automation/lights_inside_off.yaml ---
-# Turn inside lights off around midnight (before exterior)
-  
-- id: lights_inside_off
-  alias: Lights Inside Off
-  trigger:
-    - platform: time
-      at: '00:12:09'
-  action:
-    - service: light.turn_off
-      entity_id: light.interior_lights
-
-#--- automation/notify_leak_detected.yaml ---
-- id: notify_on_leak_detected
-  alias: Notify on Leak Detected
-  trigger:
-    - platform: state
-      entity_id: sensor.leak_sump
-      from: 'Dry'
-      to: 'Wet'
-  action:
-    - service: notify.notify
-      data_template:
-        message: >
-          ALERT! {{ now().strftime("%h %d, %Y at %H:%M:%S") }} Leak Detected with {{trigger.to_state.attributes.friendly_name}}   
-
-#--- automation/notify_on_fire_co.yaml ---
-- id: notify_on_fire_co
-  alias: Notify on Fire/CO
-  trigger:
-    - platform: state
-      entity_id: sensor.smoke_alarm_foyer
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_foyer
-      to: "CO"
-    - platform: state
-      entity_id: sensor.smoke_alarm_family_room
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_family_room
-      to: "CO"
-    - platform: state
-      entity_id: sensor.smoke_alarm_office
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_office
-      to: "CO"
-    - platform: state
-      entity_id: sensor.smoke_alarm_basement
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_basement
-      to: "CO"
-  action:
-    - service: notify.notify
-      data_template:
-        message: >
-            ALERT! {{ now().strftime("%h %d, %Y at %H:%M:S") }} {{trigger.to_state.state}} detected by {{trigger.to_state.attributes.friendly_name}}
-
-#--- automation/notify_on_restart.yaml ---
-- id: notify_on_restart
-  alias: Notify on Restart
-  trigger:
-    - platform: homeassistant
-      event: start
-  action:
-    - service: script.notify_kevin_engine
-      data:
-        call_on_restart: 1
 
 #--- automation/arriving_home.yaml ---
 - id: arriving_home
@@ -227,6 +144,18 @@
         entity_id: light.interior_lights
 #    - service: python_script.thermostat_engine
 
+#--- automation/lights_inside_off.yaml ---
+# Turn inside lights off around midnight (before exterior)
+  
+- id: lights_inside_off
+  alias: Lights Inside Off
+  trigger:
+    - platform: time
+      at: '00:12:09'
+  action:
+    - service: light.turn_off
+      entity_id: light.interior_lights
+
 #--- automation/lights_outside_off.yaml ---
 # Turn on outside lights off at 12:40 am
   
@@ -240,6 +169,51 @@
       entity_id: light.porch
     - service: switch.turn_off
       entity_id: switch.driveway
+
+#--- automation/notify_on_fire_co.yaml ---
+- id: notify_on_fire_co
+  alias: Notify on Fire/CO
+  trigger:
+    - platform: state
+      entity_id: sensor.smoke_alarm_foyer
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_foyer
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_family_room
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_family_room
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_office
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_office
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_basement
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_basement
+      to: "CO"
+  action:
+    - service: notify.notify
+      data_template:
+        message: >
+            ALERT! {{ now().strftime("%h %d, %Y at %H:%M:S") }} {{trigger.to_state.state}} detected by {{trigger.to_state.attributes.friendly_name}}
+
+#--- automation/notify_on_restart.yaml ---
+- id: notify_on_restart
+  alias: Notify on Restart
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: script.notify_kevin_engine
+      data:
+        call_on_restart: 1
 
 #--- automation/sunset.yaml ---
 # Turn on outside lights 15 minutes after sunset
@@ -255,3 +229,29 @@
       entity_id: light.porch
     - service: switch.turn_on
       entity_id: switch.driveway
+
+#--- automation/wakeup.yaml ---
+- id: wakeup_routine
+  alias: Wakeup Routine
+  trigger:
+    - platform: time
+      at: '06:30:30'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+
+#--- automation/notify_leak_detected.yaml ---
+- id: notify_on_leak_detected
+  alias: Notify on Leak Detected
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.leak_sump
+      from: 'off'
+      to: 'on'
+  action:
+    - service: notify.notify
+      data_template:
+        message: >
+          ALERT! {{ now().strftime("%h %d, %Y at %H:%M:%S") }} Leak Detected with {{trigger.to_state.attributes.friendly_name}}   

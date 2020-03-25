@@ -1,13 +1,5 @@
 - platform: template
   sensors: 
-    leak_sump:
-      value_template: >
-        {% if is_state("sensor.aeon_labs_zw122_water_sensor_6_flood", "2") or is_state("sensor.aeon_labs_zw122_water_sensor_6_flood", "2") %}
-          Wet
-        {% else %}
-          Dry
-        {% endif %}
-         
     smoke_alarm_foyer:
       value_template: >
         {% if is_state("sensor.smoke_detector_1_alarm_level", "0") %}

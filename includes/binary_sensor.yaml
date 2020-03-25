@@ -7,3 +7,9 @@
         seconds: 5
       value_template: >
         {{ states.sensor.aeon_labs_zw096_smart_switch_6_current.state | float > 0.5 }}
+
+    leak_sump:
+      friendly_name: "Sump Leak Sensor"
+      device_class: 'moisture'
+      value_template: >
+        {{ states.sensor.aeon_labs_zw122_water_sensor_6_flood.state == "2" or states.sensor.aeon_labs_zw122_water_sensor_6_flood_2.state == "2" }}

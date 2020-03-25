@@ -1,9 +1,9 @@
 alias: Notify on Leak Detected
 trigger:
   - platform: state
-    entity_id: sensor.leak_sump
-    from: 'Dry'
-    to: 'Wet'
+    entity_id: binary_sensor.leak_sump
+    from: 'off'
+    to: 'on'
 action:
   - service: notify.notify
     data_template:
