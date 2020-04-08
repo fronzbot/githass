@@ -1,8 +1,0 @@
-alias: Thermostat Disable
-trigger:
-  - platform: state
-    entity_id: input_boolean.thermostat_enable
-    to: 'off'
-action:
-  - service: climate.turn_off
-    entity_id: climate.thermostat_73_5c_83
