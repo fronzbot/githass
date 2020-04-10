@@ -1,7 +1,7 @@
 alias: Night Routine
 trigger:
   - platform: time
-    at: '09:30:30'
+    at: '21:30:30'
 action:
   - service: light.turn_off
     entity_id:
