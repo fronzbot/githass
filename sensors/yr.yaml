@@ -13,5 +13,4 @@
     - lowClouds
     - mediumClouds
     - highClouds
-    - dewpointTempera:ture
-  units: us
+    - dewpointTemperature

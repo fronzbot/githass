@@ -1,4 +1,45 @@
-# Wunderground and dark_sky customization
+#----------------------------------#
+# YR Weather Customization         #
+#----------------------------------#
+sensor.weather_temperature:
+  friendly_name: Outside Temperature
+  icon: mdi:thermometer
+
+sensor.weather_dewpoint_temperature:
+  friendly_name: Dew Point
+  icon: mdi:oil-temperature
+  
+sensor.weather_humidity:
+  friendly_name: Humidity
+  icon: mdi:water-percent
+ 
+sensor.weather_precipitation:
+  friendly_name: Precipitation
+  icon: mdi:weather-pouring
+
+sensor.weather_pressure:
+  friendly_name: Pressure
+  icon: mdi:chart-bar
+
+sensor.weather_fog:
+  friendly_name: Fog
+  icon: mdi:weather-fog
+  
+sensor.weather_wind_speed:
+  friendly_name: Wind Speed
+  icon: mdi:weather-windy
+
+sensor.weather_wind_direction:
+  friendly_name: Wind Bearing
+  icon: mdi:weather-windy  
+    
+sensor.weather_cloudiness:
+  friendly_name: Cloudiness
+  icon: mdi:weather-cloudy
+
+#----------------------------------#
+# Darksky Customization            #
+#----------------------------------#
 sensor.dark_sky_temperature:
   friendly_name: Outside Temperature
   icon: mdi:thermometer
