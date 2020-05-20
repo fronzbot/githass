@@ -1,0 +1,12 @@
+# Turn off inside lights 15 minutes after sunrise
+
+alias: Lights Sunrise
+trigger:
+  - platform: sun
+    event: sunrise
+    offset: '+00:15:00'
+action:
+  - service: light.turn_off
+    entity_id:
+      - light.family_room_couch_left
+      - light.family_room_couch_right

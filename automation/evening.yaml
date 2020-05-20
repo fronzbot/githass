@@ -1,10 +1,8 @@
 alias: Evening Routine
 trigger:
-  - platform: time
-    at: '17:00:30'
   - platform: sun
     event: sunset
-    offset: '-00:30:00'
+    offset: '-00:15:00'
 action:
   - service: light.turn_on
     entity_id:

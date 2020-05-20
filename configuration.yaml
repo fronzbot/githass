@@ -18,7 +18,6 @@ http:
 # Includes
 automation: !include automations.yaml
 binary_sensor: !include includes/binary_sensor.yaml
-blink: !include includes/blink.yaml
 camera: !include includes/cameras.yaml
 #climate: !include includes/climate.yaml
 fastdotcom: !include includes/fastdotcom.yaml

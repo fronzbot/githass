@@ -2,6 +2,12 @@ alias: Wakeup Routine
 trigger:
   - platform: time
     at: '06:30:30'
+condition:
+  condition: and
+  conditions:
+    - condition: state
+      entity_id: 'sun.sun'
+      state: 'below_horizon'
 action:
   - service: light.turn_on
     entity_id:
