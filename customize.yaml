@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-May-20 14:13:18 
+# Generated: 2020-May-24 00:41:27 
 #--------------------------------------------
 
 #--- customize/customize_glances.yaml ---
@@ -175,44 +175,6 @@
   device_tracker.allegra_gps:
     icon: mdi:crosshairs-gps
   
-
-#--- customize/customize_input_boolean.yaml ---
-##################
-# Input Boolean
-##################
-  input_boolean.flux_living_room:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_family_room:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_kitchen:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_master_bedroom:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_office:
-    icon: mdi:theme-light-dark
-        
-  input_boolean.christmas_lights:
-    icon: mdi:gift
-    
-  input_boolean.on_the_way_home:
-    icon: mdi:map-marker
-  
-  input_boolean.guest_mode:
-    icon: mdi:account
-    emulated_hue_hidden: false
-    emulated_hue_name: "Guest Mode"
-  
-  input_boolean.thermostat_enable:
-    icon: mdi:thermostat
-    emulated_hue_hidden: false
-    emulated_hue_name: "Thermostat"
-  
-  input_boolean.warmer_night_mode:
-    icon: mdi:fire
 
 #--- customize/customize_lights.yaml ---
 ##################
@@ -612,3 +574,41 @@
   sensor.dark_sky_uv_index:
     friendly_name: UV Index
     icon: mdi:weather-sunny
+
+#--- customize/customize_input_boolean.yaml ---
+##################
+# Input Boolean
+##################
+  switch.flux_living_room:
+    icon: mdi:theme-light-dark
+  
+  switch.flux_family_room:
+    icon: mdi:theme-light-dark
+  
+  switch.flux_kitchen:
+    icon: mdi:theme-light-dark
+  
+  switch.flux_master_bedroom:
+    icon: mdi:theme-light-dark
+  
+  switch.flux_office:
+    icon: mdi:theme-light-dark
+        
+  input_boolean.christmas_lights:
+    icon: mdi:gift
+    
+  input_boolean.on_the_way_home:
+    icon: mdi:map-marker
+  
+  input_boolean.guest_mode:
+    icon: mdi:account
+    emulated_hue_hidden: false
+    emulated_hue_name: "Guest Mode"
+  
+  input_boolean.thermostat_enable:
+    icon: mdi:thermostat
+    emulated_hue_hidden: false
+    emulated_hue_name: "Thermostat"
+  
+  input_boolean.warmer_night_mode:
+    icon: mdi:fire

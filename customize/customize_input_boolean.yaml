@@ -1,19 +1,19 @@
 ##################
 # Input Boolean
 ##################
-input_boolean.flux_living_room:
+switch.flux_living_room:
   icon: mdi:theme-light-dark
 
-input_boolean.flux_family_room:
+switch.flux_family_room:
   icon: mdi:theme-light-dark
 
-input_boolean.flux_kitchen:
+switch.flux_kitchen:
   icon: mdi:theme-light-dark
 
-input_boolean.flux_master_bedroom:
+switch.flux_master_bedroom:
   icon: mdi:theme-light-dark
 
-input_boolean.flux_office:
+switch.flux_office:
   icon: mdi:theme-light-dark
       
 input_boolean.christmas_lights:

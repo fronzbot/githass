@@ -1,0 +1,58 @@
+- platform: flux
+  name: flux_family_room
+  start_colortemp: 3000
+  stop_colortemp: 2200
+  interval: 60
+  brightness: 254
+  disable_brightness_adjust: true
+  lights:
+    - light.family_room_couch_left
+    - light.family_room_couch_right
+    - light.family_room_fireplace
+
+- platform: flux
+  name: flux_kitchen
+  start_colortemp: 3000
+  stop_colortemp: 2200
+  interval: 60
+  brightness: 254
+  disable_brightness_adjust: true
+  lights:
+    - light.kitchen_island_1
+    - light.kitchen_island_2
+    - light.kitchen_table_1
+    - light.kitchen_table_2
+
+- platform: flux
+  name: flux_living_room
+  start_colortemp: 3000
+  stop_colortemp: 2200
+  interval: 60
+  brightness: 254
+  disable_brightness_adjust: true
+  lights:
+    - light.living_room_couch
+    - light.living_room_corner_1
+    - light.living_room_corner_2
+
+- platform: flux
+  name: flux_office
+  start_colortemp: 3000
+  stop_colortemp: 2200
+  interval: 60
+  brightness: 254
+  disable_brightness_adjust: true
+  lights:
+    - light.office_desk
+    - light.office_corner
+
+- platform: flux
+  name: flux_master_bedroom
+  start_colortemp: 3000
+  stop_colortemp: 2200
+  interval: 60
+  brightness: 254
+  disable_brightness_adjust: true
+  lights:
+    - light.master_bedroom_door
+    - light.master_bedroom_window

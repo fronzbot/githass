@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-May-20 14:13:18 
+# Generated: 2020-May-24 00:41:27 
 #--------------------------------------------
 
 #--- automation/notify_on_failed_login.yaml ---
@@ -177,7 +177,7 @@
   trigger:
     - platform: sun
       event: sunset
-      offset: '-00:15:00'
+      offset: '-00:40:00'
   action:
     - service: light.turn_on
       entity_id:
