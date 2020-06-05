@@ -50,7 +50,7 @@ class Flux(hass.Hass):
             'sunrise': {'temp': 3000, 'offset': -45},
             'day': {'temp': 4000, 'offset': 30},
             'sunset': {'temp': 3000, 'offset': -45},
-            'night': {'temp': 2700, 'offset': 60}
+            'night': {'temp': 2400, 'offset': 60}
         }
         self.offsets = {}
         for key, value in self.colors.items():
@@ -58,7 +58,8 @@ class Flux(hass.Hass):
 
         self.current_time = utc_to_est(dt.datetime.now()).time()
 
-        self.run_minutely(self.update_color, self.current_time)
+        # Run every 10 minutes
+        self.run_every(self.update_color, dt.datetime.now(), 600)
 
         for light in self.split_device_list(self.args['light']):
             self.listen_state(self.update_on_change, light)
