@@ -1,0 +1,31 @@
+alias: 'Thermostat Heat Enable'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.weather_temperature
+    below: {{states.input_number.heat_on.state}}
+condition:
+  - condition: template
+    value_template: >
+        {% set month=now().month | int %}
+        {% if month <= 4 and month >= 9 %}
+          true
+        {% endif %}
+action:
+  - service: climate.set_hvac_mode
+    data:
+      entity_id: climate.thermostat_1_nativezone
+      hvac_mode: 'heat'
+  - delay:
+      seconds: 5
+  - service: climate.set_temperature
+    data_template:
+      entity_id: climate.thermostat_1_nativezone
+      hvac_mode: 'heat'
+      temperature: >
+          {% set target = states.input_number.heat_setpoint.state | int %}
+          {% set delta = states.input_number.heat_emergency_delta.state | int %}
+          {% if (states.sensor.weather_temperature.state | int) < 30 %}
+            {{ target - delta }}
+          {% else %}
+            {{ target }}
+          {% endif %}

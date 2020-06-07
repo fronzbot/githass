@@ -1,42 +1,48 @@
-ac_home:
-  name: AC Home
-  initial: 75
-  min: 70
-  max: 85
-  step: 1
-
-ac_sleep:
-  name: AC Sleep
+ac_on:
+  name: AC On Threshold
   initial: 77
   min: 70
-  max: 85
+  max: 80
   step: 1
 
-ac_away:
-  name: AC Away
-  initial: 78
+ac_off:
+  name: AC Off Threshold
+  initial: 74
   min: 70
-  max: 85
+  max: 80
   step: 1
 
-heat_home:
-  name: Heat Home
-  initial: 68
-  min: 55
-  max: 72
+ac_setpoint:
+  name: AC Setpoint
+  initial: 75
+  min: 70
+  max: 80
   step: 1
 
-heat_sleep:
-  name: Heat Sleep
+heat_on:
+  name: Heat On Threshold
+  initial: 64
+  min: 60
+  max: 70
+  step: 1
+
+heat_off:
+  name: Heat Off Threshold
   initial: 67
-  min: 55
-  max: 72
+  min: 60
+  max: 70
   step: 1
 
-heat_away:
-  name: Heat Away
-  initial: 65
-  min: 55
+heat_emergency_delta:
+  name: Emergency Heat Delta
+  initial: 3
+  min: 0
+  max: 5
+  step: 2
+
+heat_setpoint:
+  name: Heat Setpoint
+  initial: 69
+  min: 64
   max: 72
   step: 1
-

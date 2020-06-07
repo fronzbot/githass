@@ -1,0 +1,24 @@
+alias: 'Thermostat AC Enable'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.weather_temperature
+    above: {{states.input_number.ac_on.state}}
+condition:
+  - condition: template
+    value_template: >
+        {% set month=now().month | int %}
+        {% if month >= 5 and month <= 9 %}
+          true
+        {% endif %}
+action:
+  - service: climate.set_hvac_mode
+    data:
+      entity_id: climate.thermostat_1_nativezone
+      hvac_mode: 'cool'
+  - delay:
+      seconds: 5
+  - service: climate.set_temperature
+    data_template:
+      entity_id: climate.thermostat_1_nativezone
+      hvac_mode: 'cool'
+      temperature: {{ states.input_number.ac_setpoint.state }}

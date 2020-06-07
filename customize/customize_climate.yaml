@@ -1,53 +1,23 @@
-
 ##################
 # Thermostat
 ################## 
-climate.thermostat_73_5c_83:
-  friendly_name: Living Room
-  icon: mdi:thermostat
-  
-sensor.living_room_temperature:
-  friendly_name: Living Room Temperature
-  icon: mdi:thermometer
-  
-sensor.thermo_hvac:
-  friendly_name: HVAC Mode
+input_number.ac_setpoint:
   icon: mdi:air-conditioner
-  
-sensor.thermo_temp:
-  friendly_name: Current Temperature
-  icon: mdi:thermostat
-  
-sensor.thermo_current_operation:
-  friendly_name: Current Status
-  icon: mdi:radiator
 
-sensor.thermo_mode:
-  friendly_name: Mode
-  icon: mdi:waves
+input_number.heat_setpoint:
+  icon: mdi:fire
 
-sensor.thermo_fan:
-  friendly_name: Fan
+input_number.ac_on:
   icon: mdi:fan
 
-sensor.thermo_dew_point:
-  friendly_name: Indoor Dew Point
-  icon: mdi:oil-temperature
+input_number.ac_off:
+  icon: mdi:fan-off
 
-input_number.ac_home:
-  icon: mdi:air-conditioner
-
-input_number.ac_sleep:
-  icon: mdi:sleep
-
-input_number.ac_away:
-  icon: mdi:car
-
-input_number.heat_home:
+input_number.heat_on:
   icon: mdi:radiator
 
-input_number.heat_sleep:
-  icon: mdi:sleep
+input_number.heat_off:
+  icon: mdi:radiator-off
 
-input_number.heat_away:
-  icon: mdi:car
+input_number.heat_emergency_delta:
+  icon: mdi:alert
