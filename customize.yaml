@@ -1,76 +1,6 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-May-24 10:45:49 
+# Generated: 2020-Jun-07 10:47:12 
 #--------------------------------------------
-
-#--- customize/customize_glances.yaml ---
-# Glances
-  sensor.glances_disk_use:
-    friendly_name: Disk Usage
-    icon: mdi:sd
-  
-  sensor.glances_disk_use_2:
-    friendly_name: Disk Space Used
-    icon: mdi:sd
-    
-  sensor.glances_disk_free:
-    friendly_name: Free Space
-    icon: mdi:sd
-    
-  sensor.glances_ram_use:
-    friendly_name: RAM Usage
-    icon: mdi:chip
-    
-  sensor.glances_ram_use_2:
-    friendly_name: RAM Used
-    icon: mdi:chip
-    
-  sensor.glances_ram_free:
-    friendly_name: RAM Free
-    icon: mdi:chip
-    
-  sensor.glances_swap_use:
-    friendly_name: Swap Usage
-    icon: mdi:swap-horizontal
-    
-  sensor.glances_swap_use_2:
-    friendly_name: Swap Used
-    icon: mdi:swap-horizontal
-    
-  sensor.glances_swap_free:
-    friendly_name: Swap Free
-    icon: mdi:swap-horizontal
-    
-  sensor.glances_cpu_load:
-    friendly_name: CPU Load
-    icon: mdi:memory
-    
-  sensor.glances_running:
-    friendly_Name: CPU Running Processes
-    icon: mdi:memory
-    
-  sensor.glances_total:
-    friendly_name: CPU Total Processes
-    icon: mdi:memory
-    
-  sensor.glances_thread:
-    friendly_name: CPU Threads
-    icon: mdi:memory
-    
-  sensor.glances_sleeping:
-    friendly_name: CPU Sleeping Threads
-    icon: mdi:sleep
-  
-  sensor.last_boot:
-    friendly_name: Last Boot
-    icon: mdi:restart
-  
-  sensor.hass_uptime:
-    friendly_name: Home Assistant Uptime
-    icon: mdi:clock
-  
-  sensor.hass_version:
-    friendly_name: Home Assistant Version
-    icon: mdi:home-assistant
 
 #--- customize/customize_scripts.yaml ---
   script.thermostat_control:
@@ -109,61 +39,6 @@
 ##################
 # Media Players
 ##################
-
-#--- customize/customize_climate.yaml ---
-  
-##################
-# Thermostat
-################## 
-  climate.thermostat_73_5c_83:
-    friendly_name: Living Room
-    icon: mdi:thermostat
-    
-  sensor.living_room_temperature:
-    friendly_name: Living Room Temperature
-    icon: mdi:thermometer
-    
-  sensor.thermo_hvac:
-    friendly_name: HVAC Mode
-    icon: mdi:air-conditioner
-    
-  sensor.thermo_temp:
-    friendly_name: Current Temperature
-    icon: mdi:thermostat
-    
-  sensor.thermo_current_operation:
-    friendly_name: Current Status
-    icon: mdi:radiator
-  
-  sensor.thermo_mode:
-    friendly_name: Mode
-    icon: mdi:waves
-  
-  sensor.thermo_fan:
-    friendly_name: Fan
-    icon: mdi:fan
-  
-  sensor.thermo_dew_point:
-    friendly_name: Indoor Dew Point
-    icon: mdi:oil-temperature
-  
-  input_number.ac_home:
-    icon: mdi:air-conditioner
-  
-  input_number.ac_sleep:
-    icon: mdi:sleep
-  
-  input_number.ac_away:
-    icon: mdi:car
-  
-  input_number.heat_home:
-    icon: mdi:radiator
-  
-  input_number.heat_sleep:
-    icon: mdi:sleep
-  
-  input_number.heat_away:
-    icon: mdi:car
 
 #--- customize/customize_presence.yaml ---
 ##################
@@ -612,3 +487,28 @@
   
   input_boolean.warmer_night_mode:
     icon: mdi:fire
+
+#--- customize/customize_climate.yaml ---
+##################
+# Thermostat
+################## 
+  input_number.ac_setpoint:
+    icon: mdi:air-conditioner
+  
+  input_number.heat_setpoint:
+    icon: mdi:fire
+  
+  input_number.ac_on:
+    icon: mdi:fan
+  
+  input_number.ac_off:
+    icon: mdi:fan-off
+  
+  input_number.heat_on:
+    icon: mdi:radiator
+  
+  input_number.heat_off:
+    icon: mdi:radiator-off
+  
+  input_number.heat_emergency_delta:
+    icon: mdi:alert

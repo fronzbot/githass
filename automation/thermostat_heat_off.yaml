@@ -1,0 +1,17 @@
+alias: 'Thermostat Heat Disable'
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.weather_temperature
+    above: 67
+condition:
+  - condition: template
+    value_template: >
+        {% set month=now().month | int %}
+        {% if month <= 4 and month >= 9 %}
+          true
+        {% endif %}
+action:
+  - service: climate.set_hvac_mode
+    data:
+      entity_id: climate.thermostat_1_nativezone
+      hvac_mode: 'off'
