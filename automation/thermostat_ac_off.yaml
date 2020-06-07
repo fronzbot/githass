@@ -2,7 +2,7 @@ alias: 'Thermostat AC Disable'
 trigger:
   - platform: numeric_state
     entity_id: sensor.weather_temperature
-    below: {{states.input_number.ac_off.state}}
+    below: 74 
 condition:
   - condition: template
     value_template: >

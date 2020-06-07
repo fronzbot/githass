@@ -1,36 +1,8 @@
-ac_on:
-  name: AC On Threshold
-  initial: 77
-  min: 70
-  max: 80
-  step: 1
-
-ac_off:
-  name: AC Off Threshold
-  initial: 74
-  min: 70
-  max: 80
-  step: 1
-
 ac_setpoint:
   name: AC Setpoint
   initial: 75
   min: 70
   max: 80
-  step: 1
-
-heat_on:
-  name: Heat On Threshold
-  initial: 64
-  min: 60
-  max: 70
-  step: 1
-
-heat_off:
-  name: Heat Off Threshold
-  initial: 67
-  min: 60
-  max: 70
   step: 1
 
 heat_emergency_delta:

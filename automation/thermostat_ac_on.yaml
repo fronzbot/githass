@@ -2,7 +2,7 @@ alias: 'Thermostat AC Enable'
 trigger:
   - platform: numeric_state
     entity_id: sensor.weather_temperature
-    above: {{states.input_number.ac_on.state}}
+    above: 77
 condition:
   - condition: template
     value_template: >
@@ -21,4 +21,5 @@ action:
     data_template:
       entity_id: climate.thermostat_1_nativezone
       hvac_mode: 'cool'
-      temperature: {{ states.input_number.ac_setpoint.state }}
+      temperature: > 
+          {{ states.input_number.ac_setpoint.state }}

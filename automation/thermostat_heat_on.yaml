@@ -2,7 +2,7 @@ alias: 'Thermostat Heat Enable'
 trigger:
   - platform: numeric_state
     entity_id: sensor.weather_temperature
-    below: {{states.input_number.heat_on.state}}
+    below: 64
 condition:
   - condition: template
     value_template: >
