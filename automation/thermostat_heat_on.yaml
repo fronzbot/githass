@@ -16,7 +16,7 @@ action:
       entity_id: climate.thermostat_1_nativezone
       hvac_mode: 'heat'
   - delay:
-      seconds: 5
+      seconds: 15
   - service: climate.set_temperature
     data_template:
       entity_id: climate.thermostat_1_nativezone
