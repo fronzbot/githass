@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Jul-13 13:56:55 
+# Generated: 2020-Jul-13 14:19:27 
 #--------------------------------------------
 
 #--- automation/notify_on_failed_login.yaml ---
@@ -296,7 +296,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.weather_cloudiness
-      above: 50
+      above: 60
     - platform: numeric_state
       entity_id: sensor.weather_precipitation
       above: 0.05
@@ -315,3 +315,27 @@
         - light.family_room_couch_left
         - light.family_room_couch_right
         - light.living_room_couch 
+
+#--- automation/sunny.yaml ---
+# Turn off lights inside if it's sunny
+- id: lights_sunny
+  alias: Lights Sunny
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.weather_cloudiness
+      below: 20
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '12:00:00'
+        before: '15:00:00'
+      - condition: state
+        entity_id: light.living_room_couch
+        state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.living_room_couch

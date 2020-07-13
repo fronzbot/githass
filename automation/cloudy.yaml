@@ -3,7 +3,7 @@ alias: Lights Cloudy
 trigger:
   - platform: numeric_state
     entity_id: sensor.weather_cloudiness
-    above: 50
+    above: 60
   - platform: numeric_state
     entity_id: sensor.weather_precipitation
     above: 0.05
