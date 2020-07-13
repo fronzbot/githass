@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Jun-09 15:00:17 
+# Generated: 2020-Jul-13 13:56:55 
 #--------------------------------------------
 
 #--- automation/notify_on_failed_login.yaml ---
@@ -171,22 +171,6 @@
         - light.family_room_couch_left
         - light.family_room_couch_right
 
-#--- automation/evening.yaml ---
-- id: evening_routine
-  alias: Evening Routine
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '-00:40:00'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-        - light.kitchen_island
-        - light.kitchen_table
-        - light.living_room_couch
-
 #--- automation/thermostat_ac_off.yaml ---
 - id: 'thermostat_ac_disable'
   alias: 'Thermostat AC Disable'
@@ -288,3 +272,46 @@
             {% else %}
               {{ target }}
             {% endif %}
+
+#--- automation/evening.yaml ---
+- id: evening_routine
+  alias: Evening Routine
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:30:00'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.kitchen_island
+        - light.kitchen_table
+        - light.living_room_couch
+
+#--- automation/cloudy.yaml ---
+# Turn on inside light if it's cloudy midday
+- id: lights_cloudy
+  alias: Lights Cloudy
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.weather_cloudiness
+      above: 50
+    - platform: numeric_state
+      entity_id: sensor.weather_precipitation
+      above: 0.05
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '10:00:00'
+        before: '20:00:00'
+      - condition: state
+        entity_id: sun.sun
+        state: 'above_horizon'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.living_room_couch 

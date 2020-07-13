@@ -1,6 +1,3 @@
 scan_interval:
   hours: 1
   minutes: 32
-monitored_conditions:
-  - upload
-  - download

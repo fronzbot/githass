@@ -1,0 +1,24 @@
+# Turn on inside light if it's cloudy midday
+alias: Lights Cloudy
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.weather_cloudiness
+    above: 50
+  - platform: numeric_state
+    entity_id: sensor.weather_precipitation
+    above: 0.05
+condition:
+  condition: and
+  conditions:
+    - condition: time
+      after: '10:00:00'
+      before: '20:00:00'
+    - condition: state
+      entity_id: sun.sun
+      state: 'above_horizon'
+action:
+  - service: light.turn_on
+    entity_id:
+      - light.family_room_couch_left
+      - light.family_room_couch_right
+      - light.living_room_couch 

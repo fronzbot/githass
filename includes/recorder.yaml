@@ -1,6 +1,6 @@
 db_url: !secret db_url
 purge_keep_days: 2
-commit_interval: 2
+commit_interval: 2 
 exclude:
   domains:
     - automation
@@ -8,6 +8,14 @@ exclude:
     - media_player
     - scene
     - script
+    - zwave
   entities:
     - sun.sun
     - sensor.date_time
+    - sensor.last_boot
+    - sensor.aeon_labs_zw096_smart_switch_6_energy
+    - sensor.aeon_labs_zw096_smart_switch_6_previous_reading
+    - sensor.aeon_labs_zw096_smart_switch_6_previous_reading_2
+    - sensor.aeon_labs_zw096_smart_switch_6_previous_reading_3
+    - sensor.aeon_labs_zw096_smart_switch_6_previous_reading_4
+    - sensor.aeon_labs_zw096_smart_switch_6_switch
