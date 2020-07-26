@@ -7,7 +7,7 @@ homeassistant:
   time_zone: America/New_York
   customize: !include customize.yaml
   unit_system: imperial
-  whitelist_external_dirs:
+  allowlist_external_dirs:
     - /images
 
 http:
@@ -22,7 +22,6 @@ camera: !include includes/cameras.yaml
 #climate: !include includes/climate.yaml
 fastdotcom: !include includes/fastdotcom.yaml
 google_assistant: !include includes/google_assistant.yaml
-hue: !include includes/hue.yaml
 history: !include includes/history.yaml
 input_boolean: !include includes/input_boolean.yaml
 input_number: !include includes/input_number.yaml
