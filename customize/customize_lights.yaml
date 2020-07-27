@@ -8,7 +8,7 @@ light.office_lights:
   icon: mdi:desktop-tower
 
 light.master_bedroom_lights:
-  icon: mdi:hotel
+  icon: mdi:bed
 
 light.living_room_lights:
   icon: mdi:sofa
