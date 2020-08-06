@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Jul-25 20:08:08 
+# Generated: 2020-Aug-05 22:54:07 
 #--------------------------------------------
 
 #--- customize/customize_scripts.yaml ---
@@ -50,31 +50,6 @@
   device_tracker.allegra_gps:
     icon: mdi:crosshairs-gps
   
-
-#--- customize/customize_lights.yaml ---
-##################
-# Lights
-##################
-  light.family_room_lights:
-    icon: mdi:sofa
-  
-  light.office_lights:
-    icon: mdi:desktop-tower
-  
-  light.master_bedroom_lights:
-    icon: mdi:hotel
-  
-  light.living_room_lights:
-    icon: mdi:sofa
-  
-  light.kitchen_lights:
-    icon: mdi:food-variant
-  
-  light.interior_lights:
-    icon: mdi:home
-  
-  ligh.porch:
-    icon: mdi:gate
 
 #--- customize/customize_misc_sensors.yaml ---
 ##################
@@ -512,3 +487,28 @@
   
   input_number.heat_emergency_delta:
     icon: mdi:alert
+
+#--- customize/customize_lights.yaml ---
+##################
+# Lights
+##################
+  light.family_room_lights:
+    icon: mdi:sofa
+  
+  light.office_lights:
+    icon: mdi:desktop-tower
+  
+  light.master_bedroom_lights:
+    icon: mdi:bed
+  
+  light.living_room_lights:
+    icon: mdi:sofa
+  
+  light.kitchen_lights:
+    icon: mdi:food-variant
+  
+  light.interior_lights:
+    icon: mdi:home
+  
+  ligh.porch:
+    icon: mdi:gate
