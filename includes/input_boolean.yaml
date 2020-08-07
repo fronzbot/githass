@@ -20,7 +20,9 @@ flux_office:
 
 flux_master_bedroom:
   name: Flux Master Bedroom
-  initial: on
+
+flux_nursery:
+  name: Flux Nursery
 
 christmas_lights:
   name: Christmas Lights

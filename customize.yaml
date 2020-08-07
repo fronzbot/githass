@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Aug-05 22:54:07 
+# Generated: 2020-Aug-06 20:59:49 
 #--------------------------------------------
 
 #--- customize/customize_scripts.yaml ---
@@ -326,143 +326,6 @@
     emulated_hue_name: "Driveway"
     
 
-#--- customize/customize_weather.yaml ---
-#----------------------------------#
-# YR Weather Customization         #
-#----------------------------------#
-  sensor.weather_temperature:
-    friendly_name: Outside Temperature
-    icon: mdi:thermometer
-  
-  sensor.weather_dewpoint_temperature:
-    friendly_name: Dew Point
-    icon: mdi:oil-temperature
-    
-  sensor.weather_humidity:
-    friendly_name: Humidity
-    icon: mdi:water-percent
-   
-  sensor.weather_precipitation:
-    friendly_name: Precipitation
-    icon: mdi:weather-pouring
-  
-  sensor.weather_pressure:
-    friendly_name: Pressure
-    icon: mdi:chart-bar
-  
-  sensor.weather_fog:
-    friendly_name: Fog
-    icon: mdi:weather-fog
-    
-  sensor.weather_wind_speed:
-    friendly_name: Wind Speed
-    icon: mdi:weather-windy
-  
-  sensor.weather_wind_direction:
-    friendly_name: Wind Bearing
-    icon: mdi:weather-windy  
-      
-  sensor.weather_cloudiness:
-    friendly_name: Cloudiness
-    icon: mdi:weather-cloudy
-  
-#----------------------------------#
-# Darksky Customization            #
-#----------------------------------#
-  sensor.dark_sky_temperature:
-    friendly_name: Outside Temperature
-    icon: mdi:thermometer
-  
-  sensor.dark_sky_daily_summary:
-    friendly_name: Summary
-    icon: mdi:library-books
-  
-  sensor.dark_sky_apparent_temperature:
-    friendly_name: Feelslike
-    icon: mdi:thermometer
-    
-  sensor.dark_sky_dew_point:
-    friendly_name: Dew Point
-    icon: mdi:oil-temperature
-    
-  sensor.dark_sky_humidity:
-    friendly_name: Humidity
-    icon: mdi:water-percent
-   
-  sensor.dark_sky_precip_intensity_max:
-    friendly_name: Precipitation Intensity
-    icon: mdi:weather-pouring
-  
-  sensor.dark_sky_precip_accumulation:
-    friendly_name: Snow Accumulation
-    icon: mdi:snowflake
-    
-  sensor.dark_sky_pressure:
-    friendly_name: Pressure
-    icon: mdi:chart-bar
-  
-  sensor.dark_sky_visibility:
-    friendly_name: Visibility
-    icon: mdi:weather-fog
-    
-  sensor.dark_sky_wind_speed:
-    friendly_name: Wind Speed
-    icon: mdi:weather-windy
-  
-  sensor.dark_sky_wind_gust:
-    friendly_name: Wind Gust
-    icon: mdi:weather-windy
-  
-  sensor.dark_sky_wind_bearing:
-    friendly_name: Wind Bearing
-    icon: mdi:weather-windy  
-      
-  sensor.dark_sky_ozone:
-    friendly_name: Ozone
-    icon: mdi:earth
-    
-  sensor.dark_sky_uv_index:
-    friendly_name: UV Index
-    icon: mdi:weather-sunny
-
-#--- customize/customize_input_boolean.yaml ---
-##################
-# Input Boolean
-##################
-  input_boolean.flux_living_room:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_family_room:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_kitchen:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_master_bedroom:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_office:
-    icon: mdi:theme-light-dark
-        
-  input_boolean.christmas_lights:
-    icon: mdi:gift
-    
-  input_boolean.on_the_way_home:
-    icon: mdi:map-marker
-  
-  input_boolean.guest_mode:
-    icon: mdi:account
-    emulated_hue_hidden: false
-    emulated_hue_name: "Guest Mode"
-  
-  input_boolean.thermostat_enable:
-    icon: mdi:thermostat
-    emulated_hue_hidden: false
-    emulated_hue_name: "Thermostat"
-  
-  input_boolean.warmer_night_mode:
-    icon: mdi:fire
-
 #--- customize/customize_climate.yaml ---
 ##################
 # Thermostat
@@ -512,3 +375,104 @@
   
   ligh.porch:
     icon: mdi:gate
+
+#--- customize/customize_input_boolean.yaml ---
+##################
+# Input Boolean
+##################
+  input_boolean.flux_living_room:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_family_room:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_kitchen:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_master_bedroom:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_nursery:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_office:
+    icon: mdi:theme-light-dark
+        
+  input_boolean.christmas_lights:
+    icon: mdi:gift
+    
+  input_boolean.on_the_way_home:
+    icon: mdi:map-marker
+  
+  input_boolean.guest_mode:
+    icon: mdi:account
+    emulated_hue_hidden: false
+    emulated_hue_name: "Guest Mode"
+  
+  input_boolean.thermostat_enable:
+    icon: mdi:thermostat
+    emulated_hue_hidden: false
+    emulated_hue_name: "Thermostat"
+  
+  input_boolean.warmer_night_mode:
+    icon: mdi:fire
+
+#--- customize/customize_weather.yaml ---
+#----------------------------------#
+# Weather Customization         #
+#----------------------------------#
+  sensor.weather_temperature:
+    friendly_name: Outside Temperature
+    icon: mdi:thermometer
+  
+  sensor.yr_weather_dewpoint_temperature:
+    friendly_name: Dew Point
+    icon: mdi:oil-temperature
+    
+  sensor.weather_humidity:
+    friendly_name: Humidity
+    icon: mdi:water-percent
+   
+  sensor.weather_precipitation:
+    friendly_name: Precipitation
+    icon: mdi:weather-pouring
+  
+  sensor.weather_pressure:
+    friendly_name: Pressure
+    icon: mdi:chart-bar
+  
+  sensor.yr_weather_fog:
+    friendly_name: Fog
+    icon: mdi:weather-fog
+    
+  sensor.weather_wind_speed:
+    friendly_name: Wind Speed
+    icon: mdi:weather-windy
+  
+  sensor.weather_cloud_coverage:
+    friendly_name: Clouds
+    icon: mdi:weather-cloudy
+  
+  sensor.weather_rain:
+    friendly_name: Rain
+    icon: mdi:weather-pouring
+  
+  sensor.weather_snow:
+    friendly_name: Snow
+    icon: mdi:weather-snowy
+  
+  sensor.yr_weather_cloudiness:
+    friendly_name: Cloudiness
+    icon: mdi:weather-cloudy
+  
+  sensor.weather_condition:
+    friendly_name: Summary
+    icon: mdi:library-books
+  
+  sensor.weather_wind_bearing:
+    friendly_name: Wind Bearing
+    icon: mdi:weather-windy
+  
+  sensor.weather_weather_code:
+    friendly_name: Weather Code
+    icon: mdi:code-array

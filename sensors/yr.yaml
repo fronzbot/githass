@@ -1,5 +1,5 @@
 - platform: yr
-  name: Weather
+  name: YR Weather
   monitored_conditions:
     - temperature
     - symbol
