@@ -47,7 +47,7 @@ sensor.yr_weather_cloudiness:
 
 sensor.weather_condition:
   friendly_name: Summary
-  icon: mdi:library-books
+  icon: mdi:clipboard-list-outline
 
 sensor.weather_wind_bearing:
   friendly_name: Wind Bearing

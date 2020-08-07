@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2020-Aug-06 20:59:49 
+# Generated: 2020-Aug-06 21:01:42 
 #--------------------------------------------
 
 #--- customize/customize_scripts.yaml ---
@@ -467,7 +467,7 @@
   
   sensor.weather_condition:
     friendly_name: Summary
-    icon: mdi:library-books
+    icon: mdi:clipboard-list-outline
   
   sensor.weather_wind_bearing:
     friendly_name: Wind Bearing
