@@ -4,7 +4,7 @@ Currently running on a home media server using [unRAID](https://lime-technology.
 
 ### Components Used:
 - Weather:
-  - [yr](https://home-assistant.io/integrations/yr/)
+  - [OpenWeatherMap](https://home-assistant.io/integrations/openweathermap/)
 - Climate:
   - [Nexia](https://home-assistant.io/integrations/nexia/)
 - Lights:
