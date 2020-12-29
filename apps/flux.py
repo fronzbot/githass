@@ -151,4 +151,4 @@ class Flux(hass.Hass):
 
         for light in self.split_device_list(self.args["light"]):
             if self.get_state(light) == 'on':
-                self.turn_on(light, color_temp=mired, brightness=brightness)
+                self.turn_on(light, color_temp=mired)
