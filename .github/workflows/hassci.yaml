@@ -1,0 +1,41 @@
+name: Home Assistant CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+      - master
+  schedule:
+      # Run at 10:05am every Saturday
+      -cron '5 10 * * 6'
+ 
+jobs:
+  hassci:
+    name: "Home-Assistant: Stable"
+    runs-on: ${{ matrix.platform }}
+    strategy:
+      max-parallel: 2
+      matrix:
+        platform:
+          - ubuntu-latest
+        hass-version: ["stable", "beta"]
+   
+    container:
+      image: homeassistant/home-assistant:${{ matrix.hass-version }}
+      env:
+        TZ: "America/New_York"
+      volumes:
+        - /tmp:/tmp
+        - /tmp:/images
+        - ${GITHUB_WORKSPACE}:/config
+    
+    steps:
+      - name: Getting config from github
+        uses: actions/checkout@v2
+      - name: Copy secrets into configuration folder
+        run: cp travis_secrets.yaml secrets.yaml; touch /tmp/test.txt
+      - name: HA Version Check
+        run: python -m homeassistant --version
+      - name: Config Check
+        run: python -m homeassistant --config /github/workspace --script check_config
