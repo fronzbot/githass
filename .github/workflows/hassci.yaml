@@ -10,7 +10,7 @@ on:
 
 jobs:
   hassci:
-    name: "Home-Assistant: Stable"
+    name: "Config Check"
     runs-on: ${{ matrix.platform }}
     strategy:
       max-parallel: 2
@@ -26,14 +26,16 @@ jobs:
       volumes:
         - /tmp:/tmp
         - /tmp:/images
-        - ${GITHUB_WORKSPACE}:/config
     
     steps:
       - name: Getting config from github
         uses: actions/checkout@v2
-      - name: Copy secrets into configuration folder
-        run: cp travis_secrets.yaml secrets.yaml; touch /tmp/test.txt
       - name: HA Version Check
         run: python -m homeassistant --version
+      - name: Copy secrets into configuration folder
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          cp travis_secrets.yaml secrets.yaml
+          touch /tmp/test.txt
       - name: Config Check
-        run: python -m homeassistant --config /github/workspace --script check_config
+        run: python -m homeassistant --config $GITHUB_WORKSPACE --script check_config
