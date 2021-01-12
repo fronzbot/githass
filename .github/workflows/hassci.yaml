@@ -38,4 +38,4 @@ jobs:
           cp travis_secrets.yaml secrets.yaml
           touch /tmp/test.txt
       - name: Config Check
-        run: python -m homeassistant --config $GITHUB_WORKSPACE --script check_config --info all
+        run: python -m homeassistant --config $GITHUB_WORKSPACE --script check_config
