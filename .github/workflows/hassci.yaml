@@ -1,15 +1,13 @@
 name: Home Assistant CI
-
 on:
   push:
-    branches:
-      - master
+    branches: [master]
   pull_request:
-      - master
+    branches: [master]
   schedule:
-      # Run at 10:05am every Saturday
-      -cron '5 10 * * 6'
- 
+      # Run at 1:05pm UTC every Saturday (8:05am EST)
+      - cron: '5 13 * * 6'
+
 jobs:
   hassci:
     name: "Home-Assistant: Stable"
