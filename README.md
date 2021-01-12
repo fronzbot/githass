@@ -1,4 +1,4 @@
-# githass [![Build Status](https://travis-ci.org/fronzbot/githass.svg?branch=master)](https://travis-ci.org/fronzbot/githass)
+# githass [![Build Status](https://github.com/fronzbot/githass/workflows/hassci/badge.svg)](https://github.com/fronzbot/githass/actions?query=workflow%3Ahassci)
 ## Home Assistant Configuration
 Currently running on a home media server using [unRAID](https://lime-technology.com/) (Home Assistant runs in a docker)
 
