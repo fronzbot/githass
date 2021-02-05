@@ -12,7 +12,7 @@ flux_living_room:
 
 flux_kitchen:
   name: Flux Kitchen
-  initial: on
+  initial: off
 
 flux_office:
   name: Flux Office

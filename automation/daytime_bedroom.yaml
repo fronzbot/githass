@@ -1,0 +1,17 @@
+alias: Bedroom Daytime
+trigger:
+  - platform: time
+    at: '10:30:00'
+condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+action:
+  - service: light.turn_off
+    entity_id:
+      - light.master_bedroom_door
+      - light.master_bedroom_window

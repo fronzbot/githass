@@ -1,0 +1,19 @@
+alias: Workday Routine
+trigger:
+  - platform: time
+    at: '10:30:00'
+    offset: '-01:30:00'
+condition:
+  - condition: time
+    weekday:
+    - mon
+    - wed
+    - fri
+action:
+  - service: light.turn_off
+    entity_id:
+      - light.living_room_couch
+      - light.family_room_couch_left
+      - light.family_room_couch_right
+      - light.kitchen_island
+      - light.kitchen_table

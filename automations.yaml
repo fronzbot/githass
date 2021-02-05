@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2021-Jan-12 08:45:32 
+# Generated: 2021-Feb-05 15:26:48 
 #--------------------------------------------
 
 #--- automation/notify_on_failed_login.yaml ---
@@ -331,6 +331,48 @@
   action:
     - service: light.turn_on
       entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.kitchen_island
+        - light.kitchen_table
+
+#--- automation/daytime_bedroom.yaml ---
+- id: bedroom_daytime
+  alias: Bedroom Daytime
+  trigger:
+    - platform: time
+      at: '10:30:00'
+  condition:
+    - condition: time
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.master_bedroom_door
+        - light.master_bedroom_window
+
+#--- automation/daytime.yaml ---
+- id: workday_routine
+  alias: Workday Routine
+  trigger:
+    - platform: time
+      at: '10:30:00'
+      offset: '-01:30:00'
+  condition:
+    - condition: time
+      weekday:
+      - mon
+      - wed
+      - fri
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.living_room_couch
         - light.family_room_couch_left
         - light.family_room_couch_right
         - light.kitchen_island

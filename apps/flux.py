@@ -48,7 +48,7 @@ class Flux(hass.Hass):
         # Starting offset in minutes
         self.colors = {
             'sunrise': {'temp': 3000, 'offset': -45},
-            'day': {'temp': 4000, 'offset': 30},
+            'day': {'temp': 4700, 'offset': 30},
             'sunset': {'temp': 3000, 'offset': -45},
             'night': {'temp': 2400, 'offset': 60}
         }
