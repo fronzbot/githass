@@ -1,4 +1,4 @@
-alias: Evening Routine
+alias: Evening Routine Home
 trigger:
   - platform: sun
     event: sunset
