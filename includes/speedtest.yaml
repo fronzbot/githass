@@ -1,3 +1,4 @@
+server_id: 1761
 scan_interval:
   hours: 1
   minutes: 32
