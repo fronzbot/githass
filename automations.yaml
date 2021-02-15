@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2021-Feb-05 15:30:13 
+# Generated: 2021-Feb-15 09:48:22 
 #--------------------------------------------
 
 #--- automation/notify_on_failed_login.yaml ---
@@ -25,92 +25,6 @@
     - service: script.notify_kevin_engine
       data:
         call_failed_login: 1
-
-#--- automation/lights_inside_off.yaml ---
-# Turn inside lights off around midnight (before exterior)
-  
-- id: lights_inside_off
-  alias: Lights Inside Off
-  trigger:
-    - platform: time
-      at: '00:12:09'
-  action:
-    - service: light.turn_off
-      entity_id: light.interior_lights
-
-#--- automation/lights_outside_off.yaml ---
-# Turn on outside lights off at 12:40 am
-  
-- id: lights_outdoor_off
-  alias: Lights Outdoor Off
-  trigger:
-    - platform: time
-      at: '00:40:07'
-  action:
-    - service: light.turn_off
-      entity_id: light.porch
-    - service: switch.turn_off
-      entity_id: switch.driveway
-
-#--- automation/notify_on_fire_co.yaml ---
-- id: notify_on_fire_co
-  alias: Notify on Fire/CO
-  trigger:
-    - platform: state
-      entity_id: sensor.smoke_alarm_foyer
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_foyer
-      to: "CO"
-    - platform: state
-      entity_id: sensor.smoke_alarm_family_room
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_family_room
-      to: "CO"
-    - platform: state
-      entity_id: sensor.smoke_alarm_office
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_office
-      to: "CO"
-    - platform: state
-      entity_id: sensor.smoke_alarm_basement
-      to: "Fire"
-    - platform: state
-      entity_id: sensor.smoke_alarm_basement
-      to: "CO"
-  action:
-    - service: notify.notify
-      data_template:
-        message: >
-            ALERT! {{ now().strftime("%h %d, %Y at %H:%M:S") }} {{trigger.to_state.state}} detected by {{trigger.to_state.attributes.friendly_name}}
-
-#--- automation/notify_on_restart.yaml ---
-- id: notify_on_restart
-  alias: Notify on Restart
-  trigger:
-    - platform: homeassistant
-      event: start
-  action:
-    - service: script.notify_kevin_engine
-      data:
-        call_on_restart: 1
-
-#--- automation/sunset.yaml ---
-# Turn on outside lights 15 minutes after sunset
-  
-- id: lights_sunset
-  alias: Lights Sunset
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '+00:15:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.porch
-    - service: switch.turn_on
-      entity_id: switch.driveway
 
 #--- automation/notify_leak_detected.yaml ---
 - id: notify_on_leak_detected
@@ -138,24 +52,6 @@
         - light.kitchen_island
         - light.kitchen_table
 
-#--- automation/wakeup.yaml ---
-- id: wakeup_routine
-  alias: Wakeup Routine
-  trigger:
-    - platform: time
-      at: '06:30:30'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: 'sun.sun'
-        state: 'below_horizon'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-
 #--- automation/thermostat_ac_off.yaml ---
 - id: 'thermostat_ac_disable'
   alias: 'Thermostat AC Disable'
@@ -168,26 +64,6 @@
       value_template: >
           {% set month=now().month | int %}
           {% if month >= 5 and month <= 9 %}
-            true
-          {% endif %}
-  action:
-    - service: climate.set_hvac_mode
-      data:
-        entity_id: climate.thermostat_1_nativezone
-        hvac_mode: 'off'
-
-#--- automation/thermostat_heat_off.yaml ---
-- id: 'thermostat_heat_disable'
-  alias: 'Thermostat Heat Disable'
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.weather_temperature
-      above: 67
-  condition:
-    - condition: template
-      value_template: >
-          {% set month=now().month | int %}
-          {% if month <= 4 and month >= 9 %}
             true
           {% endif %}
   action:
@@ -224,6 +100,26 @@
         temperature: > 
             {{ states.input_number.ac_setpoint.state }}
 
+#--- automation/thermostat_heat_off.yaml ---
+- id: 'thermostat_heat_disable'
+  alias: 'Thermostat Heat Disable'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.weather_temperature
+      above: 67
+  condition:
+    - condition: template
+      value_template: >
+          {% set month=now().month | int %}
+          {% if month <= 4 and month >= 9 %}
+            true
+          {% endif %}
+  action:
+    - service: climate.set_hvac_mode
+      data:
+        entity_id: climate.thermostat_1_nativezone
+        hvac_mode: 'off'
+
 #--- automation/thermostat_heat_on.yaml ---
 - id: 'thermostat_heat_enable'
   alias: 'Thermostat Heat Enable'
@@ -257,6 +153,151 @@
             {% else %}
               {{ target }}
             {% endif %}
+
+#--- automation/lights_inside_off.yaml ---
+# Turn inside lights off around midnight (before exterior)
+  
+- id: lights_inside_off
+  alias: Lights Inside Off
+  trigger:
+    - platform: time
+      at: '00:12:09'
+  action:
+    - service: light.turn_off
+      entity_id: light.interior_lights
+
+#--- automation/notify_on_restart.yaml ---
+- id: notify_on_restart
+  alias: Notify on Restart
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - service: script.notify_kevin_engine
+      data:
+        call_on_restart: 1
+
+#--- automation/lights_outside_off.yaml ---
+# Turn on outside lights off at 12:40 am
+  
+- id: lights_outdoor_off
+  alias: Lights Outdoor Off
+  trigger:
+    - platform: time
+      at: '00:40:07'
+  action:
+    - service: light.turn_off
+      entity_id: light.porch
+    - service: switch.turn_off
+      entity_id: switch.driveway
+
+#--- automation/sunset.yaml ---
+# Turn on outside lights 15 minutes after sunset
+  
+- id: lights_sunset
+  alias: Lights Sunset
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '+00:15:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.porch
+    - service: switch.turn_on
+      entity_id: switch.driveway
+
+#--- automation/notify_on_fire_co.yaml ---
+- id: notify_on_fire_co
+  alias: Notify on Fire/CO
+  trigger:
+    - platform: state
+      entity_id: sensor.smoke_alarm_foyer
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_foyer
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_family_room
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_family_room
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_office
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_office
+      to: "CO"
+    - platform: state
+      entity_id: sensor.smoke_alarm_basement
+      to: "Fire"
+    - platform: state
+      entity_id: sensor.smoke_alarm_basement
+      to: "CO"
+  action:
+    - service: notify.notify
+      data_template:
+        message: >
+            ALERT! {{ now().strftime("%h %d, %Y at %H:%M:S") }} {{trigger.to_state.state}} detected by {{trigger.to_state.attributes.friendly_name}}
+
+#--- automation/wakeup.yaml ---
+- id: wakeup_routine
+  alias: Wakeup Routine
+  trigger:
+    - platform: time
+      at: '06:30:30'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'sun.sun'
+        state: 'below_horizon'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+
+#--- automation/daytime.yaml ---
+- id: workday_routine
+  alias: Workday Routine
+  trigger:
+    - platform: time
+      at: '10:30:00'
+  condition:
+    - condition: time
+      weekday:
+      - mon
+      - wed
+      - fri
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.living_room_couch
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.kitchen_island
+        - light.kitchen_table
+
+#--- automation/daytime_bedroom.yaml ---
+- id: bedroom_daytime
+  alias: Bedroom Daytime
+  trigger:
+    - platform: time
+      at: '10:30:00'
+  condition:
+    - condition: time
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.master_bedroom_door
+        - light.master_bedroom_window
 
 #--- automation/cloudy.yaml ---
 # Turn on inside light if it's cloudy midday
@@ -309,6 +350,19 @@
         - light.family_room_couch_right
         - light.living_room_couch
 
+#--- automation/evening_back.yaml ---
+- id: evening_routine_home
+  alias: Evening Routine Home
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '00:30:00'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.kitchen_island
+        - light.kitchen_table
+
 #--- automation/evening.yaml ---
 - id: evening_routine
   alias: Evening Routine
@@ -320,59 +374,5 @@
     - service: light.turn_on
       entity_id:
         - light.living_room_couch
-
-#--- automation/daytime_bedroom.yaml ---
-- id: bedroom_daytime
-  alias: Bedroom Daytime
-  trigger:
-    - platform: time
-      at: '10:30:00'
-  condition:
-    - condition: time
-      weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-  action:
-    - service: light.turn_off
-      entity_id:
-        - light.master_bedroom_door
-        - light.master_bedroom_window
-
-#--- automation/daytime.yaml ---
-- id: workday_routine
-  alias: Workday Routine
-  trigger:
-    - platform: time
-      at: '10:30:00'
-  condition:
-    - condition: time
-      weekday:
-      - mon
-      - wed
-      - fri
-  action:
-    - service: light.turn_off
-      entity_id:
-        - light.living_room_couch
         - light.family_room_couch_left
         - light.family_room_couch_right
-        - light.kitchen_island
-        - light.kitchen_table
-
-#--- automation/evening_back.yaml ---
-- id: evening_routine_home
-  alias: Evening Routine Home
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '00:30:00'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-        - light.kitchen_island
-        - light.kitchen_table

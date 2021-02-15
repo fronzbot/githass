@@ -1,78 +1,6 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2021-Feb-05 15:30:13 
+# Generated: 2021-Feb-15 09:48:23 
 #--------------------------------------------
-
-#--- scripts/hass_upgrade.yaml ---
-  hass_upgrade:
-    alias: Upgrade Homeassistant
-    sequence:
-      - service: shell_command.hass_upgrade
-      - service: homeassistant.restart
-
-#--- scripts/ssl_renew_certificate.yaml ---
-  ssl_renew_certificate:
-    alias: SSL Renew Certificate
-    sequence:
-      - service: notify.notify_kevin_phone
-        data:
-          message: "SSL Renew Instructions - 1) Open Port 80 2) Restart router 3) Run ./ssl_renew from pi's home directory 4) Close Port 80 5) Restart router"
-
-#--- scripts/speech_processing.yaml ---
-  speech_processing:
-    sequence:
-      - service: media_player.volume_set
-        entity_id: media_player.google_home
-        data:
-          volume_level: 0.5
-      - service: tts.google_say
-        entity_id: media_player.google_home
-        data_template:
-          message: >
-            {{ speech_message }}
-
-#--- scripts/github_pull.yaml ---
-  github_pull:
-    alias: Pull Config from Github
-    sequence:
-      - service: shell_command.github_pull
-      - service: homeassistant.restart
-
-#--- scripts/zwave_fix_dead_node.yaml ---
-  zwave_fix_dead_node:
-      alias: Script - Fix Dead ZWave Node
-      sequence:
-          - condition: or
-            conditions:
-                - condition: template
-                  value_template: '{{ states.zwave.driveway.attributes.is_failed }}'
-                - condition: template
-                  value_template: '{{ 1 < 0 }}'
-          - service: zwave.test_node
-            data_template:
-              node_id: '{{states.zwave.driveway.attributes.node_id}}'
-          - service: notify.notify_kevin_phone
-            data_template:
-              message: 'Driveway switch dead, trying to fix. {{now().strftime("h %d, %Y at %H:%M:%S")}}'
-
-#--- scripts/wake_computer.yaml ---
-# Wake computer and turn on lights
-  wake_computer:
-    alias: Wake Computer
-    sequence:
-      - service: light.turn_on
-        entity_id:
-          - light.basement_corner
-          - light.basement_computer
-          - light.desk
-      - service: wake_on_lan.send_magic_packet
-        data:
-          mac: !secret wake_mac_address
-
-#--- scripts/upgrade_pihole.yaml ---
-  upgrade_pihole:
-    alias: Upgrade PiHole 
-    sequence:
-      - service: shell_command.pihole_upgrade
 
 #--- scripts/blink_trigger_camera.yaml ---
   blink_trigger_camera:
@@ -89,48 +17,12 @@
       - service: blink.blink_update
         
 
-#--- scripts/notify_kevin_engine.yaml ---
-  notify_kevin_engine:
+#--- scripts/github_pull.yaml ---
+  github_pull:
+    alias: Pull Config from Github
     sequence:
-      - service: notify.notify_kevin_phone
-        data_template:
-          message: >
-            {%- macro on_restart() -%}
-              Home Assistant restarted {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
-            {%- endmacro -%}
-            {%- macro system_use() -%}
-              {% if states.sensor.glances_ram_use.state | float <= 100.0 %}
-                RAM Usage at {{states.sensor.glances_ram_use.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
-              {% elif states.sensor.glances_ram_use_2.state | float <= 100.0 %}
-                RAM Usage at {{states.sensor.glances_ram_use_2.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
-              {% endif %}
-            {%- endmacro -%}
-            {%- macro ssl_cert_expiry() -%}
-              Warning - SSL Certificate expires in {{states.sensor.ssl_cert_expiry.state}} days and has not been renewed!
-            {%- endmacro -%}
-            {%- macro failed_login() -%}
-              Failed Login! {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
-              {% if states.sensor.fail2ban_hass_iptables.state != "None" %}
-              HASS Attempt(s) from {{states.sensor.fail2ban_hass_iptables.state}} {% endif %} {% if states.sensor.fail2ban_nginx_http_auth.state != "None" %}
-              NGINX Attempt(s) from {{states.sensor.fail2ban_nginx_http_auth.state}}{% endif %}{% if states.sensor.fail2ban_organizr_auth.state != "None" %}
-              Organizr Attempt(s) from {{states.sensor.fail2ban_organizr_auth.state}}
-              {% endif %}
-            {%- endmacro -%}
-            {##################}
-            {# BEGIN ROUTINES #}
-            {##################}
-            {% if call_on_restart == 1 %}
-              {{ on_restart() }}
-            {% endif %}
-            {% if call_system_use == 1 %}
-              {{ system_use() }}
-            {% endif %}
-            {% if call_ssl_cert_expiry == 1 %}
-              {{ ssl_cert_expiry() }}
-            {% endif %}
-            {% if call_failed_login == 1 %}
-              {{ failed_login() }}
-            {% endif %}
+      - service: shell_command.github_pull
+      - service: homeassistant.restart
 
 #--- scripts/speech_engine.yaml ---
 # For all TTS processing
@@ -212,6 +104,28 @@
               {{ fire_co2() }}
             {% endif %}
 
+#--- scripts/ssl_renew_certificate.yaml ---
+  ssl_renew_certificate:
+    alias: SSL Renew Certificate
+    sequence:
+      - service: notify.notify_kevin_phone
+        data:
+          message: "SSL Renew Instructions - 1) Open Port 80 2) Restart router 3) Run ./ssl_renew from pi's home directory 4) Close Port 80 5) Restart router"
+
+#--- scripts/wake_computer.yaml ---
+# Wake computer and turn on lights
+  wake_computer:
+    alias: Wake Computer
+    sequence:
+      - service: light.turn_on
+        entity_id:
+          - light.basement_corner
+          - light.basement_computer
+          - light.desk
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: !secret wake_mac_address
+
 #--- scripts/flux.yaml ---
   flux:
     alias: Flux - Global
@@ -246,3 +160,89 @@
               {{ leak_detected() }}
             {% endif %}
             
+
+#--- scripts/hass_upgrade.yaml ---
+  hass_upgrade:
+    alias: Upgrade Homeassistant
+    sequence:
+      - service: shell_command.hass_upgrade
+      - service: homeassistant.restart
+
+#--- scripts/notify_kevin_engine.yaml ---
+  notify_kevin_engine:
+    sequence:
+      - service: notify.notify_kevin_phone
+        data_template:
+          message: >
+            {%- macro on_restart() -%}
+              Home Assistant restarted {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+            {%- endmacro -%}
+            {%- macro system_use() -%}
+              {% if states.sensor.glances_ram_use.state | float <= 100.0 %}
+                RAM Usage at {{states.sensor.glances_ram_use.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
+              {% elif states.sensor.glances_ram_use_2.state | float <= 100.0 %}
+                RAM Usage at {{states.sensor.glances_ram_use_2.state}}% and Swap at {{states.sensor.glances_swap_use.state}}%!
+              {% endif %}
+            {%- endmacro -%}
+            {%- macro ssl_cert_expiry() -%}
+              Warning - SSL Certificate expires in {{states.sensor.ssl_cert_expiry.state}} days and has not been renewed!
+            {%- endmacro -%}
+            {%- macro failed_login() -%}
+              Failed Login! {{ now().strftime("%h %d, %Y at %H:%M:%S") }}
+              {% if states.sensor.fail2ban_hass_iptables.state != "None" %}
+              HASS Attempt(s) from {{states.sensor.fail2ban_hass_iptables.state}} {% endif %} {% if states.sensor.fail2ban_nginx_http_auth.state != "None" %}
+              NGINX Attempt(s) from {{states.sensor.fail2ban_nginx_http_auth.state}}{% endif %}{% if states.sensor.fail2ban_organizr_auth.state != "None" %}
+              Organizr Attempt(s) from {{states.sensor.fail2ban_organizr_auth.state}}
+              {% endif %}
+            {%- endmacro -%}
+            {##################}
+            {# BEGIN ROUTINES #}
+            {##################}
+            {% if call_on_restart == 1 %}
+              {{ on_restart() }}
+            {% endif %}
+            {% if call_system_use == 1 %}
+              {{ system_use() }}
+            {% endif %}
+            {% if call_ssl_cert_expiry == 1 %}
+              {{ ssl_cert_expiry() }}
+            {% endif %}
+            {% if call_failed_login == 1 %}
+              {{ failed_login() }}
+            {% endif %}
+
+#--- scripts/speech_processing.yaml ---
+  speech_processing:
+    sequence:
+      - service: media_player.volume_set
+        entity_id: media_player.google_home
+        data:
+          volume_level: 0.5
+      - service: tts.google_say
+        entity_id: media_player.google_home
+        data_template:
+          message: >
+            {{ speech_message }}
+
+#--- scripts/upgrade_pihole.yaml ---
+  upgrade_pihole:
+    alias: Upgrade PiHole 
+    sequence:
+      - service: shell_command.pihole_upgrade
+
+#--- scripts/zwave_fix_dead_node.yaml ---
+  zwave_fix_dead_node:
+      alias: Script - Fix Dead ZWave Node
+      sequence:
+          - condition: or
+            conditions:
+                - condition: template
+                  value_template: '{{ states.zwave.driveway.attributes.is_failed }}'
+                - condition: template
+                  value_template: '{{ 1 < 0 }}'
+          - service: zwave.test_node
+            data_template:
+              node_id: '{{states.zwave.driveway.attributes.node_id}}'
+          - service: notify.notify_kevin_phone
+            data_template:
+              message: 'Driveway switch dead, trying to fix. {{now().strftime("h %d, %Y at %H:%M:%S")}}'

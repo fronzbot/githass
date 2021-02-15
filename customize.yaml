@@ -1,55 +1,121 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2021-Feb-05 15:30:13 
+# Generated: 2021-Feb-15 09:48:23 
 #--------------------------------------------
 
-#--- customize/customize_scripts.yaml ---
-  script.thermostat_control:
-    icon: mdi:air-conditioner
-    emulated_hue_hidden: false
-    emulated_hue_name: "Thermostat"
-  
-  script.github_pull:
-    icon: mdi:github-circle
-  
-  script.hass_upgrade:
-    icon: mdi:home-assistant
-  
-  script.blink_trigger_camera:
-    icon: mdi:camera
-    can_cancel: false
-  
-  script.ssl_renew_certificate:
-    icon: mdi:lock
-    
-  script.flux:
-    icon: mdi:theme-light-dark
-    emulated_hue_hidden: false
-    emulated_hue_name: "Flux"
-  
-  script.wake_computer:
-    icon: mdi:windows
-    emulated_hue_hidden: false
-    emulated_hue_name: "Desktop"
-  
-  script.upgrade_pihole:
-    icon: mdi:arrow-up-bold-circle-outline
-    friendly_name: "Upgrade Pihole"
-
-#--- customize/customize_media.yaml ---
+#--- customize/customize_climate.yaml ---
 ##################
-# Media Players
-##################
-
-#--- customize/customize_presence.yaml ---
-##################
-# Entities
+# Thermostat
 ################## 
-  device_tracker.kevin_gps:
-    icon: mdi:crosshairs-gps
+  input_number.ac_setpoint:
+    icon: mdi:air-conditioner
   
-  device_tracker.allegra_gps:
-    icon: mdi:crosshairs-gps
+  input_number.heat_setpoint:
+    icon: mdi:fire
   
+  input_number.ac_on:
+    icon: mdi:fan
+  
+  input_number.ac_off:
+    icon: mdi:fan-off
+  
+  input_number.heat_on:
+    icon: mdi:radiator
+  
+  input_number.heat_off:
+    icon: mdi:radiator-off
+  
+  input_number.heat_emergency_delta:
+    icon: mdi:alert
+
+#--- customize/customize_scenes.yaml ---
+##################
+# Scenes
+##################
+  scene.christmas:
+    icon: mdi:gift
+    emulated_hue_hidden: false
+    emulated_hue_name: "Christmas"
+  
+  scene.movie_mode_living_room:
+    icon: mdi:movie
+  
+  scene.movie_mode_family_room:
+    icon: mdi:movie
+    
+  scene.daylight:
+    icon: mdi:weather-sunny
+    emulated_hue_hidden: false
+    emulated_hue_name: "Day Time"
+    
+  scene.night:
+    icon: mdi:weather-night
+    emulated_hue_hidden: false
+    emulated_hue_name: "Night Time"
+  
+  scene.sabres:
+    icon: mdi:sword
+    emulated_hue_hidden: false
+    emulated_hue_name: "Sabres"
+  
+  scene.on_the_way_home:
+    icon: mdi:map-marker
+    emulated_hue_hidden: false
+  
+  scene.orange:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Orange"
+  
+  scene.yellow:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Yellow"
+  
+  scene.green:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Green"
+  
+  scene.cyan:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Ice"
+  
+  scene.blue:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Blue"
+  
+  scene.purple:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Purple"
+  
+  scene.pink:
+    icon: mdi:palette
+    emulated_hue_hidden: false
+    emulated_hue_name: "Pink"
+  
+
+#--- customize/customize_switches.yaml ---
+  switch.outdoor_1_switch:
+    friendly_name: Outside Porch Outlet
+    icon: mdi:power-plug
+    
+  switch.outdoor_2_switch:
+    friendly_name: Outside Driveway Outlet
+    icon: mdi:power-plug
+    
+  switch.power_mon_switch_3_0:
+    friendly_name: Washing Machine Power
+    icon: mdi:power
+  
+  switch.driveway:
+    friendly_name: Driveway
+    icon: mdi:car
+    emulated_hue_hidden: false
+    emulated_hue_name: "Driveway"
+    
 
 #--- customize/customize_misc_sensors.yaml ---
 ##################
@@ -236,146 +302,6 @@
     icon: mdi:home-flood
     friendly_name: Sump Frequency
 
-#--- customize/customize_scenes.yaml ---
-##################
-# Scenes
-##################
-  scene.christmas:
-    icon: mdi:gift
-    emulated_hue_hidden: false
-    emulated_hue_name: "Christmas"
-  
-  scene.movie_mode_living_room:
-    icon: mdi:movie
-  
-  scene.movie_mode_family_room:
-    icon: mdi:movie
-    
-  scene.daylight:
-    icon: mdi:weather-sunny
-    emulated_hue_hidden: false
-    emulated_hue_name: "Day Time"
-    
-  scene.night:
-    icon: mdi:weather-night
-    emulated_hue_hidden: false
-    emulated_hue_name: "Night Time"
-  
-  scene.sabres:
-    icon: mdi:sword
-    emulated_hue_hidden: false
-    emulated_hue_name: "Sabres"
-  
-  scene.on_the_way_home:
-    icon: mdi:map-marker
-    emulated_hue_hidden: false
-  
-  scene.orange:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Orange"
-  
-  scene.yellow:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Yellow"
-  
-  scene.green:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Green"
-  
-  scene.cyan:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Ice"
-  
-  scene.blue:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Blue"
-  
-  scene.purple:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Purple"
-  
-  scene.pink:
-    icon: mdi:palette
-    emulated_hue_hidden: false
-    emulated_hue_name: "Pink"
-  
-
-#--- customize/customize_switches.yaml ---
-  switch.outdoor_1_switch:
-    friendly_name: Outside Porch Outlet
-    icon: mdi:power-plug
-    
-  switch.outdoor_2_switch:
-    friendly_name: Outside Driveway Outlet
-    icon: mdi:power-plug
-    
-  switch.power_mon_switch_3_0:
-    friendly_name: Washing Machine Power
-    icon: mdi:power
-  
-  switch.driveway:
-    friendly_name: Driveway
-    icon: mdi:car
-    emulated_hue_hidden: false
-    emulated_hue_name: "Driveway"
-    
-
-#--- customize/customize_climate.yaml ---
-##################
-# Thermostat
-################## 
-  input_number.ac_setpoint:
-    icon: mdi:air-conditioner
-  
-  input_number.heat_setpoint:
-    icon: mdi:fire
-  
-  input_number.ac_on:
-    icon: mdi:fan
-  
-  input_number.ac_off:
-    icon: mdi:fan-off
-  
-  input_number.heat_on:
-    icon: mdi:radiator
-  
-  input_number.heat_off:
-    icon: mdi:radiator-off
-  
-  input_number.heat_emergency_delta:
-    icon: mdi:alert
-
-#--- customize/customize_lights.yaml ---
-##################
-# Lights
-##################
-  light.family_room_lights:
-    icon: mdi:sofa
-  
-  light.office_lights:
-    icon: mdi:desktop-tower
-  
-  light.master_bedroom_lights:
-    icon: mdi:bed
-  
-  light.living_room_lights:
-    icon: mdi:sofa
-  
-  light.kitchen_lights:
-    icon: mdi:food-variant
-  
-  light.interior_lights:
-    icon: mdi:home
-  
-  ligh.porch:
-    icon: mdi:gate
-
 #--- customize/customize_input_boolean.yaml ---
 ##################
 # Input Boolean
@@ -416,6 +342,31 @@
   
   input_boolean.warmer_night_mode:
     icon: mdi:fire
+
+#--- customize/customize_lights.yaml ---
+##################
+# Lights
+##################
+  light.family_room_lights:
+    icon: mdi:sofa
+  
+  light.office_lights:
+    icon: mdi:desktop-tower
+  
+  light.master_bedroom_lights:
+    icon: mdi:bed
+  
+  light.living_room_lights:
+    icon: mdi:sofa
+  
+  light.kitchen_lights:
+    icon: mdi:food-variant
+  
+  light.interior_lights:
+    icon: mdi:home
+  
+  ligh.porch:
+    icon: mdi:gate
 
 #--- customize/customize_weather.yaml ---
 #----------------------------------#
@@ -476,3 +427,52 @@
   sensor.weather_weather_code:
     friendly_name: Weather Code
     icon: mdi:code-array
+
+#--- customize/customize_media.yaml ---
+##################
+# Media Players
+##################
+
+#--- customize/customize_presence.yaml ---
+##################
+# Entities
+################## 
+  device_tracker.kevin_gps:
+    icon: mdi:crosshairs-gps
+  
+  device_tracker.allegra_gps:
+    icon: mdi:crosshairs-gps
+  
+
+#--- customize/customize_scripts.yaml ---
+  script.thermostat_control:
+    icon: mdi:air-conditioner
+    emulated_hue_hidden: false
+    emulated_hue_name: "Thermostat"
+  
+  script.github_pull:
+    icon: mdi:github-circle
+  
+  script.hass_upgrade:
+    icon: mdi:home-assistant
+  
+  script.blink_trigger_camera:
+    icon: mdi:camera
+    can_cancel: false
+  
+  script.ssl_renew_certificate:
+    icon: mdi:lock
+    
+  script.flux:
+    icon: mdi:theme-light-dark
+    emulated_hue_hidden: false
+    emulated_hue_name: "Flux"
+  
+  script.wake_computer:
+    icon: mdi:windows
+    emulated_hue_hidden: false
+    emulated_hue_name: "Desktop"
+  
+  script.upgrade_pihole:
+    icon: mdi:arrow-up-bold-circle-outline
+    friendly_name: "Upgrade Pihole"
