@@ -1,6 +1,10 @@
+#api_version: 1
 host: !secret server_url
 port: 8086
+#token: !secret influxdb_token
 username: !secret influxdb_user
 password: !secret influxdb_pass
 database: hass_db
+#organization: unraid
+#bucket: hass_db/a_year
 default_measurement: state
