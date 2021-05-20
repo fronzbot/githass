@@ -1,7 +1,7 @@
 alias: Bedroom Daytime
 trigger:
   - platform: time
-    at: '10:30:00'
+    at: '09:30:00'
 condition:
   - condition: time
     weekday:

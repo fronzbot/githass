@@ -2,10 +2,10 @@
 alias: Lights Cloudy
 trigger:
   - platform: numeric_state
-    entity_id: sensor.weather_cloudiness
-    above: 60
+    entity_id: sensor.weather_cloud_coverage
+    above: 75
   - platform: numeric_state
-    entity_id: sensor.weather_precipitation
+    entity_id: sensor.weather_rain
     above: 0.05
 condition:
   condition: and

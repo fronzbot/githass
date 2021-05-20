@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2021-Apr-25 20:49:33 
+# Generated: 2021-May-19 22:30:18 
 #--------------------------------------------
 
 #--- automation/notify_on_failed_login.yaml ---
@@ -228,24 +228,6 @@
         message: >
             ALERT! {{ now().strftime("%h %d, %Y at %H:%M:S") }} {{trigger.to_state.state}} detected by {{trigger.to_state.attributes.friendly_name}}
 
-#--- automation/wakeup.yaml ---
-- id: wakeup_routine
-  alias: Wakeup Routine
-  trigger:
-    - platform: time
-      at: '06:30:30'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: 'sun.sun'
-        state: 'below_horizon'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-
 #--- automation/daytime.yaml ---
 - id: workday_routine
   alias: Workday Routine
@@ -267,12 +249,58 @@
         - light.kitchen_island
         - light.kitchen_table
 
+#--- automation/night.yaml ---
+- id: night_routine
+  alias: Night Routine
+  trigger:
+    - platform: time
+      at: '21:27:13'
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.kitchen_island
+        - light.kitchen_table
+
+#--- automation/evening.yaml ---
+- id: evening_routine
+  alias: Evening Routine
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:30:00'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.living_room_couch
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.kitchen_lights
+        
+
+#--- automation/wakeup.yaml ---
+- id: wakeup_routine
+  alias: Wakeup Routine
+  trigger:
+    - platform: time
+      at: '06:00:30'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'sun.sun'
+        state: 'below_horizon'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+
 #--- automation/daytime_bedroom.yaml ---
 - id: bedroom_daytime
   alias: Bedroom Daytime
   trigger:
     - platform: time
-      at: '10:30:00'
+      at: '09:30:00'
   condition:
     - condition: time
       weekday:
@@ -293,10 +321,10 @@
   alias: Lights Cloudy
   trigger:
     - platform: numeric_state
-      entity_id: sensor.weather_cloudiness
-      above: 60
+      entity_id: sensor.weather_cloud_coverage
+      above: 75
     - platform: numeric_state
-      entity_id: sensor.weather_precipitation
+      entity_id: sensor.weather_rain
       above: 0.05
   condition:
     condition: and
@@ -313,66 +341,3 @@
         - light.family_room_couch_left
         - light.family_room_couch_right
         - light.living_room_couch 
-
-#--- automation/sunny.yaml ---
-# Turn off lights inside if it's sunny
-- id: lights_sunny
-  alias: Lights Sunny
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.weather_cloudiness
-      below: 20
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '12:00:00'
-        before: '15:00:00'
-      - condition: state
-        entity_id: light.living_room_couch
-        state: 'on'
-  action:
-    - service: light.turn_off
-      entity_id:
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-        - light.living_room_couch
-
-#--- automation/evening_back.yaml ---
-- id: evening_routine_home
-  alias: Evening Routine Home
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '00:30:00'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.kitchen_island
-        - light.kitchen_table
-
-#--- automation/evening.yaml ---
-- id: evening_routine
-  alias: Evening Routine
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '-01:30:00'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.living_room_couch
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-
-#--- automation/night.yaml ---
-- id: night_routine
-  alias: Night Routine
-  trigger:
-    - platform: time
-      at: '21:27:13'
-  action:
-    - service: light.turn_off
-      entity_id:
-        - light.kitchen_island
-        - light.kitchen_table
