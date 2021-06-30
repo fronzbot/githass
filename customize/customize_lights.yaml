@@ -10,7 +10,7 @@ light.office_lights:
 light.master_bedroom_lights:
   icon: mdi:bed
 
-light.living_room_lights:
+light.living_room_couch:
   icon: mdi:sofa
 
 light.kitchen_lights:

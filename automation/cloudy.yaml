@@ -21,4 +21,4 @@ action:
     entity_id:
       - light.family_room_couch_left
       - light.family_room_couch_right
-      - light.living_room_couch 
+      - light.living_room_couch

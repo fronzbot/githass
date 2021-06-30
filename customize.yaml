@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2021-May-19 22:30:18 
+# Generated: 2021-Jun-30 18:01:42 
 #--------------------------------------------
 
 #--- customize/customize_climate.yaml ---
@@ -343,31 +343,6 @@
   input_boolean.warmer_night_mode:
     icon: mdi:fire
 
-#--- customize/customize_lights.yaml ---
-##################
-# Lights
-##################
-  light.family_room_lights:
-    icon: mdi:sofa
-  
-  light.office_lights:
-    icon: mdi:desktop-tower
-  
-  light.master_bedroom_lights:
-    icon: mdi:bed
-  
-  light.living_room_lights:
-    icon: mdi:sofa
-  
-  light.kitchen_lights:
-    icon: mdi:food-variant
-  
-  light.interior_lights:
-    icon: mdi:home
-  
-  ligh.porch:
-    icon: mdi:gate
-
 #--- customize/customize_weather.yaml ---
 #----------------------------------#
 # Weather Customization         #
@@ -476,3 +451,28 @@
   script.upgrade_pihole:
     icon: mdi:arrow-up-bold-circle-outline
     friendly_name: "Upgrade Pihole"
+
+#--- customize/customize_lights.yaml ---
+##################
+# Lights
+##################
+  light.family_room_lights:
+    icon: mdi:sofa
+  
+  light.office_lights:
+    icon: mdi:desktop-tower
+  
+  light.master_bedroom_lights:
+    icon: mdi:bed
+  
+  light.living_room_couch:
+    icon: mdi:sofa
+  
+  light.kitchen_lights:
+    icon: mdi:food-variant
+  
+  light.interior_lights:
+    icon: mdi:home
+  
+  ligh.porch:
+    icon: mdi:gate

@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2021-May-19 22:30:18 
+# Generated: 2021-Jun-30 18:01:41 
 #--------------------------------------------
 
 #--- automation/notify_on_failed_login.yaml ---
@@ -228,27 +228,6 @@
         message: >
             ALERT! {{ now().strftime("%h %d, %Y at %H:%M:S") }} {{trigger.to_state.state}} detected by {{trigger.to_state.attributes.friendly_name}}
 
-#--- automation/daytime.yaml ---
-- id: workday_routine
-  alias: Workday Routine
-  trigger:
-    - platform: time
-      at: '10:30:00'
-  condition:
-    - condition: time
-      weekday:
-      - mon
-      - wed
-      - fri
-  action:
-    - service: light.turn_off
-      entity_id:
-        - light.living_room_couch
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-        - light.kitchen_island
-        - light.kitchen_table
-
 #--- automation/night.yaml ---
 - id: night_routine
   alias: Night Routine
@@ -260,22 +239,6 @@
       entity_id:
         - light.kitchen_island
         - light.kitchen_table
-
-#--- automation/evening.yaml ---
-- id: evening_routine
-  alias: Evening Routine
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '-01:30:00'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.living_room_couch
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-        - light.kitchen_lights
-        
 
 #--- automation/wakeup.yaml ---
 - id: wakeup_routine
@@ -315,6 +278,43 @@
         - light.master_bedroom_door
         - light.master_bedroom_window
 
+#--- automation/daytime.yaml ---
+- id: workday_routine
+  alias: Workday Routine
+  trigger:
+    - platform: time
+      at: '10:30:00'
+  condition:
+    - condition: time
+      weekday:
+      - mon
+      - wed
+      - fri
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.living_room_couch
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.kitchen_island
+        - light.kitchen_table
+
+#--- automation/evening.yaml ---
+- id: evening_routine
+  alias: Evening Routine
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:30:00'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.living_room_couch
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.kitchen_lights
+        
+
 #--- automation/cloudy.yaml ---
 # Turn on inside light if it's cloudy midday
 - id: lights_cloudy
@@ -340,4 +340,4 @@
       entity_id:
         - light.family_room_couch_left
         - light.family_room_couch_right
-        - light.living_room_couch 
+        - light.living_room_couch

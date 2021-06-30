@@ -18,14 +18,9 @@
     - light.master_bedroom_window
 
 - platform: group
-  name: Living Room Lights
+  name: Living Room Couch
   entities:
-    - light.living_room_couch
-    - light.living_room_corner_1
-
-- platform: group
-  name: Living Room Corner
-  entities:
+    - light.living_room_couch_1
     - light.living_room_corner_1
 
 - platform: group

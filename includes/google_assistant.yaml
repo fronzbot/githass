@@ -38,11 +38,14 @@ entity_config:
   light.family_room_fireplace:
     name: Family Room Fireplace
     expose: True
-  light.living_room_couch:
-    name: Living Room Couch
+  light.living_room_couch_1:
+    name: Living Room Couch Left
     expose: True
-  light.living_room_corner:
-    name: Living Room Corner
+  light.living_room_corner_1:
+    name: Living Room Couch Right
+    expose: True
+  light.living_room_piano:
+    name: Living Room Piano
     expose: True
   light.office_desk:
     name: Office Desk
