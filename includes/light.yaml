@@ -24,6 +24,13 @@
     - light.living_room_corner_1
 
 - platform: group
+  name: Living Room Lights
+  entities:
+    - light.living_room_couch_1
+    - light.living_room_corner_1
+    - light.living_room_piano
+
+- platform: group
   name: Kitchen Island
   entities:
     - light.kitchen_island_1
