@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2021-Jun-30 18:01:41 
+# Generated: 2021-Jul-18 20:06:49 
 #--------------------------------------------
 
 #--- automation/notify_on_failed_login.yaml ---
@@ -240,24 +240,6 @@
         - light.kitchen_island
         - light.kitchen_table
 
-#--- automation/wakeup.yaml ---
-- id: wakeup_routine
-  alias: Wakeup Routine
-  trigger:
-    - platform: time
-      at: '06:00:30'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: 'sun.sun'
-        state: 'below_horizon'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-
 #--- automation/daytime_bedroom.yaml ---
 - id: bedroom_daytime
   alias: Bedroom Daytime
@@ -341,3 +323,15 @@
         - light.family_room_couch_left
         - light.family_room_couch_right
         - light.living_room_couch
+
+#--- automation/wakeup.yaml ---
+- id: wakeup_routine
+  alias: Wakeup Routine
+  trigger:
+    - platform: time
+      at: '06:00:30'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
