@@ -3,11 +3,20 @@ trigger:
   - platform: time
     at: '10:30:00'
 condition:
-  - condition: time
-    weekday:
-    - mon
-    - wed
-    - fri
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.weather_cond
+        state: "Clear"
+      - condition: time
+        weekday:
+         - mon
+         - tue
+         - wed
+         - thu
+         - fri
+         - sat
+         - sun
 action:
   - service: light.turn_off
     entity_id:

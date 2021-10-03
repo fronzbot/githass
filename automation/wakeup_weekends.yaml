@@ -1,0 +1,13 @@
+alias: Wakeup Routine
+trigger:
+  - platform: time
+    at: '06:00:30'
+condition:
+  - condition: time
+    weekday:
+      - sat
+      - sun
+action:
+  - service: light.turn_on
+    entity_id:
+      - light.living_room_couch

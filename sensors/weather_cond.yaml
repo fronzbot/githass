@@ -1,0 +1,20 @@
+- platform: template
+  sensors: 
+    weather_cond:
+      value_template: >
+        {% set thunder = ['200', '201', '202', '210', '211', '221', '230', '231', '232'] %}
+        {% set drizzle = ['300', '301', '310', '311', '312', '313', '314', '321'] %}
+        {% set rain = ['500', '501', '502', '503', '504', '511', '520', '521', '522', '531'] %}
+        {% set clouds = ['804'] %}
+        {% if states('sensor.weather_weather_code') in thunder %}
+          Thunder
+        {% elif states('sensor.weather_weather_code') in drizzle %}
+          Drizzle
+        {% elif states('sensor.weather_weather_code') in rain %}
+          Rain
+        {% elif states('sensor.weather_weather_code') in clouds %}
+          Clouds
+        {% else %}
+          Clear
+        {% endif %}
+

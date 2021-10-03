@@ -1,35 +1,24 @@
-# Turn on inside light if it's cloudy midday
+# Turn on inside lights off if it clears up during the day
 alias: Lights Cloudy
 trigger:
   - platform: state
     entity_id: sensor.weather_cond
-    to: "Thunder"
-  - platform: state
-    entity_id: sensor.weather_cond
-    to: "Rain"
-  - platform: state
-    entity_id: sensor.weather_cond
-    to: "Clouds"
-  - platform: state
-    entity_id: sensor.weather_cond
-    to: "Drizzle"
+    to: "Clear"
+    for: "00:15:00"
 condition:
   condition: and
   conditions:
     - condition: time
       after: '10:00:00'
       before: '18:00:00'
-      weekday:
-        - tue
-        - thu
-        - sat
-        - sun
     - condition: state
       entity_id: sun.sun
       state: 'above_horizon'
 action:
-  - service: light.turn_on
+  - service: light.turn_off
     entity_id:
       - light.family_room_couch_left
       - light.family_room_couch_right
       - light.living_room_couch
+      - light.kitchen_island
+      - light.kitchen_table

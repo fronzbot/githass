@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2021-Jul-18 20:06:49 
+# Generated: 2021-Oct-03 08:48:55 
 #--------------------------------------------
 
 #--- automation/notify_on_failed_login.yaml ---
@@ -260,27 +260,6 @@
         - light.master_bedroom_door
         - light.master_bedroom_window
 
-#--- automation/daytime.yaml ---
-- id: workday_routine
-  alias: Workday Routine
-  trigger:
-    - platform: time
-      at: '10:30:00'
-  condition:
-    - condition: time
-      weekday:
-      - mon
-      - wed
-      - fri
-  action:
-    - service: light.turn_off
-      entity_id:
-        - light.living_room_couch
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-        - light.kitchen_island
-        - light.kitchen_table
-
 #--- automation/evening.yaml ---
 - id: evening_routine
   alias: Evening Routine
@@ -297,33 +276,6 @@
         - light.kitchen_lights
         
 
-#--- automation/cloudy.yaml ---
-# Turn on inside light if it's cloudy midday
-- id: lights_cloudy
-  alias: Lights Cloudy
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.weather_cloud_coverage
-      above: 75
-    - platform: numeric_state
-      entity_id: sensor.weather_rain
-      above: 0.05
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '10:00:00'
-        before: '20:00:00'
-      - condition: state
-        entity_id: sun.sun
-        state: 'above_horizon'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-        - light.living_room_couch
-
 #--- automation/wakeup.yaml ---
 - id: wakeup_routine
   alias: Wakeup Routine
@@ -335,3 +287,114 @@
       entity_id:
         - light.family_room_couch_left
         - light.family_room_couch_right
+
+#--- automation/wakeup_weekends.yaml ---
+- id: wakeup_routine
+  alias: Wakeup Routine
+  trigger:
+    - platform: time
+      at: '06:00:30'
+  condition:
+    - condition: time
+      weekday:
+        - sat
+        - sun
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.living_room_couch
+
+#--- automation/daytime.yaml ---
+- id: workday_routine
+  alias: Workday Routine
+  trigger:
+    - platform: time
+      at: '10:30:00'
+  condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: sensor.weather_cond
+          state: "Clear"
+        - condition: time
+          weekday:
+           - mon
+           - tue
+           - wed
+           - thu
+           - fri
+           - sat
+           - sun
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.living_room_couch
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.kitchen_island
+        - light.kitchen_table
+
+#--- automation/daytime_clear.yaml ---
+# Turn on inside lights off if it clears up during the day
+- id: lights_cloudy
+  alias: Lights Cloudy
+  trigger:
+    - platform: state
+      entity_id: sensor.weather_cond
+      to: "Clear"
+      for: "00:15:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '10:00:00'
+        before: '18:00:00'
+      - condition: state
+        entity_id: sun.sun
+        state: 'above_horizon'
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.living_room_couch
+        - light.kitchen_island
+        - light.kitchen_table
+
+#--- automation/cloudy.yaml ---
+# Turn on inside light if it's cloudy midday
+- id: lights_cloudy
+  alias: Lights Cloudy
+  trigger:
+    - platform: state
+      entity_id: sensor.weather_cond
+      to: "Thunder"
+    - platform: state
+      entity_id: sensor.weather_cond
+      to: "Rain"
+    - platform: state
+      entity_id: sensor.weather_cond
+      to: "Clouds"
+    - platform: state
+      entity_id: sensor.weather_cond
+      to: "Drizzle"
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '10:00:00'
+        before: '18:00:00'
+        weekday:
+          - tue
+          - thu
+          - sat
+          - sun
+      - condition: state
+        entity_id: sun.sun
+        state: 'above_horizon'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.living_room_couch
