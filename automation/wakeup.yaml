@@ -1,7 +1,7 @@
 alias: Wakeup Routine
 trigger:
   - platform: time
-    at: '06:00:30'
+    at: '07:00:30'
 action:
   - service: light.turn_on
     entity_id:

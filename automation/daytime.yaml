@@ -5,9 +5,6 @@ trigger:
 condition:
     condition: and
     conditions:
-      - condition: state
-        entity_id: sensor.weather_cond
-        state: "Clear"
       - condition: time
         weekday:
          - mon

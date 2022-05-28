@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2021-Oct-03 08:48:55 
+# Generated: 2022-May-28 14:14:28 
 #--------------------------------------------
 
 #--- automation/notify_on_failed_login.yaml ---
@@ -40,108 +40,6 @@
         message: >
           ALERT! {{ now().strftime("%h %d, %Y at %H:%M:%S") }} Leak Detected with {{trigger.to_state.attributes.friendly_name}}   
 
-#--- automation/thermostat_ac_off.yaml ---
-- id: 'thermostat_ac_disable'
-  alias: 'Thermostat AC Disable'
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.weather_temperature
-      below: 74 
-  condition:
-    - condition: template
-      value_template: >
-          {% set month=now().month | int %}
-          {% if month >= 5 and month <= 9 %}
-            true
-          {% endif %}
-  action:
-    - service: climate.set_hvac_mode
-      data:
-        entity_id: climate.thermostat_1_nativezone
-        hvac_mode: 'off'
-
-#--- automation/thermostat_ac_on.yaml ---
-- id: 'thermostat_ac_enable'
-  alias: 'Thermostat AC Enable'
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.weather_temperature
-      above: 77
-  condition:
-    - condition: template
-      value_template: >
-          {% set month=now().month | int %}
-          {% if month >= 5 and month <= 9 %}
-            true
-          {% endif %}
-  action:
-    - service: climate.set_hvac_mode
-      data:
-        entity_id: climate.thermostat_1_nativezone
-        hvac_mode: 'cool'
-    - delay:
-        seconds: 15
-    - service: climate.set_temperature
-      data_template:
-        entity_id: climate.thermostat_1_nativezone
-        hvac_mode: 'cool'
-        temperature: > 
-            {{ states.input_number.ac_setpoint.state }}
-
-#--- automation/thermostat_heat_off.yaml ---
-- id: 'thermostat_heat_disable'
-  alias: 'Thermostat Heat Disable'
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.weather_temperature
-      above: 67
-  condition:
-    - condition: template
-      value_template: >
-          {% set month=now().month | int %}
-          {% if month <= 4 and month >= 9 %}
-            true
-          {% endif %}
-  action:
-    - service: climate.set_hvac_mode
-      data:
-        entity_id: climate.thermostat_1_nativezone
-        hvac_mode: 'off'
-
-#--- automation/thermostat_heat_on.yaml ---
-- id: 'thermostat_heat_enable'
-  alias: 'Thermostat Heat Enable'
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.weather_temperature
-      below: 64
-  condition:
-    - condition: template
-      value_template: >
-          {% set month=now().month | int %}
-          {% if month <= 4 and month >= 9 %}
-            true
-          {% endif %}
-  action:
-    - service: climate.set_hvac_mode
-      data:
-        entity_id: climate.thermostat_1_nativezone
-        hvac_mode: 'heat'
-    - delay:
-        seconds: 15
-    - service: climate.set_temperature
-      data_template:
-        entity_id: climate.thermostat_1_nativezone
-        hvac_mode: 'heat'
-        temperature: >
-            {% set target = states.input_number.heat_setpoint.state | int %}
-            {% set delta = states.input_number.heat_emergency_delta.state | int %}
-            {% if (states.sensor.weather_temperature.state | int) < 30 %}
-              {{ target - delta }}
-            {% else %}
-              {{ target }}
-            {% endif %}
-
 #--- automation/lights_inside_off.yaml ---
 # Turn inside lights off around midnight (before exterior)
   
@@ -179,21 +77,6 @@
     - service: switch.turn_off
       entity_id: switch.driveway
 
-#--- automation/sunset.yaml ---
-# Turn on outside lights 15 minutes after sunset
-  
-- id: lights_sunset
-  alias: Lights Sunset
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '+00:15:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.porch
-    - service: switch.turn_on
-      entity_id: switch.driveway
-
 #--- automation/notify_on_fire_co.yaml ---
 - id: notify_on_fire_co
   alias: Notify on Fire/CO
@@ -228,17 +111,171 @@
         message: >
             ALERT! {{ now().strftime("%h %d, %Y at %H:%M:S") }} {{trigger.to_state.state}} detected by {{trigger.to_state.attributes.friendly_name}}
 
+#--- automation/daytime_clear.yaml ---
+# Turn on inside lights off if it clears up during the day
+- id: lights_clear
+  alias: Lights Clear
+  trigger:
+    - platform: state
+      entity_id: sensor.weather_condition
+      to: "sunny"
+      for: "00:15:00"
+    - platform: state
+      entity_id: sensor.weather_condition
+      to: "partly-cloudy"
+      for: "00:15:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '10:00:00'
+        before: '18:00:00'
+      - condition: state
+        entity_id: sun.sun
+        state: 'above_horizon'
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.living_room_couch
+        - light.kitchen_island
+        - light.kitchen_table
+
+#--- automation/daytime.yaml ---
+- id: workday_routine
+  alias: Workday Routine
+  trigger:
+    - platform: time
+      at: '10:30:00'
+  condition:
+      condition: and
+      conditions:
+        - condition: time
+          weekday:
+           - mon
+           - tue
+           - wed
+           - thu
+           - fri
+           - sat
+           - sun
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.living_room_couch
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.kitchen_island
+        - light.kitchen_table
+
+#--- automation/cloudy.yaml ---
+# Turn on inside light if it's cloudy midday
+- id: lights_cloudy
+  alias: Lights Cloudy
+  trigger:
+    - platform: state
+      entity_id: sensor.weather_condition
+      to: "lightning"
+    - platform: state
+      entity_id: sensor.weather_condition
+      to: "rainy"
+    - platform: state
+      entity_id: sensor.weather_condition
+      to: "cloudy"
+    - platform: state
+      entity_id: sensor.weather_condition
+      to: "fog"
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: '10:00:00'
+        before: '18:00:00'
+        weekday:
+          - tue
+          - thu
+          - sat
+          - sun
+      - condition: state
+        entity_id: sun.sun
+        state: 'above_horizon'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+
+#--- automation/sunset.yaml ---
+# Turn on outside lights 15 minutes after sunset
+  
+- id: lights_sunset
+  alias: Lights Sunset
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '+00:15:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.porch
+    - service: switch.turn_on
+      entity_id: switch.driveway
+
+#--- automation/wakeup.yaml ---
+- id: wakeup_routine
+  alias: Wakeup Routine
+  trigger:
+    - platform: time
+      at: '07:00:30'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+
+#--- automation/wakeup_weekends.yaml ---
+- id: wakeup_routine
+  alias: Wakeup Routine
+  trigger:
+    - platform: time
+      at: '07:00:30'
+  condition:
+    - condition: time
+      weekday:
+        - sat
+        - sun
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.living_room_couch
+
 #--- automation/night.yaml ---
 - id: night_routine
   alias: Night Routine
   trigger:
     - platform: time
-      at: '21:27:13'
+      at: '20:03:13'
   action:
     - service: light.turn_off
       entity_id:
         - light.kitchen_island
         - light.kitchen_table
+
+#--- automation/evening.yaml ---
+- id: evening_routine
+  alias: Evening Routine
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:30:00'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.living_room_couch
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.kitchen_lights
+        
 
 #--- automation/daytime_bedroom.yaml ---
 - id: bedroom_daytime
@@ -259,142 +296,3 @@
       entity_id:
         - light.master_bedroom_door
         - light.master_bedroom_window
-
-#--- automation/evening.yaml ---
-- id: evening_routine
-  alias: Evening Routine
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '-01:30:00'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.living_room_couch
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-        - light.kitchen_lights
-        
-
-#--- automation/wakeup.yaml ---
-- id: wakeup_routine
-  alias: Wakeup Routine
-  trigger:
-    - platform: time
-      at: '06:00:30'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-
-#--- automation/wakeup_weekends.yaml ---
-- id: wakeup_routine
-  alias: Wakeup Routine
-  trigger:
-    - platform: time
-      at: '06:00:30'
-  condition:
-    - condition: time
-      weekday:
-        - sat
-        - sun
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.living_room_couch
-
-#--- automation/daytime.yaml ---
-- id: workday_routine
-  alias: Workday Routine
-  trigger:
-    - platform: time
-      at: '10:30:00'
-  condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: sensor.weather_cond
-          state: "Clear"
-        - condition: time
-          weekday:
-           - mon
-           - tue
-           - wed
-           - thu
-           - fri
-           - sat
-           - sun
-  action:
-    - service: light.turn_off
-      entity_id:
-        - light.living_room_couch
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-        - light.kitchen_island
-        - light.kitchen_table
-
-#--- automation/daytime_clear.yaml ---
-# Turn on inside lights off if it clears up during the day
-- id: lights_cloudy
-  alias: Lights Cloudy
-  trigger:
-    - platform: state
-      entity_id: sensor.weather_cond
-      to: "Clear"
-      for: "00:15:00"
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '10:00:00'
-        before: '18:00:00'
-      - condition: state
-        entity_id: sun.sun
-        state: 'above_horizon'
-  action:
-    - service: light.turn_off
-      entity_id:
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-        - light.living_room_couch
-        - light.kitchen_island
-        - light.kitchen_table
-
-#--- automation/cloudy.yaml ---
-# Turn on inside light if it's cloudy midday
-- id: lights_cloudy
-  alias: Lights Cloudy
-  trigger:
-    - platform: state
-      entity_id: sensor.weather_cond
-      to: "Thunder"
-    - platform: state
-      entity_id: sensor.weather_cond
-      to: "Rain"
-    - platform: state
-      entity_id: sensor.weather_cond
-      to: "Clouds"
-    - platform: state
-      entity_id: sensor.weather_cond
-      to: "Drizzle"
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '10:00:00'
-        before: '18:00:00'
-        weekday:
-          - tue
-          - thu
-          - sat
-          - sun
-      - condition: state
-        entity_id: sun.sun
-        state: 'above_horizon'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-        - light.living_room_couch

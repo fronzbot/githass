@@ -6,7 +6,7 @@
       delay_off:
         seconds: 5
       value_template: >
-        {{ states.sensor.aeon_labs_zw096_smart_switch_6_current.state | float > 0.5 }}
+        {{ states.sensor.smart_switch_6_electric_consumption_a.state | float > 0.5 }}
 
     leak_sump:
       friendly_name: "Sump Leak Sensor"

@@ -2,17 +2,17 @@
 alias: Lights Cloudy
 trigger:
   - platform: state
-    entity_id: sensor.weather_cond
-    to: "Thunder"
+    entity_id: sensor.weather_condition
+    to: "lightning"
   - platform: state
-    entity_id: sensor.weather_cond
-    to: "Rain"
+    entity_id: sensor.weather_condition
+    to: "rainy"
   - platform: state
-    entity_id: sensor.weather_cond
-    to: "Clouds"
+    entity_id: sensor.weather_condition
+    to: "cloudy"
   - platform: state
-    entity_id: sensor.weather_cond
-    to: "Drizzle"
+    entity_id: sensor.weather_condition
+    to: "fog"
 condition:
   condition: and
   conditions:
@@ -32,4 +32,3 @@ action:
     entity_id:
       - light.family_room_couch_left
       - light.family_room_couch_right
-      - light.living_room_couch

@@ -1,9 +1,13 @@
 # Turn on inside lights off if it clears up during the day
-alias: Lights Cloudy
+alias: Lights Clear
 trigger:
   - platform: state
-    entity_id: sensor.weather_cond
-    to: "Clear"
+    entity_id: sensor.weather_condition
+    to: "sunny"
+    for: "00:15:00"
+  - platform: state
+    entity_id: sensor.weather_condition
+    to: "partly-cloudy"
     for: "00:15:00"
 condition:
   condition: and
