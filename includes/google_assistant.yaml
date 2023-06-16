@@ -68,6 +68,9 @@ entity_config:
   light.porch:
     name: Porch
     expose: True
+  light.foyer:
+    name: Foyer
+    expose: True
   # ------------
   # SCENES
   # ------------

@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2022-May-28 14:14:29 
+# Generated: 2023-Jun-16 12:12:47 
 #--------------------------------------------
 
 #--- customize/customize_climate.yaml ---
@@ -116,6 +116,181 @@
     emulated_hue_hidden: false
     emulated_hue_name: "Driveway"
     
+
+#--- customize/customize_input_boolean.yaml ---
+##################
+# Input Boolean
+##################
+  input_boolean.flux_living_room:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_family_room:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_kitchen:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_master_bedroom:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_nursery:
+    icon: mdi:theme-light-dark
+  
+  input_boolean.flux_office:
+    icon: mdi:theme-light-dark
+        
+  input_boolean.christmas_lights:
+    icon: mdi:gift
+    
+  input_boolean.on_the_way_home:
+    icon: mdi:map-marker
+  
+  input_boolean.guest_mode:
+    icon: mdi:account
+    emulated_hue_hidden: false
+    emulated_hue_name: "Guest Mode"
+  
+  input_boolean.thermostat_enable:
+    icon: mdi:thermostat
+    emulated_hue_hidden: false
+    emulated_hue_name: "Thermostat"
+  
+  input_boolean.warmer_night_mode:
+    icon: mdi:fire
+
+#--- customize/customize_weather.yaml ---
+#----------------------------------#
+# Weather Customization         #
+#----------------------------------#
+  sensor.weather_temperature:
+    friendly_name: Outside Temperature
+    icon: mdi:thermometer
+  
+  sensor.yr_weather_dewpoint_temperature:
+    friendly_name: Dew Point
+    icon: mdi:oil-temperature
+    
+  sensor.weather_humidity:
+    friendly_name: Humidity
+    icon: mdi:water-percent
+   
+  sensor.weather_precipitation:
+    friendly_name: Precipitation
+    icon: mdi:weather-pouring
+  
+  sensor.weather_pressure:
+    friendly_name: Pressure
+    icon: mdi:chart-bar
+  
+  sensor.yr_weather_fog:
+    friendly_name: Fog
+    icon: mdi:weather-fog
+    
+  sensor.weather_wind_speed:
+    friendly_name: Wind Speed
+    icon: mdi:weather-windy
+  
+  sensor.weather_cloud_coverage:
+    friendly_name: Clouds
+    icon: mdi:weather-cloudy
+  
+  sensor.weather_rain:
+    friendly_name: Rain
+    icon: mdi:weather-pouring
+  
+  sensor.weather_snow:
+    friendly_name: Snow
+    icon: mdi:weather-snowy
+  
+  sensor.yr_weather_cloudiness:
+    friendly_name: Cloudiness
+    icon: mdi:weather-cloudy
+  
+  sensor.weather_condition:
+    friendly_name: Summary
+    icon: mdi:clipboard-list-outline
+  
+  sensor.weather_wind_bearing:
+    friendly_name: Wind Bearing
+    icon: mdi:weather-windy
+  
+  sensor.weather_weather_code:
+    friendly_name: Weather Code
+    icon: mdi:code-array
+
+#--- customize/customize_media.yaml ---
+##################
+# Media Players
+##################
+
+#--- customize/customize_presence.yaml ---
+##################
+# Entities
+################## 
+  device_tracker.kevin_gps:
+    icon: mdi:crosshairs-gps
+  
+  device_tracker.allegra_gps:
+    icon: mdi:crosshairs-gps
+  
+
+#--- customize/customize_scripts.yaml ---
+  script.thermostat_control:
+    icon: mdi:air-conditioner
+    emulated_hue_hidden: false
+    emulated_hue_name: "Thermostat"
+  
+  script.github_pull:
+    icon: mdi:github-circle
+  
+  script.hass_upgrade:
+    icon: mdi:home-assistant
+  
+  script.blink_trigger_camera:
+    icon: mdi:camera
+    can_cancel: false
+  
+  script.ssl_renew_certificate:
+    icon: mdi:lock
+    
+  script.flux:
+    icon: mdi:theme-light-dark
+    emulated_hue_hidden: false
+    emulated_hue_name: "Flux"
+  
+  script.wake_computer:
+    icon: mdi:windows
+    emulated_hue_hidden: false
+    emulated_hue_name: "Desktop"
+  
+  script.upgrade_pihole:
+    icon: mdi:arrow-up-bold-circle-outline
+    friendly_name: "Upgrade Pihole"
+
+#--- customize/customize_lights.yaml ---
+##################
+# Lights
+##################
+  light.family_room_lights:
+    icon: mdi:sofa
+  
+  light.office_lights:
+    icon: mdi:desktop-tower
+  
+  light.master_bedroom_lights:
+    icon: mdi:bed
+  
+  light.living_room_couch:
+    icon: mdi:sofa
+  
+  light.kitchen_lights:
+    icon: mdi:food-variant
+  
+  light.interior_lights:
+    icon: mdi:home
+  
+  ligh.porch:
+    icon: mdi:gate
 
 #--- customize/customize_misc_sensors.yaml ---
 ##################
@@ -301,178 +476,7 @@
   sensor.sump_usage_per_hour:
     icon: mdi:home-flood
     friendly_name: Sump Frequency
-
-#--- customize/customize_input_boolean.yaml ---
-##################
-# Input Boolean
-##################
-  input_boolean.flux_living_room:
-    icon: mdi:theme-light-dark
   
-  input_boolean.flux_family_room:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_kitchen:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_master_bedroom:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_nursery:
-    icon: mdi:theme-light-dark
-  
-  input_boolean.flux_office:
-    icon: mdi:theme-light-dark
-        
-  input_boolean.christmas_lights:
-    icon: mdi:gift
-    
-  input_boolean.on_the_way_home:
-    icon: mdi:map-marker
-  
-  input_boolean.guest_mode:
-    icon: mdi:account
-    emulated_hue_hidden: false
-    emulated_hue_name: "Guest Mode"
-  
-  input_boolean.thermostat_enable:
-    icon: mdi:thermostat
-    emulated_hue_hidden: false
-    emulated_hue_name: "Thermostat"
-  
-  input_boolean.warmer_night_mode:
-    icon: mdi:fire
-
-#--- customize/customize_weather.yaml ---
-#----------------------------------#
-# Weather Customization         #
-#----------------------------------#
-  sensor.weather_temperature:
-    friendly_name: Outside Temperature
-    icon: mdi:thermometer
-  
-  sensor.yr_weather_dewpoint_temperature:
-    friendly_name: Dew Point
-    icon: mdi:oil-temperature
-    
-  sensor.weather_humidity:
-    friendly_name: Humidity
-    icon: mdi:water-percent
-   
-  sensor.weather_precipitation:
-    friendly_name: Precipitation
-    icon: mdi:weather-pouring
-  
-  sensor.weather_pressure:
-    friendly_name: Pressure
-    icon: mdi:chart-bar
-  
-  sensor.yr_weather_fog:
-    friendly_name: Fog
-    icon: mdi:weather-fog
-    
-  sensor.weather_wind_speed:
-    friendly_name: Wind Speed
-    icon: mdi:weather-windy
-  
-  sensor.weather_cloud_coverage:
-    friendly_name: Clouds
-    icon: mdi:weather-cloudy
-  
-  sensor.weather_rain:
-    friendly_name: Rain
-    icon: mdi:weather-pouring
-  
-  sensor.weather_snow:
-    friendly_name: Snow
-    icon: mdi:weather-snowy
-  
-  sensor.yr_weather_cloudiness:
-    friendly_name: Cloudiness
-    icon: mdi:weather-cloudy
-  
-  sensor.weather_condition:
-    friendly_name: Summary
-    icon: mdi:clipboard-list-outline
-  
-  sensor.weather_wind_bearing:
-    friendly_name: Wind Bearing
-    icon: mdi:weather-windy
-  
-  sensor.weather_weather_code:
-    friendly_name: Weather Code
-    icon: mdi:code-array
-
-#--- customize/customize_media.yaml ---
-##################
-# Media Players
-##################
-
-#--- customize/customize_presence.yaml ---
-##################
-# Entities
-################## 
-  device_tracker.kevin_gps:
-    icon: mdi:crosshairs-gps
-  
-  device_tracker.allegra_gps:
-    icon: mdi:crosshairs-gps
-  
-
-#--- customize/customize_scripts.yaml ---
-  script.thermostat_control:
-    icon: mdi:air-conditioner
-    emulated_hue_hidden: false
-    emulated_hue_name: "Thermostat"
-  
-  script.github_pull:
-    icon: mdi:github-circle
-  
-  script.hass_upgrade:
-    icon: mdi:home-assistant
-  
-  script.blink_trigger_camera:
-    icon: mdi:camera
-    can_cancel: false
-  
-  script.ssl_renew_certificate:
-    icon: mdi:lock
-    
-  script.flux:
-    icon: mdi:theme-light-dark
-    emulated_hue_hidden: false
-    emulated_hue_name: "Flux"
-  
-  script.wake_computer:
-    icon: mdi:windows
-    emulated_hue_hidden: false
-    emulated_hue_name: "Desktop"
-  
-  script.upgrade_pihole:
-    icon: mdi:arrow-up-bold-circle-outline
-    friendly_name: "Upgrade Pihole"
-
-#--- customize/customize_lights.yaml ---
-##################
-# Lights
-##################
-  light.family_room_lights:
-    icon: mdi:sofa
-  
-  light.office_lights:
-    icon: mdi:desktop-tower
-  
-  light.master_bedroom_lights:
-    icon: mdi:bed
-  
-  light.living_room_couch:
-    icon: mdi:sofa
-  
-  light.kitchen_lights:
-    icon: mdi:food-variant
-  
-  light.interior_lights:
-    icon: mdi:home
-  
-  ligh.porch:
-    icon: mdi:gate
+  sensor.radon:
+    icon: mdi:radioactive
+    friendly_name: Radon

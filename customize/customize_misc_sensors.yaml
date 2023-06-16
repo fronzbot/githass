@@ -181,3 +181,7 @@ zwave.smoke_nursery:
 sensor.sump_usage_per_hour:
   icon: mdi:home-flood
   friendly_name: Sump Frequency
+
+sensor.radon:
+  icon: mdi:radioactive
+  friendly_name: Radon

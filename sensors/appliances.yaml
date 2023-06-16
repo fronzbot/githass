@@ -1,5 +1,9 @@
 - platform: template
   sensors: 
+    radon:
+      unit_of_measurement: 'pCi/L'
+      value_template: "{{ (states.sensor.basement_radon.state | float * 1 / 37) | round(2) }}"
+
     smoke_alarm_foyer:
       value_template: >
         {% if is_state("sensor.smoke_detector_1_alarm_level", "0") %}

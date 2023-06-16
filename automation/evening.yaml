@@ -7,7 +7,9 @@ action:
   - service: light.turn_on
     entity_id:
       - light.living_room_couch
+      - light.living_room_piano
       - light.family_room_couch_left
       - light.family_room_couch_right
       - light.kitchen_lights
+      - light.foyer
       

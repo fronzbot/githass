@@ -14,7 +14,7 @@ flux_living_room:
   module: flux
   class: Flux
   constrain_input_boolean: input_boolean.flux_living_room
-  light: light.living_room_couch_1,light.living_room_corner_1,light.living_room_piano
+  light: light.living_room_couch_1,light.living_room_corner_1,light.living_room_piano,light.living_room_foyer
 
 flux_office:
   module: flux

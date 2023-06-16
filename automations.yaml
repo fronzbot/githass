@@ -1,5 +1,5 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2022-May-28 14:14:28 
+# Generated: 2023-Jun-16 12:12:46 
 #--------------------------------------------
 
 #--- automation/notify_on_failed_login.yaml ---
@@ -249,34 +249,6 @@
       entity_id:
         - light.living_room_couch
 
-#--- automation/night.yaml ---
-- id: night_routine
-  alias: Night Routine
-  trigger:
-    - platform: time
-      at: '20:03:13'
-  action:
-    - service: light.turn_off
-      entity_id:
-        - light.kitchen_island
-        - light.kitchen_table
-
-#--- automation/evening.yaml ---
-- id: evening_routine
-  alias: Evening Routine
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '-01:30:00'
-  action:
-    - service: light.turn_on
-      entity_id:
-        - light.living_room_couch
-        - light.family_room_couch_left
-        - light.family_room_couch_right
-        - light.kitchen_lights
-        
-
 #--- automation/daytime_bedroom.yaml ---
 - id: bedroom_daytime
   alias: Bedroom Daytime
@@ -296,3 +268,34 @@
       entity_id:
         - light.master_bedroom_door
         - light.master_bedroom_window
+
+#--- automation/evening.yaml ---
+- id: evening_routine
+  alias: Evening Routine
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:30:00'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - light.living_room_couch
+        - light.living_room_piano
+        - light.family_room_couch_left
+        - light.family_room_couch_right
+        - light.kitchen_lights
+        - light.foyer
+        
+
+#--- automation/night.yaml ---
+- id: night_routine
+  alias: Night Routine
+  trigger:
+    - platform: time
+      at: '21:03:13'
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.kitchen_island
+        - light.kitchen_table
+        - light.foyer
