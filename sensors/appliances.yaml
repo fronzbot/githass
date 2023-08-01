@@ -3,6 +3,10 @@
     radon:
       unit_of_measurement: 'pCi/L'
       value_template: "{{ (states.sensor.basement_radon.state | float * 1 / 37) | round(2) }}"
+    radon_2:
+      unit_of_measurement: 'pCi/L'
+      value_template: "{{ (states.sensor.bedroom_radon.state | float * 1 / 37) | round(2) }}"
+
 
     smoke_alarm_foyer:
       value_template: >

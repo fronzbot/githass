@@ -185,3 +185,7 @@ sensor.sump_usage_per_hour:
 sensor.radon:
   icon: mdi:radioactive
   friendly_name: Radon
+
+sensor.radon_2:
+  icon: mdi:radioactive
+  friendly_name: Radon 2

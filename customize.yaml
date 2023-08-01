@@ -1,31 +1,6 @@
 #---------------- SMASH.PY ------------------
-# Generated: 2023-Jun-16 12:12:47 
+# Generated: 2023-Jul-31 20:03:44 
 #--------------------------------------------
-
-#--- customize/customize_climate.yaml ---
-##################
-# Thermostat
-################## 
-  input_number.ac_setpoint:
-    icon: mdi:air-conditioner
-  
-  input_number.heat_setpoint:
-    icon: mdi:fire
-  
-  input_number.ac_on:
-    icon: mdi:fan
-  
-  input_number.ac_off:
-    icon: mdi:fan-off
-  
-  input_number.heat_on:
-    icon: mdi:radiator
-  
-  input_number.heat_off:
-    icon: mdi:radiator-off
-  
-  input_number.heat_emergency_delta:
-    icon: mdi:alert
 
 #--- customize/customize_scenes.yaml ---
 ##################
@@ -292,6 +267,31 @@
   ligh.porch:
     icon: mdi:gate
 
+#--- customize/customize_climate.yaml ---
+##################
+# Thermostat
+################## 
+  input_number.ac_setpoint:
+    icon: mdi:air-conditioner
+  
+  input_number.heat_setpoint:
+    icon: mdi:fire
+  
+  input_number.ac_on:
+    icon: mdi:fan
+  
+  input_number.ac_off:
+    icon: mdi:fan-off
+  
+  input_number.heat_on:
+    icon: mdi:radiator
+  
+  input_number.heat_off:
+    icon: mdi:radiator-off
+  
+  input_number.heat_emergency_delta:
+    icon: mdi:alert
+
 #--- customize/customize_misc_sensors.yaml ---
 ##################
 # Sensors
@@ -480,3 +480,7 @@
   sensor.radon:
     icon: mdi:radioactive
     friendly_name: Radon
+  
+  sensor.radon_2:
+    icon: mdi:radioactive
+    friendly_name: Radon 2
