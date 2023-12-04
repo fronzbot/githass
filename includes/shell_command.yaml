@@ -1,4 +1,4 @@
 github_pull: bash /home/hass/.homeassistant/bin/gitpull.sh
 hass_upgrade: bash /home/hass/.homeassistant/bin/hass_upgrade.sh
 turn_off_linux_vm: 'ssh hass@192.168.86.210 sudo poweroff'
-pihole_upgrade: 'ssh pi@192.168.86.89 "pihole -up"'
+pihole_upgrade: 'ssh pi@10.11.1.8 "pihole -up"'

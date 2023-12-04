@@ -13,14 +13,14 @@ homeassistant:
 http:
   use_x_forwarded_for: True
   trusted_proxies:
-    - 172.19.0.0/22
+    - 172.0.0.0/8
 # Includes
 automation: !include automations.yaml
 binary_sensor: !include includes/binary_sensor.yaml
 camera: !include includes/cameras.yaml
+command_line: !include includes/command_line.yaml
 fastdotcom: !include includes/fastdotcom.yaml
 google_assistant: !include includes/google_assistant.yaml
-history: !include includes/history.yaml
 input_boolean: !include includes/input_boolean.yaml
 input_number: !include includes/input_number.yaml
 influxdb: !include includes/influxdb.yaml
@@ -39,4 +39,4 @@ frontend:
 config:
 logbook:
 sun:
-updater:
+history:

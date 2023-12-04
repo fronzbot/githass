@@ -1,4 +1,4 @@
-alias: Wakeup Routine
+alias: Wakeup Routine Weekends
 trigger:
   - platform: time
     at: '07:00:30'

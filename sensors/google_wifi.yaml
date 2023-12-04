@@ -1,7 +1,0 @@
-- platform: google_wifi
-  name: wifi
-  host: 'testwifi.here'
-  monitored_conditions:
-    - current_version
-    - uptime
-    - status
